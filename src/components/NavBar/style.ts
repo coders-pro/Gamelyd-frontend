@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 
-export const NavStyle = styled.div`
+type Nav = {
+  transform: string
+}
+
+export const NavStyle = styled.div<Nav>`
   scroll-behavior: smooth;
   transition: all ease-in-out;
   .backdrop {
@@ -44,7 +48,7 @@ export const NavStyle = styled.div`
           height: 50px;
           width: 200px;
           background: #232323;
-          border: 1px solid #c0262d;
+          border: 1px solid #fff;
           color: white;
           cursor: pointer;
         }
@@ -106,7 +110,7 @@ export const NavStyle = styled.div`
             height: 50px;
             width: 200px;
             background: #232323;
-            border: 1px solid #c0262d;
+            border: 1px solid #fff;
             color: white;
             cursor: pointer;
             margin: 15px 0;
@@ -120,7 +124,8 @@ export const NavStyle = styled.div`
         top: 0;
         height: 100vh;
         margin-right: 0em;
-        background: #0d0d0d;
+        background: #232323;
+        // background: #0d0d0d;
         display: flex;
         flex-direction: column;
         width: 65%;
@@ -157,7 +162,13 @@ export const NavStyle = styled.div`
   }
 `
 
-export const ButtonStyle = styled.div`
+type Button = {
+  line1: string
+  line2: string
+  line3: string
+}
+
+export const ButtonStyle = styled.div<Button>`
   position: fixed;
   top: 11px;
   right: 30px;
@@ -166,7 +177,7 @@ export const ButtonStyle = styled.div`
   cursor: pointer;
   z-index: 99;
   .line1 {
-    background: #c0262d;
+    background: #fff;
     width: 35px;
     height: 2px;
     margin: 5px;
@@ -183,7 +194,7 @@ export const ButtonStyle = styled.div`
     opacity: ${(props) => props.line2};
   }
   .line3 {
-    background: #c0262d;
+    background: #fff;
     width: 35px;
     height: 2px;
     margin: 5px;

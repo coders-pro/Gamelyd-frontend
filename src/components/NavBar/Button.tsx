@@ -1,23 +1,25 @@
 import { ButtonStyle } from './style'
 
 type IProps = {
-  onClick: any
   line1: string
   line2: string
   line3: string
+  click: () => any
 }
 
 function Button(props: IProps) {
-  const clickButton = (value: string): any => {
-    props.onClick()
+  console.log(props)
+
+  const clickButton = (value: any): any => {
+    props.click()
   }
 
   return (
     <ButtonStyle
-    //   onClick={clickButton}
-    //   line1={props.line1}
-    //   line2={props.line2}
-    //   line3={props.line3}
+      onClick={clickButton}
+      line1={props.line1}
+      line2={props.line2}
+      line3={props.line3}
     >
       <div className='line1' id='lin'></div>
       <div className='line2'></div>

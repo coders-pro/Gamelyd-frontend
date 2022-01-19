@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 import { NavStyle } from './style'
-// import Button from './Button'
+import Button from './Button'
 // import logo from '../../assets/images/hori.png'
 
 type IProps = {
@@ -102,8 +102,8 @@ class Navbar extends React.Component<IProps, IState> {
 
     return (
       <NavStyle
-      // transform={this.state.toggle}
-      // display={this.state.displayBackdrop}
+        transform={this.state.toggle}
+        //   display={this.state.displayBackdrop}
       >
         {this.state.display ? (
           <div onClick={this.onClickBackdrop} className='backdrop'></div>
@@ -120,17 +120,8 @@ class Navbar extends React.Component<IProps, IState> {
               Home<span></span>
             </NavLink>
 
-            <NavLink to='/about' className='single_item'>
-              About<span></span>
-            </NavLink>
-
-            <NavLink to='/buy' className='single_item'>
-              Buy<span></span>
-            </NavLink>
-
-            <NavLink to='/hierachy' className='single_item'>
-              Hierachy {this.props.message}
-              <span></span>
+            <NavLink to='/games' className='single_item'>
+              Games<span></span>
             </NavLink>
 
             <a
@@ -189,12 +180,12 @@ class Navbar extends React.Component<IProps, IState> {
           </div>
         </div>
 
-        {/* <Button
-          onClick={this.onClickButton}
+        <Button
+          click={this.onClickButton}
           line1={this.state.line1}
           line2={this.state.line2}
           line3={this.state.line3}
-        /> */}
+        />
       </NavStyle>
     )
   }
