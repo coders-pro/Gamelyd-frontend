@@ -1,11 +1,4 @@
-import { Link } from 'react-router-dom'
+import { NavStyle } from './style'
 
-import './Navbar.css'
-
-const Navbar = () => (
-  <div className='navbar'>
-    <Link to='/'>Home</Link>
-    <Link to='/games'>Games</Link>
-  </div>
-)
+const Navbar = () => <NavStyle>Hello, World!</NavStyle>
 export default Navbar

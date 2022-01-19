@@ -1,9 +1,9 @@
 import React from 'react'
 
-import './Footer.css'
+import { FooterStyle } from './styled.js'
 
 const Footer = () => {
-  return <div className='footer'>Fooooter</div>
+  return <FooterStyle>Footer</FooterStyle>
 }
 
 export default Footer
