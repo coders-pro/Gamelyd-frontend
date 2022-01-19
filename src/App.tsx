@@ -7,7 +7,7 @@ import Home from './screens/Home/Home'
 function App() {
   return (
     <div className='App'>
-      <Navbar />
+      <Navbar message='you' />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='games' element={<Games />} />
