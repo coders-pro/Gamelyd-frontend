@@ -13,7 +13,6 @@ class ImageSlider extends React.Component {
     super()
     this.state = {
       properties: data.properties,
-      property: data.properties[0],
       position: 0,
       next: next,
       prev: prev,
@@ -42,7 +41,7 @@ class ImageSlider extends React.Component {
   }
 
   render() {
-    const { properties, property } = this.state
+    const { properties } = this.state
 
     return (
       <Style num={this.state.position}>
