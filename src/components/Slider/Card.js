@@ -1,14 +1,8 @@
 import React from 'react'
 import { StyleCard } from './style'
 
-type IProp = {
-  picture: string
-  index: number
-}
-
-function Card(props: IProp) {
-  const picture = props.picture
-  const index = props.index
+function Card({ propertyProp }) {
+  const { picture, index } = propertyProp
   return (
     <StyleCard>
       <div id={`card-${index}`} className='card'>

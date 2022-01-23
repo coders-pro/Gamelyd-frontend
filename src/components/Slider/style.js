@@ -1,10 +1,6 @@
 import styled from 'styled-components'
 
-type IProp = {
-  num: number
-}
-
-export const Style = styled.div<IProp>`
+export const Style = styled.div`
   margin: auto;
   margin-top: 6em;
   margin-bottom: 6em;

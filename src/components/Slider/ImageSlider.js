@@ -2,60 +2,48 @@ import React from 'react'
 import { Style } from './style'
 import data from './data'
 import Card from './Card'
+import SkipNextIcon from '@mui/icons-material/SkipNext'
+import SkipPreviousIcon from '@mui/icons-material/SkipPrevious'
 
-type IState = {
-  properties: [
-    {
-      id: string
-      index: number
-      picture: string
-      city: string
-      address: string
-      bedrooms: number
-      bathrooms: number
-      carSpaces: number
+import next from '../../assets/audios/Next.mp3'
+import prev from '../../assets/audios/Prev.mp3'
+
+class ImageSlider extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      properties: data.properties,
+      property: data.properties[0],
+      position: 0,
+      next: next,
+      prev: prev,
     }
-  ]
-
-  property: {
-    id: string
-    index: number
-    picture: string
-    city: string
-    address: string
-    bedrooms: number
-    bathrooms: number
-    carSpaces: number
-  }
-
-  position: number
-}
-
-class ImageSlider extends React.Component<IState> {
-  state = {
-    properties: data,
-    property: data[0],
-    position: 0,
   }
 
   nextProperty = () => {
-    if (this.state.position < data.length + 1) {
+    let audio = new Audio(this.state.next)
+    audio.play()
+
+    if (this.state.position < data.properties.length + 1) {
       this.setState((prevState) => ({
-        // position: prevState.position + 1,
+        position: prevState.position + 1,
       }))
     }
   }
 
   prevProperty = () => {
+    let audio = new Audio(this.state.prev)
+    audio.play()
     if (this.state.position > 0) {
       this.setState((prevState) => ({
-        // position: prevState.position - 1,
+        position: prevState.position - 1,
       }))
     }
   }
 
   render() {
     const { properties, property } = this.state
+
     return (
       <Style num={this.state.position}>
         <h1>Top Apparels</h1>
@@ -64,7 +52,7 @@ class ImageSlider extends React.Component<IState> {
           disabled={this.state.position === 0}
           className='prev_button'
         >
-          <i className='fa fa-arrow-left'></i>
+          <SkipPreviousIcon />
         </button>
 
         <button
@@ -72,7 +60,7 @@ class ImageSlider extends React.Component<IState> {
           disabled={this.state.position === properties.length - 1}
           className='next_button'
         >
-          <i className='fa fa-arrow-right'></i>
+          <SkipNextIcon />
         </button>
 
         <div className={`cards-slider active-slide-${this.state.position}`}>
@@ -83,11 +71,7 @@ class ImageSlider extends React.Component<IState> {
             }}
           >
             {properties.map((propertyItem) => (
-              <Card
-                key={property._id}
-                index={propertyItem.index}
-                picture={propertyItem.picture}
-              />
+              <Card key={propertyItem.picture} propertyProp={propertyItem} />
             ))}
           </div>
         </div>
