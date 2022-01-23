@@ -113,7 +113,9 @@ class Navbar extends React.Component<IProps, IState> {
           className='container'
         >
           <div className='logo'>
-            <NavLink to='/'>{/* <img src={logo} alt='Logo here' /> */}</NavLink>{' '}
+            <NavLink to='/'>
+              <h2 style={{ color: 'white' }}>Gamify</h2>
+            </NavLink>
           </div>
           <div className='nav_items'>
             <NavLink to='/' className='single_item'>

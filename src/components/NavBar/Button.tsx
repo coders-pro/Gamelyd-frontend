@@ -8,8 +8,6 @@ type IProps = {
 }
 
 function Button(props: IProps) {
-  console.log(props)
-
   const clickButton = (value: any): any => {
     props.click()
   }
