@@ -7,7 +7,7 @@ const Hero = () => {
     <HeroStyle>
       <div className='images'>
         <div className='first'>
-          <img src={`images/soldier1.jpg`} />
+          <img src={`images/soldier1.jpg`} alt='soldier2' />
         </div>
         <div className='rotate'>
           <div className='slider'>
@@ -17,7 +17,7 @@ const Hero = () => {
           </div>
         </div>
         <div className='last'>
-          <img src={`images/soldier2.jpg`} />
+          <img src={`images/soldier2.jpg`} alt='soldier2' />
         </div>
       </div>
       <div className='text'>
