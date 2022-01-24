@@ -15,10 +15,10 @@ const ImageRotate = () => {
     <ImageRotateStyle>
       <div className='slider'>
         <span style={style1}>
-          <img src={`images/apex.jpg`} alt='muna' />
+          <img src={`images/soldier1.jpg`} alt='muna' />
         </span>
         <span style={style2}>
-          <img src={`images/warzone.jpg`} alt='muna' />
+          <img src={`images/soldier2.jpg`} alt='muna' />
         </span>
         <span style={style3}>
           <img src={`images/fortnite.jpg`} alt='muna' />
@@ -39,7 +39,7 @@ const ImageRotate = () => {
           <img src={`images/codm.jpg`} alt='muna' />
         </span>
         <span>
-          <img src={`images/codm.jpg`} alt='muna' />
+          <img src={`images/soldier1.jpg`} alt='muna' />
         </span>
       </div>
     </ImageRotateStyle>

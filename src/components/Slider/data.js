@@ -3,7 +3,7 @@ const data = {
     {
       _id: '1',
       index: 0,
-      picture: `images/apex.jpg`,
+      picture: `images/soldier4.png`,
       city: 'Singer',
       address: '419 Road, Aba',
       bedrooms: 2,
@@ -13,7 +13,7 @@ const data = {
     {
       _id: '2',
       index: 1,
-      picture: `images/sims.jpg`,
+      picture: `images/soldier1.jpg`,
       city: 'Singer',
       address: '419 Road, Aba',
       bedrooms: 2,

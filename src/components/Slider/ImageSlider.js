@@ -71,7 +71,7 @@ class ImageSlider extends React.Component {
             }}
           >
             {properties.map((propertyItem) => (
-              <Card key={propertyItem.picture} propertyProp={propertyItem} />
+              <Card key={propertyItem._id} propertyProp={propertyItem} />
             ))}
           </div>
         </div>
