@@ -1,5 +1,5 @@
 import React from 'react'
-import { Style } from './style'
+import { Style, StyleCard } from './style'
 import data from './data'
 import Card from './Card'
 import SkipNextIcon from '@mui/icons-material/SkipNext'
@@ -16,6 +16,7 @@ class ImageSlider extends React.Component {
       position: 0,
       next: next,
       prev: prev,
+      active: 0,
     }
   }
 
@@ -42,7 +43,6 @@ class ImageSlider extends React.Component {
 
   render() {
     const { properties } = this.state
-
     return (
       <Style num={this.state.position}>
         <h1>Top Apparels</h1>
@@ -56,7 +56,10 @@ class ImageSlider extends React.Component {
 
         <button
           onClick={() => this.nextProperty()}
-          disabled={this.state.position === properties.length - 1}
+          disabled={
+            this.state.position ===
+            properties[this.state.active].data.length - 1
+          }
           className='next_button'
         >
           <SkipNextIcon />
@@ -69,8 +72,20 @@ class ImageSlider extends React.Component {
               transform: `translateX(-${this.state.position * 100}%)`,
             }}
           >
-            {properties.map((propertyItem) => (
-              <Card key={propertyItem._id} propertyProp={propertyItem} />
+            {properties[this.state.active].data.map((propertyItem) => (
+              <StyleCard
+                onClick={() =>
+                  this.setState({
+                    active: propertyItem.next,
+                  })
+                }
+                key={propertyItem.index}
+              >
+                <div id={`card-${propertyItem.index}`} className='card'>
+                  <img src={propertyItem.picture} alt='' />
+                </div>
+                <h2>{propertyItem.name}</h2>
+              </StyleCard>
             ))}
           </div>
         </div>
