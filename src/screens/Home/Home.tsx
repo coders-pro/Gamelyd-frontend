@@ -1,5 +1,4 @@
 import { HomeStyle } from './style.js'
-import ImageSlider from '../../components/Slider/ImageSlider.js'
 import ImageRotate from '../../components/ImageRotate/ImageRotate'
 import Hero from '../../components/Hero/Hero'
 

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 import Modal from '../Modal/Modal'
 import ImageSlider from '../Slider/ImageSlider'
 import Text from '../Text/Text'

@@ -1,7 +1,6 @@
 import React from 'react'
 import { Style, StyleCard } from './style'
 import data from './data'
-import Card from './Card'
 import SkipNextIcon from '@mui/icons-material/SkipNext'
 import SkipPreviousIcon from '@mui/icons-material/SkipPrevious'
 
