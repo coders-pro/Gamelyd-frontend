@@ -14,7 +14,7 @@ export const Style = styled.div`
     top: -65px;
     margin-bottom: 1em;
     margin-top: 0;
-    color: rgba(255, 0, 0, 0.25);
+    color: white;
     letter-spacing: 3px;
   }
   .prev_button {
