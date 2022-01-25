@@ -109,7 +109,7 @@ export const NavStyle = styled.div<Nav>`
           button {
             height: 50px;
             width: 200px;
-            background: #232323;
+            background: #15202b;
             border: 1px solid #fff;
             color: white;
             cursor: pointer;
@@ -124,7 +124,7 @@ export const NavStyle = styled.div<Nav>`
         top: 0;
         height: 100vh;
         margin-right: 0em;
-        background: #232323;
+        background: #15202b;
         // background: #0d0d0d;
         display: flex;
         flex-direction: column;
