@@ -91,44 +91,44 @@ const Signup = () => {
               </button>
             </div>
           </div>
+        </div>
 
-          <div className={`formBx ${flip ? 'active' : ''}`}>
-            {flip ? (
-              <div className='form signinForm'>
-                <form>
-                  <h3>Signin </h3>
-                  <input type='text' placeholder='Username'></input>
-                  <input type='password' placeholder='Password'></input>
-                  <input
-                    className='submit'
-                    type='submit'
-                    placeholder='Login'
-                  ></input>
-                  <br></br>
-                  <Link to='/' className='forgotten'>
-                    forgotten password
-                  </Link>
-                </form>
-              </div>
-            ) : (
-              <div className='form signinForm'>
-                <form>
-                  <h3>Signup </h3>
-                  <input type='text' placeholder='Username'></input>
-                  <input type='password' placeholder='Password'></input>
-                  <input
-                    className='submit'
-                    type='submit'
-                    placeholder='Login'
-                  ></input>
-                  <br></br>
-                  <Link to='/' className='forgotten'>
-                    forgotten password
-                  </Link>
-                </form>
-              </div>
-            )}
-          </div>
+        <div className={`formBx ${flip ? 'active' : ''}`}>
+          {flip ? (
+            <div className='form signinForm'>
+              <form>
+                <h3>Signin </h3>
+                <input type='text' placeholder='Username'></input>
+                <input type='password' placeholder='Password'></input>
+                <input
+                  className='submit'
+                  type='submit'
+                  placeholder='Login'
+                ></input>
+                <br></br>
+                <Link to='/' className='forgotten'>
+                  forgotten password
+                </Link>
+              </form>
+            </div>
+          ) : (
+            <div className='form signinForm'>
+              <form>
+                <h3>Signup </h3>
+                <input type='text' placeholder='Username'></input>
+                <input type='password' placeholder='Password'></input>
+                <input
+                  className='submit'
+                  type='submit'
+                  placeholder='Login'
+                ></input>
+                <br></br>
+                <Link to='/' className='forgotten'>
+                  forgotten password
+                </Link>
+              </form>
+            </div>
+          )}
         </div>
       </div>
     </SignUpStyle>
