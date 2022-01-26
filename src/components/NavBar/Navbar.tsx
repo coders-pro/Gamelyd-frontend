@@ -126,6 +126,10 @@ class Navbar extends React.Component<IProps, IState> {
               Games<span></span>
             </NavLink>
 
+            <NavLink to='/signup' className='single_item'>
+              Signup<span></span>
+            </NavLink>
+
             <a
               href='https://t.me/+4ICOg08hzMQwZTdk'
               target='_blank'
@@ -153,6 +157,14 @@ class Navbar extends React.Component<IProps, IState> {
               onClick={this.onClickBackdrop}
             >
               Games
+            </NavLink>
+
+            <NavLink
+              to='/signup'
+              className='single_item'
+              onClick={this.onClickBackdrop}
+            >
+              Signup
             </NavLink>
 
             <a

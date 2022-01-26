@@ -2,6 +2,8 @@ import styled from 'styled-components'
 
 export const HeroStyle = styled.div`
   position: relative;
+  overflow: hidden;
+
   .images {
     display: flex;
     margin: 0 0;
@@ -114,15 +116,36 @@ export const HeroStyle = styled.div`
   .text {
     position: absolute;
     width: auto;
-    top: 500px;
+    top: 60vh;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+  }
+
+  .create-button {
+    position: absolute;
+    width: auto;
+    top: 40vh;
     margin-left: auto;
     margin-right: auto;
     left: 0;
     right: 0;
 
-    @media (max-width: 650px) {
-      width: auto;
-      top: 500px;
+    @media (max-width: 1000px) {
+      top: 50vh;
+    }
+
+    .button {
+      position: absolute;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+      text-align: center;
+      width: 250px;
+      height: 50px;
+      font-size: 17px;
     }
   }
 `
