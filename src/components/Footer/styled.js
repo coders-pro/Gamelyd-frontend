@@ -12,12 +12,14 @@ export const FooterStyle = styled.div`
     }
     padding: 10px;
     flex-wrap: nowrap;
-
-    margin: 0;
+    width: 90%;
+    margin: auto;
   }
 
   .flex-container .flexer {
-    width: 340px;
+    justify-content: space-between;
+
+    width:  90%;
     padding: 0px;
     margin: 4px;
     text-align: left;
@@ -25,8 +27,7 @@ export const FooterStyle = styled.div`
   }
 
   .about {
-    margin: 10px;
-
+    margin: 13px;
     color: gray;
   }
   .about p {
