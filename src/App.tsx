@@ -9,13 +9,13 @@ import SignUp from './screens/SignUp/SignUp'
 function App() {
   return (
     <div className='App'>
-      <Navbar message='you' />
+      {/* <Navbar message='you' /> */}
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='games' element={<Games />} />
         <Route path='signup' element={<SignUp />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }
