@@ -1,4 +1,5 @@
-import { FooterStyle } from './styled'import { NavLink } from 'react-router-dom'
+import { FooterStyle } from './styled';
+import { NavLink } from 'react-router-dom';
 
 
 const Footer = () => {
