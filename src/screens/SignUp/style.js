@@ -108,13 +108,13 @@ left: -100%
     flex-direction: column;
 
   }
-  .formBx .form Form  h3{ 
+  .formBx .form form  h3{ 
    font-size: 1.5em;
    color: #333;
    margin-bottom: 20px;
    fomt-weight: 500;
   }
-  .formBx .form Form input{
+  .formBx .form form input{
       width: 100%;
       margin-bottom: 20px;
       padding: 10px;
@@ -122,7 +122,7 @@ left: -100%
       font-size: 16px;
       border: 1px solid #C5C6C7;
 }
-.formBx .form Form input[type='submit'] {
+.formBx .form form input[type='submit'] {
     background: #C5C6C7;
     padding: 13px;
     border-radius: 10%;

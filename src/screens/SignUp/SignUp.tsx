@@ -1,6 +1,5 @@
-import React from 'react';
+
 import { SignUpStyle } from './style.js'
-import {  Form } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 const Signup = () => {
@@ -27,14 +26,14 @@ const Signup = () => {
                 </div>
                 <div className='formBx'>
                     <div className= 'form signinForm'>
-                        <Form>
+                        <form>
                             <h3>Signin </h3>
                         <input type= 'text'  placeholder='Username'></input>
                         <input type= 'password'  placeholder='Password'></input>
                         <input className='submit' type= 'submit'  placeholder='Login'></input><br></br>
                         <Link to = '/fogot:id' className='forgotten'> forgotten password</Link>
 
-                        </Form>
+                        </form>
                         
                     </div>
                     
