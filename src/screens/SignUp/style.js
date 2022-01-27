@@ -4,7 +4,7 @@ export const SignUpStyle = style.div`
  margin: 0;
  padding: 0;
  box-sizing: border-box;
- background: url('/images/soldier1.jpg');
+ background: url('/images/soldier7.png');
  height: 100vh;
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
@@ -17,7 +17,8 @@ export const SignUpStyle = style.div`
     align-items: center;
     max-height: 100vh;
     transition: 0.5s;
-    margin: 0 100px;
+    margin: 0 200px;
+    position: relative;
 
 
     .containers {
@@ -92,6 +93,7 @@ export const SignUpStyle = style.div`
         width: 76%;
         padding: 50px;
         transition: 0.5s;
+        
       }
       .formBx .active .signinForm {
         left: -100%;
@@ -105,27 +107,104 @@ export const SignUpStyle = style.div`
         color: #333;
         margin-bottom: 20px;
         font-weight: 500;
+        text-align: center;
       }
-      .formBx .form form input {
-        width: 80%;
-        margin-bottom: 20px;
-        padding: 10px;
-        outline: none;
-        font-size: 16px;
-        border: 1px solid #c5c6c7;
-      }
-      .formBx .form form input[type='submit'] {
-        background: #c5c6c7;
-        padding: 13px;
-        border-radius: 10%;
-        color: #45a29e;
-        max-width: 100px;
+
+
+      .submit {
+        padding: 8px 30px;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        background: linear-gradient(
+          273deg,
+          rgba(197, 198, 199, 1) 0%,
+          rgba(102, 252, 241, 1) 25%,
+          rgba(31, 40, 51, 1) 100%
+        );
+        color: white;
+        border: none;
         cursor: pointer;
+      }
+  
+
+      .inpu {
+        width: 100%;
+        padding: 0;
+        margin: 0;    
+      
+        .wrapper {
+          width: 100%; 
+        }
+      
+        .wrapper .input-data {
+          height: 40px;
+          width: 100%;
+          position: relative;
+          margin: 20px 0;
+        }
+        .wrapper .input-data input {
+          height: 100%;
+          width: 100%;
+          border: none;
+          outline: none;
+          font-size: 17px;
+          background: transparent;
+          color: #4158d0;
+        }
+        .input-data input:valid ~ label {
+          transform: translateY(-24px);
+          font-size: 16px;
+          font-weight: 500;
+          color: #4158d0;
+        }
+        .wrapper .input-data label {
+          position: absolute;
+          bottom: -1px;
+          left: 0;
+          color: rgba(197, 198, 199, 1);
+          pointer-events: none;
+        }
+        .underline {
+          margin: -4px;
+        }
+        .wrapper .input-data .underline {
+          position: absolute;
+          height: 2px;
+          width: 100%;
+          bottom: 0;
+          background: linear-gradient(
+            273deg,
+            rgba(197, 198, 199, 1) 0%,
+            rgba(102, 252, 241, 1) 25%,
+            rgba(31, 40, 51, 1) 100%
+          );
+        }
+      
+        .input-data .underline:before {
+          position: absolute;
+          content: '';
+          height: 100%;
+          width: 100%;
+          background: #4158d0;
+          transform: scaleX(0);
+          transform-origin: center;
+          transition: transform 0.3s ease;
+        }
+      
+        .input-data input:focus ~ .underline:before,
+        .input-data input:valid ~ .underline:before {
+          transform: scaleX(1);
+        }
+
+       
       }
     @media(max-width: 990px) {
         display: none;
     }
   }
+
+  
   .flex {
     height: 100px;
 }
@@ -152,6 +231,30 @@ export const SignUpStyle = style.div`
             justify-content: space-between;
             overflow: hidden;
 
+            .signup {
+              margin: 20px 0;
+               h2 {
+                color: aliceblue;
+                font-size: 1.2em;
+                font-weight: 500;
+                margin-bottom: 10px;
+                text-align: center;
+              }
+              
+               button {
+                color: black;
+                cursor: pointer;
+                padding: 10px 0;
+                background-color: white;
+                font-size: 15px;
+                font-weight: 500;
+                border: none;
+                display: flex;
+                justify-content: center;
+                width: 140px;
+                margin: auto;
+              }
+            }
           }
 
           .white {
@@ -166,16 +269,103 @@ export const SignUpStyle = style.div`
             @media(max-width: 500px) {
                 max-width: 350px;
               }
+
               form {
                   display: flex;
                   flex-direction: column;
 
-                  input {
-                      width: 100%;
-                      @media(max-width: 500px) {
-                        max-width: 200px;
-                      }
+                  h2 {
+                    margin 3px 0;
+                    text-align: center;
+                    font-weight: 500;
                   }
+
+                  button {
+                    padding: 8px 30px;
+                    margin: auto;
+                    display: flex;
+                    justify-content: center;
+                    background: linear-gradient(
+                      273deg,
+                      rgba(197, 198, 199, 1) 0%,
+                      rgba(102, 252, 241, 1) 25%,
+                      rgba(31, 40, 51, 1) 100%
+                    );
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                  }
+
+                  .inpu {
+                    width: 100%;
+                    padding: 0;
+                    margin: 0;    
+                  
+                    .wrapper {
+                      width: 80%;
+                      margin: auto; 
+                    }
+                  
+                    .wrapper .input-data {
+                      height: 30px;
+                      width: 100%;
+                      position: relative;
+                      margin: 20px 0;
+                    }
+                    .wrapper .input-data input {
+                      height: 100%;
+                      width: 100%;
+                      border: none;
+                      outline: none;
+                      font-size: 17px;
+                      background: transparent;
+                      color: #4158d0;
+                    }
+                    .input-data input:valid ~ label {
+                      transform: translateY(-24px);
+                      font-size: 16px;
+                      font-weight: 500;
+                      color: #4158d0;
+                    }
+                    .wrapper .input-data label {
+                      position: absolute;
+                      bottom: 8px;
+                      left: 0;
+                      color: rgba(197, 198, 199, 1);
+                      pointer-events: none;
+                    }
+                    .underline {
+                      margin: -4px;
+                    }
+                    .wrapper .input-data .underline {
+                      position: absolute;
+                      height: 2px;
+                      width: 100%;
+                      bottom: 0;
+                      background: linear-gradient(
+                        273deg,
+                        rgba(197, 198, 199, 1) 0%,
+                        rgba(102, 252, 241, 1) 25%,
+                        rgba(31, 40, 51, 1) 100%
+                      );
+                    }
+                  
+                    .input-data .underline:before {
+                      position: absolute;
+                      content: '';
+                      height: 100%;
+                      width: 100%;
+                      background: #4158d0;
+                      transform: scaleX(0);
+                      transform-origin: center;
+                      transition: transform 0.3s ease;
+                    }
+                  
+                    .input-data input:focus ~ .underline:before,
+                    .input-data input:valid ~ .underline:before {
+                      transform: scaleX(1);
+                    }
+            
               }
               @media(max-width: 500px) {
                 max-width: 350px;  

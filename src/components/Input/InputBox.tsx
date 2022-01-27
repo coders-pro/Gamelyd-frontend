@@ -1,23 +1,24 @@
-import { InputStyle } from './style';
-
+import { InputStyle } from './style'
 
 const InputBox = () => {
-    return (
+  return (
+    <InputStyle>
+      <div className='wrapper'>
+        <div className='input-data'>
+          <input type='text' required></input>
 
-        <InputStyle>
-  <div className="wrapper">
-         <div className="input-data">
-            <input type="text" required ></input>
-           
-            <label>Name</label> 
-            <div className="underline"></div>
-         </div>
+          <label>Name</label>
+          <div className='underline'></div>
+        </div>
+        <div className='input-data'>
+          <input type='text' required></input>
+
+          <label>Name</label>
+          <div className='underline'></div>
+        </div>
       </div>
-        </InputStyle>
-      
+    </InputStyle>
+  )
+}
 
-
-        )
-    }
-    
-    export default InputBox
+export default InputBox

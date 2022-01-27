@@ -127,3 +127,69 @@
   max-width: 100px;
   cursor: pointer;
 }
+
+/* .flex {
+  height: 100px;
+}
+
+.mobile-body {
+    display: none;
+    @media(max-width: 990px) {
+      overflow: hidden;
+        display: block;
+        height: 550px;
+        max-width: 400px;
+        margin: auto;
+
+        @media(max-width: 500px) {
+          max-width: 350px;
+        }
+
+        .blue {
+          background: #1f2833;
+          height: 100%;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          overflow: hidden;
+
+        }
+
+        .white {
+            position: absolute;
+            top: 50px;
+            background: white;
+            height: 400px;
+            max-width: 400px;
+            transition: 0.9s ease-in-out;
+          //   overflow: hidden;
+
+          @media(max-width: 500px) {
+              max-width: 350px;
+            }
+            form {
+                display: flex;
+                flex-direction: column;
+
+                input {
+                    width: 100%;
+                    @media(max-width: 500px) {
+                      max-width: 200px;
+                    }
+                }
+            }
+            @media(max-width: 500px) {
+              max-width: 350px;  
+            }
+          }
+
+          .mobactive {
+              top: 200px;
+
+          }
+          .bx {
+              width: 400px
+          }
+    }
+} */
