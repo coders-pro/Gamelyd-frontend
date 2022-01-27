@@ -19,17 +19,17 @@ const Hero = () => {
     <HeroStyle>
       <div className='images'>
         <div className='first'>
-          <img src={`images/soldier1.jpg`} alt='soldier2' />
+          <img src={`images/soldier7.png`} alt='soldier2' />
         </div>
         <div className='rotate'>
           <div className='slider'>
             <span>
-              <img src={`images/soldier1.jpg`} alt='muna' />
+              <img src={`images/soldier15.png`} alt='muna' />
             </span>
           </div>
         </div>
         <div className='last'>
-          <img src={`images/soldier2.jpg`} alt='soldier2' />
+          <img src={`images/soldier14.png`} alt='soldier2' />
         </div>
       </div>
       <div className='text'>

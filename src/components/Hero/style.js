@@ -13,7 +13,7 @@ export const HeroStyle = styled.div`
     padding-top: 50px;
 
     @media (max-width: 999px) {
-      background: url('images/soldier1.jpg');
+      background: url('images/soldier7.png');
       background-position: center; /* Center the image */
       background-repeat: no-repeat; /* Do not repeat the image */
       background-size: cover;

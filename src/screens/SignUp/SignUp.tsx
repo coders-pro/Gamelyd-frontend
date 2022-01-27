@@ -2,7 +2,6 @@ import { SignUpStyle } from './style.js'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import './style.css'
-import { motion, AnimatePresence } from 'framer-motion'
 
 const Signup = () => {
   const [flip, setFlip] = useState(false)
@@ -14,15 +13,15 @@ const Signup = () => {
       <div className='flex'></div>
       <div className='mobile-body'>
         <div className='blue'>
-          <div className='signin'>
-            <h2>Already have an account</h2>
+          <div className='signup'>
+            <h2>Already have an account?</h2>
             <button onClick={flipMode} className='signinbtn'>
               Sign In
             </button>
           </div>
 
           <div className='signup'>
-            <h2>Dont have an account</h2>
+            <h2>Dont have an account?</h2>
             <button onClick={flipMode} className='signinbtn'>
               Sign Up
             </button>
@@ -35,18 +34,54 @@ const Signup = () => {
               <div className='signinForm'>
                 <div className='bx'>
                   <form>
-                    <h3>Signin </h3>
-                    <input type='text' placeholder='Username'></input>
-                    <input type='password' placeholder='Password'></input>
-                    <input
-                      className='submit'
-                      type='submit'
-                      placeholder='Login'
-                    ></input>
-                    <br></br>
-                    <Link to='/' className='forgotten'>
-                      forgotten password
-                    </Link>
+                    <h2>Signup</h2>
+                    <div className='inpu'>
+                      <div className='wrapper'>
+                        <div className='input-data'>
+                          <input type='text' required></input>
+
+                          <label>Userame</label>
+                          <div className='underline'></div>
+                        </div>
+
+                        <div className='input-data'>
+                          <input type='text' required></input>
+
+                          <label>First Name</label>
+                          <div className='underline'></div>
+                        </div>
+
+                        <div className='input-data'>
+                          <input type='text' required></input>
+
+                          <label>Last Name</label>
+                          <div className='underline'></div>
+                        </div>
+
+                        <div className='input-data'>
+                          <input type='text' required></input>
+
+                          <label>Email</label>
+                          <div className='underline'></div>
+                        </div>
+
+                        <div className='input-data'>
+                          <input type='text' required></input>
+
+                          <label>Phone Number</label>
+                          <div className='underline'></div>
+                        </div>
+
+                        <div className='input-data'>
+                          <input type='text' required></input>
+
+                          <label>Password</label>
+                          <div className='underline'></div>
+                        </div>
+
+                        <button className='submit'>Sign up</button>
+                      </div>
+                    </div>
                   </form>
                 </div>
               </div>
@@ -54,18 +89,26 @@ const Signup = () => {
               <div className='signinForm'>
                 <div className='bx'>
                   <form>
-                    <h3>Signup </h3>
-                    <input type='text' placeholder='Username'></input>
-                    <input type='password' placeholder='Password'></input>
-                    <input
-                      className='submit'
-                      type='submit'
-                      placeholder='Login'
-                    ></input>
-                    <br></br>
-                    <Link to='/' className='forgotten'>
-                      forgotten password
-                    </Link>
+                    <h2>Login</h2>
+                    <div className='inpu'>
+                      <div className='wrapper'>
+                        <div className='input-data'>
+                          <input type='text' required></input>
+
+                          <label>Email</label>
+                          <div className='underline'></div>
+                        </div>
+
+                        <div className='input-data'>
+                          <input type='text' required></input>
+
+                          <label>Password</label>
+                          <div className='underline'></div>
+                        </div>
+
+                        <button className='submit'>Sign up</button>
+                      </div>
+                    </div>
                   </form>
                 </div>
               </div>
@@ -91,44 +134,88 @@ const Signup = () => {
               </button>
             </div>
           </div>
-        </div>
 
-        <div className={`formBx ${flip ? 'active' : ''}`}>
-          {flip ? (
-            <div className='form signinForm'>
-              <form>
-                <h3>Signin </h3>
-                <input type='text' placeholder='Username'></input>
-                <input type='password' placeholder='Password'></input>
-                <input
-                  className='submit'
-                  type='submit'
-                  placeholder='Login'
-                ></input>
-                <br></br>
-                <Link to='/' className='forgotten'>
-                  forgotten password
-                </Link>
-              </form>
-            </div>
-          ) : (
-            <div className='form signinForm'>
-              <form>
-                <h3>Signup </h3>
-                <input type='text' placeholder='Username'></input>
-                <input type='password' placeholder='Password'></input>
-                <input
-                  className='submit'
-                  type='submit'
-                  placeholder='Login'
-                ></input>
-                <br></br>
-                <Link to='/' className='forgotten'>
-                  forgotten password
-                </Link>
-              </form>
-            </div>
-          )}
+          <div className={`formBx ${flip ? 'active' : ''}`}>
+            {flip ? (
+              <div className='form signinForm'>
+                <form>
+                  <h3>Login </h3>
+                  <div className='inpu'>
+                    <div className='wrapper'>
+                      <div className='input-data'>
+                        <input type='text' required></input>
+
+                        <label>Email</label>
+                        <div className='underline'></div>
+                      </div>
+                      <div className='input-data'>
+                        <input type='text' required></input>
+
+                        <label>Password</label>
+                        <div className='underline'></div>
+                      </div>
+                    </div>
+                  </div>
+                  <button className='submit'>Login</button>
+                  <Link to='/' className='forgotten'>
+                    forgotten password
+                  </Link>
+                </form>
+              </div>
+            ) : (
+              <div className='form signinForm'>
+                <form>
+                  <h3>Signup </h3>
+                  <div className='inpu'>
+                    <div className='wrapper'>
+                      <div className='input-data'>
+                        <input type='text' required></input>
+
+                        <label>Userame</label>
+                        <div className='underline'></div>
+                      </div>
+
+                      <div className='input-data'>
+                        <input type='text' required></input>
+
+                        <label>First Name</label>
+                        <div className='underline'></div>
+                      </div>
+
+                      <div className='input-data'>
+                        <input type='text' required></input>
+
+                        <label>Last Name</label>
+                        <div className='underline'></div>
+                      </div>
+
+                      <div className='input-data'>
+                        <input type='text' required></input>
+
+                        <label>Email</label>
+                        <div className='underline'></div>
+                      </div>
+
+                      <div className='input-data'>
+                        <input type='text' required></input>
+
+                        <label>Phone Number</label>
+                        <div className='underline'></div>
+                      </div>
+
+                      <div className='input-data'>
+                        <input type='text' required></input>
+
+                        <label>Password</label>
+                        <div className='underline'></div>
+                      </div>
+                    </div>
+                  </div>
+                  <button className='submit'>Sign up</button>
+                </form>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </SignUpStyle>

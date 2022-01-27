@@ -1,24 +1,18 @@
-import { LoaderStyle } from './style';
-
+import { LoaderStyle } from './style'
 
 const Loader = () => {
-    return (
-
-        <LoaderStyle>
-            <div className="body">
-            <div className="container">
-     
-         <div className="ring"></div>
-         <div className="ring"></div>
-         <div className="ring"></div>
-         <p>be patient werey...</p>
+  return (
+    <LoaderStyle>
+      <div className='body'>
+        <div className='container'>
+          <div className='ring'></div>
+          <div className='ring'></div>
+          <div className='ring'></div>
+          <p>werey calm down...</p>
+        </div>
       </div>
-      </div>
-        </LoaderStyle>
-      
+    </LoaderStyle>
+  )
+}
 
-
-        )
-    }
-    
-    export default Loader
+export default Loader

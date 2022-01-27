@@ -10,7 +10,7 @@ box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items:  center;
-  min-height: 100vh;
+  max-height: 100vh;
   background: #111;
   
   .container{
@@ -106,9 +106,9 @@ box-sizing: border-box;
 
   }
 
-  .container .ring: nth-child(3) {
+  .container .ring:nth-child(3) {
     
-  animation: animate2 s linear infinite;
+  animation: animate 2s linear infinite;
   animation-delay: -3s;
     position: absolute;
     top: -66.66px;
