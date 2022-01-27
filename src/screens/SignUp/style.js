@@ -264,6 +264,7 @@ export const SignUpStyle = style.div`
               height: 400px;
               max-width: 400px;
               transition: 0.9s ease-in-out;
+              padding-top: 10px;
             //   overflow: hidden;
 
             @media(max-width: 500px) {
