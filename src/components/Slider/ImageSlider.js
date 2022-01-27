@@ -74,7 +74,25 @@ class ImageSlider extends React.Component {
         </h1>
 
         {this.state.switch === false ? (
-          <form>jhkjkjk</form>
+          <form className='game-form'>
+            <div className='emp' />
+            <div className='wrapper'>
+              <div className='input-data'>
+                <input type='text' required></input>
+
+                <label>Competition Name</label>
+                <div className='underline'></div>
+              </div>
+
+              <div className='input-data'>
+                <input type='number' required></input>
+
+                <label>No Of Participants</label>
+                <div className='underline'></div>
+              </div>
+            </div>
+            <button>Create</button>
+          </form>
         ) : (
           <>
             <button
