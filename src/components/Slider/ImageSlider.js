@@ -3,10 +3,12 @@ import { Style, StyleCard } from './style'
 import data from './data'
 import SkipNextIcon from '@mui/icons-material/SkipNext'
 import SkipPreviousIcon from '@mui/icons-material/SkipPrevious'
+import UndoIcon from '@mui/icons-material/Undo'
 
 import next from '../../assets/audios/Next.mp3'
 import prev from '../../assets/audios/Prev.mp3'
 import Open from '../../assets/audios/Open.mp3'
+import back from '../../assets/audios/Select.mp3'
 
 class ImageSlider extends React.Component {
   constructor() {
@@ -61,6 +63,17 @@ class ImageSlider extends React.Component {
     }
   }
 
+  previous = () => {
+    let audio = new Audio(back)
+    audio.play()
+
+    this.setState({
+      active: this.state.properties[this.state.active].data[0].prev,
+      position: 0,
+      name: this.state.properties[this.state.active - 1].name,
+    })
+  }
+
   render() {
     const { properties } = this.state
     return (
@@ -73,8 +86,44 @@ class ImageSlider extends React.Component {
           )}
         </h1>
 
+        {this.state.switch && (
+          <button
+            className='previous'
+            onClick={this.previous}
+            disabled={
+              this.state.properties[this.state.active].data[0].prev === -1
+            }
+          >
+            <UndoIcon
+              className={
+                this.state.properties[this.state.active].data[0].prev === -1
+                  ? 'undo1'
+                  : 'undo'
+              }
+            />
+          </button>
+        )}
+
         {this.state.switch === false ? (
-          <form>jhkjkjk</form>
+          <form className='game-form'>
+            <div className='emp' />
+            <div className='wrapper'>
+              <div className='input-data'>
+                <input type='text' required></input>
+
+                <label>Competition Name</label>
+                <div className='underline'></div>
+              </div>
+
+              <div className='input-data'>
+                <input type='number' required></input>
+
+                <label>No Of Participants</label>
+                <div className='underline'></div>
+              </div>
+            </div>
+            <button>Create</button>
+          </form>
         ) : (
           <>
             <button

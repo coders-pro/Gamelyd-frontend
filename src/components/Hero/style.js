@@ -146,6 +146,7 @@ export const HeroStyle = styled.div`
       width: 250px;
       height: 50px;
       font-size: 17px;
+      cursor: pointer;
     }
   }
 `

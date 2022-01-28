@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 export const InputStyle = styled.div`
-  margin: 30px;
-  padding: 400px;
+  // margin: 30px;
+  // padding: 400px;
   font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
     'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 

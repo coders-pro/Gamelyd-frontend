@@ -8,15 +8,137 @@ export const Style = styled.div`
   width: 100%;
   height: 250px;
   background: #ffffff08;
+
+  .game-form {
+    // margin: 30px;
+    // padding: 400px;
+    font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+      'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+
+    .emp {
+      height: 10px;
+    }
+
+    button {
+      width: 130px;
+      padding: 8px 8px;
+      margin: 10px auto;
+      display: flex;
+      justify-content: center;
+      background: rgb(11, 192, 180);
+      color: white;
+      border: none;
+    }
+
+    .wrapper {
+      width: 450px;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 10px 30px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      margin: 20px auto;
+
+      @media (max-width: 850px) {
+        width: 75%;
+      }
+    }
+
+    .wrapper .input-data {
+      height: 40px;
+      width: 100%;
+      position: relative;
+      margin: 20px 0;
+    }
+    .wrapper .input-data input {
+      height: 100%;
+      width: 100%;
+      border: none;
+      outline: none;
+      font-size: 17px;
+      background: transparent;
+      color: white;
+    }
+    .input-data input:valid ~ label {
+      transform: translateY(-24px);
+      font-size: 16px;
+      font-weight: 500;
+      color: rgb(11, 192, 180);
+    }
+    .wrapper .input-data label {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      color: rgba(197, 198, 199, 1);
+      pointer-events: none;
+    }
+    .underline {
+      margin: -4px;
+    }
+    .wrapper .input-data .underline {
+      position: absolute;
+      height: 2px;
+      width: 100%;
+      bottom: 0;
+      background: linear-gradient(
+        273deg,
+        rgba(197, 198, 199, 1) 0%,
+        rgb(11, 192, 180) 25%,
+        rgba(31, 40, 51, 1) 100%
+      );
+    }
+
+    .input-data .underline:before {
+      position: absolute;
+      content: '';
+      height: 100%;
+      width: 100%;
+      background: rgb(11, 192, 180);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.3s ease;
+    }
+
+    .input-data input:focus ~ .underline:before,
+    .input-data input:valid ~ .underline:before {
+      transform: scaleX(1);
+    }
+  }
   h1 {
     position: absolute;
-    margin-left: 1em;
-    top: -65px;
+    top: -105px;
     margin-bottom: 1em;
     margin-top: 0;
     color: white;
     letter-spacing: 3px;
+    width: 100%;
+    text-align: center;
+    @media (max-width: 600px) {
+      font-size: 25px;
+    }
   }
+
+  .previous {
+    position: absolute;
+    margin-left: 1em;
+    top: -35px;
+    margin-bottom: 1em;
+    margin-top: 0;
+    color: black;
+    letter-spacing: 3px;
+    width: 100px;
+    background: transparent;
+    border: none;
+    outline: none;
+    .undo1 {
+      color: white;
+      opacity: 0.5;
+    }
+    .undo {
+      color: rgb(11, 192, 180);
+      cursor: pointer;
+      opacity: 1;
+    }
+  }
+
   .prev_button {
     position: absolute;
     width: 30px;
@@ -28,6 +150,9 @@ export const Style = styled.div`
     outline: none;
     cursor: pointer;
     z-index: 90;
+    @media (max-width: 600px) {
+      left: 0px;
+    }
   }
   .next_button {
     position: absolute;
@@ -40,6 +165,9 @@ export const Style = styled.div`
     outline: none;
     cursor: pointer;
     z-index: 90;
+    @media (max-width: 600px) {
+      right: 0px;
+    }
   }
   .cards-slider {
     position: relative;

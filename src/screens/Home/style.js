@@ -164,6 +164,9 @@ export const HomeStyle = styled.div`
 
     .text {
       width: 50%;
+      @media (max-width: 850px) {
+        width: 100%;
+      }
       h2 {
         text-align: center;
       }
@@ -204,6 +207,9 @@ export const HomeStyle = styled.div`
 
     .text {
       width: 50%;
+      @media (max-width: 850px) {
+        width: 100%;
+      }
       h2 {
         text-align: center;
       }
