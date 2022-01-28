@@ -25,12 +25,7 @@ export const Style = styled.div`
       margin: 10px auto;
       display: flex;
       justify-content: center;
-      background: linear-gradient(
-        273deg,
-        rgba(197, 198, 199, 1) 0%,
-        rgba(102, 252, 241, 1) 25%,
-        rgba(31, 40, 51, 1) 100%
-      );
+      background: rgb(11, 192, 180);
       color: white;
       border: none;
     }
@@ -66,7 +61,7 @@ export const Style = styled.div`
       transform: translateY(-24px);
       font-size: 16px;
       font-weight: 500;
-      color: #4158d0;
+      color: rgb(11, 192, 180);
     }
     .wrapper .input-data label {
       position: absolute;
@@ -86,7 +81,7 @@ export const Style = styled.div`
       background: linear-gradient(
         273deg,
         rgba(197, 198, 199, 1) 0%,
-        rgba(102, 252, 241, 1) 25%,
+        rgb(11, 192, 180) 25%,
         rgba(31, 40, 51, 1) 100%
       );
     }
@@ -96,7 +91,7 @@ export const Style = styled.div`
       content: '';
       height: 100%;
       width: 100%;
-      background: #4158d0;
+      background: rgb(11, 192, 180);
       transform: scaleX(0);
       transform-origin: center;
       transition: transform 0.3s ease;
@@ -109,17 +104,41 @@ export const Style = styled.div`
   }
   h1 {
     position: absolute;
-    margin-left: 1em;
-    top: -65px;
+    top: -105px;
     margin-bottom: 1em;
     margin-top: 0;
     color: white;
     letter-spacing: 3px;
     width: 100%;
+    text-align: center;
     @media (max-width: 600px) {
       font-size: 25px;
     }
   }
+
+  .previous {
+    position: absolute;
+    margin-left: 1em;
+    top: -35px;
+    margin-bottom: 1em;
+    margin-top: 0;
+    color: black;
+    letter-spacing: 3px;
+    width: 100px;
+    background: transparent;
+    border: none;
+    outline: none;
+    .undo1 {
+      color: white;
+      opacity: 0.5;
+    }
+    .undo {
+      color: rgb(11, 192, 180);
+      cursor: pointer;
+      opacity: 1;
+    }
+  }
+
   .prev_button {
     position: absolute;
     width: 30px;
