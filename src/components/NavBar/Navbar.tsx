@@ -114,7 +114,7 @@ class Navbar extends React.Component<IProps, IState> {
         >
           <div className='logo'>
             <NavLink to='/'>
-              <h2 style={{ color: 'white' }}>Gamelyd</h2>
+              <img src={`images/logo.jpg`} alt='muna' />
             </NavLink>
           </div>
           <div className='nav_items'>

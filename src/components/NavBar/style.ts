@@ -32,9 +32,10 @@ export const NavStyle = styled.div<Nav>`
       display: flex;
       align-items: center;
       left: 1em;
+      top: 0;
       img {
         left: 2em;
-        width: 50px;
+        width: 100px;
       }
     }
     .nav_items {

@@ -1,20 +1,34 @@
-import { SignUpStyle } from './style.js'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
-import './style.css'
 import { useSelector, useDispatch } from 'react-redux'
-import { login } from '../../actions/userActions'
+import { useNavigate } from 'react-router-dom'
+
+import './style.css'
+import { login, register } from '../../actions/userActions'
 import { RootState } from '../../store.js'
 import { Userstate } from '../../reducers/userReducer.js'
+import { SignUpStyle } from './style.js'
 
 const Signup = () => {
   const [flip, setFlip] = useState(false)
-  const [email, setEmail] = useState('')
+
+  // login state
+  const [emails, setEmails] = useState('')
   const [password, setPassword] = useState('')
+
+  // signup state
+  const [signupEmail, setSignupEmail] = useState('')
+  const [signupPassword, setSignupPassword] = useState('')
+  const [phone, setPhone] = useState('')
+  const [username, setUsername] = useState('')
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
 
   const flipMode = () => {
     setFlip(!flip)
   }
+
+  const navigate = useNavigate()
 
   const dispatch = useDispatch()
 
@@ -22,18 +36,40 @@ const Signup = () => {
     (state) => state.userLogin
   )
 
-  const { loading, error } = userLogin
+  const userRegister = useSelector<RootState, Userstate>(
+    (state) => state.userRegister
+  )
+
+  const { loading } = userLogin
+
+  // const registerLoading = userRegister.loading
+  const registerError = userRegister.error
 
   const loginHandler = (e: any) => {
     e.preventDefault()
 
-    dispatch(login(email, password))
+    dispatch(login(emails, password))
 
-    console.log(loading, error)
+    navigate('/')
   }
 
   const signupHandler = (e: any) => {
     e.preventDefault()
+
+    dispatch(
+      register(
+        signupEmail,
+        signupPassword,
+        username,
+        firstName,
+        lastName,
+        phone
+      )
+    )
+
+    if (!registerError) {
+      console.log(registerError)
+    }
   }
 
   return (
@@ -68,20 +104,20 @@ const Signup = () => {
                         <div className='input-data'>
                           <input
                             type='text'
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
                             required
                           ></input>
 
-                          <label>Userame</label>
+                          <label>Username</label>
                           <div className='underline'></div>
                         </div>
 
                         <div className='input-data'>
                           <input
                             type='text'
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            value={firstName}
+                            onChange={(e) => setFirstName(e.target.value)}
                             required
                           ></input>
 
@@ -92,8 +128,8 @@ const Signup = () => {
                         <div className='input-data'>
                           <input
                             type='text'
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            value={lastName}
+                            onChange={(e) => setLastName(e.target.value)}
                             required
                           ></input>
 
@@ -103,9 +139,9 @@ const Signup = () => {
 
                         <div className='input-data'>
                           <input
-                            type='text'
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            type='email'
+                            value={signupEmail}
+                            onChange={(e) => setSignupEmail(e.target.value)}
                             required
                           ></input>
 
@@ -115,9 +151,9 @@ const Signup = () => {
 
                         <div className='input-data'>
                           <input
-                            type='text'
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            type='number'
+                            value={phone}
+                            onChange={(e) => setPhone(e.target.value)}
                             required
                           ></input>
 
@@ -127,10 +163,10 @@ const Signup = () => {
 
                         <div className='input-data'>
                           <input
-                            type='text'
+                            type='password'
                             required
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            value={signupPassword}
+                            onChange={(e) => setSignupPassword(e.target.value)}
                           ></input>
 
                           <label>Password</label>
@@ -160,8 +196,8 @@ const Signup = () => {
                           <input
                             type='text'
                             required
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            value={emails}
+                            onChange={(e) => setEmails(e.target.value)}
                           ></input>
 
                           <label>Email</label>
@@ -225,21 +261,21 @@ const Signup = () => {
                       <div className='input-data'>
                         <input
                           type='text'
+                          value={username}
+                          onChange={(e) => setUsername(e.target.value)}
                           required
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
                         ></input>
 
-                        <label>Userame</label>
+                        <label>Username</label>
                         <div className='underline'></div>
                       </div>
 
                       <div className='input-data'>
                         <input
                           type='text'
+                          value={firstName}
+                          onChange={(e) => setFirstName(e.target.value)}
                           required
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
                         ></input>
 
                         <label>First Name</label>
@@ -249,9 +285,9 @@ const Signup = () => {
                       <div className='input-data'>
                         <input
                           type='text'
+                          value={lastName}
+                          onChange={(e) => setLastName(e.target.value)}
                           required
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
                         ></input>
 
                         <label>Last Name</label>
@@ -261,9 +297,9 @@ const Signup = () => {
                       <div className='input-data'>
                         <input
                           type='text'
+                          value={signupEmail}
+                          onChange={(e) => setSignupEmail(e.target.value)}
                           required
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
                         ></input>
 
                         <label>Email</label>
@@ -273,9 +309,9 @@ const Signup = () => {
                       <div className='input-data'>
                         <input
                           type='text'
+                          value={phone}
+                          onChange={(e) => setPhone(e.target.value)}
                           required
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
                         ></input>
 
                         <label>Phone Number</label>
@@ -284,10 +320,10 @@ const Signup = () => {
 
                       <div className='input-data'>
                         <input
-                          type='text'
+                          type='password'
                           required
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
+                          value={signupPassword}
+                          onChange={(e) => setSignupPassword(e.target.value)}
                         ></input>
 
                         <label>Password</label>
@@ -314,8 +350,8 @@ const Signup = () => {
                         <input
                           type='text'
                           required
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
+                          value={emails}
+                          onChange={(e) => setEmails(e.target.value)}
                         ></input>
 
                         <label>Email</label>
@@ -323,7 +359,7 @@ const Signup = () => {
                       </div>
                       <div className='input-data'>
                         <input
-                          type='text'
+                          type='password'
                           required
                           value={password}
                           onChange={(e) => setPassword(e.target.value)}
@@ -355,14 +391,3 @@ const Signup = () => {
 }
 
 export default Signup
-function password(
-  email: any,
-  password: any
-): import('redux-thunk').ThunkAction<
-  Promise<void>,
-  import('redux').EmptyObject,
-  unknown,
-  import('redux').AnyAction
-> {
-  throw new Error('Function not implemented.')
-}
