@@ -123,7 +123,7 @@ class Navbar extends React.Component<IProps, IState> {
             </NavLink>
 
             <NavLink to='/tournament' className='single_item'>
-              Games<span></span>
+              Tournament<span></span>
             </NavLink>
 
             <NavLink to='/signup' className='single_item'>
