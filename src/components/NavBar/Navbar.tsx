@@ -122,7 +122,7 @@ class Navbar extends React.Component<IProps, IState> {
               Home<span></span>
             </NavLink>
 
-            <NavLink to='/games' className='single_item'>
+            <NavLink to='/tournament' className='single_item'>
               Games<span></span>
             </NavLink>
 
@@ -152,11 +152,11 @@ class Navbar extends React.Component<IProps, IState> {
             </NavLink>
 
             <NavLink
-              to='/games'
+              to='/tournament'
               className='single_item'
               onClick={this.onClickBackdrop}
             >
-              Games
+              Tournament
             </NavLink>
 
             <NavLink
