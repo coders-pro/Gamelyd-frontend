@@ -355,14 +355,4 @@ const Signup = () => {
 }
 
 export default Signup
-function password(
-  email: any,
-  password: any
-): import('redux-thunk').ThunkAction<
-  Promise<void>,
-  import('redux').EmptyObject,
-  unknown,
-  import('redux').AnyAction
-> {
-  throw new Error('Function not implemented.')
-}
+
