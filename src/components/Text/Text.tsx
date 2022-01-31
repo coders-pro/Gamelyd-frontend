@@ -1,12 +1,17 @@
 import React from 'react'
 import { TextStyle } from './style'
 
-const Text = () => {
+type IProp = {
+  message: string
+  time : string
+}
+
+const Text = (props : IProp): any => {
   return (
     <TextStyle>
-      <div>WELCOME ABOARD SOLDIER</div>
+      <div>{props.message}</div>
       <div>
-        <span>TIME TO CONNECT</span>
+        <span>{props.time}</span>
       </div>
     </TextStyle>
   )
