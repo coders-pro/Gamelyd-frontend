@@ -149,4 +149,13 @@ export const HeroStyle = styled.div`
       cursor: pointer;
     }
   }
+
+  .close {
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: red;
+    font-size: 24px;
+  }
 `

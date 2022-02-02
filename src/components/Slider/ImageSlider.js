@@ -49,24 +49,24 @@ class ImageSlider extends React.Component {
     let audio = new Audio(Open)
     audio.play()
 
-    let items = {}
+    // let items = {}
 
-    let data = (val) => {
-      items[this.state.properties[this.state.active].name] =
-        this.state.properties[this.state.active].data[val].value
-    }
-    data(index)
+    // let data = (val) => {
+    //   items[this.state.properties[this.state.active].name] =
+    //     this.state.properties[this.state.active].data[val].value
+    // }
+    // data(index)
 
-    console.log(items)
+    // console.log(items)
 
-    let options = JSON.parse(localStorage.getItem('all'))
+    // let options = JSON.parse(localStorage.getItem('all'))
 
-    if (!options) {
-      localStorage.setItem('all', JSON.stringify([items]))
-    } else {
-      options.push(items)
-      localStorage.setItem('all', JSON.stringify(options))
-    }
+    // if (!options) {
+    //   localStorage.setItem('all', JSON.stringify([items]))
+    // } else {
+    //   options.push(items)
+    //   localStorage.setItem('all', JSON.stringify(options))
+    // }
 
     if (this.state.properties[next].id === 5) {
       this.setState({
