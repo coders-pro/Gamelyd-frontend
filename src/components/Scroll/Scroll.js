@@ -17,9 +17,12 @@ function Scroll({ children }) {
             transition: {
               delay: 0.3,
               duration: 0.5,
+              ease: 'easeInOut',
+              //   delayChildren: 0.2,
+              //   staggerChildren: 0.1,
             },
           },
-          hidden: { opacity: 0, scale: 1, y: 50 },
+          hidden: { opacity: 0, scale: 1, y: 100 },
         }}
       >
         {children}
