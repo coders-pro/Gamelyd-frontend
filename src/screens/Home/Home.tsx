@@ -10,7 +10,7 @@ const Home = () => {
     <>
       <Navbar message='jh' />
       <HomeStyle>
-        <Hero />
+        <Hero pic1={'/images/soldier7.png'} pic2={'/images/soldier14.png'} background={'/images/soldier7.png'} message='WELCOME ABOARD SOLDIER' time='TIME TO CONNECT'/>
 
         <Scroll>
           <div className='free'>

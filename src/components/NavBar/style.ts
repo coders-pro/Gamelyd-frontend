@@ -48,8 +48,9 @@ export const NavStyle = styled.div<Nav>`
         button {
           height: 50px;
           width: 200px;
-          background: #232323;
-          border: 1px solid #fff;
+          background: rgb(11, 192, 180);
+          /* border: 1px solid #fff; */
+          border: none;
           color: white;
           cursor: pointer;
         }
