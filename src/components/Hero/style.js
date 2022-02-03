@@ -7,7 +7,7 @@ export const HeroStyle = styled.div`
   opacity: 0.8;
   background-image: radial-gradient(
     rgb(11, 192, 180) 0.9500000000000001px,
-    #232323 0.9500000000000001px
+    #15202b 0.9500000000000001px
   );
   background-size: 19px 19px;
 
@@ -158,14 +158,5 @@ export const HeroStyle = styled.div`
       color: white;
       border: none;
     }
-  }
-
-  .close {
-    background: transparent;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    color: red;
-    font-size: 24px;
   }
 `
