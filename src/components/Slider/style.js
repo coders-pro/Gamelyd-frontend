@@ -104,7 +104,7 @@ export const Style = styled.div`
   }
   h1 {
     position: absolute;
-    top: -105px;
+    top: -85px;
     margin-bottom: 1em;
     margin-top: 0;
     color: white;

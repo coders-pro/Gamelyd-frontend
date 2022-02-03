@@ -15,6 +15,9 @@ const Hero = (props) => {
     audio.play()
   }
 
+  const close = () => {
+    modalRef.current.close()
+  }
   return (
     <HeroStyle background={props.background}>
       <div className='images'>
@@ -24,7 +27,7 @@ const Hero = (props) => {
         <div className='rotate'>
           <div className='slider'>
             <span>
-              <img src={`images/soldier15.png`} alt='muna' />
+              <img src={`images/pad.png`} alt='muna' />
             </span>
           </div>
         </div>
@@ -40,6 +43,9 @@ const Hero = (props) => {
           Create Tournament
         </button>
         <Modal ref={modalRef}>
+          <button onClick={close} className='close'>
+            X
+          </button>
           <ImageSlider />
         </Modal>
       </div>
