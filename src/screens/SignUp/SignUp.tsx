@@ -2,7 +2,6 @@ import { SignUpStyle } from './style.js'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import './style.css'
-import { motion, AnimatePresence } from 'framer-motion'
 
 const Signup = () => {
   const [flip, setFlip] = useState(false)
