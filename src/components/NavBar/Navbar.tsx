@@ -114,7 +114,7 @@ class Navbar extends React.Component<IProps, IState> {
         >
           <div className='logo'>
             <NavLink to='/'>
-              <h2 style={{ color: 'white' }}>Gamelyd</h2>
+              <img src={`images/logo.jpg`} alt='muna' />
             </NavLink>
           </div>
           <div className='nav_items'>
@@ -123,7 +123,7 @@ class Navbar extends React.Component<IProps, IState> {
             </NavLink>
 
             <NavLink to='/tournament' className='single_item'>
-              Games<span></span>
+              Tournament<span></span>
             </NavLink>
 
             <NavLink to='/signup' className='single_item'>

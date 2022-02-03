@@ -3,6 +3,13 @@ import styled from 'styled-components'
 export const HeroStyle = styled.div`
   position: relative;
   overflow: hidden;
+  background-color: #e5e5f7;
+  opacity: 0.8;
+  background-image: radial-gradient(
+    rgb(11, 192, 180) 0.9500000000000001px,
+    #15202b 0.9500000000000001px
+  );
+  background-size: 19px 19px;
 
   .images {
     display: flex;
@@ -13,7 +20,7 @@ export const HeroStyle = styled.div`
     padding-top: 50px;
 
     @media (max-width: 999px) {
-      background: url('images/soldier7.png');
+      background: url('${(props) => props.background}');
       background-position: center; /* Center the image */
       background-repeat: no-repeat; /* Do not repeat the image */
       background-size: cover;
@@ -147,6 +154,9 @@ export const HeroStyle = styled.div`
       height: 50px;
       font-size: 17px;
       cursor: pointer;
+      background: rgb(11, 192, 180);
+      color: white;
+      border: none;
     }
   }
 `

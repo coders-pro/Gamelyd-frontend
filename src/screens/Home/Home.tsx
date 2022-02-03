@@ -32,7 +32,7 @@ const Home = () => {
     <>
       <Navbar message='jh' />
       <HomeStyle>
-        <Hero />
+        <Hero pic1={'/images/soldier7.png'} pic2={'/images/soldier14.png'} background={'/images/soldier7.png'} message='WELCOME ABOARD SOLDIER' time='TIME TO CONNECT'/>
 
         <div className='free'>
           <div className='text'>
@@ -140,8 +140,7 @@ const Home = () => {
           </motion.div>
                     </div>
           </div>
-          <div className='image'></div>
-        </div>
+        </Scroll>
 
         <div className='sponsored'>
           <div className='image'></div>

@@ -7,7 +7,7 @@ import Footer from '../../components/Footer/Footer'
 const Tournament = () => {
   return <div className='games'>
   <Navbar message='jh' />
-  <Hero />
+  <Hero pic1={'/images/soldier12.png'} pic2={'/images/soldier11.png'} background={'/images/soldier12.png'} message='WELCOME TO TOURNAMENT' time=' CREATE TOURNAMENT' />
   <Card />
   <Footer />
   </div>

@@ -45,15 +45,35 @@ class ImageSlider extends React.Component {
     }
   }
 
-  select = (next) => {
+  select = (next, index) => {
     let audio = new Audio(Open)
     audio.play()
+
+    // let items = {}
+
+    // let data = (val) => {
+    //   items[this.state.properties[this.state.active].name] =
+    //     this.state.properties[this.state.active].data[val].value
+    // }
+    // data(index)
+
+    // console.log(items)
+
+    // let options = JSON.parse(localStorage.getItem('all'))
+
+    // if (!options) {
+    //   localStorage.setItem('all', JSON.stringify([items]))
+    // } else {
+    //   options.push(items)
+    //   localStorage.setItem('all', JSON.stringify(options))
+    // }
 
     if (this.state.properties[next].id === 5) {
       this.setState({
         switch: false,
       })
     }
+
     if (this.state.properties[next].id !== 5) {
       this.setState({
         active: next,
@@ -154,7 +174,9 @@ class ImageSlider extends React.Component {
               >
                 {properties[this.state.active].data.map((propertyItem) => (
                   <StyleCard
-                    onClick={() => this.select(propertyItem.next)}
+                    onClick={() =>
+                      this.select(propertyItem.next, propertyItem.index)
+                    }
                     key={propertyItem.index}
                   >
                     <div id={`card-${propertyItem.index}`} className='card'>
