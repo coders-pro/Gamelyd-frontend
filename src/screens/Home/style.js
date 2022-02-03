@@ -262,7 +262,7 @@ export const HomeStyle = styled.div`
     height: 6rem;
     background-color:  rgba(31,40,51,1);
     text-align: left;
-    border-radius: 3%;
+    border-radius: 3%; 
     padding-top: 15px;
     padding-left: 10px;
     box-shadow: rgba(255, 255, 255, 0.652); 1.95px 1.95px 2.6px;
@@ -285,9 +285,8 @@ export const HomeStyle = styled.div`
   
     }
     padding: 0px;
-    margin-left: -10px;
     margin-top: -130px;
-    margin-bottom: 70px;
+    margin-bottom: 90px;
     text-align: left;
 
    
