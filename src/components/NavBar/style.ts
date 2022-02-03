@@ -32,9 +32,10 @@ export const NavStyle = styled.div<Nav>`
       display: flex;
       align-items: center;
       left: 1em;
+      top: 0;
       img {
         left: 2em;
-        width: 50px;
+        width: 100px;
       }
     }
     .nav_items {
@@ -47,8 +48,9 @@ export const NavStyle = styled.div<Nav>`
         button {
           height: 50px;
           width: 200px;
-          background: #232323;
-          border: 1px solid #fff;
+          background: rgb(11, 192, 180);
+          /* border: 1px solid #fff; */
+          border: none;
           color: white;
           cursor: pointer;
         }

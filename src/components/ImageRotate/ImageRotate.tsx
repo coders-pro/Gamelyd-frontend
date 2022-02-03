@@ -15,31 +15,31 @@ const ImageRotate = () => {
     <ImageRotateStyle>
       <div className='slider'>
         <span style={style1}>
-          <img src={`images/soldier1.jpg`} alt='muna' />
+          <img src={`images/soldier6.png`} alt='muna' />
         </span>
         <span style={style2}>
-          <img src={`images/soldier2.jpg`} alt='muna' />
+          <img src={`images/soldier7.png`} alt='muna' />
         </span>
         <span style={style3}>
-          <img src={`images/fortnite.jpg`} alt='muna' />
+          <img src={`images/soldier11.png`} alt='muna' />
         </span>
         <span style={style4}>
-          <img src={`images/nba.jpg`} alt='muna' />
+          <img src={`images/soldier12.png`} alt='muna' />
         </span>
         <span style={style5}>
-          <img src={`images/fifa.jpg`} alt='muna' />
+          <img src={`images/soldier13.png`} alt='muna' />
         </span>
         <span style={style6}>
-          <img src={`images/warzone.jpg`} alt='muna' />
+          <img src={`images/soldier14.png`} alt='muna' />
         </span>
         <span style={style7}>
-          <img src={`images/gta.jpg`} alt='muna' />
+          <img src={`images/soldier15.png`} alt='muna' />
         </span>
         <span style={style8}>
-          <img src={`images/codm.jpg`} alt='muna' />
+          <img src={`images/soldier11.png`} alt='muna' />
         </span>
         <span>
-          <img src={`images/soldier1.jpg`} alt='muna' />
+          <img src={`images/sponsored.jpg`} alt='muna' />
         </span>
       </div>
     </ImageRotateStyle>

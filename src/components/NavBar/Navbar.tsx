@@ -114,7 +114,7 @@ class Navbar extends React.Component<IProps, IState> {
         >
           <div className='logo'>
             <NavLink to='/'>
-              <h2 style={{ color: 'white' }}>Gamelyd</h2>
+              <img src={`images/logo.jpg`} alt='muna' />
             </NavLink>
           </div>
           <div className='nav_items'>
@@ -122,8 +122,8 @@ class Navbar extends React.Component<IProps, IState> {
               Home<span></span>
             </NavLink>
 
-            <NavLink to='/games' className='single_item'>
-              Games<span></span>
+            <NavLink to='/tournament' className='single_item'>
+              Tournament<span></span>
             </NavLink>
 
             <NavLink to='/signup' className='single_item'>
@@ -152,11 +152,11 @@ class Navbar extends React.Component<IProps, IState> {
             </NavLink>
 
             <NavLink
-              to='/games'
+              to='/tournament'
               className='single_item'
               onClick={this.onClickBackdrop}
             >
-              Games
+              Tournament
             </NavLink>
 
             <NavLink

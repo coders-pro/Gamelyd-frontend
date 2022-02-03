@@ -3,10 +3,12 @@ import { Style, StyleCard } from './style'
 import data from './data'
 import SkipNextIcon from '@mui/icons-material/SkipNext'
 import SkipPreviousIcon from '@mui/icons-material/SkipPrevious'
+import UndoIcon from '@mui/icons-material/Undo'
 
 import next from '../../assets/audios/Next.mp3'
 import prev from '../../assets/audios/Prev.mp3'
 import Open from '../../assets/audios/Open.mp3'
+import back from '../../assets/audios/Select.mp3'
 
 class ImageSlider extends React.Component {
   constructor() {
@@ -43,15 +45,35 @@ class ImageSlider extends React.Component {
     }
   }
 
-  select = (next) => {
+  select = (next, index) => {
     let audio = new Audio(Open)
     audio.play()
+
+    // let items = {}
+
+    // let data = (val) => {
+    //   items[this.state.properties[this.state.active].name] =
+    //     this.state.properties[this.state.active].data[val].value
+    // }
+    // data(index)
+
+    // console.log(items)
+
+    // let options = JSON.parse(localStorage.getItem('all'))
+
+    // if (!options) {
+    //   localStorage.setItem('all', JSON.stringify([items]))
+    // } else {
+    //   options.push(items)
+    //   localStorage.setItem('all', JSON.stringify(options))
+    // }
 
     if (this.state.properties[next].id === 5) {
       this.setState({
         switch: false,
       })
     }
+
     if (this.state.properties[next].id !== 5) {
       this.setState({
         active: next,
@@ -59,6 +81,17 @@ class ImageSlider extends React.Component {
         name: this.state.properties[next].name,
       })
     }
+  }
+
+  previous = () => {
+    let audio = new Audio(back)
+    audio.play()
+
+    this.setState({
+      active: this.state.properties[this.state.active].data[0].prev,
+      position: 0,
+      name: this.state.properties[this.state.active - 1].name,
+    })
   }
 
   render() {
@@ -73,8 +106,44 @@ class ImageSlider extends React.Component {
           )}
         </h1>
 
+        {this.state.switch && (
+          <button
+            className='previous'
+            onClick={this.previous}
+            disabled={
+              this.state.properties[this.state.active].data[0].prev === -1
+            }
+          >
+            <UndoIcon
+              className={
+                this.state.properties[this.state.active].data[0].prev === -1
+                  ? 'undo1'
+                  : 'undo'
+              }
+            />
+          </button>
+        )}
+
         {this.state.switch === false ? (
-          <form>jhkjkjk</form>
+          <form className='game-form'>
+            <div className='emp' />
+            <div className='wrapper'>
+              <div className='input-data'>
+                <input type='text' required></input>
+
+                <label>Competition Name</label>
+                <div className='underline'></div>
+              </div>
+
+              <div className='input-data'>
+                <input type='number' required></input>
+
+                <label>No Of Participants</label>
+                <div className='underline'></div>
+              </div>
+            </div>
+            <button>Create</button>
+          </form>
         ) : (
           <>
             <button
@@ -105,7 +174,9 @@ class ImageSlider extends React.Component {
               >
                 {properties[this.state.active].data.map((propertyItem) => (
                   <StyleCard
-                    onClick={() => this.select(propertyItem.next)}
+                    onClick={() =>
+                      this.select(propertyItem.next, propertyItem.index)
+                    }
                     key={propertyItem.index}
                   >
                     <div id={`card-${propertyItem.index}`} className='card'>

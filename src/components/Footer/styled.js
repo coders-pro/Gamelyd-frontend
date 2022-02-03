@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const FooterStyle = styled.div`
   margin: 0;
-  padding: 0;
+  padding: 40px 0;
   color: black;
 
   .flex-container {
@@ -19,7 +19,7 @@ export const FooterStyle = styled.div`
   .flex-container .flexer {
     justify-content: space-between;
 
-    width:  90%;
+    width: 90%;
     padding: 0px;
     margin: 4px;
     text-align: left;

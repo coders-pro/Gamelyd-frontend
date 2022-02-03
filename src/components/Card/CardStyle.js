@@ -6,7 +6,7 @@ export const CardStyle = styled.div`
   display: grid;
   place-items: center;
   color: white;
- 
+
   h1,
   h2,
   h3,
