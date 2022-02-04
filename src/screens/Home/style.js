@@ -24,7 +24,7 @@ export const HomeStyle = styled.div`
     .image {
       width: 50%;
       background: url('images/battleRolyal.jpg');
-      background-position: center; /* Center the image */
+      background-position: top; /* Center the image */
       background-repeat: no-repeat; /* Do not repeat the image */
       background-size: cover;
       height: 400px;
@@ -70,7 +70,7 @@ export const HomeStyle = styled.div`
 
     .image {
       width: 50%;
-      background: url('images/paid.jpeg');
+      background: url('images/fortnight2.png');
       background-position: center; /* Center the image */
       background-repeat: no-repeat; /* Do not repeat the image */
       background-size: cover;
@@ -225,8 +225,8 @@ export const HomeStyle = styled.div`
 
     .image {
       width: 50%;
-      background: url('images/sponsored.jpg');
-      background-position: center; /* Center the image */
+      background: url('images/fifa2.jpg');
+      background-position: top; /* Center the image */
       background-repeat: no-repeat; /* Do not repeat the image */
       background-size: cover;
       height: 400px;

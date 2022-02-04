@@ -89,7 +89,7 @@ const Home = () => {
          <div className='box'>
            
          <div className='p1'> Rank up  </div> <br></br>
-           <div className='p2'> Rank up and claim braging rifht with friendsly </div>
+           <div className='p2'> Rank up and claim braging right with friendly </div>
            
          </div>
          
