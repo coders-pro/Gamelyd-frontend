@@ -1,20 +1,29 @@
-import React from 'react';
 import { CardStyle } from './CardStyle';
 
-const Card = () => {
+type Iprop = {
+    rank: any,
+    gameName: any,
+    image1: any,
+    image2: any,
+    gamer1: any,
+    gamer2: any,
+
+}
+
+const Card = (props : Iprop) => {
   return <CardStyle>
      <div className="game">
-         <div className="rank">3</div>
+         <div className="rank">{props.rank}</div>
         <div className="front">
             <img className='thumbnail' src='/images/nba.jpg' alt='fifa'/>
-            <h3 className="name">Game Name</h3>
+            <h3 className="name">{props.gameName}</h3>
             <div className="stats">
                 <p className="viewers">
                     539.9k
                 </p>
                 <div className="streamers">
-                <img src='/images/fifa.jpg' alt='fifa'/>
-                <img src='/images/fifa.jpg' alt='fifa'/>
+                <img src={props.image1} alt='fifa'/>
+                <img src={props.image2} alt='fifa'/>
                 <img src='/images/fifa.jpg' alt='fifa'/>
                 </div>
             </div>
@@ -29,12 +38,12 @@ const Card = () => {
             <div className="streamers">
                 <div className="streamer">
                     <div className="icon"><img src='/images/fifa.jpg' alt='paid' /></div>
-                    <p className="name"> Gamer1</p>
+                    <p className="name"> {props.gamer1}</p>
                     <p className="number">34.1k</p>
                 </div>
                 <div className="streamer">
                 <div className="icon"><img src='/images/fifa.jpg' alt='paid' /></div>
-                    <p className="name">Gamer2</p>
+                    <p className="name">{props.gamer2}</p>
                     <p className="number">36.1k</p>
                 </div>
                 <div className="streamer">

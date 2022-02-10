@@ -2,9 +2,6 @@ import styled from 'styled-components'
 
 export const CardStyle = styled.div`
   font-family: sans-serif;
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
   color: white;
 
   h1,
@@ -45,11 +42,14 @@ export const CardStyle = styled.div`
     width: 12.5rem;
     cursor: pointer;
     z-index: 0;
+    margin: 0 40px;
 
     .front {
       transition: 250ms;
       .thumbnail {
         /* z-index: -1; */
+        width: 200px;
+        height: 200px;
         border-radius: 0.5rem;
       }
       .streamers img {
