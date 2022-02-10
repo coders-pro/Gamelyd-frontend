@@ -88,7 +88,7 @@ const Signup = () => {
       {loading && <ButtonLoader />}
       {registerLoading && <ButtonLoader />}
       {error && 'error'}
-      {registerLoading && 'error'}
+      {registerError && 'error'}
       <div className='body'>
         <div className='containers'>
           <div className='blueBg'>

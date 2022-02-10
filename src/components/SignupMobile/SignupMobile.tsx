@@ -83,7 +83,7 @@ const SignupMobile = () => {
       {loading && <ButtonLoader />}
       {registerLoading && <ButtonLoader />}
       {error && 'error'}
-      {registerLoading && 'error'}
+      {registerError && 'error'}
       <div className='mobile-body'>
         <div className='blue'>
           <div className='signup'>
