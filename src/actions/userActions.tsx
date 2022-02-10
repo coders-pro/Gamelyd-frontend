@@ -9,7 +9,6 @@ import {
 import { ThunkAction, ThunkDispatch } from 'redux-thunk'
 import { AnyAction } from 'redux'
 import { RootState } from '../store'
-import { createBrowserHistory } from 'history'
 
 import axios from 'axios'
 
@@ -47,14 +46,6 @@ export const login =
       )
 
       let userData = response.data.data
-
-      let history = createBrowserHistory()
-
-      history.push('/')
-
-      // console.log(history)
-
-      // console.log(response.data.hasError)
 
       if (response.data.hasError === false) {
         localStorage.setItem('id', response.data.data.ID)
@@ -122,7 +113,7 @@ export const register =
         config
       )
 
-      //   let userData = response.data.data
+      console.log(response)
 
       if (response.data.hasError) {
         localStorage.setItem('id', response.data.data.ID)
@@ -135,6 +126,8 @@ export const register =
       }
 
       let userData = response.data.data
+
+      console.log(userData)
 
       // pass  data to reducer
 

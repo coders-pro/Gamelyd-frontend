@@ -10,8 +10,6 @@ export const Style = styled.div`
   background: #ffffff08;
 
   .game-form {
-    // margin: 30px;
-    // padding: 400px;
     font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
       'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 
@@ -35,7 +33,7 @@ export const Style = styled.div`
       background: rgba(0, 0, 0, 0.6);
       padding: 10px 30px;
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-      margin: 20px auto;
+      margin: 0px auto;
 
       @media (max-width: 850px) {
         width: 75%;
@@ -43,7 +41,7 @@ export const Style = styled.div`
     }
 
     .wrapper .input-data {
-      height: 40px;
+      height: 30px;
       width: 100%;
       position: relative;
       margin: 20px 0;
@@ -58,14 +56,14 @@ export const Style = styled.div`
       color: white;
     }
     .input-data input:valid ~ label {
-      transform: translateY(-24px);
+      transform: translateY(-20px);
       font-size: 16px;
       font-weight: 500;
       color: rgb(11, 192, 180);
     }
     .wrapper .input-data label {
       position: absolute;
-      bottom: 10px;
+      bottom: 4px;
       left: 0;
       color: rgba(197, 198, 199, 1);
       pointer-events: none;

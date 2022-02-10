@@ -11,7 +11,6 @@ function Scroll({ children }) {
         transition={{ duration: 0.3 }}
         variants={{
           visible: {
-            opacity: 1,
             scale: 1,
             y: 0,
             transition: {
@@ -22,7 +21,7 @@ function Scroll({ children }) {
               //   staggerChildren: 0.1,
             },
           },
-          hidden: { opacity: 0, scale: 1, y: 100 },
+          hidden: { scale: 1, y: 50 },
         }}
       >
         {children}
