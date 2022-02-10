@@ -1,23 +1,23 @@
 import styled from 'styled-components'
 
 export const Carddiv = styled.div`
-/* border: 3px solid green; */
-margin: 40px auto;
+  /* border: 3px solid green; */
+  margin: 40px auto;
 
-.card-h4{
+  .card-h4 {
     text-align: center;
     color: white;
     font-size: 35px;
     margin: 0;
     padding: 0;
-}
-.div1{
+  }
+  .div1 {
     /* border: 3px solid blue; */
     display: flex;
-    justify-content: center; 
-}
+    justify-content: center;
+  }
 
-.div2{
+  .div2 {
     /* border: 3px solid red; */
     display: flex;
     justify-content: flex-start;
@@ -26,8 +26,8 @@ margin: 40px auto;
     overflow-x: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
-}
-.div2::-webkit-scrollbar {
-  display: none;
-}
+  }
+  .div2::-webkit-scrollbar {
+    display: none;
+  }
 `

@@ -7,6 +7,7 @@ type Iprop = {
     image2: any,
     gamer1: any,
     gamer2: any,
+    mainImage: any,
 
 }
 
@@ -15,7 +16,7 @@ const Card = (props : Iprop) => {
      <div className="game">
          <div className="rank">{props.rank}</div>
         <div className="front">
-            <img className='thumbnail' src='/images/nba.jpg' alt='fifa'/>
+            <img className='thumbnail' src={props.mainImage} alt='fifa'/>
             <h3 className="name">{props.gameName}</h3>
             <div className="stats">
                 <p className="viewers">
