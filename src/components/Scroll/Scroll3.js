@@ -1,12 +1,13 @@
-import React from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import React from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 function Scroll2({ children }) {
   return (
     <AnimatePresence>
       <motion.div
-        initial='hidden'
-        whileInView='visible'
+        style={{ width: "100%", marginLeft: "100px" }}
+        initial="hidden"
+        whileInView="visible"
         viewport={{ once: false }}
         transition={{ duration: 0.2 }}
         variants={{
@@ -15,10 +16,9 @@ function Scroll2({ children }) {
             scale: 1,
             x: "-100px",
             transition: {
-              type: 'spring',
+              type: "spring",
               stiffness: 20,
-              damping:  5,
-            
+              damping: 5,
             },
           },
           hidden: { opacity: 0, scale: 1, x: 0 },
@@ -27,7 +27,7 @@ function Scroll2({ children }) {
         {children}
       </motion.div>
     </AnimatePresence>
-  )
+  );
 }
 
-export default Scroll2
+export default Scroll2;
