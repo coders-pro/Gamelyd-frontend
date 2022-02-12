@@ -56,6 +56,7 @@ const Message = () => {
               </Scroll3>
             </div>
           </div>
+
           <div className="right">
             <div className="about">
               <div className="title">GAMELYD</div>

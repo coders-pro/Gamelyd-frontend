@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const FooterStyle = styled.div`
   margin: 0;
   padding: 40px 0;
-  color: black;
+  background: rgba(0, 0, 0, 0.3);
 
   .flex-container {
     @media (min-width: 999px) {
