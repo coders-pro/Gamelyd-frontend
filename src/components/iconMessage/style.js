@@ -6,12 +6,15 @@ export const Style = styled.div`
     display: flex;
     margin: 70px auto;
 
-    @media (max-width: 850px) {
+    @media (max-width: 1300px) {
       flex-direction: column;
     }
 
     .text {
       width: 50%;
+      @media (max-width: 1300px) {
+        width: 100%; 
+         }
 
       h2 {
         text-align: center;
@@ -35,7 +38,8 @@ export const Style = styled.div`
         background-color: red;
         width: 100%;
         padding: 20px;
-        margin-left: -70px;
+        margin: auto;
+        
     }
   }
   
