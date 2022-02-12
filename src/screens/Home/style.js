@@ -4,6 +4,15 @@ export const HomeStyle = styled.div`
   color: white;
   margin: 0px auto 0 auto;
 
+  .title {
+    font-size: 50px;
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+    font-style: italic;
+    color: #b8bcbf;
+    text-align: center;
+  }
+
   .imagerotate {
     width: 100%;
     margin: 80px 0;

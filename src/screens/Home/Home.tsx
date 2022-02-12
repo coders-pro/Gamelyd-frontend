@@ -35,12 +35,14 @@ const Home = () => {
           time="TIME TO CONNECT"
         />
         <IconMesage />
+        <p style={{ display: "none" }}>{shouldShowAction}</p>
         <div style={{ height: "20px" }}></div>
         <Mode />
         <div style={{ height: "20px" }}></div>
         <Tab />
 
         <div className="imagerotate">
+          <div className="title">Sponsors</div>
           <ImageRotate />
         </div>
       </HomeStyle>
