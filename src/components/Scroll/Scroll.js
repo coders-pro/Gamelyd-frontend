@@ -1,12 +1,12 @@
-import React from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import React from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 function Scroll({ children }) {
   return (
     <AnimatePresence>
       <motion.div
-        initial='hidden'
-        whileInView='visible'
+        initial="hidden"
+        whileInView="visible"
         viewport={{ once: false }}
         transition={{ duration: 0.3 }}
         variants={{
@@ -15,9 +15,9 @@ function Scroll({ children }) {
             scale: 1,
             y: 0,
             transition: {
-              delay: 0.3,
-              duration: 0.5,
-              ease: 'easeInOut',
+              delay: 0.2,
+              duration: 0.2,
+              ease: "easeInOut",
               //   delayChildren: 0.2,
               //   staggerChildren: 0.1,
             },
@@ -28,7 +28,7 @@ function Scroll({ children }) {
         {children}
       </motion.div>
     </AnimatePresence>
-  )
+  );
 }
 
-export default Scroll
+export default Scroll;
