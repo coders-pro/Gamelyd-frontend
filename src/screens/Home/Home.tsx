@@ -1,3 +1,4 @@
+import React from "react";
 import { HomeStyle } from "./style.js";
 import ImageRotate from "../../components/ImageRotate/ImageRotate";
 import Hero from "../../components/Hero/Hero";
@@ -8,6 +9,20 @@ import Tab from "../../components/HomeTab/homeTab";
 import Mode from "../../components/HomeMode/mode";
 
 const Home = () => {
+  const [shouldShowAction, setshouldShowAction] = React.useState(false);
+  const [lastYPos, setlastYPos] = React.useState(0);
+  React.useEffect(() => {
+    function handleScroll() {
+      const yPos = window.scrollY;
+      const isScrollingUp = yPos < lastYPos;
+      setshouldShowAction(isScrollingUp);
+      setlastYPos(yPos);
+    }
+    window.addEventListener("scroll", handleScroll, false);
+    return () => {
+      window.addEventListener("scroll", handleScroll, false);
+    };
+  }, [lastYPos]);
   return (
     <>
       <Navbar message="jh" />
