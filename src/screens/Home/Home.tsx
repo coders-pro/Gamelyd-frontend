@@ -1,96 +1,52 @@
-import { HomeStyle } from './style.js'
-import ImageRotate from '../../components/ImageRotate/ImageRotate'
-import Hero from '../../components/Hero/Hero'
-import Navbar from '../../components/NavBar/Navbar'
-import Footer from '../../components/Footer/Footer'
-import Scroll from '../../components/Scroll/Scroll.js'
+import React from "react";
+import { HomeStyle } from "./style.js";
+import ImageRotate from "../../components/ImageRotate/ImageRotate";
+import Hero from "../../components/Hero/Hero";
+import Navbar from "../../components/NavBar/Navbar";
+import Footer from "../../components/Footer/Footer";
+import IconMesage from "../../components/iconMessage/iconMessage";
+import Tab from "../../components/HomeTab/homeTab";
+import Mode from "../../components/HomeMode/mode";
 
 const Home = () => {
+  const [shouldShowAction, setshouldShowAction] = React.useState(false);
+  const [lastYPos, setlastYPos] = React.useState(0);
+  React.useEffect(() => {
+    function handleScroll() {
+      const yPos = window.scrollY;
+      const isScrollingUp = yPos < lastYPos;
+      setshouldShowAction(isScrollingUp);
+      setlastYPos(yPos);
+    }
+    window.addEventListener("scroll", handleScroll, false);
+    return () => {
+      window.addEventListener("scroll", handleScroll, false);
+    };
+  }, [lastYPos]);
   return (
     <>
-      <Navbar message='jh' />
+      <Navbar message="jh" />
       <HomeStyle>
         <Hero
-          pic1={'/images/soldier7.png'}
-          pic2={'/images/soldier14.png'}
-          background={'/images/soldier7.png'}
-          message='WELCOME ABOARD SOLDIER'
-          time='TIME TO CONNECT'
+          pic1={"/images/soldier7.png"}
+          pic2={"/images/soldier14.png"}
+          background={"/images/soldier7.png"}
+          message="WELCOME ABOARD SOLDIER"
+          time="TIME TO CONNECT"
         />
+        <IconMesage />
+        <div style={{ height: "20px" }}></div>
+        <Mode />
+        <div style={{ height: "20px" }}></div>
+        <Tab />
 
-        <Scroll>
-          <div className='free'>
-            <div className='text'>
-              <h2>Free</h2>
-              <p>
-                Multiplayer games that allows u to play with others and fly
-                around like a baddie and then woo all the chicks in town and
-                later terminate their ass with your weapon of mass destruction.
-              </p>
-            </div>
-            <div className='image'></div>
-          </div>
-        </Scroll>
-
-        <Scroll>
-          <div className='sponsored'>
-            <div className='image'></div>
-            <div className='text'>
-              <h2>Sponsored</h2>
-              <p>
-                Multiplayer games that allows u to play with others and fly
-                around like a baddie and then woo all the chicks in town and
-                later terminate their ass with your weapon of mass destruction.
-              </p>
-            </div>
-          </div>
-        </Scroll>
-
-        <Scroll>
-          <div className='paid'>
-            <div className='text'>
-              <h2>Paid</h2>
-              <p>
-                Multiplayer games that allows u to play with others and fly
-                around like a baddie and then woo all the chicks in town and
-                later terminate their ass with your weapon of mass destruction.
-              </p>
-            </div>
-            <div className='image'></div>
-          </div>
-        </Scroll>
-
-        <Scroll>
-          <div className='multiplayer'>
-            <div className='image'></div>
-            <div className='text'>
-              <h2>Multiplayer</h2>
-              <p>COMING SOON</p>
-            </div>
-          </div>
-        </Scroll>
-
-        <Scroll>
-          <div className='battle'>
-            <div className='text'>
-              <h2>Battle Royale</h2>
-              <p>
-                Multiplayer games that allows u to play with others and fly
-                around like a baddie and then woo all the chicks in town and
-                later terminate their ass with your weapon of mass destruction.
-              </p>
-            </div>
-            <div className='image'></div>
-          </div>
-        </Scroll>
-
-        <div className='imagerotate'>
+        <div className="imagerotate">
           <ImageRotate />
         </div>
       </HomeStyle>
       <Footer />
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

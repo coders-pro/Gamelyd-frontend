@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const ImageRotateStyle = styled.div`
   margin: 0;
@@ -58,4 +58,4 @@ export const ImageRotateStyle = styled.div`
       }
     }
   }
-`
+`;

@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const HomeStyle = styled.div`
   color: white;
@@ -23,8 +23,8 @@ export const HomeStyle = styled.div`
 
     .image {
       width: 50%;
-      background: url('images/battleRolyal.jpg');
-      background-position: center; /* Center the image */
+      background: url("images/battleRolyal.jpg");
+      background-position: top; /* Center the image */
       background-repeat: no-repeat; /* Do not repeat the image */
       background-size: cover;
       height: 400px;
@@ -70,54 +70,7 @@ export const HomeStyle = styled.div`
 
     .image {
       width: 50%;
-      background: url('images/paid.jpeg');
-      background-position: center; /* Center the image */
-      background-repeat: no-repeat; /* Do not repeat the image */
-      background-size: cover;
-      height: 400px;
-      @media (max-width: 850px) {
-        margin: 20px 0;
-      }
-      @media (max-width: 850px) {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-      }
-    }
-
-    .text {
-      width: 50%;
-
-      h2 {
-        text-align: center;
-      }
-
-      p {
-        width: 90%;
-        margin: auto;
-
-        @media (max-width: 850px) {
-          width: 100%;
-        }
-      }
-      @media (max-width: 850px) {
-        width: 100%;
-      }
-    }
-  }
-
-  .free {
-    width: 90%;
-    display: flex;
-    margin: 70px auto;
-
-    @media (max-width: 850px) {
-      flex-direction: column;
-    }
-
-    .image {
-      width: 50%;
-      background: url('images/free.jpg');
+      background: url("images/fortnight2.png");
       background-position: center; /* Center the image */
       background-repeat: no-repeat; /* Do not repeat the image */
       background-size: cover;
@@ -182,7 +135,7 @@ export const HomeStyle = styled.div`
 
     .image {
       width: 50%;
-      background: url('images/multiplayer.jpg');
+      background: url("images/multiplayer.jpg");
       background-position: center; /* Center the image */
       background-repeat: no-repeat; /* Do not repeat the image */
       background-size: cover;
@@ -225,8 +178,8 @@ export const HomeStyle = styled.div`
 
     .image {
       width: 50%;
-      background: url('images/sponsored.jpg');
-      background-position: center; /* Center the image */
+      background: url("images/fifa2.jpg");
+      background-position: top; /* Center the image */
       background-repeat: no-repeat; /* Do not repeat the image */
       background-size: cover;
       height: 400px;
@@ -238,4 +191,7 @@ export const HomeStyle = styled.div`
       }
     }
   }
-`
+  margin: 0;
+  padding: 40px 0;
+  color: white;
+`;
