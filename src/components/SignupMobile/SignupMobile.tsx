@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate, useLocation } from 'react-router-dom'
 
@@ -8,7 +7,6 @@ import { RootState } from '../../store.js'
 import { Userstate } from '../../reducers/userReducer.js'
 import { SignUpStyle } from './style.js'
 import ButtonLoader from '../ButtonLoader/ButtonLoader'
-import { Button } from '@mui/material'
 
 const SignupMobile = () => {
   const [flip, setFlip] = useState(false)
