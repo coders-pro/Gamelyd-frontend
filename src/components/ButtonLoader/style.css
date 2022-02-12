@@ -1,9 +1,10 @@
-.bodys {
+.bodyses {
   margin: 0;
   padding: 0;
-  background: blue;
+  height: 100vh;
+  width: 100vw;
 }
-.rings {
+.ringses {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -23,7 +24,7 @@
   text-shadow: 0 0 10px #fff000;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
-.rings:before {
+.ringses:before {
   content: '';
   position: absolute;
   top: -3px;
@@ -36,7 +37,7 @@
   border-radius: 50%;
   animation: animateC 2s linear infinite;
 }
-.rings span {
+.ringses span {
   display: block;
   position: absolute;
   top: calc(50% - 2px);
@@ -47,7 +48,7 @@
   transform-origin: left;
   animation: animate 2s linear infinite;
 }
-.rings span:before {
+.ringses span:before {
   content: '';
   position: absolute;
   width: 16px;

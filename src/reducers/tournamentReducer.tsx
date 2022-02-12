@@ -1,29 +1,41 @@
-import { SAVE_ITEM } from '../constants/tournamentConstants'
+import {
+  CREATE_TOURNAMENT_FAIL,
+  CREATE_TOURNAMENT_REQUEST,
+  CREATE_TOURNAMENT_SUCCESS,
+} from '../constants/tournamentConstants'
 
-interface data {
-  Game?: string
-  Type?: string
-  Mode?: string
-  Shuffle?: string
-  Size?: string
+export interface Userstate {
+  loading?: boolean
+  error?: string
 }
 
-const initialState: data = {}
+const initialState: Userstate = {}
 
 interface Action {
   type: string
-  payload?: { name: string; value: string }
+  payload?: string
 }
 
 export const userLoginReducer = (
-  state: data = initialState,
+  state: Userstate = initialState,
   action: Action
 ) => {
   switch (action.type) {
-    case SAVE_ITEM:
+    case CREATE_TOURNAMENT_REQUEST:
       return {
         loading: true,
       }
+    case CREATE_TOURNAMENT_SUCCESS:
+      return {
+        loading: false,
+        userInfo: action.payload,
+      }
+    case CREATE_TOURNAMENT_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      }
+
     default:
       return state
   }
