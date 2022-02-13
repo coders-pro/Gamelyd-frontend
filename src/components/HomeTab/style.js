@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Style = styled.div`
   .free {
@@ -31,7 +31,7 @@ export const Style = styled.div`
     }
     .top {
         display: flex;
-        flex-direction: row
+        flex-direction: row;
         width: 100%;
         padding: 20px;
         margin-right: -70px;
@@ -48,7 +48,7 @@ export const Style = styled.div`
     padding-top: 15px;
     padding-bottom: 25px;
     padding-left: 10px;
-    box-shadow: rgba(255, 255, 255, 0.652); 1.95px 1.95px 2.6px;
+    box-shadow: rgba(255, 255, 255, 0.652) 1.95px 1.95px 2.6px;
     margin: 0 10px;
   }
  .p1{
@@ -64,7 +64,7 @@ export const Style = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-direction: column
+      flex-direction: column;
   }
   }
   .about {
@@ -92,4 +92,4 @@ export const Style = styled.div`
         color: #0DA099;
         font-weight: 600;
       }
-`;
+`

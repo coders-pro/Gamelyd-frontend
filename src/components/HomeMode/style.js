@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Style = styled.div`
 
@@ -132,7 +132,7 @@ width: 100%;    }
     }
     .top {
         display: flex;
-        flex-direction: row
+        flex-direction: row;
         width: 100%;
         padding: 20px;
         margin-right: -70px;
@@ -149,7 +149,7 @@ width: 100%;    }
     padding-top: 15px;
     padding-bottom: 25px;
     padding-left: 10px;
-    box-shadow: rgba(255, 255, 255, 0.652); 1.95px 1.95px 2.6px;
+    box-shadow: rgba(255, 255, 255, 0.652) 1.95px 1.95px 2.6px;
     margin: 0 10px;
   }
  .p1{
@@ -264,7 +264,7 @@ width: 100%;    }
         }
       }
     }
-`;
+`
 
 export const ImageRotateStyle = styled.div`
   margin: 0;
@@ -329,4 +329,4 @@ export const ImageRotateStyle = styled.div`
       border: 2px solid white;
     }
   }
-`;
+`
