@@ -1,9 +1,9 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const FooterStyle = styled.div`
   margin: 0;
   padding: 40px 0;
-  color: black;
+  background: rgba(0, 0, 0, 0.3);
 
   .flex-container {
     @media (min-width: 999px) {
@@ -28,43 +28,43 @@ export const FooterStyle = styled.div`
 
   .about {
     margin: 13px;
-    color: gray;
+    color: #b8bcbf;
   }
   .about p {
-    font-size: 17px;
-    color: gray;
+    font-size: 15px;
+    color: #b8bcbf;
   }
 
   h3 {
     font-size: 27px;
-    color: gray;
+    color: #b8bcbf;
   }
 
   h4 {
     font-size: 21px;
-    color: gray;
+    color: #b8bcbf;
   }
 
   .kilimanjaro_widget a:hover {
-    color: red;
+    color: #0da099;
   }
   p {
     font-size: 12px;
-    color: gray;
+    color: #b8bcbf;
   }
 
   .kilimanjaro_widget a {
     border: 1px solid #333;
     border-radius: 6px;
     text-decoration: none;
-    color: gray;
+    color: #b8bcbf;
     display: inline-block;
     font-size: 13px;
     margin: 3px;
     padding: 7px 12px;
   }
   .kilimanjaro_links a:hover {
-    color: red;
+    color: #0da099;
   }
   .conta {
     line-height: 10px;
@@ -81,7 +81,7 @@ export const FooterStyle = styled.div`
     padding-bottom: 10px;
   }
   .kilimanjaro_social_links a:hover {
-    color: red;
+    color: #0da099;
   }
   .kilimanjaro_social_links {
     margin: 0px;
@@ -281,4 +281,4 @@ export const FooterStyle = styled.div`
     margin-bottom: 0px;
     padding-top: 40px;
   }
-`
+`;

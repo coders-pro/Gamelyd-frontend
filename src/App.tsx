@@ -3,6 +3,7 @@ import './App.css'
 import Tournament from './screens/Tournament/Tournament'
 import Home from './screens/Home/Home'
 import SignUp from './screens/SignUp/SignUp'
+// import './assets/css/fonts.css';
 
 function App() {
   return (

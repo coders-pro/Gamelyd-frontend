@@ -7,7 +7,7 @@ export const HeroStyle = styled.div`
   opacity: 0.8;
   background-image: radial-gradient(
     rgb(11, 192, 180) 0.9500000000000001px,
-    #232323 0.9500000000000001px
+    #15202b 0.9500000000000001px
   );
   background-size: 19px 19px;
 

@@ -21,6 +21,15 @@ class ImageSlider extends React.Component {
       active: 0,
       name: 'Game',
       switch: true,
+      date: '',
+      link: '',
+      participants: '',
+      competition: '',
+      game: '',
+      mode: '',
+      shuffle: '',
+      type: '',
+      size: '',
     }
   }
 
@@ -45,7 +54,29 @@ class ImageSlider extends React.Component {
     }
   }
 
-  select = (next) => {
+  select = (next, index) => {
+    let items = {}
+
+    if (
+      !localStorage.getItem('all') ||
+      localStorage.getItem('all') === undefined ||
+      localStorage.getItem('all') === null
+    ) {
+      items[this.state.properties[this.state.active].name] =
+        this.state.properties[this.state.active].data[index].value
+
+      localStorage.setItem('all', JSON.stringify(items))
+    } else {
+      items = JSON.parse(localStorage.getItem('all'))
+
+      items[this.state.properties[this.state.active].name] =
+        this.state.properties[this.state.active].data[index].value
+
+      localStorage.setItem('all', JSON.stringify(items))
+    }
+
+    console.log(items)
+
     let audio = new Audio(Open)
     audio.play()
 
@@ -54,6 +85,7 @@ class ImageSlider extends React.Component {
         switch: false,
       })
     }
+
     if (this.state.properties[next].id !== 5) {
       this.setState({
         active: next,
@@ -61,6 +93,34 @@ class ImageSlider extends React.Component {
         name: this.state.properties[next].name,
       })
     }
+  }
+
+  handleChange = (e) => {
+    this.setState({
+      date: e.target.value,
+    })
+  }
+
+  handleCom = (e) => {
+    this.setState({
+      competition: e.target.value,
+    })
+  }
+
+  handlePar = (e) => {
+    this.setState({
+      participants: e.target.value,
+    })
+  }
+
+  handleLink = (e) => {
+    this.setState({
+      link: e.target.value,
+    })
+  }
+
+  handleSubmit = () => {
+    console.log(this.state.competition)
   }
 
   previous = () => {
@@ -109,20 +169,56 @@ class ImageSlider extends React.Component {
             <div className='emp' />
             <div className='wrapper'>
               <div className='input-data'>
-                <input type='text' required></input>
+                <input
+                  type='text'
+                  required
+                  onChange={this.handleCom}
+                  value={this.state.competition}
+                ></input>
 
                 <label>Competition Name</label>
                 <div className='underline'></div>
               </div>
 
               <div className='input-data'>
-                <input type='number' required></input>
+                <input
+                  type='number'
+                  required
+                  onChange={this.handlePar}
+                  value={this.state.participants}
+                ></input>
 
                 <label>No Of Participants</label>
                 <div className='underline'></div>
               </div>
+
+              <div className='input-data'>
+                <input
+                  type='text'
+                  required
+                  onChange={this.handleLink}
+                  value={this.state.link}
+                ></input>
+
+                <label>Link</label>
+                <div className='underline'></div>
+              </div>
+
+              <div className='input-data'>
+                <input
+                  type='text'
+                  required
+                  onChange={this.handleChange}
+                  value={this.state.date}
+                ></input>
+
+                <label>Date</label>
+                <div className='underline'></div>
+              </div>
             </div>
-            <button>Create</button>
+            <button onClick={this.handleSubmit} type='button'>
+              Create
+            </button>
           </form>
         ) : (
           <>
@@ -154,7 +250,9 @@ class ImageSlider extends React.Component {
               >
                 {properties[this.state.active].data.map((propertyItem) => (
                   <StyleCard
-                    onClick={() => this.select(propertyItem.next)}
+                    onClick={() =>
+                      this.select(propertyItem.next, propertyItem.index)
+                    }
                     key={propertyItem.index}
                   >
                     <div id={`card-${propertyItem.index}`} className='card'>
