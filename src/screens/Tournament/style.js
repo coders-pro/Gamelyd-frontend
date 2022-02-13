@@ -5,12 +5,15 @@ export const Carddiv = styled.div`
   margin: 40px auto;
   position: relative;
 
-  .card-h4 {
+  .title {
     text-align: center;
-    color: white;
-    font-size: 35px;
     margin: 0;
     padding: 0;
+    font-size: 50px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-style: italic;
+    color: #b8bcbf;
   }
   .MdChevronLeft {
     background: white;

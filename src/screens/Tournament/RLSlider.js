@@ -17,7 +17,7 @@ const RLSlider = (props) => {
   return (
     <Carddiv>
       <MdChevronLeft size={40} className='MdChevronLeft' onClick={leftSlide} />
-      <h4 className='card-h4'>{props.header}</h4>
+      <div className='title'>{props.header}</div>
       <div className='div1'>
         <div className='div2' id={id}>
           {props.data.map((car) => (
