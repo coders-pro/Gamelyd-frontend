@@ -36,7 +36,7 @@ const ImageRotate = () => {
           <img src={`images/logos/activition.png`} alt="muna" />
         </span>
         <span style={style8}>
-          <img src={`images/logos/ubisoft.jpg`} alt="muna" />
+          <img src={`images/logos/ubisoft.png`} alt="muna" />
         </span>
         <span>
           <img src={`images/logos/epic.png`} alt="muna" />

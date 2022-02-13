@@ -5,6 +5,39 @@ import Scroll from "../../components/Scroll/Scroll.js";
 const Mode = () => {
   return (
     <Style>
+      <div className="both">
+        <div
+          className="ims"
+          style={{
+            height: "200px",
+            width: "200px",
+            position: "absolute",
+            borderRadius: "100%",
+          }}
+        >
+          <img
+            src={`images/pad.png`}
+            alt="muna"
+            style={{
+              height: "200px",
+              width: "200px",
+              position: "absolute",
+              borderRadius: "100%",
+              filter: " blur(4px)",
+              right: "0px",
+            }}
+          />
+        </div>
+
+        <ImageRotateStyle>
+          <div className="slider">
+            <span className="abs">
+              <img src={`images/pad.png`} alt="muna" />
+            </span>
+          </div>
+        </ImageRotateStyle>
+      </div>
+
       <Scroll>
         <div className="free">
           <div className="right">
@@ -26,51 +59,45 @@ const Mode = () => {
               </div>
             </div>
           </div>
-          <div className="text">
-            <div className="top">
-              <Scroll>
-                <div className="both">
-                  <div
-                    className="ims"
-                    style={{
-                      height: "200px",
-                      width: "200px",
-                      position: "absolute",
-                      borderRadius: "100%",
-                    }}
-                  >
-                    <img
-                      src={`images/pad.png`}
-                      alt="muna"
-                      style={{
-                        height: "200px",
-                        width: "200px",
-                        position: "absolute",
-                        borderRadius: "100%",
-                        filter: " blur(4px)",
-                      }}
-                    />
-                  </div>
-
-                  <ImageRotateStyle>
-                    <div className="slider">
-                      <span className="abs">
-                        <img src={`images/pad.png`} alt="muna" />
-                      </span>
-                    </div>
-                  </ImageRotateStyle>
+          <Scroll>
+            <div className="homecard">
+              <div className="homecard-top">
+                <img src="/images/ronaldo.png" alt="soldier" />
+                <div className="vs" style={{ marginLeft: "-30px" }}>
+                  VS
                 </div>
-              </Scroll>
+                <img
+                  src="/images/messi.png"
+                  style={{ height: "200px", marginLeft: "-20px" }}
+                  alt="soldier"
+                />
+              </div>
+              <div className="homecard-bottom">
+                <div className="bottom-first">
+                  <div>
+                    <h3>Muna</h3>
+                    <p>muna</p>
+                  </div>
+                  <h3>#</h3>
+                </div>
+                <div className="bottom-second">
+                  <p>Level 1: minister</p>
+                  <p>lorem ipsum goalie minister</p>
+                  <div></div>
+                </div>
+              </div>
             </div>
-          </div>
+          </Scroll>
         </div>
       </Scroll>
+
+      <div style={{ height: "70px" }} />
 
       <Scroll>
         <div className="free">
           <div className="right">
             <div className="about">
-              <div className="title">Battle Royal</div>
+              <div className="title">Battle Royale</div>
               <div className="message">
                 <div className="head">Create Tournament</div>
                 <p>
@@ -87,45 +114,63 @@ const Mode = () => {
               </div>
             </div>
           </div>
-          <div className="text">
-            <div className="top">
-              <Scroll>
-                <div className="both">
-                  <div
-                    className="ims"
-                    style={{
-                      height: "200px",
-                      width: "200px",
-                      position: "absolute",
-                      borderRadius: "100%",
-                    }}
-                  >
-                    <img
-                      src={`images/pad.png`}
-                      alt="muna"
-                      style={{
-                        height: "200px",
-                        width: "200px",
-                        position: "absolute",
-                        borderRadius: "100%",
-                        filter: " blur(4px)",
-                      }}
-                    />
-                  </div>
 
-                  <ImageRotateStyle>
-                    <div className="slider">
-                      <span className="abs">
-                        <img src={`images/pad.png`} alt="muna" />
-                      </span>
-                    </div>
-                  </ImageRotateStyle>
+          <Scroll>
+            <div className="homecard">
+              <div className="homecard-top">
+                <img src="/images/soldier6.png" alt="soldier" />
+              </div>
+              <div className="homecard-bottom">
+                <div className="bottom-first">
+                  <div>
+                    <h3>Muna</h3>
+                    <p>muna</p>
+                  </div>
+                  <h3>#</h3>
                 </div>
-              </Scroll>
+                <div className="bottom-second">
+                  <p>Level 1: minister</p>
+                  <p>lorem ipsum goalie minister</p>
+                  <div></div>
+                </div>
+              </div>
             </div>
-          </div>
+          </Scroll>
         </div>
       </Scroll>
+
+      <div className="both">
+        <div
+          className="ims"
+          style={{
+            height: "200px",
+            width: "200px",
+            position: "absolute",
+            borderRadius: "100%",
+          }}
+        >
+          <img
+            src={`images/pad.png`}
+            alt="muna"
+            style={{
+              height: "200px",
+              width: "200px",
+              position: "absolute",
+              borderRadius: "100%",
+              filter: " blur(4px)",
+              right: "0px",
+            }}
+          />
+        </div>
+
+        <ImageRotateStyle>
+          <div className="slider">
+            <span className="abs">
+              <img src={`images/pad.png`} alt="muna" />
+            </span>
+          </div>
+        </ImageRotateStyle>
+      </div>
     </Style>
   );
 };

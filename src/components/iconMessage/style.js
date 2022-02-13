@@ -6,12 +6,15 @@ export const Style = styled.div`
     display: flex;
     margin: 70px auto;
 
-    @media (max-width: 850px) {
+    @media (max-width: 1300px) {
       flex-direction: column;
     }
 
     .text {
       width: 50%;
+      @media (max-width: 1300px) {
+        width: 100%; 
+         }
 
       h2 {
         text-align: center;
@@ -35,7 +38,20 @@ export const Style = styled.div`
         background-color: red;
         width: 100%;
         padding: 20px;
-        margin-left: -70px;
+        margin: auto;
+        @media (max-width: 850px) {
+          margin-left: -20px;
+      }
+      @media (max-width: 550px) {
+          margin-left: -40px;
+      }
+      @media (max-width: 450px) {
+          margin-left: -80px;
+      }
+      @media (max-width: 370px) {
+          margin-left: -110px;
+      }
+        
     }
   }
   
@@ -51,12 +67,22 @@ export const Style = styled.div`
     padding-left: 10px;
     box-shadow: rgba(255, 255, 255, 0.652); 1.95px 1.95px 2.6px;
     margin: 0 10px;
+    @media (max-width: 850px) {
+          width: 120px;
+          height: 35px;
+      }
   }
  .p1{
      font-size: 22px;
+     @media (max-width: 850px) {
+          font-size: 16px;
+      }
   }
  .p2{
      font-size: 16px;
+     @media (max-width: 850px) {
+          font-size: 13px;
+      }
   }
     
 
