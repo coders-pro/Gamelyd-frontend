@@ -63,10 +63,12 @@ const Mode = () => {
             <div className="homecard">
               <div className="homecard-top">
                 <img src="/images/ronaldo.png" alt="soldier" />
-                <div className="vs">VS</div>
+                <div className="vs" style={{ marginLeft: "-30px" }}>
+                  VS
+                </div>
                 <img
                   src="/images/messi.png"
-                  style={{ height: "200px" }}
+                  style={{ height: "200px", marginLeft: "-20px" }}
                   alt="soldier"
                 />
               </div>

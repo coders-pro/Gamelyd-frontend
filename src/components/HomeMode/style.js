@@ -49,6 +49,7 @@ export const Style = styled.div`
         font-weight: 700;
         font-style: italic;
         color: #B8BCBF;
+        margin-left: "-70px",
       }
 
       .homecard-bottom {
