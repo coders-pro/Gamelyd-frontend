@@ -51,6 +51,7 @@ export const CardStyle = styled.div`
         width: 200px;
         height: 200px;
         border-radius: 0.5rem;
+        object-fit: cover;
       }
       .streamers img {
         border: 2px solid #15202b;

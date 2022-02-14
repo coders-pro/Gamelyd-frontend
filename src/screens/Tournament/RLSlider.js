@@ -15,31 +15,42 @@ const RLSlider = (props) => {
     slider.scrollLeft = slider.scrollLeft - 300
   }
   return (
-    <Carddiv>
-      <MdChevronLeft size={40} className='MdChevronLeft' onClick={leftSlide} />
-      <div className='title'>{props.header}</div>
-      <div className='div1'>
-        <div className='div2' id={id}>
-          {props.data.map((car) => (
-            <Card
-              key={car.index}
-              rank={car.rank}
-              gameName={car.gameName}
-              image1={car.image1}
-              image2={car.image2}
-              gamer1={car.gamer1}
-              gamer2={car.gamer2}
-              mainImage={car.mainImage}
-            />
-          ))}
+    <div>
+      <Carddiv>
+        <MdChevronLeft
+          size={40}
+          className='MdChevronLeft'
+          onClick={leftSlide}
+        />
+        <div className='title'>{props.header}</div>
+        <div className='div1'>
+          <div className='div2' id={id}>
+            {props.data.map((car) => (
+              <Card
+                key={car.index}
+                rank={car.rank}
+                gameName={car.gameName}
+                image1={car.image1}
+                image2={car.image2}
+                gamer1={car.gamer1}
+                gamer2={car.gamer2}
+                mainImage={car.mainImage}
+              />
+            ))}
+          </div>
         </div>
-      </div>
-      <MdChevronRight
-        size={40}
-        className='MdChevronRight'
-        onClick={rightSlide}
-      />
-    </Carddiv>
+        <MdChevronRight
+          size={40}
+          className='MdChevronRight'
+          onClick={rightSlide}
+        />
+        <div className='container'>
+          <a href='hh'>
+            <span className='button'>See more</span>
+          </a>
+        </div>
+      </Carddiv>
+    </div>
   )
 }
 
