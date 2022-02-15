@@ -74,7 +74,7 @@ export const Carddiv = styled.div`
     display: flex;
     justify-content: flex-end;
 
-    a {
+    .a {
       position: relative;
       width: 160px;
       height: 60px;
@@ -82,22 +82,22 @@ export const Carddiv = styled.div`
       background: white;
       margin: 20px;
     }
-    a::before,
-    a::after {
+    .a::before,
+    .a::after {
       content: '';
       position: absolute;
       inset: 0;
       background: red;
       transition: 0.5s;
     }
-    a:nth-child(1):before,
-    a:nth-child(1):after {
+    .a:nth-child(1):before,
+    .a:nth-child(1):after {
       background: linear-gradient(45deg, #00ccff, #0e1538, #d400d4);
     }
-    a:hover::before {
+    .a:hover::before {
       inset: -3px;
     }
-    a:hover::after {
+    .a:hover::after {
       inset: -3px;
       filter: blur(10px);
     }

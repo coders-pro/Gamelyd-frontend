@@ -3,6 +3,7 @@ import { Carddiv } from './style'
 import Card from '../../components/Card/Card'
 import { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
+import { Link } from 'react-router-dom'
 
 const RLSlider = (props) => {
   const [id] = useState(uuidv4())
@@ -45,9 +46,9 @@ const RLSlider = (props) => {
           onClick={rightSlide}
         />
         <div className='container'>
-          <a href='hh'>
+          <Link to='/showmore' className='a'>
             <span className='button'>See more</span>
-          </a>
+          </Link>
         </div>
       </Carddiv>
     </div>
