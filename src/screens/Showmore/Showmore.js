@@ -1,10 +1,13 @@
 import { Div } from './Style'
 import Filter from './Filter'
+import { motion } from 'framer-motion'
 
 const Showmore = () => {
   return (
     <Div>
-      <Filter />
+      <motion.div layout>
+        <Filter />
+      </motion.div>
     </Div>
   )
 }

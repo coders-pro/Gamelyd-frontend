@@ -1,6 +1,7 @@
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Div } from './Style'
 import Data from './Data'
-import { useState } from 'react'
 import More from './More'
 
 const Filter = () => {
@@ -29,25 +30,31 @@ const Filter = () => {
         </button>
 
         {tab === 'all' && (
-          <div className='popular'>
-            {Data.map((more) => (
-              <More more={more} key={more.id} />
-            ))}
-          </div>
+          <motion.div layout className='popular'>
+            <AnimatePresence>
+              {Data.map((more) => (
+                <More more={more} key={more.id} />
+              ))}
+            </AnimatePresence>
+          </motion.div>
         )}
         {tab === 'action' && (
-          <div className='popular'>
-            {Data.filter((action) => action.genre === 'action').map((aa) => (
-              <More more={aa} key={aa.id} />
-            ))}
-          </div>
+          <motion.div layout className='popular'>
+            <AnimatePresence>
+              {Data.filter((action) => action.genre === 'action').map((aa) => (
+                <More more={aa} key={aa.id} />
+              ))}
+            </AnimatePresence>
+          </motion.div>
         )}
         {tab === 'sports' && (
-          <div className='popular'>
-            {Data.filter((some) => some.genre === 'sports').map((aa) => (
-              <More more={aa} key={aa.id} />
-            ))}
-          </div>
+          <motion.div layout className='popular'>
+            <AnimatePresence>
+              {Data.filter((some) => some.genre === 'sports').map((aa) => (
+                <More more={aa} key={aa.id} />
+              ))}
+            </AnimatePresence>
+          </motion.div>
         )}
       </div>
     </Div>

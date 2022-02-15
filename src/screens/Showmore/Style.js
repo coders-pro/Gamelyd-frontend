@@ -4,7 +4,7 @@ export const Div = styled.div`
   margin: 5%;
   .filter {
     button {
-      margin-left: 2rem;
+      margin-left: 0.9rem;
       min-width: 5rem;
       padding: 0.5rem 1rem;
       border: none;
@@ -35,6 +35,6 @@ export const Div = styled.div`
   }
 
   h2 {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 `
