@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Carddiv = styled.div`
-  border: 3px solid green;
+  /* border: 3px solid green; */
   margin: 40px auto;
   position: relative;
 

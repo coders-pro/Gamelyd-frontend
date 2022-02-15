@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
-export const Div = styled.div`
-  margin: 5%;
+export const Button = styled.div`
   .filter {
     button {
       margin-left: 0.9rem;
@@ -20,6 +19,10 @@ export const Div = styled.div`
       color: white;
     }
   }
+`
+
+export const Div = styled.div`
+  margin: 5%;
   .popular {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));

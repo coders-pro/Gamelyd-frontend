@@ -1,63 +1,39 @@
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Div } from './Style'
-import Data from './Data'
-import More from './More'
+import { useEffect } from 'react'
+import { Button } from './Style'
 
-const Filter = () => {
-  const [tab, setTab] = useState('all')
+const Filter = ({ setActiveGenre, activeGenre, setFiltered, popular }) => {
+  useEffect(() => {
+    if (activeGenre === 'all') {
+      setFiltered(popular)
+    } else {
+      const filtered = popular.filter((movie) => movie.genre === activeGenre)
+      setFiltered(filtered)
+    }
+  }, [activeGenre, popular, setFiltered])
 
   return (
-    <Div>
+    <Button>
       <div className='filter'>
         <button
-          onClick={() => setTab('all')}
-          className={tab === 'all' ? 'active' : ''}
+          onClick={() => setActiveGenre('all')}
+          className={activeGenre === 'all' ? 'active' : ''}
         >
           All
         </button>
         <button
-          onClick={() => setTab('action')}
-          className={tab === 'action' ? 'active' : ''}
+          onClick={() => setActiveGenre('action')}
+          className={activeGenre === 'action' ? 'active' : ''}
         >
           Action
         </button>
         <button
-          onClick={() => setTab('sports')}
-          className={tab === 'sports' ? 'active' : ''}
+          onClick={() => setActiveGenre('sports')}
+          className={activeGenre === 'sports' ? 'active' : ''}
         >
           Sports
         </button>
-
-        {tab === 'all' && (
-          <motion.div layout className='popular'>
-            <AnimatePresence>
-              {Data.map((more) => (
-                <More more={more} key={more.id} />
-              ))}
-            </AnimatePresence>
-          </motion.div>
-        )}
-        {tab === 'action' && (
-          <motion.div layout className='popular'>
-            <AnimatePresence>
-              {Data.filter((action) => action.genre === 'action').map((aa) => (
-                <More more={aa} key={aa.id} />
-              ))}
-            </AnimatePresence>
-          </motion.div>
-        )}
-        {tab === 'sports' && (
-          <motion.div layout className='popular'>
-            <AnimatePresence>
-              {Data.filter((some) => some.genre === 'sports').map((aa) => (
-                <More more={aa} key={aa.id} />
-              ))}
-            </AnimatePresence>
-          </motion.div>
-        )}
       </div>
-    </Div>
+    </Button>
   )
 }
 
