@@ -29,7 +29,7 @@ const RLSlider = (props) => {
               <Card
                 key={car.tournamentid}
                 rank={car.tournamentmode === 'BATTLEROYALE' ? 'BR' : 'MP'}
-                gameName={car.payment}
+                gameName={car.name}
                 image1={car.image1}
                 image2={car.image2}
                 gamer1={car.gamer1}

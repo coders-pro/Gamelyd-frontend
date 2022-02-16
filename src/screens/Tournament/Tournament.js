@@ -7,18 +7,20 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import InnerButton from '../../components/Button/InnerButton'
 import ImageRotate from '../../components/ImageRotate/ImageRotate'
+import ButtonLoader from '../../components/ButtonLoader/ButtonLoader'
 
 const Tournament = () => {
   const [paid, setPaid] = useState([])
   const [sponsored, setSponsored] = useState([])
   const [free, setFree] = useState([])
-  // const [payment, setPayment] = useState('')
+  const [loader, setLoader] = useState(false)
 
   useEffect(() => {
     const headers = {
       'Content-Type': 'application/json',
       token: localStorage.getItem('token'),
     }
+    setLoader(true)
     axios
       .get('https://gamelyd.herokuapp.com/tournament/mode/PAID', {
         headers: headers,
@@ -26,6 +28,7 @@ const Tournament = () => {
       .then((res) => {
         // console.log(res.data.tournaments)
         setPaid(res.data.tournaments)
+        setLoader(false)
       })
     axios
       .get('https://gamelyd.herokuapp.com/tournament/mode/SPONSORED', {
@@ -34,7 +37,9 @@ const Tournament = () => {
       .then((res) => {
         // console.log(res.data.tournaments)
         setSponsored(res.data.tournaments)
+        setLoader(false)
       })
+
     axios
       .get('https://gamelyd.herokuapp.com/tournament/mode/FREE', {
         headers: headers,
@@ -42,11 +47,13 @@ const Tournament = () => {
       .then((res) => {
         // console.log(res.data.tournaments)
         setFree(res.data.tournaments)
+        setLoader(false)
       })
   }, [])
 
   return (
     <div className='games'>
+      {loader && <ButtonLoader />}
       <Navbar message='jh' />
       <Hero
         pic1={'/images/soldier12.png'}
@@ -67,7 +74,7 @@ const Tournament = () => {
 
       <Carddiv>
         <div className='imagerotate'>
-          <div className='title'>Sponsors</div>
+          <div className='title2'>Sponsors</div>
           <ImageRotate />
         </div>
       </Carddiv>

@@ -72,7 +72,7 @@ export const Carddiv = styled.div`
       display: none;
     }
   }
-  .title {
+  .title2 {
     font-size: 50px;
     font-family: 'Playfair Display', serif;
     font-weight: 700;
