@@ -15,7 +15,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='tournament' element={<Tournament />} />
           <Route path='signup' element={<SignUp />} />
-          <Route path='showmore' element={<Showmore />} />
+          <Route path='tournament/:payment' element={<Showmore />} />
         </Routes>
       </ScrollToTop>
     </div>

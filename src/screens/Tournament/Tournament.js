@@ -2,12 +2,17 @@ import Hero from '../../components/Hero/Hero'
 import Navbar from '../../components/NavBar/Navbar'
 import Footer from '../../components/Footer/Footer'
 import RLSlider from './RLSlider'
-import Data from './Data'
+import { Carddiv } from './style'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import InnerButton from '../../components/Button/InnerButton'
+import ImageRotate from '../../components/ImageRotate/ImageRotate'
 
 const Tournament = () => {
-  const [allTournament, setAllTournament] = useState([])
+  const [paid, setPaid] = useState([])
+  const [sponsored, setSponsored] = useState([])
+  const [free, setFree] = useState([])
+  // const [payment, setPayment] = useState('')
 
   useEffect(() => {
     const headers = {
@@ -15,10 +20,28 @@ const Tournament = () => {
       token: localStorage.getItem('token'),
     }
     axios
-      .get('https://gamelyd.herokuapp.com/tournaments', { headers: headers })
+      .get('https://gamelyd.herokuapp.com/tournament/mode/PAID', {
+        headers: headers,
+      })
       .then((res) => {
-        console.log(res.data.tournaments)
-        setAllTournament(res.data.tournaments)
+        // console.log(res.data.tournaments)
+        setPaid(res.data.tournaments)
+      })
+    axios
+      .get('https://gamelyd.herokuapp.com/tournament/mode/SPONSORED', {
+        headers: headers,
+      })
+      .then((res) => {
+        // console.log(res.data.tournaments)
+        setSponsored(res.data.tournaments)
+      })
+    axios
+      .get('https://gamelyd.herokuapp.com/tournament/mode/FREE', {
+        headers: headers,
+      })
+      .then((res) => {
+        // console.log(res.data.tournaments)
+        setFree(res.data.tournaments)
       })
   }, [])
 
@@ -33,10 +56,21 @@ const Tournament = () => {
         time=' CREATE TOURNAMENT'
       />
 
-      <RLSlider data={allTournament} header='Paid Tournament' />
-      {/* <RLSlider data={Data} header='Sponsored Tournament' />
-      <RLSlider data={Data} header='Free Tournament' /> */}
+      <RLSlider data={paid} header='Paid Tournament' />
+      <InnerButton link={'tournament/PAID'} />
 
+      <RLSlider data={sponsored} header='Sponsored Tournament' />
+      <InnerButton link={'tournament/SPONSORED'} />
+
+      <RLSlider data={free} header='Free Tournament' />
+      <InnerButton link={'tournament/FREE'} />
+
+      <Carddiv>
+        <div className='imagerotate'>
+          <div className='title'>Sponsors</div>
+          <ImageRotate />
+        </div>
+      </Carddiv>
       <Footer />
     </div>
   )
