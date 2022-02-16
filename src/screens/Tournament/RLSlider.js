@@ -34,6 +34,7 @@ const RLSlider = (props) => {
                 image2={car.image2}
                 gamer1={car.gamer1}
                 gamer2={car.gamer2}
+                tournamentId={car.tournamentid}
                 // mainImage={car.mainImage}
               />
             ))}

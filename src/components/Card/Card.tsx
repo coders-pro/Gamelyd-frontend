@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { CardStyle } from './CardStyle'
 
 type Iprop = {
@@ -8,6 +9,7 @@ type Iprop = {
   gamer1: any
   gamer2: any
   // mainImage: any
+  tournamentId: any
 }
 
 const Card = (props: Iprop) => {
@@ -37,7 +39,11 @@ const Card = (props: Iprop) => {
               25.8k<span className='span'>Streams</span>
             </p>
           </div>
-          <button className='btn'>View Tournament</button>
+          <button className='btn'>
+            <Link to={`/tournament/view/${props.tournamentId}`}>
+              View Tournament
+            </Link>
+          </button>
           <div className='streamers'>
             <div className='streamer'>
               <div className='icon'>

@@ -15,6 +15,7 @@ const More = ({ more }) => {
         <Card
           gameName={more.name}
           rank={more.tournamentmode === 'BATTLEROYALE' ? 'BR' : 'MP'}
+          tournamentId={more.tournamentid}
         />
       </motion.div>
     </Div>
