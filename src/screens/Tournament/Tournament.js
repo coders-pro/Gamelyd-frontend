@@ -26,7 +26,7 @@ const Tournament = () => {
         headers: headers,
       })
       .then((res) => {
-        console.log(res.data.tournaments)
+        // console.log(res.data.tournaments)
         setPaid(res.data.tournaments)
         setLoader(false)
       })
