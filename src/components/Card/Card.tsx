@@ -1,13 +1,15 @@
+import { Link } from 'react-router-dom'
 import { CardStyle } from './CardStyle'
 
 type Iprop = {
   rank: any
   gameName: any
-  image1: any
-  image2: any
+  // image1: any
+  // image2: any
   gamer1: any
   gamer2: any
-  mainImage: any
+  // mainImage: any
+  tournamentId: any
 }
 
 const Card = (props: Iprop) => {
@@ -16,13 +18,13 @@ const Card = (props: Iprop) => {
       <div className='game'>
         <div className='rank'>{props.rank}</div>
         <div className='front'>
-          <img className='thumbnail' src={props.mainImage} alt='fifa' />
+          <img className='thumbnail' src='/images/nba.jpg' alt='fifa' />
           <h3 className='name'>{props.gameName}</h3>
           <div className='stats'>
             <p className='viewers'>539.9k</p>
             <div className='streamers'>
-              <img src={props.image1} alt='fifa' />
-              <img src={props.image2} alt='fifa' />
+              <img src='/images/fifa.jpg' alt='fifa' />
+              <img src='/images/fifa.jpg' alt='fifa' />
               <img src='/images/fifa.jpg' alt='fifa' />
             </div>
           </div>
@@ -37,7 +39,11 @@ const Card = (props: Iprop) => {
               25.8k<span className='span'>Streams</span>
             </p>
           </div>
-          <button className='btn'>View Tournament</button>
+          <button className='btn'>
+            <Link to={`/tournament/view/${props.tournamentId}`}>
+              View Tournament
+            </Link>
+          </button>
           <div className='streamers'>
             <div className='streamer'>
               <div className='icon'>

@@ -3,6 +3,15 @@ import styled from 'styled-components'
 export const CardStyle = styled.div`
   font-family: sans-serif;
   color: white;
+  /* overflow: hidden; */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: center;
 
   h1,
   h2,
@@ -43,6 +52,7 @@ export const CardStyle = styled.div`
     cursor: pointer;
     z-index: 0;
     margin: 0 40px;
+    /* border: 1px solid blue; */
 
     .front {
       transition: 250ms;
@@ -51,6 +61,7 @@ export const CardStyle = styled.div`
         width: 200px;
         height: 200px;
         border-radius: 0.5rem;
+        object-fit: cover;
       }
       .streamers img {
         border: 2px solid #15202b;

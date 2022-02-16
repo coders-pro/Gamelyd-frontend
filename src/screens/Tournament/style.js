@@ -5,6 +5,12 @@ export const Carddiv = styled.div`
   margin: 40px auto;
   position: relative;
 
+  user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+
   .title {
     text-align: center;
     margin: 0;
@@ -24,6 +30,7 @@ export const Carddiv = styled.div`
     opacity: 0.5;
     box-shadow: 2px 2px 2px 2px rgba(0 0 0 / 12%);
     z-index: 1;
+    color: black;
   }
   .MdChevronLeft:hover {
     opacity: 1;
@@ -37,6 +44,7 @@ export const Carddiv = styled.div`
     top: 50%;
     opacity: 0.5;
     box-shadow: 2px 2px 2px 2px rgba(0 0 0 / 12%);
+    color: black;
   }
   .MdChevronRight:hover {
     opacity: 1;
@@ -62,6 +70,22 @@ export const Carddiv = styled.div`
     }
     .div2::-webkit-scrollbar {
       display: none;
+    }
+  }
+  .title2 {
+    font-size: 50px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-style: italic;
+    color: #b8bcbf;
+    text-align: center;
+  }
+
+  .imagerotate {
+    width: 100%;
+    margin: 80px 0;
+    @media (max-width: 850px) {
+      width: 90%;
     }
   }
 `
