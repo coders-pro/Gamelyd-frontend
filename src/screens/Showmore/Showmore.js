@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Data from './Data'
 import More from './More'
 import { useEffect, useState } from 'react'
+import axios from 'axios'
 
 const Showmore = () => {
   const [popular, setPopular] = useState([])
@@ -11,12 +12,26 @@ const Showmore = () => {
   const [activeGenre, setActiveGenre] = useState('all')
 
   useEffect(() => {
-    fetchPopular()
+    const headers = {
+      'Content-Type': 'application/json',
+      token: localStorage.getItem('token'),
+    }
+    axios
+      .get('https://gamelyd.herokuapp.com/tournaments', { headers: headers })
+      .then((res) => {
+        console.log(res.data.tournaments)
+        setPopular(res.data.tournaments)
+        setFiltered(res.data.tournaments)
+      })
   }, [])
-  const fetchPopular = async () => {
-    setPopular(Data)
-    setFiltered(Data)
-  }
+
+  // useEffect(() => {
+  //   fetchPopular()
+  // }, [])
+  // const fetchPopular = async () => {
+  //   setPopular(Data)
+  //   setFiltered(Data)
+  // }
 
   return (
     <Div>
@@ -30,7 +45,7 @@ const Showmore = () => {
         <motion.div layout className='popular'>
           <AnimatePresence>
             {filtered.map((more) => (
-              <More more={more} key={more.id} />
+              <More more={more} key={more.tournamentid} />
             ))}
           </AnimatePresence>
         </motion.div>

@@ -6,7 +6,9 @@ const Filter = ({ setActiveGenre, activeGenre, setFiltered, popular }) => {
     if (activeGenre === 'all') {
       setFiltered(popular)
     } else {
-      const filtered = popular.filter((movie) => movie.genre === activeGenre)
+      const filtered = popular.filter(
+        (movie) => movie.tournamentmode === activeGenre
+      )
       setFiltered(filtered)
     }
   }, [activeGenre, popular, setFiltered])
@@ -21,16 +23,16 @@ const Filter = ({ setActiveGenre, activeGenre, setFiltered, popular }) => {
           All
         </button>
         <button
-          onClick={() => setActiveGenre('action')}
-          className={activeGenre === 'action' ? 'active' : ''}
+          onClick={() => setActiveGenre('BATTLEROYALE')}
+          className={activeGenre === 'BATTLEROYALE' ? 'active' : ''}
         >
-          Action
+          BR
         </button>
         <button
-          onClick={() => setActiveGenre('sports')}
-          className={activeGenre === 'sports' ? 'active' : ''}
+          onClick={() => setActiveGenre('MULTIPLAYER')}
+          className={activeGenre === 'MULTIPLAYER' ? 'active' : ''}
         >
-          Sports
+          MP
         </button>
       </div>
     </Button>

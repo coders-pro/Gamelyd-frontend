@@ -25,11 +25,11 @@ export const Div = styled.div`
   margin: 5%;
   .popular {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-column-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-column-gap: 0;
     grid-row-gap: 2rem;
   }
-  img {
+  /* img {
     width: 100%;
     height: 30vh;
     object-fit: cover;
@@ -39,5 +39,5 @@ export const Div = styled.div`
 
   h2 {
     font-size: 1rem;
-  }
+  } */
 `

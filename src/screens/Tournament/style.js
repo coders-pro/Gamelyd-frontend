@@ -5,6 +5,12 @@ export const Carddiv = styled.div`
   margin: 40px auto;
   position: relative;
 
+  user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+
   .title {
     text-align: center;
     margin: 0;

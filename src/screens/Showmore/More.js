@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import Card from '../../components/Card/Card'
 import { Div } from './Style'
 
 const More = ({ more }) => {
@@ -11,8 +12,10 @@ const More = ({ more }) => {
         exit={{ opacity: 0 }}
         // transition={{ duration: 1 }}
       >
-        <h2>{more.title}</h2>
-        <img src={more.Image} alt='' />
+        <Card
+          gameName={more.name}
+          rank={more.tournamentmode === 'BATTLEROYALE' ? 'BR' : 'MP'}
+        />
       </motion.div>
     </Div>
   )
