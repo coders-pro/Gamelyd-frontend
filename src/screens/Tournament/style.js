@@ -1,5 +1,22 @@
 import styled from 'styled-components'
 
+export const Singlediv = styled.div`
+  border: 3px solid red;
+  width: 95%;
+  margin: auto;
+
+  .info-div {
+    border: 1px solid blue;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: baseline;
+    margin: auto;
+    p {
+      margin: 5px 15px;
+    }
+  }
+`
+
 export const Carddiv = styled.div`
   /* border: 3px solid green; */
   margin: 40px auto;

@@ -27,7 +27,7 @@ const Hero = (props) => {
         <div className='rotate'>
           <div className='slider'>
             <span>
-              <img src={`images/pad.png`} alt='muna' />
+              <img src={`/images/pad.png`} alt='muna' />
             </span>
           </div>
         </div>
