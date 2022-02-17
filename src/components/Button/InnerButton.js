@@ -1,16 +1,16 @@
-import { Style } from './style'
-import { Link } from 'react-router-dom'
+import { Style } from "./style";
+import { Link } from "react-router-dom";
 
 const InnerButton = (props) => {
   return (
     <Style>
-      <div className='container'>
-        <Link to={`/${props.link}`} className='a'>
-          <span className='button'>See more</span>
-        </Link>
+      <div className="container">
+        <div className="a">
+          <span className="button">{props.children}</span>
+        </div>
       </div>
     </Style>
-  )
-}
+  );
+};
 
-export default InnerButton
+export default InnerButton;
