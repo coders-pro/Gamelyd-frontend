@@ -1,18 +1,31 @@
 import styled from 'styled-components'
 
 export const Singlediv = styled.div`
-  border: 3px solid red;
+  /* border: 3px solid red; */
   width: 95%;
   margin: auto;
 
   .info-div {
-    border: 1px solid blue;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: baseline;
-    margin: auto;
-    p {
-      margin: 5px 15px;
+    /* border: 3px solid gold; */
+    .sub-info-div {
+      /* border: 1px solid blue; */
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: auto;
+      .bio {
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        width: 600px;
+        height: 100%;
+        .head {
+          border: 1px solid rgba(0, 0, 0, 0.3);
+          padding: 10px 10px;
+          font-size: 20px;
+        }
+        .bod {
+          padding: 10px 10px;
+        }
+      }
     }
   }
 `

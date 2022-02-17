@@ -6,6 +6,7 @@ import Navbar from '../../components/NavBar/Navbar'
 import Hero from '../../components/Hero/Hero'
 import ImageRotate from '../../components/ImageRotate/ImageRotate'
 import Footer from '../../components/Footer/Footer'
+import InnerButton from '../../components/Button/InnerButton'
 
 const SingleTournament = () => {
   const [single, setSingle] = useState([])
@@ -22,7 +23,7 @@ const SingleTournament = () => {
         headers: headers,
       })
       .then((res) => {
-        console.log(res.data.tournament)
+        // console.log(res.data.tournament)
         setSingle(res.data.tournament)
       })
   }, [id])
@@ -39,17 +40,90 @@ const SingleTournament = () => {
       />
       <Singlediv>
         <div className='info-div'>
-          <p>{single.Name}</p>
-          <p>{single.GameName}</p>
-          <p>{single.Link}</p>
-          <p>{single.Payment}</p>
-          <p>{single.Shuffle}</p>
-          <p>{single.Team}</p>
-          <p>{single.TournamentMode}</p>
-          <p>{single.TournamentSize}</p>
-          <p>{single.TournamentType}</p>
-          <p>{single.icon}</p>
+          <div className='sub-info-div'>
+            <div className='bio'>
+              <div className='head'>Details</div>
+              <div className='bod'>
+                <table>
+                  <tbody>
+                    <tr>
+                      <th style={{ padding: '10px', textAlign: 'left' }}>
+                        Tournament :
+                      </th>
+                      <td style={{ padding: '10px', textAlign: 'left' }}>
+                        {single.Name}
+                      </td>
+                    </tr>
+                    <tr>
+                      <th style={{ padding: '10px', textAlign: 'left' }}>
+                        Game Name :
+                      </th>
+                      <td style={{ padding: '10px', textAlign: 'left' }}>
+                        {' '}
+                        {single.GameName}
+                      </td>
+                    </tr>
+                    <tr>
+                      <th style={{ padding: '10px', textAlign: 'left' }}>
+                        Payment Type :
+                      </th>
+                      <td style={{ padding: '10px', textAlign: 'left' }}>
+                        {' '}
+                        {single.Payment}
+                      </td>
+                    </tr>
+                    <tr>
+                      <th style={{ padding: '10px', textAlign: 'left' }}>
+                        Shuffle :
+                      </th>
+                      <td style={{ padding: '10px', textAlign: 'left' }}>
+                        {' '}
+                        {single.Shuffle}
+                      </td>
+                    </tr>
+                    <tr>
+                      <th style={{ padding: '10px', textAlign: 'left' }}>
+                        Team :
+                      </th>
+                      <td style={{ padding: '10px', textAlign: 'left' }}>
+                        {' '}
+                        {single.Team}
+                      </td>
+                    </tr>
+                    <tr>
+                      <th style={{ padding: '10px', textAlign: 'left' }}>
+                        Tournament Mode :
+                      </th>
+                      <td style={{ padding: '10px', textAlign: 'left' }}>
+                        {' '}
+                        {single.TournamentMode}
+                      </td>
+                    </tr>
+                    <tr>
+                      <th style={{ padding: '10px', textAlign: 'left' }}>
+                        Tournament Size :
+                      </th>
+                      <td style={{ padding: '10px', textAlign: 'left' }}>
+                        {' '}
+                        {single.TournamentSize}
+                      </td>
+                    </tr>
+                    <tr>
+                      <th style={{ padding: '10px', textAlign: 'left' }}>
+                        Tournament Type :
+                      </th>
+                      <td style={{ padding: '10px', textAlign: 'left' }}>
+                        {' '}
+                        {single.TournamentType}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
+        <InnerButton>Modal</InnerButton>
       </Singlediv>
 
       <Carddiv>
