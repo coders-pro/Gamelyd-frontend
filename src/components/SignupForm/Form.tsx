@@ -18,6 +18,7 @@ const SignupForm = () => {
   const [username, setUsername] = useState('')
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
+  const [taken, setTaken] = useState(false)
 
   const [characters, setCharacters] = React.useState<string>('')
 
@@ -30,6 +31,7 @@ const SignupForm = () => {
       )
       const body = await response.json()
       setCharacters(body.message)
+      setTaken(body.hasError)
       return body.userName
     }
   }
@@ -85,7 +87,7 @@ const SignupForm = () => {
       {loading && <ButtonLoader />}
       <div className='desktop'>
         <form>
-          <h3>Signup </h3>
+          <h3 style={{ color: 'white' }}>Signup </h3>
           <div className='inpu'>
             <div className='wrapper'>
               <div className='input-data'>
@@ -93,7 +95,12 @@ const SignupForm = () => {
 
                 <label>Username</label>
                 <div className='underline'></div>
-                <div className='character'>{characters}</div>
+                <div
+                  style={{ color: taken ? 'red' : 'white' }}
+                  className='character'
+                >
+                  {characters}
+                </div>
               </div>
 
               <div className='input-data'>
@@ -173,15 +180,16 @@ const SignupForm = () => {
           <div className='inpu'>
             <div className='wrapper'>
               <div className='input-data'>
-                <input
-                  type='text'
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  required
-                ></input>
+                <input type='text' onChange={handleChange} required></input>
 
                 <label>Username</label>
                 <div className='underline'></div>
+                <div
+                  className='character'
+                  style={{ color: taken ? 'red' : 'white' }}
+                >
+                  {characters}
+                </div>
               </div>
 
               <div className='input-data'>

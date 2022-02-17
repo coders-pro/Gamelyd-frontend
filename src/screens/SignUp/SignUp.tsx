@@ -6,6 +6,7 @@ import { SignUpStyle } from './style.js'
 import SignupMobile from '../../components/SignupMobile/SignupMobile'
 import SignupForm from '../../components/SignupForm/Form'
 import LoginForm from '../../components/LoginForm/Form'
+import { Link } from 'react-router-dom'
 
 const Signup = () => {
   const [flip, setFlip] = useState(false)
@@ -35,7 +36,7 @@ const Signup = () => {
             </div>
 
             <div className='box signup'>
-              <h2>Dont have an account</h2>
+              <h2>Dont have an account?</h2>
               <button
                 onClick={flipMode}
                 className='signinbtn'
@@ -43,6 +44,14 @@ const Signup = () => {
               >
                 Sign Up
               </button>
+
+              <Link
+                to='/'
+                className='forgotten'
+                style={{ textDecoration: 'none', margin: '5px 0' }}
+              >
+                forgot password?
+              </Link>
             </div>
           </div>
 

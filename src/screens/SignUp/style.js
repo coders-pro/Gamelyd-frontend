@@ -26,8 +26,10 @@ export const SignUpStyle = style.div`
         width: 1300px;
         height: 500px;
         margin: 20px;
-        background-color: #1f2833;
+        background-color: rgb(11, 192, 180);
         top: -100px;
+        border-radius: 2%;
+
       }
       
       .blueBg {
@@ -38,7 +40,7 @@ export const SignUpStyle = style.div`
         align-items: center;
         justify-content: center;
         height: 420px;
-        background: #1f2833;
+        background: rgb(11, 192, 180);
       }
       
       .blueBg .box {
@@ -62,7 +64,7 @@ export const SignUpStyle = style.div`
         color: blacl;
         cursor: pointer;
         padding: 10px 20px;
-        background-color: white;
+        background-color: #1f2833;
         font-size: 16px;
         font-weight: 500;
         border: none;
@@ -74,7 +76,7 @@ export const SignUpStyle = style.div`
         left: 0;
         width: 50%;
         height: 100%;
-        background-color: white;
+        background-color: #1f2833;
         z-index: 10;
         display: flex;
         justify-content: center;
@@ -145,17 +147,18 @@ export const SignUpStyle = style.div`
           outline: none;
           font-size: 17px;
           background: transparent;
-          color: #4158d0;
+          color: rgb(11, 192, 180);
+          margin-top: 7px;
         }
         .input-data input:valid ~ label {
           transform: translateY(-24px);
           font-size: 16px;
           font-weight: 500;
-          color: #4158d0;
+          color: rgb(11, 192, 180);
         }
         .wrapper .input-data label {
           position: absolute;
-          bottom: -1px;
+          bottom: 2px;
           left: 0;
           color: rgba(197, 198, 199, 1);
           pointer-events: none;
@@ -181,7 +184,7 @@ export const SignUpStyle = style.div`
           content: '';
           height: 100%;
           width: 100%;
-          background: #4158d0;
+          background: rgb(11, 192, 180);
           transform: scaleX(0);
           transform-origin: center;
           transition: transform 0.3s ease;

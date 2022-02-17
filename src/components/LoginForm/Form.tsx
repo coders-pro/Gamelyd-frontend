@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { useNavigate, useLocation, Link } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 import { LoginFormStyle } from './style'
 import { login } from '../../actions/userActions'
@@ -43,7 +43,7 @@ const LoginForm = () => {
       {loading && <ButtonLoader />}
       <div className='desktop'>
         <form>
-          <h3>Login </h3>
+          <h3 style={{ color: 'white' }}>Login </h3>
           <div className='inpu'>
             <div className='wrapper'>
               <div className='input-data'>
@@ -75,11 +75,8 @@ const LoginForm = () => {
             type='submit'
             onClick={(e) => loginHandler(e)}
           >
-            Login{' '}
+            Login
           </button>
-          <Link to='/' className='forgotten'>
-            forgotten password
-          </Link>
         </form>
       </div>
       <div className='mobile'>
