@@ -1,40 +1,34 @@
-import { MdChevronLeft, MdChevronRight } from 'react-icons/md'
-import { Carddiv } from './style'
-import Card from '../../components/Card/Card'
-import { useState } from 'react'
-import { v4 as uuidv4 } from 'uuid'
+import { MdChevronLeft, MdChevronRight } from "react-icons/md";
+import { Carddiv } from "./style";
+import Card from "../../components/Card/Card";
+import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 const RLSlider = (props) => {
-  const [id] = useState(uuidv4())
+  const [id] = useState(uuidv4());
   const rightSlide = () => {
-    var slider = document.getElementById(id)
-    slider.scrollLeft = slider.scrollLeft + 300
-  }
+    var slider = document.getElementById(id);
+    slider.scrollLeft = slider.scrollLeft + 300;
+  };
   const leftSlide = () => {
-    var slider = document.getElementById(id)
-    slider.scrollLeft = slider.scrollLeft - 300
-  }
+    var slider = document.getElementById(id);
+    slider.scrollLeft = slider.scrollLeft - 300;
+  };
   return (
     <div>
       <Carddiv>
         <MdChevronLeft
           size={40}
-          className='MdChevronLeft'
+          className="MdChevronLeft"
           onClick={leftSlide}
         />
-        <div className='title'>{props.header}</div>
-        <div className='div1'>
-          <div className='div2' id={id}>
-            {props.data.map((car) => (
+        <div className="title">{props.header}</div>
+        <div className="div1">
+          <div className="div2" id={id}>
+            {props.data.map((datum) => (
               <Card
-                key={car.tournamentid}
-                rank={car.tournamentmode === 'BATTLEROYALE' ? 'BR' : 'MP'}
-                gameName={car.name}
-                image1={car.image1}
-                image2={car.image2}
-                gamer1={car.gamer1}
-                gamer2={car.gamer2}
-                tournamentId={car.tournamentid}
+                key={datum.tournamentid}
+                data={datum}
                 // mainImage={car.mainImage}
               />
             ))}
@@ -42,12 +36,12 @@ const RLSlider = (props) => {
         </div>
         <MdChevronRight
           size={40}
-          className='MdChevronRight'
+          className="MdChevronRight"
           onClick={rightSlide}
         />
       </Carddiv>
     </div>
-  )
-}
+  );
+};
 
-export default RLSlider
+export default RLSlider;

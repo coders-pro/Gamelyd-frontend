@@ -1,6 +1,5 @@
 import React from "react";
 import { Style } from "./style";
-import Button from "../Button/button";
 import Scroll from "../../components/Scroll/Scroll.js";
 import Scroll2 from "../../components/Scroll/Scroll2.js";
 import Scroll3 from "../../components/Scroll/Scroll3.js";
@@ -8,6 +7,8 @@ import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
 import ConnectWithoutContactIcon from "@mui/icons-material/ConnectWithoutContact";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
+import Button from "../Button/InnerButton";
+import { Link } from "react-router-dom";
 
 const Message = () => {
   return (
@@ -74,7 +75,10 @@ const Message = () => {
                   ducimus nostrum nobis, nisi vel veniam ea quod! Voluptate
                   cupiditate a quae, sequi veniam sapiente
                 </p>
-                <Button />
+
+                <Link to="/tournament">
+                  <Button>Tournaments </Button>
+                </Link>
               </div>
             </div>
           </div>

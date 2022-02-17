@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Style = styled.div`
   button {
@@ -15,20 +15,19 @@ export const Style = styled.div`
     // border: 3px solid orange;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: flex-end;
+    cursor: pointer;
 
     .a {
       position: relative;
-      width: 160px;
-      height: 60px;
+      width: 180px;
+      height: 50px;
       display: inline-block;
       background: white;
       margin-right: 15px;
     }
     .a::before,
     .a::after {
-      content: '';
+      content: "";
       position: absolute;
       inset: 0;
       background: red;
@@ -36,7 +35,7 @@ export const Style = styled.div`
     }
     .a:nth-child(1):before,
     .a:nth-child(1):after {
-      background: linear-gradient(45deg, #00ccff, #0e1538, #d400d4);
+      background: linear-gradient(45deg, #00ccff, #0e1538, #00ccff);
     }
     .a:hover::before {
       inset: -3px;
@@ -66,7 +65,7 @@ export const Style = styled.div`
       overflow: hidden;
     }
     span::before {
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       left: -50%;
@@ -76,4 +75,4 @@ export const Style = styled.div`
       transform: skew(25deg);
     }
   }
-`
+`;
