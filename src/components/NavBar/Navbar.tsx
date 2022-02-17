@@ -115,7 +115,7 @@ class Navbar extends React.Component<IProps, IState> {
           <div className="logo">
             <NavLink to="/">
               <img
-                src={`images/logos/logo-main.png`}
+                src={`/images/logos/logo-main.png`}
                 alt="muna"
                 style={{ width: "200px" }}
               />
