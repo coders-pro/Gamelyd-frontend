@@ -206,5 +206,8 @@ export const SignUpStyle = style.div`
     height: 100px;
 }
 
-
+.character {
+  margin: 4px 0;
+  color: green;
+}
 `

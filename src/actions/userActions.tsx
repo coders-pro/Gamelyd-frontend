@@ -9,6 +9,7 @@ import {
 import { ThunkAction, ThunkDispatch } from 'redux-thunk'
 import { AnyAction } from 'redux'
 import { RootState } from '../store'
+import { toast } from 'react-toastify'
 
 import axios from 'axios'
 
@@ -53,16 +54,21 @@ export const login =
         localStorage.setItem('last', response.data.data.last_name)
         localStorage.setItem('user', response.data.data.user_name)
         localStorage.setItem('token', response.data.data.token)
+        toast.success('Login successful')
+        dispatch({
+          type: USER_LOGIN_SUCCESS,
+          payload: userData,
+        })
       } else {
         console.log('error')
+        dispatch({
+          type: USER_LOGIN_FAIL,
+          payload: response.data.error,
+        })
+        toast.error(response.data.message)
       }
 
       // pass  data to reducer
-
-      dispatch({
-        type: USER_LOGIN_SUCCESS,
-        payload: userData,
-      })
     } catch (error) {
       dispatch({
         type: USER_LOGIN_FAIL,
@@ -113,28 +119,29 @@ export const register =
         config
       )
 
-      console.log(response)
+      let userData = response.data.data
 
-      if (response.data.hasError) {
+      if (response.data.hasError === false) {
         localStorage.setItem('id', response.data.data.ID)
         localStorage.setItem('first', response.data.data.first_name)
         localStorage.setItem('last', response.data.data.last_name)
         localStorage.setItem('user', response.data.data.user_name)
         localStorage.setItem('token', response.data.data.token)
+        toast.success('Login successful')
+        dispatch({
+          type: USER_REGISTER_SUCCESS,
+          payload: userData,
+        })
       } else {
-        console.log('error')
+        dispatch({
+          type: USER_REGISTER_FAIL,
+          payload: response.data.error,
+        })
+
+        toast.error('Sorry something went wrong')
       }
 
-      let userData = response.data.data
-
-      console.log(userData)
-
       // pass  data to reducer
-
-      dispatch({
-        type: USER_REGISTER_SUCCESS,
-        payload: userData,
-      })
     } catch (error) {
       dispatch({
         type: USER_REGISTER_FAIL,
