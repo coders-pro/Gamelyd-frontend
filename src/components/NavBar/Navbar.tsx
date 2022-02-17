@@ -130,6 +130,13 @@ class Navbar extends React.Component<IProps, IState> {
               Tournament<span></span>
             </NavLink>
 
+            <NavLink
+              to={`/profile/${localStorage.getItem("id")}`}
+              className="single_item"
+            >
+              Profile<span></span>
+            </NavLink>
+
             <NavLink to="/signup" className="single_item">
               Signup<span></span>
             </NavLink>
