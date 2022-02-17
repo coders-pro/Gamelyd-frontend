@@ -7,6 +7,8 @@ import Showmore from "./screens/Showmore/Showmore";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import SingleTournament from "./screens/Tournament/SingleTournament";
 import axios from "axios";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 // import './assets/css/fonts.css';
 
 axios.interceptors.response.use(
@@ -36,6 +38,7 @@ function App() {
           <Route path="tournament/:payment" element={<Showmore />} />
           <Route path="tournament/view/:id" element={<SingleTournament />} />
         </Routes>
+        <ToastContainer />
       </ScrollToTop>
     </div>
   );
