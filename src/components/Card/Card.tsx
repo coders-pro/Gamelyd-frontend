@@ -1,77 +1,63 @@
-import { Link } from 'react-router-dom'
-import { CardStyle } from './CardStyle'
+import { Link } from "react-router-dom";
+import { CardStyle } from "./CardStyle";
 
-type Iprop = {
-  rank: any
-  gameName: any
-  // image1: any
-  // image2: any
-  gamer1: any
-  gamer2: any
-  // mainImage: any
-  tournamentId: any
-}
+// type Iprop = {
+//   rank: any;
+//   gameName: any;
+//   gamename: any;
+//   date: any;
+//   // image2: any
+//   gamer1: any;
+//   gamer2: any;
+//   // mainImage: any
+//   tournamentId: any;
+// };
 
-const Card = (props: Iprop) => {
+const Card = (props: any) => {
   return (
     <CardStyle>
-      <div className='game'>
-        <div className='rank'>{props.rank}</div>
-        <div className='front'>
-          <img className='thumbnail' src='/images/nba.jpg' alt='fifa' />
-          <h3 className='name'>{props.gameName}</h3>
-          <div className='stats'>
-            <p className='viewers'>539.9k</p>
-            <div className='streamers'>
-              <img src='/images/fifa.jpg' alt='fifa' />
-              <img src='/images/fifa.jpg' alt='fifa' />
-              <img src='/images/fifa.jpg' alt='fifa' />
+      <div className="game">
+        <div className="rank">
+          {props.data.tournamentmode === "MULTIPLAYER" ? "MP" : "BR"}
+        </div>
+        <div className="front">
+          <img className="thumbnail" src="/images/nba.jpg" alt="fifa" />
+          <h3 className="name">{props.data.name}</h3>
+          <div className="stats">
+            <p className="viewers">{props.data.date}</p>
+            <div className="streamers">
+              <div>{props.data.gamename}</div>
             </div>
           </div>
         </div>
 
-        <div className='back'>
-          <div className='streaming-info'>
-            <p className='game-stat'>
-              559k<span className='span'>Watching</span>
+        <div className="back">
+          <div className="streaming-info">
+            <p className="game-stat">
+              Size
+              <span className="span">{props.data.tournamentsize}</span>
             </p>
-            <p className='game-stat'>
-              25.8k<span className='span'>Streams</span>
+            <p className="game-stat">
+              Active
+              <span className="span">{props.data.active ? "Yes" : "No"}</span>
             </p>
           </div>
-          <button className='btn'>
-            <Link to={`/tournament/view/${props.tournamentId}`}>
+          <button className="btn">
+            <Link
+              style={{ textDecoration: "none", color: "white" }}
+              to={`/tournament/view/${props.data.tournamentid}`}
+            >
               View Tournament
             </Link>
           </button>
-          <div className='streamers'>
-            <div className='streamer'>
-              <div className='icon'>
-                <img src='/images/fifa.jpg' alt='paid' />
-              </div>
-              <p className='name'> {props.gamer1}</p>
-              <p className='number'>34.1k</p>
-            </div>
-            <div className='streamer'>
-              <div className='icon'>
-                <img src='/images/fifa.jpg' alt='paid' />
-              </div>
-              <p className='name'>{props.gamer2}</p>
-              <p className='number'>36.1k</p>
-            </div>
-            <div className='streamer'>
-              <div className='icon'>
-                <img src='/images/fifa.jpg' alt='paid' />
-              </div>
-              <p className='name'>Gamer3</p>
-              <p className='number'>22.6k</p>
-            </div>
+          <div className="streamers">
+            <div>{props.data.gamename}</div>
           </div>
         </div>
-        <div className='background'></div>
+        <div className="background"></div>
       </div>
     </CardStyle>
-  )
-}
+  );
+};
 
-export default Card
+export default Card;

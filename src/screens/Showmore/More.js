@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion'
-import Card from '../../components/Card/Card'
-import { Div } from './Style'
+import { motion } from "framer-motion";
+import Card from "../../components/Card/Card";
+import { Div } from "./Style";
 
 const More = ({ more }) => {
   return (
@@ -12,14 +12,10 @@ const More = ({ more }) => {
         exit={{ opacity: 0 }}
         // transition={{ duration: 1 }}
       >
-        <Card
-          gameName={more.name}
-          rank={more.tournamentmode === 'BATTLEROYALE' ? 'BR' : 'MP'}
-          tournamentId={more.tournamentid}
-        />
+        <Card data={more} tournamentId={more.tournamentid} />
       </motion.div>
     </Div>
-  )
-}
+  );
+};
 
-export default More
+export default More;

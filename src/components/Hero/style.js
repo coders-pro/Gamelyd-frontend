@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const HeroStyle = styled.div`
   position: relative;
@@ -20,7 +20,7 @@ export const HeroStyle = styled.div`
     padding-top: 50px;
 
     @media (max-width: 999px) {
-      background: url('${(props) => props.background}');
+      background: url("${(props) => props.background}");
       background-position: center; /* Center the image */
       background-repeat: no-repeat; /* Do not repeat the image */
       background-size: cover;
@@ -143,20 +143,14 @@ export const HeroStyle = styled.div`
       top: 50vh;
     }
 
-    .button {
+    .but {
       position: absolute;
       margin-left: auto;
       margin-right: auto;
+      width: 180px;
       left: 0;
       right: 0;
-      text-align: center;
-      width: 250px;
-      height: 50px;
-      font-size: 17px;
       cursor: pointer;
-      background: rgb(11, 192, 180);
-      color: white;
-      border: none;
     }
   }
-`
+`;

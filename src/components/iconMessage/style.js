@@ -112,5 +112,9 @@ export const Style = styled.div`
       }
       .message {
           line-height: 30px;
+          display: flex;
+          justify-content: flex-start;
+          flex-direction: column;
+        align-items: flex-start;
       }
 `;
