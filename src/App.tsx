@@ -6,6 +6,7 @@ import SignUp from "./screens/SignUp/SignUp";
 import Showmore from "./screens/Showmore/Showmore";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import SingleTournament from "./screens/Tournament/SingleTournament";
+import Profile from "./screens/Profile/profile";
 import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
@@ -37,6 +38,7 @@ function App() {
           <Route path="signup" element={<SignUp />} />
           <Route path="tournament/:payment" element={<Showmore />} />
           <Route path="tournament/view/:id" element={<SingleTournament />} />
+          <Route path="profile/:id" element={<Profile />} />
         </Routes>
         <ToastContainer />
       </ScrollToTop>
