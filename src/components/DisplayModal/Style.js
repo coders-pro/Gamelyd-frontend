@@ -102,22 +102,4 @@ export const Div = styled.div`
       }
     }
   }
-  .sect::before {
-    content: '';
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    background: linear-gradient(#ffc107, #e91e63);
-    border-radius: 50%;
-    transform: translate(-250px, -120px);
-  }
-  .sect::after {
-    content: '';
-    position: absolute;
-    width: 350px;
-    height: 350px;
-    background: linear-gradient(#2196f3, #31ff38);
-    border-radius: 50%;
-    transform: translate(250px, 150px);
-  }
 `
