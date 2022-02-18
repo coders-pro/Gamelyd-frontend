@@ -9,7 +9,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import Button from "../../components/Button/InnerButton";
 
-const Card = (props: any) => {
+const Profile = (props: any) => {
   return (
     <>
       <Navbar message="jh" />
@@ -93,4 +93,4 @@ const Card = (props: any) => {
   );
 };
 
-export default Card;
+export default Profile;
