@@ -9,7 +9,7 @@ import SingleTournament from "./screens/Tournament/SingleTournament";
 import Profile from "./screens/Profile/profile";
 import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 // import './assets/css/fonts.css';
 
 axios.interceptors.response.use(
@@ -17,7 +17,7 @@ axios.interceptors.response.use(
     // ... modify response;
     if (successRes.data.message === "token expired") {
       window.location.href = "/signup";
-      // localStorage.setItem("")
+      toast.error(successRes.data.message);
     }
 
     return successRes;
