@@ -6,11 +6,17 @@ export const Style = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 20px;
-    width: 800px;
+    flex-direction: row;
+    padding: 30px;
+    width: 80vw;
+    max-width: 1000px;
     margin: 10px auto;
     border-radius: 10px;
     position: relative;
+    @media (max-width: 800px) {
+      flex-direction: column;
+      width: 70vw;
+    }
     .save {
       padding: 5px;
       cursor: pointer;
@@ -18,6 +24,9 @@ export const Style = styled.div`
       background-color: #00ccff;
       border: none;
       outline: none;
+      @media (max-width: 550px) {
+        width: 150px;
+      }
     }
     .editButton {
       position: absolute;
@@ -29,6 +38,9 @@ export const Style = styled.div`
       border-radius: 5px;
       cursor: pointer;
       color: black;
+      @media (max-width: 550px) {
+        left: 0px;
+      }
     }
     input {
       border: none;
@@ -36,9 +48,20 @@ export const Style = styled.div`
       height: 20px;
     }
     .timeInput {
-      margin-left: 30px;
+      margin: 0 30px;
       width: 150px;
       height: 20px;
+      @media (max-width: 550px) {
+        margin-left: 0px;
+        margin-bottom: 5px;
+      }
+    }
+    .dateInput {
+      width: 150px;
+      @media (max-width: 550px) {
+        width: 150px;
+        margin-bottom: 5px;
+      }
     }
     .mix {
       display: flex;
@@ -46,7 +69,8 @@ export const Style = styled.div`
       justify-content: space-between;
       flex-direction: row;
       align-items: center;
-      width: 30%;
+      margin: auto;
+
       input {
         width: 40px;
         height: 30px;
@@ -65,22 +89,22 @@ export const Style = styled.div`
       .loose {
         background-color: red;
       }
-      .left {
+      /* .left {
         margin-left: 20px;
       }
       .right {
         margin-right: 20px;
-      }
+      } */
     }
     .team {
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
       flex-direction: row;
       align-items: center;
-      width: 30%;
+      width: 250px;
+      margin: auto;
       .teamName {
-        padding: 0 20px;
+        /* padding: 0 20px; */
         font-size: 23px;
         font-weight: 600;
       }
@@ -91,7 +115,7 @@ export const Style = styled.div`
       justify-content: space-between;
       flex-direction: column;
       text-align: center;
-      width: 35%;
+      /* width: 35%; */
       .date {
         font-size: 17px;
       }
@@ -102,10 +126,16 @@ export const Style = styled.div`
   }
   .atom {
     color: green;
+    font-size: 15px;
   }
   .time {
     position: absolute;
     top: 5px;
-    left: 20px;
+    left: 30px;
+    @media (max-width: 550px) {
+      top: 0px;
+      display: flex;
+      flex-direction: column;
+    }
   }
 `;

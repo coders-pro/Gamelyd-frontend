@@ -14,6 +14,7 @@ import Modal from "../../components/Modal/Modal";
 import Tournament from "../../components/TounamentDetail/index";
 import Particpants from "../../components/Participants/index";
 import { toast } from "react-toastify";
+import Join from "../../components/DisplayModal/DisplayModal";
 
 const SingleTournament = () => {
   const [single, setSingle] = useState([]);
@@ -22,6 +23,7 @@ const SingleTournament = () => {
   const [drawLoading, setDrawLoading] = useState(true);
   const [TournamentLoading, setTournamentLoading] = useState(true);
   const [drawLoad, setDrawLoad] = useState(false);
+  const [joinShow, setJoinShow] = useState(false);
 
   const modalRef = useRef();
   const modalRef2 = useRef();
@@ -65,28 +67,50 @@ const SingleTournament = () => {
       });
   };
 
+  const finalDraw = () => {
+    if (draws.length === 0) {
+      if (
+        window.confirm(
+          `${teams.length} team(s) registered, Registration closes as soon as you make your first draw. Do you still wish to continue?`
+        )
+      ) {
+        if (teams.length < 2) {
+          toast.error("You can draw with team");
+        } else {
+          drawTournament();
+        }
+      }
+    } else {
+      for (let i = 0; i < draws[draws.length - 1].length; i++) {
+        if (!draws[draws.length - 1][i].Winner) {
+          toast.error("some draws dont have scores");
+          return;
+        } else {
+          drawTournament();
+        }
+      }
+    }
+  };
+
   const drawTournament = async () => {
     setDrawLoad(true);
     const headers = {
       "Content-Type": "application/json",
       token: localStorage.getItem("token"),
     };
-    console.log(id, draws[draws.length - 1][0].stage + 1);
+
     try {
       const data = {
         TournamentId: id,
-        Stage: draws[draws.length - 1][0].stage + 1,
+        Stage: draws.length ? draws[draws.length - 1][0].stage + 1 : 1,
       };
-
       console.log(data);
-
       const res = await axios.post(
         "https://gamelyd.herokuapp.com/draws/save",
         data,
         { headers: headers }
       );
       console.log(res);
-
       if (!res.data.hasError) {
         setDrawLoad(false);
         toast.success(res.data.message);
@@ -196,26 +220,33 @@ const SingleTournament = () => {
       </Modal>
 
       <div
-        style={{ display: "flex", justifyContent: "center", margin: "50px" }}
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          margin: "50px",
+        }}
       >
-        <div onClick={create}>
+        <div style={{ margin: "5px" }} onClick={create}>
           <InnerButton>View Details</InnerButton>
         </div>
 
-        <div onClick={create2}>
+        <div style={{ margin: "5px" }} onClick={create2}>
           <InnerButton>Teams</InnerButton>
         </div>
-        <div onClick={create2}>
+        <div style={{ margin: "5px" }} onClick={() => setJoinShow(!joinShow)}>
           <InnerButton>Register</InnerButton>
         </div>
-        <div onClick={create2}>
-          <InnerButton>Start</InnerButton>
-        </div>
-        <div onClick={drawTournament}>
+        <div style={{ margin: "5px" }} onClick={finalDraw}>
           <InnerButton>Draw</InnerButton>
         </div>
       </div>
 
+      {joinShow && (
+        <div>
+          <Join id={id} />
+        </div>
+      )}
       <Draws>
         {draws.length === 0 && (
           <div className="noDraw">

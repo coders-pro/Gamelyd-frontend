@@ -13,25 +13,43 @@ import GroupWorkIcon from "@mui/icons-material/GroupWork";
 const Participants = (props) => {
   return (
     <>
-      {props.teams.map((team, index) => (
-        <Style key={index}>
-          <div className="draw">
-            <div className="team">
-              <GroupWorkIcon sx={{ fontSize: 85 }} />
-              <div className="teamName"> Team {team.teamname}</div>
-            </div>
-            <div className="bot">
-              <div className="player">
-                {team.players.map((person, i) => (
-                  <div key={i} className="playerName">
-                    {person.username}
-                  </div>
-                ))}
+      {!props.teams ? (
+        <>
+          <Style>
+            <div className="draw">
+              <div className="team">
+                <GroupWorkIcon sx={{ fontSize: 85 }} />
+                <div className="teamName"> No Registrations Yet</div>
+              </div>
+              <div className="bot">
+                <div className="player"></div>
               </div>
             </div>
-          </div>
-        </Style>
-      ))}
+          </Style>
+        </>
+      ) : (
+        <>
+          {props.teams.map((team, index) => (
+            <Style key={index}>
+              <div className="draw">
+                <div className="team">
+                  <GroupWorkIcon sx={{ fontSize: 85 }} />
+                  <div className="teamName"> Team {team.teamname}</div>
+                </div>
+                <div className="bot">
+                  <div className="player">
+                    {team.players.map((person, i) => (
+                      <div key={i} className="playerName">
+                        {person.username}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </Style>
+          ))}
+        </>
+      )}
     </>
   );
 };
