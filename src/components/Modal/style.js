@@ -1,7 +1,7 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const ModalStyle = styled.div`
-  overflow: hidden;
+  overflow: auto;
   .modal-backdrop {
     position: fixed;
     height: 100vh;
@@ -24,8 +24,9 @@ export const ModalStyle = styled.div`
     top: 0;
     bottom: 0;
     padding: 50px;
-    overflow: hidden;
     z-index: 1000;
+    overflow: hidden;
+    overflow-y: auto;
     background-color: #15202b;
 
     @media (max-with: 700px) {
@@ -33,8 +34,24 @@ export const ModalStyle = styled.div`
     }
   }
 
+  .modal-content-wrapper::-webkit-scrollbar {
+    width: 11px;
+  }
+  .modal-content-wrapper {
+    scrollbar-width: thin;
+    scrollbar-color: #0bc0b4 #0bc0b4;
+  }
+  .modal-content-wrapper::-webkit-scrollbar-track {
+    background: #0bc0b4;
+  }
+  .modal-content-wrapper::-webkit-scrollbar-thumb {
+    background-color: #15202b;
+    border-radius: 6px;
+    border: 3px solid #0bc0b4;
+  }
+
   .modal-content {
     color: black;
     overflow: hidden;
   }
-`
+`;

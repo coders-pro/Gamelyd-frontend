@@ -1,45 +1,4 @@
-import styled from 'styled-components'
-
-export const Singlediv = styled.div`
-  /* border: 3px solid red; */
-  width: 95%;
-  margin: auto;
-
-  .info-div {
-    /* border: 3px solid gold; */
-    .sub-info-div {
-      /* border: 1px solid blue; */
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin: auto;
-      .bio {
-        border: 1px solid #b8bcbf83;
-        width: 600px;
-        height: 100%;
-        .head {
-          border: 1px solid #b8bcbf83;
-          padding: 10px 10px;
-          font-size: 20px;
-          color: #b8bcbf83;
-        }
-        .bod {
-          padding: 10px 10px;
-          color: #b8bcbf83;
-        }
-      }
-    }
-  }
-  .but {
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    width: 180px;
-    left: 0;
-    right: 0;
-    cursor: pointer;
-  }
-`
+import styled from "styled-components";
 
 export const Draws = styled.div`
   .noDraw {
@@ -52,7 +11,7 @@ export const Draws = styled.div`
     margin: auto;
     margin-top: 100px;
   }
-`
+`;
 
 export const Carddiv = styled.div`
   /* border: 3px solid green; */
@@ -70,7 +29,7 @@ export const Carddiv = styled.div`
     margin: 0;
     padding: 0;
     font-size: 50px;
-    font-family: 'Playfair Display', serif;
+    font-family: "Playfair Display", serif;
     font-weight: 700;
     font-style: italic;
     color: #b8bcbf;
@@ -128,7 +87,7 @@ export const Carddiv = styled.div`
   }
   .title2 {
     font-size: 50px;
-    font-family: 'Playfair Display', serif;
+    font-family: "Playfair Display", serif;
     font-weight: 700;
     font-style: italic;
     color: #b8bcbf;
@@ -142,4 +101,4 @@ export const Carddiv = styled.div`
       width: 90%;
     }
   }
-`
+`;
