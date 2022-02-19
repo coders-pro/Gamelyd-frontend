@@ -10,17 +10,17 @@ import Profile from "./screens/Profile/profile";
 import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import DisplayModal from "./components/DisplayModal/DisplayModal";
 // import './assets/css/fonts.css';
 
 axios.interceptors.response.use(
   function (successRes) {
     // ... modify response;
     if (successRes.data.message === "token expired") {
-      window.location.href = "/signup";
       toast.error(successRes.data.message);
+      window.location.href = "/signup";
     }
-
-    return successRes;
   },
   function (error: any) {
     // ...
@@ -39,6 +39,7 @@ function App() {
           <Route path="tournament/:payment" element={<Showmore />} />
           <Route path="tournament/view/:id" element={<SingleTournament />} />
           <Route path="profile/:id" element={<Profile />} />
+          <Route path="display" element={<DisplayModal />} />
         </Routes>
         <ToastContainer />
       </ScrollToTop>
