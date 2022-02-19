@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Singlediv = styled.div`
   /* border: 3px solid red; */
@@ -39,7 +39,7 @@ export const Singlediv = styled.div`
     right: 0;
     cursor: pointer;
   }
-`;
+`
 
 export const Draws = styled.div`
   .noDraw {
@@ -52,7 +52,7 @@ export const Draws = styled.div`
     margin: auto;
     margin-top: 100px;
   }
-`;
+`
 
 export const Carddiv = styled.div`
   /* border: 3px solid green; */
@@ -70,7 +70,7 @@ export const Carddiv = styled.div`
     margin: 0;
     padding: 0;
     font-size: 50px;
-    font-family: "Playfair Display", serif;
+    font-family: 'Playfair Display', serif;
     font-weight: 700;
     font-style: italic;
     color: #b8bcbf;
@@ -128,7 +128,7 @@ export const Carddiv = styled.div`
   }
   .title2 {
     font-size: 50px;
-    font-family: "Playfair Display", serif;
+    font-family: 'Playfair Display', serif;
     font-weight: 700;
     font-style: italic;
     color: #b8bcbf;
@@ -142,4 +142,4 @@ export const Carddiv = styled.div`
       width: 90%;
     }
   }
-`;
+`
