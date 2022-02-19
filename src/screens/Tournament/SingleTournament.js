@@ -21,6 +21,7 @@ const SingleTournament = () => {
   const [draws, setDraws] = useState([]);
   const [drawLoading, setDrawLoading] = useState(true);
   const [TournamentLoading, setTournamentLoading] = useState(true);
+  const [drawLoad, setDrawLoad] = useState(false);
 
   const modalRef = useRef();
   const modalRef2 = useRef();
@@ -64,6 +65,38 @@ const SingleTournament = () => {
       });
   };
 
+  const drawTournament = async () => {
+    setDrawLoad(true);
+    const headers = {
+      "Content-Type": "application/json",
+      token: localStorage.getItem("token"),
+    };
+    console.log(id, draws[draws.length - 1][0].stage + 1);
+    try {
+      const data = {
+        TournamentId: id,
+        Stage: draws[draws.length - 1][0].stage + 1,
+      };
+
+      console.log(data);
+
+      const res = await axios.post(
+        "https://gamelyd.herokuapp.com/draws/save",
+        data,
+        { headers: headers }
+      );
+      console.log(res);
+
+      if (!res.data.hasError) {
+        setDrawLoad(false);
+        toast.success(res.data.message);
+      } else {
+        setDrawLoad(false);
+        toast.error(res.data.message);
+      }
+    } catch (error) {}
+  };
+
   useEffect(() => {
     const headers = {
       "Content-Type": "application/json",
@@ -77,7 +110,7 @@ const SingleTournament = () => {
         if (!res.data.hasError) {
           setTournamentLoading(false);
           setSingle(res.data.tournament);
-          toast.success(res.data.message);
+          // toast.success(res.data.message);
         } else {
           toast.error(res.data.message);
         }
@@ -89,9 +122,9 @@ const SingleTournament = () => {
       })
       .then((res) => {
         if (!res.data.hasError) {
-          toast.message(res.data.message);
           setTournamentLoading(false);
           setTeams(res.data.tournament);
+          // toast.success(res.data.message);
         } else {
           toast.error(res.data.message);
         }
@@ -128,6 +161,7 @@ const SingleTournament = () => {
             }
           }
           setDraws(newDraws);
+          console.log(newDraws);
           toast.success(res.data.message);
         } else {
           toast.error(res.data.message);
@@ -137,7 +171,7 @@ const SingleTournament = () => {
 
   return (
     <div>
-      {drawLoading && <Loader />}
+      {drawLoading ? <Loader /> : drawLoad ? <Loader /> : ""}
       <Navbar message="jh" />
       <Hero
         pic1={"/images/soldier12.png"}
@@ -177,7 +211,7 @@ const SingleTournament = () => {
         <div onClick={create2}>
           <InnerButton>Start</InnerButton>
         </div>
-        <div onClick={create2}>
+        <div onClick={drawTournament}>
           <InnerButton>Draw</InnerButton>
         </div>
       </div>
