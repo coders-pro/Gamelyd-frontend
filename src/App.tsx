@@ -5,22 +5,23 @@ import Home from "./screens/Home/Home";
 import SignUp from "./screens/SignUp/SignUp";
 import Showmore from "./screens/Showmore/Showmore";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+import DisplayModal from "./components/DisplayModal/DisplayModal";
 import SingleTournament from "./screens/Tournament/SingleTournament";
 import Profile from "./screens/Profile/profile";
 import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import DisplayModal from "./components/DisplayModal/DisplayModal";
 // import './assets/css/fonts.css';
 
 axios.interceptors.response.use(
   function (successRes) {
     // ... modify response;
     if (successRes.data.message === "token expired") {
-      toast.error(successRes.data.message);
       window.location.href = "/signup";
+      toast.error(successRes.data.message);
     }
+
+    return successRes;
   },
   function (error: any) {
     // ...

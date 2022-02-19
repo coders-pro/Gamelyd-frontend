@@ -5,13 +5,13 @@ import {
   USER_REGISTER_FAIL,
   USER_REGISTER_REQUEST,
   USER_REGISTER_SUCCESS,
-} from '../constants/userConstants'
-import { ThunkAction, ThunkDispatch } from 'redux-thunk'
-import { AnyAction } from 'redux'
-import { RootState } from '../store'
-import { toast } from 'react-toastify'
+} from "../constants/userConstants";
+import { ThunkAction, ThunkDispatch } from "redux-thunk";
+import { AnyAction } from "redux";
+import { RootState } from "../store";
+import { toast } from "react-toastify";
 
-import axios from 'axios'
+import axios from "axios";
 
 export const login =
   (
@@ -24,48 +24,48 @@ export const login =
     try {
       dispatch({
         type: USER_LOGIN_REQUEST,
-      })
+      });
 
       const config = {
         headers: {
-          'Content-Type': 'application/json',
-          token: '',
+          "Content-Type": "application/json",
+          token: "",
         },
-      }
+      };
 
       const data = {
         email: emails,
         password,
-      }
+      };
 
-      console.log(data)
+      console.log(data);
 
       const response = await axios.post(
-        'https://gamelyd.herokuapp.com/users/login',
+        "https://gamelyd.herokuapp.com/users/login",
         data,
         config
-      )
+      );
 
-      let userData = response.data.data
+      let userData = response.data.data;
 
       if (response.data.hasError === false) {
-        localStorage.setItem('id', response.data.data.ID)
-        localStorage.setItem('first', response.data.data.first_name)
-        localStorage.setItem('last', response.data.data.last_name)
-        localStorage.setItem('user', response.data.data.user_name)
-        localStorage.setItem('token', response.data.data.token)
-        toast.success('Login successful')
+        localStorage.setItem("id", response.data.data.ID);
+        localStorage.setItem("first", response.data.data.first_name);
+        localStorage.setItem("last", response.data.data.last_name);
+        localStorage.setItem("user", response.data.data.user_name);
+        localStorage.setItem("token", response.data.data.token);
+        toast.success("Login successful");
         dispatch({
           type: USER_LOGIN_SUCCESS,
           payload: userData,
-        })
+        });
       } else {
-        console.log('error')
+        console.log("error");
         dispatch({
           type: USER_LOGIN_FAIL,
           payload: response.data.error,
-        })
-        toast.error(response.data.message)
+        });
+        toast.error(response.data.message);
       }
 
       // pass  data to reducer
@@ -73,9 +73,9 @@ export const login =
       dispatch({
         type: USER_LOGIN_FAIL,
         payload: error,
-      })
+      });
     }
-  }
+  };
 
 export const register =
   (
@@ -92,14 +92,14 @@ export const register =
     try {
       dispatch({
         type: USER_REGISTER_REQUEST,
-      })
+      });
 
       const config = {
         headers: {
-          'Content-Type': 'application/json',
-          token: '',
+          "Content-Type": "application/json",
+          token: "",
         },
-      }
+      };
 
       const data = {
         Email: signupEmail,
@@ -108,37 +108,37 @@ export const register =
         Last_name: lastName,
         First_name: firstName,
         Phone: phone,
-        User_type: 'USER',
-      }
+        User_type: "USER",
+      };
 
-      console.log(data)
+      console.log(data);
 
       const response = await axios.post(
-        'https://gamelyd.herokuapp.com/users/signup',
+        "https://gamelyd.herokuapp.com/users/signup",
         data,
         config
-      )
+      );
 
-      let userData = response.data.data
+      let userData = response.data.data;
 
       if (response.data.hasError === false) {
-        localStorage.setItem('id', response.data.data.ID)
-        localStorage.setItem('first', response.data.data.first_name)
-        localStorage.setItem('last', response.data.data.last_name)
-        localStorage.setItem('user', response.data.data.user_name)
-        localStorage.setItem('token', response.data.data.token)
-        toast.success('Login successful')
+        localStorage.setItem("id", response.data.data.ID);
+        localStorage.setItem("first", response.data.data.first_name);
+        localStorage.setItem("last", response.data.data.last_name);
+        localStorage.setItem("user", response.data.data.user_name);
+        localStorage.setItem("token", response.data.data.token);
+        toast.success("Login successful");
         dispatch({
           type: USER_REGISTER_SUCCESS,
           payload: userData,
-        })
+        });
       } else {
         dispatch({
           type: USER_REGISTER_FAIL,
           payload: response.data.error,
-        })
+        });
 
-        toast.error('Sorry something went wrong')
+        toast.error("Sorry something went wrong");
       }
 
       // pass  data to reducer
@@ -146,6 +146,6 @@ export const register =
       dispatch({
         type: USER_REGISTER_FAIL,
         payload: error,
-      })
+      });
     }
-  }
+  };
