@@ -17,7 +17,7 @@ axios.interceptors.response.use(
   function (successRes) {
     // ... modify response;
     if (successRes.data.message === "token expired") {
-      window.location.href = "/signup";
+      window.location.href = `/signup?redirect=${window.location.pathname}`;
       toast.error(successRes.data.message);
     }
 

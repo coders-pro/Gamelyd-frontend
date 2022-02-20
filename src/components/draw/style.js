@@ -8,9 +8,10 @@ export const Style = styled.div`
     justify-content: space-between;
     flex-direction: row;
     padding: 30px;
+    padding-bottom: 20px;
     width: 80vw;
     max-width: 1000px;
-    margin: 10px auto;
+    margin: 40px auto;
     border-radius: 10px;
     position: relative;
     @media (max-width: 800px) {
@@ -136,6 +137,16 @@ export const Style = styled.div`
       top: 0px;
       display: flex;
       flex-direction: column;
+    }
+  }
+  .link {
+    position: absolute;
+    top: -30px;
+    left: 30px;
+    @media (max-width: 550px) {
+      top: -30px;
+      display: flex;
+      flex-direction: row;
     }
   }
 `;
