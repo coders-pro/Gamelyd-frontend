@@ -211,7 +211,6 @@ export const StyleCard = styled.div`
     margin-left: 30px;
     font-size: 18px;
     padding: 5px 0;
-    z-index: 1000;
   }
   .card {
     color: red;
