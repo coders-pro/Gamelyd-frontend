@@ -8,6 +8,7 @@ import SaveAsIcon from "@mui/icons-material/SaveAs";
 import axios from "axios";
 import { toast } from "react-toastify";
 import Loader from "../../components/ButtonLoader/ButtonLoader";
+import { useParams } from "react-router-dom";
 
 const Draw = (props) => {
   const [isEditMode, setIsEditMode] = useState(false);
@@ -17,6 +18,8 @@ const Draw = (props) => {
   const [link, setLink] = useState("");
   const [date, setDate] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const { id } = useParams();
 
   const addTime = async () => {
     setLoading(true);
@@ -121,6 +124,7 @@ const Draw = (props) => {
   };
 
   useEffect(() => {
+    console.log(id, localStorage.getItem("id"));
     const headers = {
       "Content-Type": "application/json",
       token: localStorage.getItem("token"),
@@ -138,12 +142,14 @@ const Draw = (props) => {
       <Style>
         <div className="draw">
           <div className="team">
-            <div
-              className="editButton"
-              onClick={() => setIsEditMode(!isEditMode)}
-            >
-              {!isEditMode ? <EditIcon /> : <EditOffIcon />}
-            </div>
+            {id === localStorage.getItem("id") && (
+              <div
+                className="editButton"
+                onClick={() => setIsEditMode(!isEditMode)}
+              >
+                {!isEditMode ? <EditIcon /> : <EditOffIcon />}
+              </div>
+            )}
             <div className="time">
               {!isEditMode ? (
                 <>

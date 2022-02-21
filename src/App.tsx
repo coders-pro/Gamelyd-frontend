@@ -17,6 +17,11 @@ axios.interceptors.response.use(
   function (successRes) {
     // ... modify response;
     if (successRes.data.message === "token expired") {
+      localStorage.setItem("id", "");
+      localStorage.setItem("first", "");
+      localStorage.setItem("last", "");
+      localStorage.setItem("user", "");
+      localStorage.setItem("token", "");
       window.location.href = `/signup?redirect=${window.location.pathname}`;
       toast.error(successRes.data.message);
     }

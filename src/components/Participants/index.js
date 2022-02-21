@@ -33,14 +33,13 @@ const Participants = (props) => {
             <Style key={index}>
               <div className="draw">
                 <div className="team">
-                  <GroupWorkIcon sx={{ fontSize: 85 }} />
                   <div className="teamName"> Team {team.teamname}</div>
                 </div>
                 <div className="bot">
                   <div className="player">
                     {team.players.map((person, i) => (
                       <div key={i} className="playerName">
-                        {person.username}
+                        <span>{i + 1}.</span> {person.username}
                       </div>
                     ))}
                   </div>

@@ -46,20 +46,71 @@ const SingleTournament = () => {
 
   const { id } = useParams();
 
-  const startTournament = () => {
+  const refresh = () => {
     const headers = {
       "Content-Type": "application/json",
       token: localStorage.getItem("token"),
     };
     axios
-      .get(`https://gamelyd.herokuapp.com/tournament/start/${id}`, {
+      .get(`https://gamelyd.herokuapp.com/tournament/${id}`, {
         headers: headers,
       })
       .then((res) => {
         if (!res.data.hasError) {
           setTournamentLoading(false);
-          console.log(res.data.tournament);
+          setSingle(res.data.tournament);
+          // toast.success(res.data.message);
+        } else {
+          toast.error(res.data.message);
+        }
+      });
+
+    axios
+      .get(`https://gamelyd.herokuapp.com/tournament/participants/${id}`, {
+        headers: headers,
+      })
+      .then((res) => {
+        if (!res.data.hasError) {
+          setTournamentLoading(false);
           setTeams(res.data.tournament);
+          // toast.success(res.data.message);
+        } else {
+          toast.error(res.data.message);
+        }
+      });
+
+    axios
+      .get(`https://gamelyd.herokuapp.com/draws/${id}`, {
+        headers: headers,
+      })
+      .then((res) => {
+        if (!res.data.hasError) {
+          setDrawLoading(false);
+          let newDraws = [];
+          let tempArray = [];
+
+          for (let i = 0; i < res.data.draws.length; i++) {
+            if (i === 0) {
+              tempArray.push(res.data.draws[i]);
+            } else {
+              if (res.data.draws[i].stage === res.data.draws[i - 1].stage) {
+                tempArray.push(res.data.draws[i]);
+                if (res.data.draws.length - 1 === i) {
+                  newDraws.push(tempArray);
+                }
+              } else {
+                newDraws.push(tempArray);
+
+                tempArray = [];
+                tempArray.push(res.data.draws[i]);
+                if (res.data.draws.length - 1 === i) {
+                  newDraws.push(tempArray);
+                }
+              }
+            }
+          }
+          setDraws(newDraws);
+          console.log(newDraws);
           toast.success(res.data.message);
         } else {
           toast.error(res.data.message);
@@ -114,6 +165,7 @@ const SingleTournament = () => {
       if (!res.data.hasError) {
         setDrawLoad(false);
         toast.success(res.data.message);
+        refresh();
       } else {
         setDrawLoad(false);
         toast.error(res.data.message);
