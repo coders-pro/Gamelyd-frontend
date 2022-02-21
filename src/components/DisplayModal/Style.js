@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Div = styled.div`
   /* border: 3px solid red; */
@@ -185,4 +185,4 @@ export const Div = styled.div`
   .imgbx {
     color: white;
   }
-`;
+`
