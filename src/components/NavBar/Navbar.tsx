@@ -18,6 +18,7 @@ type IState = {
   line2: string;
   line3: string;
   transit: number;
+  user: boolean;
 };
 
 class Navbar extends React.Component<IProps, IState> {
@@ -30,7 +31,17 @@ class Navbar extends React.Component<IProps, IState> {
     line2: "1",
     line3: "",
     transit: 0,
+    user: false,
   };
+
+  componentDidMount() {
+    // if(localStorage.getItem(user))
+    if (localStorage.getItem("user")) {
+      this.setState({
+        user: true,
+      });
+    }
+  }
 
   /* This section controls the NavBar fade on Scroll*/
   checkScroll = () => {
@@ -137,9 +148,11 @@ class Navbar extends React.Component<IProps, IState> {
               Profile<span></span>
             </NavLink>
 
-            <NavLink to="/signup" className="single_item">
-              Signup<span></span>
-            </NavLink>
+            {!this.state.user && (
+              <NavLink to="/signup" className="single_item">
+                Signup<span></span>
+              </NavLink>
+            )}
 
             <a
               href="https://t.me/+4ICOg08hzMQwZTdk"
@@ -171,12 +184,17 @@ class Navbar extends React.Component<IProps, IState> {
             </NavLink>
 
             <NavLink
-              to="/signup"
+              to={`/profile/${localStorage.getItem("id")}`}
               className="single_item"
-              onClick={this.onClickBackdrop}
             >
-              Signup
+              Profile<span></span>
             </NavLink>
+
+            {!this.state.user && (
+              <NavLink to="/signup" className="single_item">
+                Signup<span></span>
+              </NavLink>
+            )}
 
             <a
               href="https://t.me/+4ICOg08hzMQwZTdk"
