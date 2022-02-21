@@ -31,6 +31,7 @@ export const Style = styled.div`
         padding: 0 20px;
         font-size: 15px;
         text-align: left;
+        margin-top: 10px;
       }
     }
     .team {

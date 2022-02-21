@@ -8,14 +8,18 @@ import SaveAsIcon from "@mui/icons-material/SaveAs";
 import axios from "axios";
 import { toast } from "react-toastify";
 import Loader from "../../components/ButtonLoader/ButtonLoader";
+import { useParams } from "react-router-dom";
 
 const Draw = (props) => {
   const [isEditMode, setIsEditMode] = useState(false);
   const [team1, setTeam1] = useState(0);
   const [team2, setTeam2] = useState(0);
   const [time, setTime] = useState("");
+  const [link, setLink] = useState("");
   const [date, setDate] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const { id } = useParams();
 
   const addTime = async () => {
     setLoading(true);
@@ -33,6 +37,39 @@ const Draw = (props) => {
 
       const res = await axios.post(
         `https://gamelyd.herokuapp.com/draws/addTime/${props.draw.drawid}`,
+        data,
+        { headers: headers }
+      );
+      console.log(res);
+
+      if (!res.data.hasError) {
+        setLoading(false);
+        toast.success(res.data.message);
+      } else {
+        setLoading(false);
+        toast.error(res.data.message);
+      }
+    } catch (error) {
+      setLoading(false);
+      toast.error("Error: please try again");
+    }
+  };
+
+  const addLink = async () => {
+    setLoading(true);
+    const headers = {
+      "Content-Type": "application/json",
+      token: localStorage.getItem("token"),
+    };
+    try {
+      const data = {
+        Link: link,
+      };
+
+      console.log(data);
+
+      const res = await axios.post(
+        `https://gamelyd.herokuapp.com/draws/addLink/${props.draw.drawid}`,
         data,
         { headers: headers }
       );
@@ -87,6 +124,7 @@ const Draw = (props) => {
   };
 
   useEffect(() => {
+    console.log(id, localStorage.getItem("id"));
     const headers = {
       "Content-Type": "application/json",
       token: localStorage.getItem("token"),
@@ -95,6 +133,7 @@ const Draw = (props) => {
     setTeam2(props.draw.Team2Score);
     setTime(props.draw.time);
     setDate(props.draw.date);
+    setLink(props.draw.Link);
   }, []);
 
   return (
@@ -103,12 +142,14 @@ const Draw = (props) => {
       <Style>
         <div className="draw">
           <div className="team">
-            <div
-              className="editButton"
-              onClick={() => setIsEditMode(!isEditMode)}
-            >
-              {!isEditMode ? <EditIcon /> : <EditOffIcon />}
-            </div>
+            {id === localStorage.getItem("id") && (
+              <div
+                className="editButton"
+                onClick={() => setIsEditMode(!isEditMode)}
+              >
+                {!isEditMode ? <EditIcon /> : <EditOffIcon />}
+              </div>
+            )}
             <div className="time">
               {!isEditMode ? (
                 <>
@@ -133,6 +174,42 @@ const Draw = (props) => {
                   />
                   <button onClick={addTime} className="save">
                     Update Time
+                  </button>
+                </>
+              )}
+            </div>
+            <div className="link">
+              {!isEditMode ? (
+                link && (
+                  <>
+                    <button style={{ marginLeft: "20px" }} className="save">
+                      <a
+                        style={{ color: "#15202b", textDecoration: "none" }}
+                        href={link}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Join Match
+                      </a>
+                    </button>
+                  </>
+                )
+              ) : (
+                <>
+                  <input
+                    className="dateInput"
+                    style={{ width: "150px" }}
+                    type="text"
+                    value={link}
+                    placeholder="Match Link"
+                    onChange={(e) => setLink(e.target.value)}
+                  />
+                  <button
+                    style={{ marginLeft: "20px" }}
+                    onClick={addLink}
+                    className="save"
+                  >
+                    Update Link
                   </button>
                 </>
               )}
