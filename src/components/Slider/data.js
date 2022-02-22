@@ -142,7 +142,7 @@ const data = {
 
     {
       id: 4,
-      name: 'Team Size',
+      name: 'Team_Size',
 
       data: [
         {
@@ -177,6 +177,67 @@ const data = {
 
     {
       id: 5,
+      name: 'Payment',
+
+      data: [
+        {
+          _id: 5,
+          index: 0,
+          picture: `images/soldier3.png`,
+          name: 'Free',
+          value: 'FREE',
+          next: 7,
+          prev: 4,
+        },
+        {
+          _id: 5,
+          index: 1,
+          picture: `images/soldier2.jpg`,
+          name: 'Paid',
+          value: 'PAID',
+          next: 6,
+          prev: 4,
+        },
+        {
+          _id: 5,
+          index: 2,
+          picture: `images/soldier1.jpg`,
+          name: 'Sponsored',
+          value: 'SPONSORED',
+          next: 6,
+          prev: 4,
+        },
+      ],
+    },
+
+    {
+      id: 6,
+      name: 'Integration',
+
+      data: [
+        {
+          _id: 6,
+          index: 1,
+          picture: `images/soldier2.jpg`,
+          name: 'Paystack',
+          value: 'PAYSTACK',
+          next: 7,
+          prev: 5,
+        },
+        {
+          _id: 6,
+          index: 2,
+          picture: `images/soldier2.jpg`,
+          name: 'Paystack',
+          value: 'PAYSTACK',
+          next: 7,
+          prev: 5,
+        },
+      ],
+    },
+
+    {
+      id: 7,
       name: 'Payment',
 
       data: [
