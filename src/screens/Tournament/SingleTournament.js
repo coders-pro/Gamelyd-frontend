@@ -3,7 +3,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { Singlediv, Carddiv, Draws } from "./style";
 import Navbar from "../../components/NavBar/Navbar";
-import Hero from "../../components/Hero/Hero";
+import Hero from "../../components/TournamentHeader";
 import ImageRotate from "../../components/ImageRotate/ImageRotate";
 import Footer from "../../components/Footer/Footer";
 import InnerButton from "../../components/Button/InnerButton";
@@ -17,7 +17,7 @@ import { toast } from "react-toastify";
 import Join from "../../components/DisplayModal/DisplayModal";
 
 const SingleTournament = () => {
-  const [single, setSingle] = useState([]);
+  const [single, setSingle] = useState([1]);
   const [teams, setTeams] = useState([]);
   const [draws, setDraws] = useState([]);
   const [drawLoading, setDrawLoading] = useState(true);
@@ -119,14 +119,16 @@ const SingleTournament = () => {
   };
 
   const finalDraw = () => {
-    if (draws.length === 0) {
+    console.log(draws.length);
+    let len = draws.length;
+    if (len === 0) {
       if (
         window.confirm(
           `${teams.length} team(s) registered, Registration closes as soon as you make your first draw. Do you still wish to continue?`
         )
       ) {
         if (teams.length < 2) {
-          toast.error("You can draw with team");
+          toast.error("You can't draw with less than two teams");
         } else {
           drawTournament();
         }
@@ -249,13 +251,7 @@ const SingleTournament = () => {
     <div>
       {drawLoading ? <Loader /> : drawLoad ? <Loader /> : ""}
       <Navbar message="jh" />
-      <Hero
-        pic1={"/images/soldier12.png"}
-        pic2={"/images/soldier11.png"}
-        background={"/images/soldier12.png"}
-        message="SINGLE TOURNAMENT"
-        time="TOURNAMENT INFO"
-      />
+      <Hero />
 
       <Modal ref={modalRef}>
         <button onClick={close} className="close">
@@ -296,7 +292,7 @@ const SingleTournament = () => {
 
       {joinShow && (
         <div>
-          <Join id={id} />
+          <Join close={() => setJoinShow(false)} id={id} />
         </div>
       )}
       <Draws>
