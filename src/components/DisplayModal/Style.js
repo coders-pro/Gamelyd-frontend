@@ -11,6 +11,16 @@ export const Div = styled.div`
   width: 470px;
   height: 640px;
   z-index: 100;
+  .backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+  }
   .bx {
     width: 100%;
     height: 100%;
@@ -43,6 +53,15 @@ export const Div = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    .close {
+      position: absolute;
+      right: 60px;
+      top: 40px;
+      color: #0bc0b4;
+      cursor: pointer;
+      font-size: 30px;
+      z-index: 1000;
+    }
 
     .box::-webkit-scrollbar {
       width: 11px;
