@@ -186,7 +186,7 @@ const data = {
           picture: `images/soldier3.png`,
           name: 'Free',
           value: 'FREE',
-          next: 7,
+          next: 8,
           prev: 4,
         },
         {
@@ -195,7 +195,7 @@ const data = {
           picture: `images/soldier2.jpg`,
           name: 'Paid',
           value: 'PAID',
-          next: 6,
+          next: 7,
           prev: 4,
         },
         {
@@ -204,7 +204,7 @@ const data = {
           picture: `images/soldier1.jpg`,
           name: 'Sponsored',
           value: 'SPONSORED',
-          next: 6,
+          next: 7,
           prev: 4,
         },
       ],
@@ -238,6 +238,32 @@ const data = {
 
     {
       id: 7,
+      name: 'Integration',
+
+      data: [
+        {
+          _id: 7,
+          index: 0,
+          picture: `images/soldier3.png`,
+          name: 'Paystack',
+          value: 'PAYSTACK',
+          next: 8,
+          prev: 6,
+        },
+        {
+          _id: 7,
+          index: 1,
+          picture: `images/soldier2.jpg`,
+          name: 'Flutter',
+          value: 'Flutter',
+          next: 8,
+          prev: 6,
+        },
+      ],
+    },
+
+    {
+      id: 8,
       name: 'Payment',
 
       data: [
@@ -256,15 +282,6 @@ const data = {
           picture: `images/soldier2.jpg`,
           name: 'Paid',
           value: 'PAID',
-          next: 100,
-          prev: 4,
-        },
-        {
-          _id: 5,
-          index: 2,
-          picture: `images/soldier1.jpg`,
-          name: 'Sponsored',
-          value: 'SPONSORED',
           next: 100,
           prev: 4,
         },

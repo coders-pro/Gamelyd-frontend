@@ -12,6 +12,8 @@ import back from '../../assets/audios/Select.mp3'
 import { PaystackButton } from 'react-paystack'
 import axios from 'axios'
 import { toast } from 'react-toastify'
+import withRouter from '../Navigate/Navigate'
+import Loader from '../Loader/Loader'
 
 class ImageSlider extends React.Component {
   constructor() {
@@ -84,13 +86,13 @@ class ImageSlider extends React.Component {
     let audio = new Audio(Open)
     audio.play()
 
-    if (this.state.properties[next].id === 7) {
+    if (this.state.properties[next].id === 8) {
       this.setState({
         switch: false,
       })
     }
 
-    if (this.state.properties[next].id !== 7) {
+    if (this.state.properties[next].id !== 8) {
       this.setState({
         active: next,
         position: 0,
@@ -171,14 +173,20 @@ class ImageSlider extends React.Component {
           this.setState({
             loading: false,
           })
-
-          toast.success('Competition created successfully')
+          toast.success('Tournament created successfully')
+          this.props.navigate('/tournament')
         } else {
           toast.error('Sorry something happened')
+          this.setState({
+            loading: false,
+          })
         }
       })
       .catch((err) => {
         toast.error('Sorry something happened')
+        this.setState({
+          loading: false,
+        })
       })
   }
 
@@ -200,7 +208,7 @@ class ImageSlider extends React.Component {
 
     const componentProps = {
       email: localStorage.getItem('email'),
-      amount: parseInt(this.state.amount),
+      amount: parseInt(this.state.amount * 100),
       metadata: {
         user: localStorage.getItem('user'),
         phone: localStorage.getItem('phone'),
@@ -249,17 +257,21 @@ class ImageSlider extends React.Component {
                 this.setState({
                   loading: false,
                 })
-                toast.success('Competition created successfully')
+                toast.success('Tournament created successfully')
+                this.props.navigate('/tournament')
               } else {
                 toast.error('Sorry something happened')
               }
             })
             .catch((err) => {
               toast.error('Sorry something happened')
+              this.setState({
+                loading: false,
+              })
             })
         }
       },
-      onClose: () => alert("Wait! You need this oil, don't go!!!!"),
+      onClose: () => toast.info('You just exited'),
     }
 
     const options = JSON.parse(localStorage.getItem('all'))
@@ -328,19 +340,19 @@ class ImageSlider extends React.Component {
                   value={this.state.link}
                 ></input>
 
-                <label>Link(optional)</label>
+                <label>Link</label>
                 <div className='underline'></div>
               </div>
 
               <div className='input-data'>
                 <input
-                  type='text'
+                  type='date'
                   required
                   onChange={this.handleChange}
                   value={this.state.date}
                 ></input>
 
-                <label>Date(optional)</label>
+                {/* <label>Date</label> */}
                 <div className='underline'></div>
               </div>
 
@@ -436,4 +448,4 @@ class ImageSlider extends React.Component {
   }
 }
 
-export default ImageSlider
+export default withRouter(ImageSlider)
