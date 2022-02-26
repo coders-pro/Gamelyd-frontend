@@ -87,6 +87,18 @@ const DisplayModal = (props) => {
     );
   };
 
+  const remove = (name) => {
+    let players = JSON.parse(localStorage.getItem("players"));
+    let newPlayers = [];
+    for (let i = 0; i < players.length; i++) {
+      if (players[i].UserName !== name) {
+        newPlayers.push(players[i]);
+      }
+    }
+    localStorage.setItem("players", JSON.stringify(newPlayers));
+    setSet(!set);
+  };
+
   const join = async () => {
     setLoad(true);
     if (!team) {
@@ -132,7 +144,11 @@ const DisplayModal = (props) => {
     <div>
       {load && <Loader />}
       <Div>
+        <div onClick={props.close} className="backdrop"></div>
         <section className="sect">
+          <div onClick={props.close} className="close">
+            X
+          </div>
           <div className="box">
             <input
               value={team}
@@ -153,25 +169,46 @@ const DisplayModal = (props) => {
                 <>
                   {JSON.parse(localStorage.getItem("players")).map(
                     (player, i) => (
-                      <div key={player.User_id}>@{player.UserName}</div>
+                      <div style={{ position: "relative" }}>
+                        <div
+                          style={{
+                            position: "absolute",
+                            top: "-10px",
+                            right: "0",
+                            color: "#0bc0b4",
+                            cursor: "pointer",
+                          }}
+                          onClick={() => remove(player.UserName)}
+                        >
+                          X
+                        </div>
+                        <div
+                          style={{ display: "relative" }}
+                          key={player.User_id}
+                        >
+                          @{player.UserName}
+                        </div>
+                      </div>
                     )
                   )}
                 </>
               )}
             </div>
+            <div>
+              <input
+                value={search}
+                onChange={(e) => [
+                  setSearch(e.target.value),
+                  filter(e.target.value),
+                ]}
+                style={{ margin: "20px 0", width: "100%", height: "20px" }}
+                placeholder="Search username"
+                type="text"
+              />
+            </div>
             {!loading ? (
               users.length !== 0 ? (
                 <>
-                  <input
-                    value={search}
-                    onChange={(e) => [
-                      setSearch(e.target.value),
-                      filter(e.target.value),
-                    ]}
-                    style={{ margin: "20px 0", width: "100%", height: "20px" }}
-                    placeholder="Search username"
-                    type="text"
-                  />
                   {users.length === 0 ? (
                     <div>No User Found</div>
                   ) : (
