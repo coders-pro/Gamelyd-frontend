@@ -85,6 +85,9 @@ const SingleTournament = () => {
       })
       .then((res) => {
         if (!res.data.hasError) {
+          if (!res.data.draws) {
+            res.data.draws = [];
+          }
           setDrawLoading(false);
           let newDraws = [];
           let tempArray = [];
@@ -119,6 +122,10 @@ const SingleTournament = () => {
   };
 
   const finalDraw = () => {
+    if (draws.length === 0) {
+      toast.error("No participants yet");
+      return;
+    }
     console.log(draws.length);
     let len = draws.length;
     if (len === 0) {
@@ -213,6 +220,9 @@ const SingleTournament = () => {
         headers: headers,
       })
       .then((res) => {
+        if (!res.data.draws) {
+          res.data.draws = [];
+        }
         if (!res.data.hasError) {
           setDrawLoading(false);
           let newDraws = [];
