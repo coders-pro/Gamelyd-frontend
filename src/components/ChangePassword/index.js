@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 
-export default function FolderList(props) {
+export default function ChangePassword(props) {
   const [password, setPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -38,6 +38,16 @@ export default function FolderList(props) {
     };
 
     console.log(data);
+    if (!password) {
+      toast.error("password is required");
+      setLoading(false);
+      return;
+    }
+    if (!newPassword) {
+      toast.error("New password is required");
+      setLoading(false);
+      return;
+    }
     if (newPassword !== confirmPassword) {
       toast.error("New password does not match confirm password");
       setLoading(false);
