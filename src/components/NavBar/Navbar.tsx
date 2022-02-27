@@ -148,7 +148,7 @@ class Navbar extends React.Component<IProps, IState> {
               Profile<span></span>
             </NavLink>
 
-            <NavLink to="contact-us" className="single_item">
+            <NavLink to="/contact-us" className="single_item">
               Contact Us<span></span>
             </NavLink>
 
@@ -194,7 +194,7 @@ class Navbar extends React.Component<IProps, IState> {
               Profile<span></span>
             </NavLink>
 
-            <NavLink to="contact-us" className="single_item">
+            <NavLink to="/contact-us" className="single_item">
               Contact Us<span></span>
             </NavLink>
 
