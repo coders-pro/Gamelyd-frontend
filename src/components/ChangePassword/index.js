@@ -147,7 +147,7 @@ export default function ChangePassword(props) {
               value={confirmPassword}
             ></input>
 
-            <label>Confirm New Password</label>
+            <label>Confirm Password</label>
             <div className="underline"></div>
             {type3 === "text" && (
               <VisibilityOffIcon
