@@ -19,8 +19,9 @@ const LoginForm = () => {
 
   const dispatch = useDispatch()
 
-  const redirect = location.search ? location.search.split('=')[1] : '/'
-
+  const redirect = location.search
+    ? `${location.search.split('?')[1]}?open=true`
+    : '/'
   const userLogin = useSelector<RootState, Userstate>(
     (state) => state.userLogin
   )

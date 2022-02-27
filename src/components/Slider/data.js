@@ -142,7 +142,7 @@ const data = {
 
     {
       id: 4,
-      name: 'Team Size',
+      name: 'Team_Size',
 
       data: [
         {
@@ -186,6 +186,93 @@ const data = {
           picture: `images/soldier3.png`,
           name: 'Free',
           value: 'FREE',
+          next: 8,
+          prev: 4,
+        },
+        {
+          _id: 5,
+          index: 1,
+          picture: `images/soldier2.jpg`,
+          name: 'Paid',
+          value: 'PAID',
+          next: 7,
+          prev: 4,
+        },
+        {
+          _id: 5,
+          index: 2,
+          picture: `images/soldier1.jpg`,
+          name: 'Sponsored',
+          value: 'SPONSORED',
+          next: 7,
+          prev: 4,
+        },
+      ],
+    },
+
+    {
+      id: 6,
+      name: 'Integration',
+
+      data: [
+        {
+          _id: 6,
+          index: 1,
+          picture: `images/soldier2.jpg`,
+          name: 'Paystack',
+          value: 'PAYSTACK',
+          next: 7,
+          prev: 5,
+        },
+        {
+          _id: 6,
+          index: 2,
+          picture: `images/soldier2.jpg`,
+          name: 'Paystack',
+          value: 'PAYSTACK',
+          next: 7,
+          prev: 5,
+        },
+      ],
+    },
+
+    {
+      id: 7,
+      name: 'Integration',
+
+      data: [
+        {
+          _id: 7,
+          index: 0,
+          picture: `images/soldier3.png`,
+          name: 'Paystack',
+          value: 'PAYSTACK',
+          next: 8,
+          prev: 6,
+        },
+        {
+          _id: 7,
+          index: 1,
+          picture: `images/soldier2.jpg`,
+          name: 'Flutter',
+          value: 'Flutter',
+          next: 8,
+          prev: 6,
+        },
+      ],
+    },
+
+    {
+      id: 8,
+      name: 'Payment',
+
+      data: [
+        {
+          _id: 5,
+          index: 0,
+          picture: `images/soldier3.png`,
+          name: 'Free',
+          value: 'FREE',
           next: 100,
           prev: 4,
         },
@@ -195,15 +282,6 @@ const data = {
           picture: `images/soldier2.jpg`,
           name: 'Paid',
           value: 'PAID',
-          next: 100,
-          prev: 4,
-        },
-        {
-          _id: 5,
-          index: 2,
-          picture: `images/soldier1.jpg`,
-          name: 'Sponsored',
-          value: 'SPONSORED',
           next: 100,
           prev: 4,
         },
