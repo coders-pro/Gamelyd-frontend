@@ -61,8 +61,6 @@ export default function EditUser(props) {
       Country: country,
     };
 
-    console.log(data);
-
     try {
       const res = await axios.post(
         `https://gamelyd.herokuapp.com/users/editUser/${props.user.user_id}`,

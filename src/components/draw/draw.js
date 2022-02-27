@@ -33,14 +33,11 @@ const Draw = (props) => {
         Date: date,
       };
 
-      console.log(data);
-
       const res = await axios.post(
         `https://gamelyd.herokuapp.com/draws/addTime/${props.draw.drawid}`,
         data,
         { headers: headers }
       );
-      console.log(res);
 
       if (!res.data.hasError) {
         setLoading(false);
@@ -66,14 +63,11 @@ const Draw = (props) => {
         Link: link,
       };
 
-      console.log(data);
-
       const res = await axios.post(
         `https://gamelyd.herokuapp.com/draws/addLink/${props.draw.drawid}`,
         data,
         { headers: headers }
       );
-      console.log(res);
 
       if (!res.data.hasError) {
         setLoading(false);
@@ -101,14 +95,11 @@ const Draw = (props) => {
         Winner: team1 > team2 ? "Team1" : team2 > team1 ? "Team2" : "Draw",
       };
 
-      console.log(data);
-
       const res = await axios.post(
         `https://gamelyd.herokuapp.com/draws/addScore/${props.draw.drawid}`,
         data,
         { headers: headers }
       );
-      console.log(res);
 
       if (!res.data.hasError) {
         setLoading(false);
@@ -124,7 +115,6 @@ const Draw = (props) => {
   };
 
   useEffect(() => {
-    console.log(id, localStorage.getItem("id"));
     const headers = {
       "Content-Type": "application/json",
       token: localStorage.getItem("token"),

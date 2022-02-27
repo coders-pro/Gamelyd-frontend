@@ -33,7 +33,6 @@ const DisplayModal = (props) => {
           setUsers(res.data.users);
           setFilteredUsers(res.data.users);
           setLoading(false);
-          console.log(res.data);
           toast.success(res.data.message);
         } else {
           setUsers([]);
@@ -79,7 +78,6 @@ const DisplayModal = (props) => {
   };
 
   const filter = (e) => {
-    console.log(e);
     setUsers(
       Filteredusers.filter(
         (t) => t.user_name.toLowerCase().indexOf(e.toLowerCase()) !== -1
@@ -105,7 +103,6 @@ const DisplayModal = (props) => {
       toast.error("You must choose a team name");
       return;
     }
-    console.log(props.id, localStorage.getItem("id"));
     let players = JSON.parse(localStorage.getItem("players"));
     players.push({
       UserName: localStorage.getItem("user"),
@@ -123,8 +120,6 @@ const DisplayModal = (props) => {
       TeamName: team,
       Players: players,
     };
-
-    console.log(data);
 
     const res = await axios.post(
       `https://gamelyd.herokuapp.com/tournament/register/${props.id}`,

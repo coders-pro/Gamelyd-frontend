@@ -66,7 +66,6 @@ const Profile = () => {
             } else {
               setMyToynys(res.data.tournaments);
             }
-            console.log(res.data.tournaments);
           } else {
             toast.error(res.data.message);
           }
@@ -79,7 +78,6 @@ const Profile = () => {
         .then((res) => {
           setLoading(false);
           if (!res.data.hasError) {
-            console.log(res.data.tournaments);
             if (!res.data.tournaments) {
               setMyCToynys([]);
             } else {
@@ -109,7 +107,6 @@ const Profile = () => {
             toast.success(res.data.message);
             setUser(res.data.user);
             getUserTourny(res.data.user.user_name);
-            console.log(res.data.user);
           } else {
             toast.error(res.data.message);
           }

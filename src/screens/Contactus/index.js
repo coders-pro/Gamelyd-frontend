@@ -15,6 +15,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import Footer from "../../components/Footer/Footer";
 import ImageRotate from "../../components/ImageRotate/ImageRotate";
+import Scroll from "../../components/Scroll/Scroll4";
 
 export default function FolderList() {
   const [loading, setLoading] = useState(false);
@@ -41,8 +42,6 @@ export default function FolderList() {
       Email: email,
       Message: message,
     };
-
-    console.log(data);
 
     try {
       const res = await axios.post(

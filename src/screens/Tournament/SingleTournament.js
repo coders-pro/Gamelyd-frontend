@@ -113,7 +113,6 @@ const SingleTournament = () => {
             }
           }
           setDraws(newDraws);
-          console.log(newDraws);
           toast.success(res.data.message);
         } else {
           toast.error(res.data.message);
@@ -126,7 +125,6 @@ const SingleTournament = () => {
       toast.error("No participants yet");
       return;
     }
-    console.log(draws.length);
     let len = draws.length;
     if (len === 0) {
       if (
@@ -164,13 +162,11 @@ const SingleTournament = () => {
         TournamentId: id,
         Stage: draws.length ? draws[draws.length - 1][0].stage + 1 : 1,
       };
-      console.log(data);
       const res = await axios.post(
         "https://gamelyd.herokuapp.com/draws/save",
         data,
         { headers: headers }
       );
-      console.log(res);
       if (!res.data.hasError) {
         setDrawLoad(false);
         toast.success(res.data.message);
@@ -249,7 +245,6 @@ const SingleTournament = () => {
             }
           }
           setDraws(newDraws);
-          console.log(newDraws);
           toast.success(res.data.message);
         } else {
           toast.error(res.data.message);
