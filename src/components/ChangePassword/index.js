@@ -37,7 +37,6 @@ export default function ChangePassword(props) {
       NewPassword: newPassword,
     };
 
-    console.log(data);
     if (!password) {
       toast.error("password is required");
       setLoading(false);

@@ -29,13 +29,10 @@ const Tournament = () => {
       })
       .then((res) => {
         setLoader(false);
-        console.log(res.data.tournaments);
         if (!res.data.hasError) {
           setPaid(res.data.tournaments);
         } else {
           setError("error");
-          console.log("error");
-          console.log(res.data.hasError);
         }
       });
     axios
@@ -48,8 +45,6 @@ const Tournament = () => {
           setSponsored(res.data.tournaments);
         } else {
           setError("error");
-          console.log("error");
-          console.log(res.data.hasError);
         }
         setLoader(false);
       });
@@ -64,8 +59,6 @@ const Tournament = () => {
           setFree(res.data.tournaments);
         } else {
           setError("error");
-          console.log("error");
-          console.log(res.data.hasError);
         }
         setLoader(false);
       });

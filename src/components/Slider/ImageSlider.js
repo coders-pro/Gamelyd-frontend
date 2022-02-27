@@ -81,8 +81,6 @@ class ImageSlider extends React.Component {
       localStorage.setItem("all", JSON.stringify(items));
     }
 
-    console.log(items);
-
     let audio = new Audio(Open);
     audio.play();
 
@@ -168,7 +166,6 @@ class ImageSlider extends React.Component {
         headers: headers,
       })
       .then((res) => {
-        console.log(res);
         if (!res.data.hasError) {
           this.setState({
             loading: false,
@@ -216,7 +213,6 @@ class ImageSlider extends React.Component {
       publicKey: "pk_test_465b4f76e2438127c64e2055370bc5f1e10b65db",
       text: "Pay Now",
       onSuccess: (res) => {
-        console.log(res);
         const options = JSON.parse(localStorage.getItem("all"));
 
         if (res.status === "success") {
@@ -252,7 +248,6 @@ class ImageSlider extends React.Component {
               headers: headers,
             })
             .then((res) => {
-              console.log(res);
               if (!res.data.hasError) {
                 this.setState({
                   loading: false,
