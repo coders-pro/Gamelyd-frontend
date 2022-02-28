@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Style = styled.div`
   .top {
@@ -8,6 +8,7 @@ export const Style = styled.div`
     justify-content: space-evenly;
     width: 100%;
     padding-top: 100px;
+    height: 100%;
     /* border-bottom: 1px solid #0bc0b4; */
     background-color: #000;
     background-image: repeating-linear-gradient(
@@ -75,11 +76,13 @@ export const Style = styled.div`
       flex-direction: column;
       width: 800px;
       padding: 0 20px;
+      padding-top: 50px;
+      color: white;
       .buttons {
         display: flex;
         justify-content: flex-start;
         flex-direction: row;
-        margin-top: 20px;
+        margin-top: 30px;
       }
     }
   }
@@ -88,7 +91,7 @@ export const Style = styled.div`
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-top: 70px;
+    /* margin-top: 70px; */
     width: 100%;
     .main {
       /* border: 3px solid red; */
@@ -121,14 +124,21 @@ export const Style = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    width: 90vw;
+    width: 100vw;
     margin: auto;
     margin-top: 60px;
+    @media (max-width: 800px) {
+      flex-direction: column;
+    }
     .bio {
       border: 1px solid rgba(0, 0, 0, 0.3);
-      width: 100%;
+      width: 40vw;
       height: 100%;
       margin: 20px;
+      @media (max-width: 800px) {
+        width: 80vw;
+        margin: auto;
+      }
       .head {
         border: 1px solid rgba(0, 0, 0, 0.3);
         padding: 10px 10px;
@@ -140,13 +150,33 @@ export const Style = styled.div`
     }
     .det {
       border: 1px solid rgba(0, 0, 0, 0.3);
-      width: 100%;
+      width: 40vw;
       height: 100%;
       margin: 20px;
+      @media (max-width: 800px) {
+        width: 80vw;
+        margin: auto;
+        margin-top: 30px;
+      }
       .head {
         border: 1px solid rgba(0, 0, 0, 0.3);
         padding: 10px 10px;
         font-size: 20px;
+        .bts {
+          border: none;
+          outline: none;
+          padding: 10px 10px;
+          cursor: pointer;
+          border-radius: 10px;
+        }
+        .act {
+          background-color: #0bc0b4;
+          color: #15202b;
+        }
+        .inAct {
+          background-color: #15202b;
+          color: white;
+        }
       }
       .bod {
         padding: 10px 10px;
@@ -156,4 +186,4 @@ export const Style = styled.div`
       }
     }
   }
-`
+`;

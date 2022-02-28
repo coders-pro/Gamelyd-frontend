@@ -38,8 +38,6 @@ export const login =
         password,
       };
 
-      console.log(data);
-
       const response = await axios.post(
         "https://gamelyd.herokuapp.com/users/login",
         data,
@@ -53,6 +51,8 @@ export const login =
         localStorage.setItem("first", response.data.data.first_name);
         localStorage.setItem("last", response.data.data.last_name);
         localStorage.setItem("user", response.data.data.user_name);
+        localStorage.setItem("email", response.data.data.email);
+        localStorage.setItem("phone", response.data.data.phone);
         localStorage.setItem("token", response.data.data.token);
         toast.success("Login successful");
         dispatch({
@@ -60,7 +60,6 @@ export const login =
           payload: userData,
         });
       } else {
-        console.log("error");
         dispatch({
           type: USER_LOGIN_FAIL,
           payload: response.data.error,
@@ -111,8 +110,6 @@ export const register =
         User_type: "USER",
       };
 
-      console.log(data);
-
       const response = await axios.post(
         "https://gamelyd.herokuapp.com/users/signup",
         data,
@@ -126,6 +123,8 @@ export const register =
         localStorage.setItem("first", response.data.data.first_name);
         localStorage.setItem("last", response.data.data.last_name);
         localStorage.setItem("user", response.data.data.user_name);
+        localStorage.setItem("email", response.data.data.email);
+        localStorage.setItem("phone", response.data.data.phone);
         localStorage.setItem("token", response.data.data.token);
         toast.success("Login successful");
         dispatch({

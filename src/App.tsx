@@ -8,6 +8,7 @@ import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import DisplayModal from "./components/DisplayModal/DisplayModal";
 import SingleTournament from "./screens/Tournament/SingleTournament";
 import Profile from "./screens/Profile/profile";
+import Contact from "./screens/Contactus/index";
 import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
@@ -46,6 +47,7 @@ function App() {
           <Route path="tournament/view/:id" element={<SingleTournament />} />
           <Route path="profile/:id" element={<Profile />} />
           <Route path="display" element={<DisplayModal />} />
+          <Route path="contact-us" element={<Contact />} />
         </Routes>
         <ToastContainer />
       </ScrollToTop>
