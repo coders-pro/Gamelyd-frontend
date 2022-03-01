@@ -1,6 +1,9 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const SignupFormStyle = styled.div`
+  .character {
+    text-align: right;
+  }
   margin: 0;
   padding: 10px 20px;
   height: 400px;
@@ -57,4 +60,4 @@ export const SignupFormStyle = styled.div`
       display: block;
     }
   }
-`
+`;
