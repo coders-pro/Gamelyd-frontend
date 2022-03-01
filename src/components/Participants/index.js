@@ -11,6 +11,7 @@ import GroupWorkIcon from "@mui/icons-material/GroupWork";
 // import Button from "../../components/Button/InnerButton";
 
 const Participants = (props) => {
+  console.log(props);
   return (
     <>
       {!props.teams ? (
