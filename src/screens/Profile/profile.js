@@ -17,6 +17,7 @@ import Scroll from "../../components/Scroll/scroll6";
 import Modal from "../../components/Modal/Modal";
 import EditUser from "../../components/EditUser";
 import ChangePassword from "../../components/ChangePassword";
+import CTournys from "../../components/UserGraphs/CreatedAndJoinedTounys";
 const Profile = () => {
   const [user, setUser] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -148,7 +149,7 @@ const Profile = () => {
             </div>
             <div className="buttons">
               <div onClick={create1}>
-                <Button>Change Password</Button>
+                <Button>Reset Password</Button>
               </div>
               <div onClick={create}>
                 <Button>Edit</Button>
@@ -221,7 +222,14 @@ const Profile = () => {
                 </tbody>
               </table>
             </div>
+            <CTournys
+              data={{
+                joined: myToynys ? myToynys.length : 0,
+                created: myCToynys ? myCToynys.length : 0,
+              }}
+            />
           </div>
+
           <div className="det">
             <div className="head">
               <button

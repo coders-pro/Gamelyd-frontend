@@ -101,6 +101,7 @@ const DisplayModal = (props) => {
     setLoad(true);
     if (!team) {
       toast.error("You must choose a team name");
+      setLoad(false);
       return;
     }
     let players = JSON.parse(localStorage.getItem("players"));
@@ -150,9 +151,10 @@ const DisplayModal = (props) => {
               onChange={(e) => setTeam(e.target.value)}
               placeholder="Team Name"
               type="text"
+              style={{ width: "70%", height: "27px" }}
             />
             <button className="join" onClick={join}>
-              Join
+              Register
             </button>
 
             <h3>Choose Teammates</h3>
@@ -164,7 +166,7 @@ const DisplayModal = (props) => {
                 <>
                   {JSON.parse(localStorage.getItem("players")).map(
                     (player, i) => (
-                      <div style={{ position: "relative" }}>
+                      <div key={i} style={{ position: "relative" }}>
                         <div
                           style={{
                             position: "absolute",

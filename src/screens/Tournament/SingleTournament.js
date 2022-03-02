@@ -13,6 +13,7 @@ import DoNotDisturbIcon from "@mui/icons-material/DoNotDisturb";
 import Modal from "../../components/Modal/Modal";
 import Tournament from "../../components/TounamentDetail/index";
 import Particpants from "../../components/Participants/index";
+import BrDraw from "../../components/BRDraw";
 import { toast } from "react-toastify";
 import Join from "../../components/DisplayModal/DisplayModal";
 
@@ -20,10 +21,11 @@ const SingleTournament = () => {
   const [single, setSingle] = useState([1]);
   const [teams, setTeams] = useState([]);
   const [draws, setDraws] = useState([]);
+  const [brDraws, setBrDraws] = useState([]);
   const [drawLoading, setDrawLoading] = useState(true);
   const [TournamentLoading, setTournamentLoading] = useState(true);
-  const [drawLoad, setDrawLoad] = useState(false);
   const [joinShow, setJoinShow] = useState(false);
+  const [brDrawsBack, setBrDrawsBack] = useState(false);
 
   const modalRef = useRef();
   const modalRef2 = useRef();
@@ -150,8 +152,36 @@ const SingleTournament = () => {
     }
   };
 
+  const unRegister = async () => {
+    setDrawLoading(true);
+    const headers = {
+      "Content-Type": "application/json",
+      token: localStorage.getItem("token"),
+    };
+
+    try {
+      const res = await axios.get(
+        `https://gamelyd.herokuapp.com/tournament/removeFromTournament/${localStorage.getItem(
+          "id"
+        )}/${id}`,
+        { headers: headers }
+      );
+      if (!res.data.hasError) {
+        setDrawLoading(false);
+        toast.success(res.data.message);
+        refresh();
+      } else {
+        setDrawLoading(false);
+        toast.error(res.data.message);
+      }
+    } catch (error) {
+      setDrawLoading(false);
+      toast.error("Error please try again");
+    }
+  };
+
   const drawTournament = async () => {
-    setDrawLoad(true);
+    setDrawLoading(true);
     const headers = {
       "Content-Type": "application/json",
       token: localStorage.getItem("token"),
@@ -168,17 +198,21 @@ const SingleTournament = () => {
         { headers: headers }
       );
       if (!res.data.hasError) {
-        setDrawLoad(false);
+        setDrawLoading(false);
         toast.success(res.data.message);
         refresh();
       } else {
-        setDrawLoad(false);
+        setDrawLoading(false);
         toast.error(res.data.message);
       }
-    } catch (error) {}
+    } catch (error) {
+      toast.error("Error please try again");
+      setDrawLoading(false);
+    }
   };
 
   useEffect(() => {
+    let mode;
     const headers = {
       "Content-Type": "application/json",
       token: localStorage.getItem("token"),
@@ -189,11 +223,70 @@ const SingleTournament = () => {
       })
       .then((res) => {
         if (!res.data.hasError) {
-          setTournamentLoading(false);
           setSingle(res.data.tournament);
+          axios
+            .get(`https://gamelyd.herokuapp.com/draws/${id}`, {
+              headers: headers,
+            })
+            .then((res) => {
+              // console.log(res.data.draws[0]);
+              // console.log(typeof res.data.draws[0].brteams);
+              console.log(res.data);
+              setDrawLoading(false);
+              if (mode === "BATTLEROYALE") {
+                if (!res.data.draws) {
+                  res.data.draws = [];
+                }
+                setBrDraws(res.data.draws[0]);
+                setBrDrawsBack(true);
+                console.log(res.data.draws[0]);
+                console.log("weeee");
+              } else {
+                if (!res.data.draws) {
+                  res.data.draws = [];
+                }
+                if (!res.data.hasError) {
+                  setDrawLoading(false);
+                  let newDraws = [];
+                  let tempArray = [];
+
+                  for (let i = 0; i < res.data.draws.length; i++) {
+                    if (i === 0) {
+                      tempArray.push(res.data.draws[i]);
+                    } else {
+                      if (
+                        res.data.draws[i].stage === res.data.draws[i - 1].stage
+                      ) {
+                        tempArray.push(res.data.draws[i]);
+                        if (res.data.draws.length - 1 === i) {
+                          newDraws.push(tempArray);
+                        }
+                      } else {
+                        newDraws.push(tempArray);
+
+                        tempArray = [];
+                        tempArray.push(res.data.draws[i]);
+                        if (res.data.draws.length - 1 === i) {
+                          newDraws.push(tempArray);
+                        }
+                      }
+                    }
+                  }
+                  setDraws(newDraws);
+                  toast.success(res.data.message);
+                  setDrawLoading(false);
+                } else {
+                  toast.error(res.data.message);
+                  setDrawLoading(false);
+                }
+              }
+            });
+          mode = res.data.tournament.TournamentMode;
+          // setMode(res.data.tournament.TournamentMode);
           // toast.success(res.data.message);
         } else {
           toast.error(res.data.message);
+          setDrawLoading(false);
         }
       });
 
@@ -208,53 +301,14 @@ const SingleTournament = () => {
           // toast.success(res.data.message);
         } else {
           toast.error(res.data.message);
-        }
-      });
-
-    axios
-      .get(`https://gamelyd.herokuapp.com/draws/${id}`, {
-        headers: headers,
-      })
-      .then((res) => {
-        if (!res.data.draws) {
-          res.data.draws = [];
-        }
-        if (!res.data.hasError) {
           setDrawLoading(false);
-          let newDraws = [];
-          let tempArray = [];
-
-          for (let i = 0; i < res.data.draws.length; i++) {
-            if (i === 0) {
-              tempArray.push(res.data.draws[i]);
-            } else {
-              if (res.data.draws[i].stage === res.data.draws[i - 1].stage) {
-                tempArray.push(res.data.draws[i]);
-                if (res.data.draws.length - 1 === i) {
-                  newDraws.push(tempArray);
-                }
-              } else {
-                newDraws.push(tempArray);
-
-                tempArray = [];
-                tempArray.push(res.data.draws[i]);
-                if (res.data.draws.length - 1 === i) {
-                  newDraws.push(tempArray);
-                }
-              }
-            }
-          }
-          setDraws(newDraws);
-          toast.success(res.data.message);
-        } else {
-          toast.error(res.data.message);
         }
       });
   }, [id]);
 
   return (
     <div>
-      {drawLoading ? <Loader /> : drawLoad ? <Loader /> : ""}
+      {drawLoading ? <Loader /> : ""}
       <Navbar message="jh" />
       <Hero />
 
@@ -290,9 +344,14 @@ const SingleTournament = () => {
         <div style={{ margin: "5px" }} onClick={() => setJoinShow(!joinShow)}>
           <InnerButton>Register</InnerButton>
         </div>
-        <div style={{ margin: "5px" }} onClick={finalDraw}>
-          <InnerButton>Draw</InnerButton>
+        <div style={{ margin: "5px" }} onClick={unRegister}>
+          <InnerButton>Unregister</InnerButton>
         </div>
+        {single.User_id === localStorage.getItem("id") && (
+          <div style={{ margin: "5px" }} onClick={finalDraw}>
+            <InnerButton>Draw</InnerButton>
+          </div>
+        )}
       </div>
 
       {joinShow && (
@@ -301,13 +360,18 @@ const SingleTournament = () => {
         </div>
       )}
       <Draws>
-        {draws.length === 0 && (
+        {!draws || (
           <div className="noDraw">
             Draws has not been made for this tournament check back later
             <span>
               <DoNotDisturbIcon sx={{ fontSize: 200 }} />
             </span>
           </div>
+        )}
+        {brDrawsBack === true && (
+          <>
+            <BrDraw draws={brDraws} />
+          </>
         )}
         {draws.map((singleDraw, index) => (
           <div key={index}>
