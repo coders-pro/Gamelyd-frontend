@@ -126,10 +126,10 @@ const Footer = () => {
               <NavLink to="/contact-us">Contact us</NavLink>
             </li>
             <li>
-              <NavLink to="/">Terms and Conditions</NavLink>
+              <NavLink to="/terms">Terms and Conditions</NavLink>
             </li>
             <li>
-              <NavLink to="/">Privacy and policy</NavLink>
+              <NavLink to="/policy">Privacy and policy</NavLink>
             </li>
             <li onClick={create1}>
               <NavLink to="#">Report abuse</NavLink>

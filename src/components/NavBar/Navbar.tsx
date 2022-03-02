@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 
 import { NavStyle } from "./style";
 import Button from "./Button";
+import { toast } from "react-toastify";
 // import logo from '../../assets/images/hori.png'
 
 type IProps = {
@@ -86,6 +87,15 @@ class Navbar extends React.Component<IProps, IState> {
       line3: "",
     });
   };
+  logout = () => {
+    localStorage.setItem("id", "");
+    localStorage.setItem("first", "");
+    localStorage.setItem("last", "");
+    localStorage.setItem("user", "");
+    localStorage.setItem("token", "");
+    window.location.href = `/signup`;
+    toast.success("Logout successfull");
+  };
 
   change = () => {
     if (this.state.display === true) {
@@ -136,36 +146,33 @@ class Navbar extends React.Component<IProps, IState> {
             <NavLink to="/" className="single_item">
               Home<span></span>
             </NavLink>
-
-            <NavLink to="/tournament" className="single_item">
-              Tournament<span></span>
-            </NavLink>
-
-            <NavLink
-              to={`/profile/${localStorage.getItem("id")}`}
-              className="single_item"
-            >
-              Profile<span></span>
-            </NavLink>
-
+            {this.state.user && (
+              <NavLink to="/tournament" className="single_item">
+                Tournament<span></span>
+              </NavLink>
+            )}
+            {this.state.user && (
+              <NavLink
+                to={`/profile/${localStorage.getItem("id")}`}
+                className="single_item"
+              >
+                Profile<span></span>
+              </NavLink>
+            )}
             <NavLink to="/contact-us" className="single_item">
               Contact Us<span></span>
             </NavLink>
 
             {!this.state.user && (
-              <NavLink to="/signup" className="single_item">
-                Signup<span></span>
-              </NavLink>
+              <a href="/signup" className="discord" onClick={this.logout}>
+                <button>Sign In</button>
+              </a>
             )}
-
-            <a
-              href="https://t.me/+4ICOg08hzMQwZTdk"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="discord"
-            >
-              <button>Join our discord</button>
-            </a>
+            {this.state.user && (
+              <a href="#" className="discord" onClick={this.logout}>
+                <button>Logout</button>
+              </a>
+            )}
           </div>
 
           {/*Navigation on Mobile */}
@@ -178,40 +185,37 @@ class Navbar extends React.Component<IProps, IState> {
             >
               Home
             </NavLink>
-
-            <NavLink
-              to="/tournament"
-              className="single_item"
-              onClick={this.onClickBackdrop}
-            >
-              Tournament
-            </NavLink>
-
-            <NavLink
-              to={`/profile/${localStorage.getItem("id")}`}
-              className="single_item"
-            >
-              Profile<span></span>
-            </NavLink>
-
+            {this.state.user && (
+              <NavLink
+                to="/tournament"
+                className="single_item"
+                onClick={this.onClickBackdrop}
+              >
+                Tournament
+              </NavLink>
+            )}
+            {this.state.user && (
+              <NavLink
+                to={`/profile/${localStorage.getItem("id")}`}
+                className="single_item"
+              >
+                Profile<span></span>
+              </NavLink>
+            )}
             <NavLink to="/contact-us" className="single_item">
               Contact Us<span></span>
             </NavLink>
 
             {!this.state.user && (
-              <NavLink to="/signup" className="single_item">
-                Signup<span></span>
-              </NavLink>
+              <a href="/signup" className="discord" onClick={this.logout}>
+                <button>Sign In</button>
+              </a>
             )}
-
-            <a
-              href="https://t.me/+4ICOg08hzMQwZTdk"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="discord"
-            >
-              <button>Join our discord</button>
-            </a>
+            {this.state.user && (
+              <a href="#" className="discord" onClick={this.logout}>
+                <button>Logout</button>
+              </a>
+            )}
           </div>
         </div>
 

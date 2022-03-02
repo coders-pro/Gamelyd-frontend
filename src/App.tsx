@@ -9,6 +9,8 @@ import DisplayModal from "./components/DisplayModal/DisplayModal";
 import SingleTournament from "./screens/Tournament/SingleTournament";
 import Profile from "./screens/Profile/profile";
 import Contact from "./screens/Contactus/index";
+import Privacy from "./screens/Privacy/index";
+import Terms from "./screens/Terms/index";
 import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
@@ -17,7 +19,10 @@ import { ToastContainer, toast } from "react-toastify";
 axios.interceptors.response.use(
   function (successRes) {
     // ... modify response;
-    if (successRes.data.message === "token expired") {
+    if (
+      successRes.data.message === "token expired" ||
+      successRes.data.message === "No Authorization header provided"
+    ) {
       localStorage.setItem("id", "");
       localStorage.setItem("first", "");
       localStorage.setItem("last", "");
@@ -48,6 +53,8 @@ function App() {
           <Route path="profile/:id" element={<Profile />} />
           <Route path="display" element={<DisplayModal />} />
           <Route path="contact-us" element={<Contact />} />
+          <Route path="terms" element={<Terms />} />
+          <Route path="policy" element={<Privacy />} />
         </Routes>
         <ToastContainer />
       </ScrollToTop>

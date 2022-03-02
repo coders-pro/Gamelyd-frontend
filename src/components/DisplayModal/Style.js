@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Div = styled.div`
   /* border: 3px solid red; */
@@ -11,6 +11,13 @@ export const Div = styled.div`
   width: 470px;
   height: 640px;
   z-index: 100;
+  @media (max-width: 500px) {
+    left: 0;
+  }
+  @media (max-width: 400px) {
+    left: 7px;
+  }
+
   .backdrop {
     position: fixed;
     top: 0;
@@ -44,6 +51,7 @@ export const Div = styled.div`
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    height: 37px;
   }
   .sect {
     position: relative;
@@ -53,10 +61,16 @@ export const Div = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    @media (max-width: 500px) {
+      width: 400px;
+    }
+    @media (max-width: 400px) {
+      width: 350px;
+    }
     .close {
       position: absolute;
-      right: 60px;
-      top: 40px;
+      right: 10px;
+      top: -10px;
       color: #0bc0b4;
       cursor: pointer;
       font-size: 30px;
@@ -204,4 +218,4 @@ export const Div = styled.div`
   .imgbx {
     color: white;
   }
-`
+`;
