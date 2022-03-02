@@ -1,4 +1,4 @@
-import style from 'styled-components'
+import style from "styled-components";
 
 export const SignUpStyle = style.div`
  margin: 0;
@@ -213,4 +213,4 @@ export const SignUpStyle = style.div`
   margin: 4px 0;
   color: green;
 }
-`
+`;
