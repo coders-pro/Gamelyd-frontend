@@ -80,7 +80,7 @@ export const Aboutted = styled.div`
   }
 
   .body {
-    border: 3px solid green;
+    /* border: 3px solid green; */
     padding: 100px 50px;
     position: relative;
     @media (max-width: 700px) {
@@ -145,6 +145,19 @@ export const Aboutted = styled.div`
       top: 80%;
       background-color: #15202b;
       box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+      display: flex;
+      justify-content: space-evenly;
+      @media (max-width: 800px) {
+        position: relative;
+        margin: 30px auto;
+        width: 80%;
+      }
+      img {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 2rem;
+      }
     }
   }
 `

@@ -28,7 +28,12 @@ const About = () => {
                 <img src='/images/nba.jpg' alt='j' />
               </div>
             </div>
-            <div className='lower'></div>
+            <div className='lower'>
+              <img src={`/images/nba.jpg`} alt='muna' />
+              <img src={`/images/nba.jpg`} alt='muna' />
+              <img src={`/images/nba.jpg`} alt='muna' />
+              <img src={`/images/nba.jpg`} alt='muna' />
+            </div>
           </div>
         </Aboutted>
       </div>
