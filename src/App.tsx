@@ -9,6 +9,7 @@ import DisplayModal from "./components/DisplayModal/DisplayModal";
 import SingleTournament from "./screens/Tournament/SingleTournament";
 import Profile from "./screens/Profile/profile";
 import Contact from "./screens/Contactus/index";
+import About from './screens/About/About'
 import Privacy from "./screens/Privacy/index";
 import Terms from "./screens/Terms/index";
 import axios from "axios";
@@ -32,17 +33,17 @@ axios.interceptors.response.use(
       toast.error(successRes.data.message);
     }
 
-    return successRes;
+    return successRes
   },
   function (error: any) {
     // ...
-    return Promise.reject(error);
+    return Promise.reject(error)
   }
-);
+)
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <ScrollToTop>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -52,6 +53,7 @@ function App() {
           <Route path="tournament/view/:id" element={<SingleTournament />} />
           <Route path="profile/:id" element={<Profile />} />
           <Route path="display" element={<DisplayModal />} />
+          <Route path='about' element={<About />} />
           <Route path="contact-us" element={<Contact />} />
           <Route path="terms" element={<Terms />} />
           <Route path="policy" element={<Privacy />} />
@@ -59,7 +61,7 @@ function App() {
         <ToastContainer />
       </ScrollToTop>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
