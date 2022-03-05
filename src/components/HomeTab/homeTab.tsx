@@ -20,21 +20,22 @@ const Tab = () => {
               <div className="message">
                 <div className="head">Free</div>
                 <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Dolorum asperiores corporis nam eum similique doloremque
-                  ducimus nostrum nobis, nisi vel veniam ea quod! Voluptate
+                  Free tournaments are created without payment, and can be
+                  joined without payment too. but the host can attach a token
+                  for the winner so you can watch out for that in tournament
+                  description
                 </p>
                 <div className="head">Paid</div>
                 <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Dolorum asperiores corporis nam eum similique doloremque
-                  ducimus nostrum nobis, nisi vel veniam ea quod! Voluptate
+                  Paid tournaments are created without payment, but to join you
+                  have to pay the specified amount, and the winner leaves with a
+                  specified amount too.
                 </p>
                 <div className="head">Sponsored</div>
                 <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Dolorum asperiores corporis nam eum similique doloremque
-                  ducimus nostrum nobis, nisi vel veniam ea quod! Voluptate
+                  Sponsored tournaments are created by making initial payment,
+                  you can join without making payment and winner leaves with a
+                  specified amount.
                 </p>
               </div>
             </div>

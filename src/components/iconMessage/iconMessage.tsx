@@ -64,16 +64,20 @@ const Message = () => {
               <div className="sub">Online Tournament Plartform</div>
               <div className="message">
                 <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Dolorum asperiores corporis nam eum similique doloremque
-                  ducimus nostrum nobis, nisi vel veniam ea quod! Voluptate
-                  cupiditate a quae, sequi veniam sapiente
+                  Gamelyd is an online plartform that helps in organizing game
+                  tournaments in diffrent modes, Gamelyd simplifies and makes it
+                  easy for people in diffrent locations to meet and play
+                  tournaments together.
                 </p>
                 <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Dolorum asperiores corporis nam eum similique doloremque
-                  ducimus nostrum nobis, nisi vel veniam ea quod! Voluptate
-                  cupiditate a quae, sequi veniam sapiente
+                  For PAID and SPONSORED tournament, Gamelyd holds the price
+                  till proof of win is provided.{" "}
+                </p>
+                <p>
+                  Only the host of a particular tournament has the power to
+                  input scores for matches, all draws and rankings happens
+                  automatically by the system, you can contact us if you find
+                  flaws in your results.
                 </p>
 
                 <Link to="/tournament">

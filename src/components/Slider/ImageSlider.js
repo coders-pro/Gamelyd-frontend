@@ -34,6 +34,8 @@ class ImageSlider extends React.Component {
       competition: "",
       amount: "",
       regamount: "",
+      mode: "",
+      note: "",
       paid: false,
       loading: false,
     };
@@ -134,6 +136,11 @@ class ImageSlider extends React.Component {
       regamount: e.target.value,
     });
   };
+  handleNote = (e) => {
+    this.setState({
+      note: e.target.value,
+    });
+  };
 
   handleSubmit = () => {
     this.setState({
@@ -154,6 +161,7 @@ class ImageSlider extends React.Component {
       Link: this.state.link,
       Date: this.state.date,
       IsPaid: false,
+      Note: this.state.note,
     };
 
     const headers = {
@@ -220,6 +228,7 @@ class ImageSlider extends React.Component {
             paid: true,
           });
           const body = {
+            Note: this.state.note,
             Name: this.state.competition.toLocaleUpperCase(),
             GameName: options.Game,
             Payment: options.Payment,
@@ -379,6 +388,17 @@ class ImageSlider extends React.Component {
                   <div className="underline"></div>
                 </div>
               )}
+              <div className="input-data">
+                <textarea
+                  className="texta"
+                  type="text"
+                  required
+                  onChange={this.handleNote}
+                  value={this.state.note}
+                  rows="5"
+                  placeholder="message, rules or instructions for participants"
+                ></textarea>
+              </div>
             </div>
 
             {(options.Payment === "PAID" &&

@@ -25,13 +25,13 @@ const Home = () => {
   }, [lastYPos]);
   return (
     <>
-      <Navbar message="jh" />
       <HomeStyle>
+        <Navbar message="jh" />
         <Hero
           pic1={"/images/soldier7.png"}
           pic2={"/images/soldier14.png"}
           background={"/images/soldier7.png"}
-          message="WELCOME ABOARD SOLDIER"
+          message="WELCOME ABOARD COMRADE"
           time="TIME TO CONNECT"
         />
         <IconMesage />
