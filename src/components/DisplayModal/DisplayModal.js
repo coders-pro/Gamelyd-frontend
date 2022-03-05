@@ -61,6 +61,7 @@ const DisplayModal = (props) => {
       UserName: user.user_name,
       GameUserName: user.user_name,
       User_id: user.user_id,
+      Email: user.email,
     };
     if (
       !localStorage.getItem("players") ||
@@ -109,6 +110,7 @@ const DisplayModal = (props) => {
       UserName: localStorage.getItem("user"),
       GameUserName: localStorage.getItem("user"),
       User_id: localStorage.getItem("id"),
+      Email: localStorage.getItem("email"),
     });
     const config = {
       headers: {
