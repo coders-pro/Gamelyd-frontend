@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Style = styled.div`
 
@@ -180,7 +180,6 @@ width: 100%;    }
       color: #B8BCBF;
       .title {
           font-size: 50px;
-          font-family: 'Playfair Display', serif;
         font-weight: 700;
         font-style: italic;
         color: #B8BCBF;
@@ -265,7 +264,7 @@ width: 100%;    }
         }
       }
     }
-`
+`;
 
 export const ImageRotateStyle = styled.div`
   margin: 0;
@@ -330,4 +329,4 @@ export const ImageRotateStyle = styled.div`
       border: 2px solid white;
     }
   }
-`
+`;

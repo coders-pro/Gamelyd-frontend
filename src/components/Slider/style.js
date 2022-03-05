@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Style = styled.div`
   margin: auto;
@@ -8,10 +8,19 @@ export const Style = styled.div`
   width: 100%;
   height: 250px;
   background: #ffffff08;
+  .texta {
+    width: 95%;
+    border: 1px solid #0bc0b4;
+    outline: none;
+    font-size: 17px;
+    background: transparent;
+    color: white;
+    padding: 10px;
+  }
 
   .game-form {
-    font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
-      'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+      "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     height: 250px;
     overflow-y: scroll;
 
@@ -37,6 +46,7 @@ export const Style = styled.div`
       padding: 10px 30px;
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
       margin: 0px auto;
+      padding-bottom: 120px;
 
       @media (max-width: 850px) {
         width: 75%;
@@ -89,7 +99,7 @@ export const Style = styled.div`
 
     .input-data .underline:before {
       position: absolute;
-      content: '';
+      content: "";
       height: 100%;
       width: 100%;
       background: rgb(11, 192, 180);
@@ -176,7 +186,7 @@ export const Style = styled.div`
     margin: 0 auto;
 
     ::before {
-      content: '';
+      content: "";
       display: block;
       width: 100%;
       height: 250px;
@@ -199,7 +209,7 @@ export const Style = styled.div`
     opacity: 1;
     z-index: 0;
   }
-`
+`;
 
 export const StyleCard = styled.div`
   position: relative;
@@ -239,4 +249,4 @@ export const StyleCard = styled.div`
       z-index: 1000;
     }
   }
-`
+`;

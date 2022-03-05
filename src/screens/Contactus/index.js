@@ -6,7 +6,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import Nav from "../../components/NavBar/Navbar";
-import Hero from "../../components/Hero/Hero";
+import Hero from "../../components/TournamentHeader/index";
 import MailIcon from "@mui/icons-material/Mail";
 import PhoneInTalkIcon from "@mui/icons-material/PhoneInTalk";
 import TwitterIcon from "@mui/icons-material/Twitter";

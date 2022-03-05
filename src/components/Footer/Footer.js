@@ -75,14 +75,12 @@ const Footer = () => {
           <div className="about">
             <h3>About Us</h3>
             <p>
-              It includes rich features and contents. It's designed and
-              developed based on One Page/ Multi-page Layout,blog themes,world
-              press themes and blogspot. You can use any layout from any demo
-              anywhere.
+              Gamelyd is an online plartform used for organising tournaments,
             </p>
             <p>
-              Our company is completely creative, clean and 100% responsive
-              website. Put your business into next level with us.
+              We do the heavy liftings by handling all draws and stages in your
+              multiplayer tornaments and all sortings in your battle royale
+              tournaments.
             </p>
           </div>
         </div>
@@ -90,28 +88,35 @@ const Footer = () => {
           <h3>Tags Widget</h3>
           <ul className=" kilimanjaro_widget">
             <li>
-              <NavLink to="/tournament">fifa</NavLink>
+              <NavLink to="/tournament">Fifa</NavLink>
             </li>
             <li>
-              <NavLink to="/tournament">CODM</NavLink>
+              <NavLink to="/tournament">COD</NavLink>
+            </li>
+            <li>
+              <NavLink to="/tournament">PES</NavLink>
             </li>
             <li>
               <NavLink to="/tournament">PUBG</NavLink>
             </li>
             <li>
-              <NavLink to="/tournament">Warzone</NavLink>
+              <NavLink to="/tournament">Fortnite</NavLink>
             </li>
             <li>
-              <NavLink to="/tournament">Multipurpose</NavLink>
+              <NavLink to="/tournament">Escape from Tarkov</NavLink>
             </li>
             <li>
-              <NavLink to="/tournament">Minimal</NavLink>
+              <NavLink to="/tournament">Minecraft</NavLink>
+            </li>
+
+            <li>
+              <NavLink to="/tournament">Monster hunter</NavLink>
             </li>
             <li>
-              <NavLink to="/tournament">Classic</NavLink>
+              <NavLink to="/tournament">Broforce</NavLink>
             </li>
             <li>
-              <NavLink to="/tournament">Medical</NavLink>
+              <NavLink to="/tournament">Rocket League</NavLink>
             </li>
           </ul>
         </div>
@@ -140,10 +145,10 @@ const Footer = () => {
           <div className="conta">
             <h3>Quick Contact</h3>
             <h4>Phone: </h4>
-            <p>+1(975)-457-5420</p>
-            <p>+1(975)-457-5420</p>
+            <p>+2348161808895</p>
             <h4>Email: </h4>
-            <p>big@ballz.nutz</p>
+            <p>info@gamelyd.com</p>
+            <p>contact@gamelyd.com</p>
             <h4>Social Links</h4>
             <ul className="kilimanjaro_social_links">
               <li>

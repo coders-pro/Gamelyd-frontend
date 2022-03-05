@@ -102,7 +102,6 @@ export const Style = styled.div`
       .title {
           font-size: 50px;
           color: #0DA099;
-          font-family: 'Playfair Display', serif;
         font-weight: 700;
         font-style: italic;
       }
