@@ -9,6 +9,8 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import Loader from "../../components/ButtonLoader/ButtonLoader";
 import { useParams } from "react-router-dom";
+import DoNotDisturbIcon from "@mui/icons-material/DoNotDisturb";
+
 import "./style.css";
 
 const BrDraw = (props) => {
@@ -99,6 +101,14 @@ const BrDraw = (props) => {
     <>
       {loading && <Loader />}
       <Style>
+        {!draws && (
+          <div className="noDraw">
+            Draws has not been made for this tournament check back later
+            <span>
+              <DoNotDisturbIcon sx={{ fontSize: 200 }} />
+            </span>
+          </div>
+        )}
         <div
           style={{ textAlign: "center", fontSize: "30px", margin: "30px 0" }}
         >
@@ -126,7 +136,7 @@ const BrDraw = (props) => {
               justifyContent: "space-between",
             }}
           >
-            {id === localStorage.getItem("id") && (
+            {props.id === localStorage.getItem("id") && (
               <div
                 className="editButton"
                 style={{ width: "30px" }}
