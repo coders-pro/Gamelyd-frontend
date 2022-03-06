@@ -1,4 +1,4 @@
-import Hero from "../../components/Hero/Hero";
+import Hero from "../../components/TournamentHeader/index";
 import Navbar from "../../components/NavBar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import RLSlider from "./RLSlider";

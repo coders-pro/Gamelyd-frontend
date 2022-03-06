@@ -107,6 +107,7 @@ const Profile = () => {
           if (!res.data.hasError) {
             toast.success(res.data.message);
             setUser(res.data.user);
+            console.log(res.data.user);
             getUserTourny(res.data.user.user_name);
           } else {
             toast.error(res.data.message);
@@ -141,10 +142,33 @@ const Profile = () => {
                 </div>
               </div>
               <div className="socials">
-                <TwitterIcon className="soc" />
-                <FacebookIcon className="soc" />
-                <LinkedInIcon className="soc" />
-                <InstagramIcon className="soc" />
+                <a href={user.Twitter} target="_blank" without rel="noreferrer">
+                  <TwitterIcon className="soc" />
+                </a>
+                <a
+                  href={user.Facebook}
+                  target="_blank"
+                  without
+                  rel="noreferrer"
+                >
+                  <FacebookIcon className="soc" />
+                </a>
+                <a
+                  href={user.Linkedin}
+                  target="_blank"
+                  without
+                  rel="noreferrer"
+                >
+                  <LinkedInIcon className="soc" />
+                </a>
+                <a
+                  href={user.Instagram}
+                  target="_blank"
+                  without
+                  rel="noreferrer"
+                >
+                  <InstagramIcon className="soc" />
+                </a>
               </div>
             </div>
             <div className="buttons">

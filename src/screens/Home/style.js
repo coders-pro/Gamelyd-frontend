@@ -201,6 +201,5 @@ export const HomeStyle = styled.div`
     }
   }
   margin: 0;
-  padding: 40px 0;
   color: white;
 `;

@@ -13,7 +13,6 @@ const DisplayModal = (props) => {
   const [users, setUsers] = useState([])
   const [Filteredusers, setFilteredUsers] = useState([])
   const [team, setTeam] = useState('')
-  const [amount, setAmount] = useState('')
   const [search, setSearch] = useState('')
   const [loading, setLoading] = useState(true)
   const [set, setSet] = useState(true)
@@ -21,11 +20,9 @@ const DisplayModal = (props) => {
   // const players = [];
 
   const payment = props.payment
+  const amount = props.amount
 
   useEffect(() => {
-    if (payment) {
-      console.log(payment)
-    }
     localStorage.setItem('players', JSON.stringify([]))
     const headers = {
       'Content-Type': 'application/json',
@@ -68,6 +65,7 @@ const DisplayModal = (props) => {
       UserName: user.user_name,
       GameUserName: user.user_name,
       User_id: user.user_id,
+      Email: user.email,
     }
     if (
       !localStorage.getItem('players') ||
@@ -116,6 +114,7 @@ const DisplayModal = (props) => {
       UserName: localStorage.getItem('user'),
       GameUserName: localStorage.getItem('user'),
       User_id: localStorage.getItem('id'),
+      Email: localStorage.getItem('email'),
     })
     const config = {
       headers: {
@@ -143,6 +142,69 @@ const DisplayModal = (props) => {
     }
   }
 
+  const componentProps = {
+    email: localStorage.getItem('email'),
+    amount: parseInt(amount * 100),
+    metadata: {
+      user: localStorage.getItem('user'),
+      phone: localStorage.getItem('phone'),
+    },
+    publicKey: 'pk_test_465b4f76e2438127c64e2055370bc5f1e10b65db',
+    text: 'Pay Now',
+    onSuccess: (res) => {
+      console.log(res)
+
+      if (res.status === 'success') {
+        setLoad(true)
+        if (!team) {
+          toast.error('You must choose a team name')
+          setLoad(false)
+          return
+        }
+
+        let players = JSON.parse(localStorage.getItem('players'))
+        players.push({
+          UserName: localStorage.getItem('user'),
+          GameUserName: localStorage.getItem('user'),
+          User_id: localStorage.getItem('id'),
+          Email: localStorage.getItem('email'),
+        })
+
+        const config = {
+          headers: {
+            'Content-Type': 'application/json',
+            token: localStorage.getItem('token'),
+          },
+        }
+
+        const data = {
+          TeamName: team,
+          Players: players,
+          RefNumber: res.reference,
+          PaymentChannel: 'Paystack',
+          Amount: parseInt(amount),
+        }
+
+        axios
+          .post(
+            `https://gamelyd.herokuapp.com/tournament/register/${props.id}`,
+            data,
+            config
+          )
+          .then((res) => {
+            if (!res.data.hasError) {
+              setLoad(false)
+              toast.success(res.data.message)
+            } else {
+              setLoad(false)
+              toast.error(res.data.message)
+            }
+          })
+      }
+    },
+    onClose: () => toast.info('You just exited'),
+  }
+
   return (
     <div>
       {load && <Loader />}
@@ -160,34 +222,18 @@ const DisplayModal = (props) => {
               type='text'
               style={{ width: '70%', height: '27px' }}
             />
-            <br /> <br />
-            {(payment && payment === 'SPONSORED') ||
-            (payment && payment === 'PAID') ? (
-              <input
-                value={amount}
-                onChange={(e) => setAmount(e.target.value)}
-                placeholder='Registration Amount'
-                type='text'
-                style={{ width: '70%', height: '27px' }}
-              />
-            ) : null}
+
             {payment && payment === 'SPONSORED' && (
-              <button
-                className='join'
-                onClick={join}
-                style={{ margin: '4px auto' }}
-              >
-                Pay Now
+              <button className='join' onClick={join}>
+                Register
               </button>
             )}
             {payment && payment === 'PAID' && (
-              <button
+              <PaystackButton
+                {...componentProps}
                 className='join'
-                onClick={join}
                 style={{ margin: '4px auto' }}
-              >
-                Pay Now
-              </button>
+              />
             )}
             {payment && payment === 'FREE' ? (
               <button className='join' onClick={join}>

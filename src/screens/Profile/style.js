@@ -109,6 +109,9 @@ export const Style = styled.div`
     .socials {
       /* border: 3px solid red; */
       margin-right: 30px;
+      a {
+        color: white;
+      }
       @media (max-width: 400px) {
         width: 100%;
         text-align: center;

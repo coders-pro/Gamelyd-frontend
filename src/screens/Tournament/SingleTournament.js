@@ -27,6 +27,7 @@ const SingleTournament = () => {
   const [joinShow, setJoinShow] = useState(false)
   const [brDrawsBack, setBrDrawsBack] = useState(false)
   const [type, setType] = useState('')
+  const [amount, setAmount] = useState('')
 
   const modalRef = useRef()
   const modalRef2 = useRef()
@@ -228,6 +229,7 @@ const SingleTournament = () => {
           setSingle(res.data.tournament)
           console.log(res.data)
           setType(res.data.tournament.Payment)
+          setAmount(res.data.tournament.RegistrationAmount)
 
           axios
             .get(`https://gamelyd.herokuapp.com/draws/${id}`, {
@@ -360,7 +362,12 @@ const SingleTournament = () => {
 
       {joinShow && (
         <div>
-          <Join payment={type} close={() => setJoinShow(false)} id={id} />
+          <Join
+            payment={type}
+            close={() => setJoinShow(false)}
+            id={id}
+            amount={amount}
+          />
         </div>
       )}
       <Draws>

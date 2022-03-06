@@ -34,6 +34,8 @@ class ImageSlider extends React.Component {
       competition: '',
       amount: '',
       regamount: '',
+      mode: '',
+      note: '',
       paid: false,
       loading: false,
     }
@@ -134,6 +136,11 @@ class ImageSlider extends React.Component {
       regamount: e.target.value,
     })
   }
+  handleNote = (e) => {
+    this.setState({
+      note: e.target.value,
+    })
+  }
 
   handleSubmit = () => {
     this.setState({
@@ -154,9 +161,8 @@ class ImageSlider extends React.Component {
       Link: this.state.link,
       Date: this.state.date,
       IsPaid: false,
+      Note: this.state.note,
     }
-
-    console.log(body)
 
     const headers = {
       'Content-Type': 'application/json',
@@ -223,6 +229,7 @@ class ImageSlider extends React.Component {
             paid: true,
           })
           const body = {
+            Note: this.state.note,
             Name: this.state.competition.toLocaleUpperCase(),
             GameName: options.Game,
             Payment: options.Payment,
@@ -256,7 +263,9 @@ class ImageSlider extends React.Component {
                   loading: false,
                 })
                 toast.success('Tournament created successfully')
-                this.props.navigate('/tournament')
+                this.props.navigate(
+                  `/tournament/view/${res.data.data.TournamentId}`
+                )
               } else {
                 toast.error('Sorry something happened')
               }
@@ -382,6 +391,17 @@ class ImageSlider extends React.Component {
                   <div className='underline'></div>
                 </div>
               )}
+              <div className='input-data'>
+                <textarea
+                  className='texta'
+                  type='text'
+                  required
+                  onChange={this.handleNote}
+                  value={this.state.note}
+                  rows='5'
+                  placeholder='message, rules or instructions for participants'
+                ></textarea>
+              </div>
             </div>
 
             {(options.Payment === 'PAID' &&
