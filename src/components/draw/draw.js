@@ -9,6 +9,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import Loader from "../../components/ButtonLoader/ButtonLoader";
 import { useParams } from "react-router-dom";
+import DoNotDisturbIcon from "@mui/icons-material/DoNotDisturb";
 
 const Draw = (props) => {
   const [isEditMode, setIsEditMode] = useState(false);
@@ -132,7 +133,7 @@ const Draw = (props) => {
       <Style>
         <div className="draw">
           <div className="team">
-            {id === localStorage.getItem("id") && (
+            {props.id === localStorage.getItem("id") && (
               <div
                 className="editButton"
                 onClick={() => setIsEditMode(!isEditMode)}

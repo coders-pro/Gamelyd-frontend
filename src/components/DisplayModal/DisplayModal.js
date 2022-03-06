@@ -153,7 +153,7 @@ const DisplayModal = (props) => {
               onChange={(e) => setTeam(e.target.value)}
               placeholder="Team Name"
               type="text"
-              style={{ width: "70%", height: "27px" }}
+              style={{ width: "65%", height: "27px" }}
             />
             <button className="join" onClick={join}>
               Register
