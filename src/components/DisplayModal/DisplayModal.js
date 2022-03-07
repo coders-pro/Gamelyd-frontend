@@ -17,7 +17,9 @@ const DisplayModal = (props) => {
   const [loading, setLoading] = useState(true)
   const [set, setSet] = useState(true)
   const [load, setLoad] = useState(false)
-  // const players = [];
+  const [refresh, setRefresh] = useState(false)
+  const [players, setPlayers] = useState([])
+  const [participants, setParticipants] = useState([])
 
   const payment = props.payment
   const amount = props.amount
@@ -43,6 +45,40 @@ const DisplayModal = (props) => {
           setFilteredUsers([])
           toast.error(res.data.message)
           setLoading(false)
+        }
+      })
+
+    // Participants
+    let participant = []
+
+    axios
+      .get(
+        `https://gamelyd.herokuapp.com/tournament/participants/${props.id}`,
+        {
+          headers: headers,
+        }
+      )
+      .then((res) => {
+        if (!res.data.hasError) {
+          setPlayers(res.data.tournament)
+
+          for (let i = 0; i < players.length; i++) {
+            let single = players[i].players
+
+            for (let j = 0; j < single.length; j++) {
+              console.log(single[j].username)
+              participant.push(single[j].username)
+              console.log(participant)
+            }
+          }
+          console.log(participant)
+          setParticipants(participant)
+          setRefresh(!refresh)
+          console.log(participants)
+
+          // toast.success(res.data.message);
+        } else {
+          toast.error(res.data.message)
         }
       })
   }, [])
@@ -220,7 +256,7 @@ const DisplayModal = (props) => {
               onChange={(e) => setTeam(e.target.value)}
               placeholder='Team Name'
               type='text'
-              style={{ width: '70%', height: '27px' }}
+              style={{ width: '65%', height: '27px' }}
             />
 
             {payment && payment === 'SPONSORED' && (

@@ -118,7 +118,6 @@ const SingleTournament = () => {
             }
           }
           setDraws(newDraws)
-          toast.success(res.data.message)
         } else {
           toast.error(res.data.message)
         }
@@ -126,7 +125,7 @@ const SingleTournament = () => {
   }
 
   const finalDraw = () => {
-    if (draws.length === 0) {
+    if (teams.length === 0) {
       toast.error('No participants yet')
       return
     }
@@ -148,10 +147,9 @@ const SingleTournament = () => {
         if (!draws[draws.length - 1][i].Winner) {
           toast.error('some draws dont have scores')
           return
-        } else {
-          drawTournament()
         }
       }
+      drawTournament()
     }
   }
 
@@ -208,7 +206,13 @@ const SingleTournament = () => {
         setDrawLoading(false)
         toast.error(res.data.message)
       }
-    } catch (error) {
+    } catch (err) {
+      if (err.response.status === 503) {
+        toast.success('Draw generated successfully')
+        setDrawLoading(false)
+        refresh()
+        return
+      }
       toast.error('Error please try again')
       setDrawLoading(false)
     }
@@ -371,7 +375,7 @@ const SingleTournament = () => {
         </div>
       )}
       <Draws>
-        {!draws || (
+        {draws.length === 0 && brDrawsBack === false && (
           <div className='noDraw'>
             Draws has not been made for this tournament check back later
             <span>
@@ -381,9 +385,10 @@ const SingleTournament = () => {
         )}
         {brDrawsBack === true && (
           <>
-            <BrDraw draws={brDraws} />
+            <BrDraw id={single.User_id} draws={brDraws} />
           </>
         )}
+
         {draws.map((singleDraw, index) => (
           <div key={index}>
             <div
@@ -406,7 +411,7 @@ const SingleTournament = () => {
             </div>
             {singleDraw.map((draw, i) => (
               <div key={i}>
-                <Draw draw={draw} />
+                <Draw id={single.User_id} draw={draw} />
               </div>
             ))}
           </div>

@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const Style = styled.div`
+  width: 90vw;
+  margin: auto;
   .nfl a,
   .mlb a,
   .nhl a,
