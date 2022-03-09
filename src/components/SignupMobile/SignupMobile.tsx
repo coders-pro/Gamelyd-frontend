@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { SignUpStyle } from './style.js'
 import SignupForm from '../SignupForm/Form'
 import LoginForm from '../LoginForm/Form'
+import { Link } from 'react-router-dom'
 
 const SignupMobile = () => {
   const [flip, setFlip] = useState(false)
@@ -27,6 +28,16 @@ const SignupMobile = () => {
             <button onClick={flipMode} className='signinbtn'>
               Sign Up
             </button>
+            <Link
+              to='/forgotpassword'
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                textDecoration: 'none',
+              }}
+            >
+              Forgot Password
+            </Link>
           </div>
         </div>
 
