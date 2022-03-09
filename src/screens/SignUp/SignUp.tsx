@@ -56,7 +56,7 @@ const Signup = () => {
               </button>
 
               <Link
-                to="/"
+                to="/forgotpassword"
                 className="forgotten"
                 style={{
                   textDecoration: "none",

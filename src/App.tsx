@@ -15,6 +15,8 @@ import Terms from "./screens/Terms/index";
 import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
+import ForgotPassword from "./screens/ForgotPassword/ForgotPassword";
+import ResetPassword from "./screens/ResetPassword/ResetPassword";
 // import './assets/css/fonts.css';
 
 axios.interceptors.response.use(
@@ -49,6 +51,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="tournaments" element={<Tournament />} />
           <Route path="signup" element={<SignUp />} />
+          <Route path="forgotpassword" element={<ForgotPassword />} />
+          <Route path="resetpassword/:token" element={<ResetPassword />} />
           <Route path="tournament/:payment" element={<Showmore />} />
           <Route path="tournament/view/:id" element={<SingleTournament />} />
           <Route path="profile/:id" element={<Profile />} />

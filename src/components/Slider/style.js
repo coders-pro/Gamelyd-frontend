@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Style = styled.div`
   margin: auto;
@@ -17,8 +17,8 @@ export const Style = styled.div`
   }
 
   .game-form {
-    font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
-      "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+      'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     height: 250px;
     overflow-y: scroll;
 
@@ -97,7 +97,7 @@ export const Style = styled.div`
 
     .input-data .underline:before {
       position: absolute;
-      content: "";
+      content: '';
       height: 100%;
       width: 100%;
       background: rgb(11, 192, 180);
@@ -184,7 +184,7 @@ export const Style = styled.div`
     margin: 0 auto;
 
     ::before {
-      content: "";
+      content: '';
       display: block;
       width: 100%;
       height: 250px;
@@ -207,7 +207,7 @@ export const Style = styled.div`
     opacity: 1;
     z-index: 0;
   }
-`;
+`
 
 export const StyleCard = styled.div`
   position: relative;
@@ -247,4 +247,4 @@ export const StyleCard = styled.div`
       z-index: 1000;
     }
   }
-`;
+`
