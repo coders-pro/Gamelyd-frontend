@@ -1,4 +1,4 @@
-import Hero from "../../components/TournamentHeader/index";
+import Hero from "../../components/TournamentHeader";
 import Navbar from "../../components/NavBar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import RLSlider from "./RLSlider";
@@ -68,13 +68,7 @@ const Tournament = () => {
     <div className="games">
       {loader && <ButtonLoader />}
       <Navbar message="jh" />
-      <Hero
-        pic1={"/images/soldier12.png"}
-        pic2={"/images/soldier11.png"}
-        background={"/images/soldier12.png"}
-        message="WELCOME TO TOURNAMENT"
-        time=" CREATE TOURNAMENT"
-      />
+      <Hero />
 
       <RLSlider data={paid} header="Paid Tournament" />
       <div

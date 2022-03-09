@@ -64,7 +64,10 @@ export const Style = styled.div`
     border-radius: 50%;
     margin: auto;
     margin-top: -100px;
-    background-color: white;
+    background-color: #15202b;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 `;

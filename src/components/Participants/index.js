@@ -1,36 +1,63 @@
 import { Link } from "react-router-dom";
 import { Style } from "./style";
 import GroupWorkIcon from "@mui/icons-material/GroupWork";
-// import Navbar from "../../components/NavBar/Navbar";
-// import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-// import LocationOnIcon from "@mui/icons-material/LocationOn";
-// import TwitterIcon from "@mui/icons-material/Twitter";
-// import FacebookIcon from "@mui/icons-material/Facebook";
-// import LinkedInIcon from "@mui/icons-material/LinkedIn";
-// import InstagramIcon from "@mui/icons-material/Instagram";
-// import Button from "../../components/Button/InnerButton";
+import { useEffect, useState, useRef } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { useParams } from "react-router-dom";
+import Loader from "../ButtonLoader/ButtonLoader";
 
 const Participants = (props) => {
-  console.log(props);
+  const [drawLoading, setDrawLoading] = useState(true);
+  const [teams, setTeams] = useState([]);
+  const { id } = useParams();
+
+  useEffect(() => {
+    const headers = {
+      "Content-Type": "application/json",
+      token: localStorage.getItem("token"),
+    };
+
+    axios
+      .get(`https://gamelyd.herokuapp.com/tournament/participants/${id}`, {
+        headers: headers,
+      })
+      .then((res) => {
+        if (!res.data.hasError) {
+          setTeams(res.data.tournament);
+          setDrawLoading(false);
+          // toast.success(res.data.message);
+        } else {
+          toast.error(res.data.message);
+          setDrawLoading(false);
+        }
+      });
+  }, []);
   return (
     <>
-      {!props.teams ? (
+      <>{drawLoading && <Loader />}</>
+      {!teams || teams.lenght === 0 ? (
         <>
-          <Style>
-            <div className="draw">
-              <div className="team">
-                <GroupWorkIcon sx={{ fontSize: 85 }} />
-                <div className="teamName"> No Registrations Yet</div>
+          {drawLoading ? (
+            <AccountCircleIcon />
+          ) : (
+            <Style>
+              <div className="draw">
+                <div className="team">
+                  <GroupWorkIcon sx={{ fontSize: 85 }} />
+                  <div className="teamName"> No Registrations Yet</div>
+                </div>
+                <div className="bot">
+                  <div className="player"></div>
+                </div>
               </div>
-              <div className="bot">
-                <div className="player"></div>
-              </div>
-            </div>
-          </Style>
+            </Style>
+          )}
         </>
       ) : (
         <>
-          {props.teams.map((team, index) => (
+          {teams.map((team, index) => (
             <Style key={index}>
               <div className="draw">
                 <div className="team">

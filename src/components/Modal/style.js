@@ -1,6 +1,23 @@
 import styled from "styled-components";
 
 export const ModalStyle = styled.div`
+  position: relative;
+  .close {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    cursor: pointer;
+  }
+  .header {
+    background: rgba(0, 0, 0, 0.3);
+    height: 100px;
+    width: 100%;
+    font-size: 30px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   overflow: auto;
   .modal-backdrop {
     position: fixed;
@@ -15,7 +32,7 @@ export const ModalStyle = styled.div`
   .modal-content-wrapper {
     position: fixed;
     width: 65vw;
-    height: 400px;
+    height: 500px;
     background: white;
     margin: auto;
     colour: black;
@@ -23,7 +40,7 @@ export const ModalStyle = styled.div`
     right: 0;
     top: 0;
     bottom: 0;
-    padding: 50px;
+    /* padding: 50px; */
     z-index: 1000;
     overflow: hidden;
     overflow-y: auto;

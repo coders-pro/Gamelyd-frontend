@@ -9,7 +9,7 @@ import ButtonLoader from "../../components/ButtonLoader/ButtonLoader";
 import ImageRotate from "../../components/ImageRotate/ImageRotate";
 import Footer from "../../components/Footer/Footer";
 import { Carddiv } from "../Tournament/style";
-import Hero from "../../components/Hero/Hero";
+import Hero from "../../components/TournamentHeader";
 import Navbar from "../../components/NavBar/Navbar";
 
 const Showmore = () => {
@@ -48,13 +48,7 @@ const Showmore = () => {
   return (
     <div>
       <Navbar message="jh" />
-      <Hero
-        pic1={"/images/soldier12.png"}
-        pic2={"/images/soldier11.png"}
-        background={"/images/soldier12.png"}
-        message="WELCOME TO TOURNAMENT"
-        time=" CREATE TOURNAMENT"
-      />
+      <Hero />
       <Div>
         {loader && <ButtonLoader />}
         <div className="head">{payment} Tournament</div>

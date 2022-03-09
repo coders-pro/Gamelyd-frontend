@@ -105,9 +105,8 @@ const Profile = () => {
         .then((res) => {
           setLoading(false);
           if (!res.data.hasError) {
-            toast.success(res.data.message);
+            // toast.success(res.data.message);
             setUser(res.data.user);
-            console.log(res.data.user);
             getUserTourny(res.data.user.user_name);
           } else {
             toast.error(res.data.message);
@@ -142,31 +141,16 @@ const Profile = () => {
                 </div>
               </div>
               <div className="socials">
-                <a href={user.Twitter} target="_blank" without rel="noreferrer">
+                <a href={user.Twitter} target="_blank" rel="noreferrer">
                   <TwitterIcon className="soc" />
                 </a>
-                <a
-                  href={user.Facebook}
-                  target="_blank"
-                  without
-                  rel="noreferrer"
-                >
+                <a href={user.Facebook} target="_blank" rel="noreferrer">
                   <FacebookIcon className="soc" />
                 </a>
-                <a
-                  href={user.Linkedin}
-                  target="_blank"
-                  without
-                  rel="noreferrer"
-                >
+                <a href={user.Linkedin} target="_blank" rel="noreferrer">
                   <LinkedInIcon className="soc" />
                 </a>
-                <a
-                  href={user.Instagram}
-                  target="_blank"
-                  without
-                  rel="noreferrer"
-                >
+                <a href={user.Instagram} target="_blank" rel="noreferrer">
                   <InstagramIcon className="soc" />
                 </a>
               </div>
@@ -182,14 +166,14 @@ const Profile = () => {
             </div>
           </div>
 
-          <Modal ref={modalRef5}>
+          <Modal title="Edit Details" ref={modalRef5}>
             <button onClick={close} className="close">
               X
             </button>
             <EditUser user={user} />
           </Modal>
 
-          <Modal ref={modalRef}>
+          <Modal title="Change Password" ref={modalRef}>
             <button onClick={close1} className="close">
               X
             </button>
