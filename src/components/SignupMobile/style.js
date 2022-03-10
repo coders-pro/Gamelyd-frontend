@@ -1,6 +1,12 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const SignUpStyle = styled.div`
+  /* position: relative; */
+  .logos {
+    position: absolute;
+    top: 5px;
+    left: 50px;
+  }
   .mobile-body {
     display: none;
     @media (max-width: 990px) {
@@ -170,7 +176,7 @@ export const SignUpStyle = styled.div`
 
             .input-data .underline:before {
               position: absolute;
-              content: '';
+              content: "";
               height: 100%;
               width: 100%;
               background: rgb(11, 192, 180);
@@ -198,4 +204,4 @@ export const SignUpStyle = styled.div`
       }
     }
   }
-`
+`;

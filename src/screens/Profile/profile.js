@@ -23,7 +23,9 @@ const Profile = () => {
   const [loading, setLoading] = useState(true);
   const [active, setActive] = useState("mine");
   const [myToynys, setMyToynys] = useState([]);
+  const [myToynysLimit, setMyToynysLimit] = useState([]);
   const [myCToynys, setMyCToynys] = useState([]);
+  const [myCToynysLimit, setMyCToynysLimit] = useState([]);
   const [refresh, setRefresh] = useState(true);
 
   const { id } = useParams();
@@ -56,7 +58,7 @@ const Profile = () => {
     try {
       axios
         .get(
-          `https://gamelyd.herokuapp.com/tournament/userRegisteredTournaments/${user_name}`,
+          `https://gamelyd.herokuapp.com/tournament/userRegisteredTournaments/${id}`,
           { headers: headers }
         )
         .then((res) => {
@@ -83,6 +85,41 @@ const Profile = () => {
               setMyCToynys([]);
             } else {
               setMyCToynys(res.data.tournaments);
+            }
+          } else {
+            toast.error(res.data.message);
+          }
+        });
+
+      axios
+        .get(
+          `https://gamelyd.herokuapp.com/tournament/userRegisteredTournaments/${id}/limit`,
+          { headers: headers }
+        )
+        .then((res) => {
+          setLoading(false);
+          if (!res.data.hasError) {
+            if (!res.data.tournaments) {
+              setMyToynysLimit([]);
+            } else {
+              setMyToynysLimit(res.data.tournaments);
+            }
+          } else {
+            toast.error(res.data.message);
+          }
+        });
+
+      axios
+        .get(`https://gamelyd.herokuapp.com/users/tournaments/${id}/limit`, {
+          headers: headers,
+        })
+        .then((res) => {
+          setLoading(false);
+          if (!res.data.hasError) {
+            if (!res.data.tournaments) {
+              setMyCToynysLimit([]);
+            } else {
+              setMyCToynysLimit(res.data.tournaments);
             }
           } else {
             toast.error(res.data.message);
@@ -256,13 +293,13 @@ const Profile = () => {
             <div className="bod">
               {active === "mine" && (
                 <Scroll>
-                  <List mode="mine" tourny={myToynys} />{" "}
+                  <List mode="mine" tourny={myToynysLimit} />{" "}
                 </Scroll>
               )}
               {active === "join" && (
                 <Scroll>
                   {" "}
-                  <List mode="join" tourny={myCToynys} />{" "}
+                  <List mode="join" tourny={myCToynysLimit} />{" "}
                 </Scroll>
               )}
             </div>

@@ -116,15 +116,12 @@ const Draw = (props) => {
   };
 
   useEffect(() => {
-    const headers = {
-      "Content-Type": "application/json",
-      token: localStorage.getItem("token"),
-    };
     setTeam1(props.draw.Team1Score);
     setTeam2(props.draw.Team2Score);
     setTime(props.draw.time);
     setDate(props.draw.date);
     setLink(props.draw.Link);
+    console.log(props.draw);
   }, []);
 
   return (
