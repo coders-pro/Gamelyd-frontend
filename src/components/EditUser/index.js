@@ -63,7 +63,7 @@ export default function EditUser(props) {
 
     try {
       const res = await axios.post(
-        `https://gamelyd.herokuapp.com/users/editUser/${props.user.user_id}`,
+        `https://gamelyd.onrender.com/users/editUser/${props.user.user_id}`,
         data,
         config
       );

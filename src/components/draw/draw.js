@@ -35,7 +35,7 @@ const Draw = (props) => {
       };
 
       const res = await axios.post(
-        `https://gamelyd.herokuapp.com/draws/addTime/${props.draw.drawid}`,
+        `https://gamelyd.onrender.com/draws/addTime/${props.draw.drawid}`,
         data,
         { headers: headers }
       );
@@ -65,7 +65,7 @@ const Draw = (props) => {
       };
 
       const res = await axios.post(
-        `https://gamelyd.herokuapp.com/draws/addLink/${props.draw.drawid}`,
+        `https://gamelyd.onrender.com/draws/addLink/${props.draw.drawid}`,
         data,
         { headers: headers }
       );
@@ -97,7 +97,7 @@ const Draw = (props) => {
       };
 
       const res = await axios.post(
-        `https://gamelyd.herokuapp.com/draws/addScore/${props.draw.drawid}`,
+        `https://gamelyd.onrender.com/draws/addScore/${props.draw.drawid}`,
         data,
         { headers: headers }
       );

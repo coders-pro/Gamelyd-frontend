@@ -20,7 +20,7 @@ const ForgotPassword = () => {
     };
     setLoading(true);
     axios
-      .post(`https://gamelyd.herokuapp.com/users/forgot`, body)
+      .post(`https://gamelyd.onrender.com/users/forgot`, body)
       .then((res) => {
         if (!res.data.hasError) {
           toast.success(res.data.message);

@@ -56,7 +56,7 @@ const SingleTournament = () => {
       token: localStorage.getItem("token"),
     };
     axios
-      .get(`https://gamelyd.herokuapp.com/tournament/${id}`, {
+      .get(`https://gamelyd.onrender.com/tournament/${id}`, {
         headers: headers,
       })
       .then((res) => {
@@ -71,7 +71,7 @@ const SingleTournament = () => {
       });
 
     axios
-      .get(`https://gamelyd.herokuapp.com/draws/${id}`, {
+      .get(`https://gamelyd.onrender.com/draws/${id}`, {
         headers: headers,
       })
       .then((res) => {
@@ -148,7 +148,7 @@ const SingleTournament = () => {
 
     try {
       const res = await axios.get(
-        `https://gamelyd.herokuapp.com/tournament/removeFromTournament/${localStorage.getItem(
+        `https://gamelyd.onrender.com/tournament/removeFromTournament/${localStorage.getItem(
           "id"
         )}/${id}`,
         { headers: headers }
@@ -180,9 +180,11 @@ const SingleTournament = () => {
         Stage: draws.length ? draws[draws.length - 1][0].stage + 1 : 1,
       };
       const res = await axios.post(
-        "https://gamelyd.herokuapp.com/draws/save",
+        "https://gamelyd.onrender.com/draws/save",
         data,
-        { headers: headers }
+        {
+          headers: headers,
+        }
       );
       if (!res.data.hasError) {
         setDrawLoading(false);
@@ -211,7 +213,7 @@ const SingleTournament = () => {
       token: localStorage.getItem("token"),
     };
     axios
-      .get(`https://gamelyd.herokuapp.com/tournament/${id}`, {
+      .get(`https://gamelyd.onrender.com/tournament/${id}`, {
         headers: headers,
       })
       .then((res) => {
@@ -221,7 +223,7 @@ const SingleTournament = () => {
           setAmount(res.data.tournament.RegistrationAmount);
 
           axios
-            .get(`https://gamelyd.herokuapp.com/draws/${id}`, {
+            .get(`https://gamelyd.onrender.com/draws/${id}`, {
               headers: headers,
             })
             .then((res) => {
@@ -285,7 +287,7 @@ const SingleTournament = () => {
         }
       });
     axios
-      .get(`https://gamelyd.herokuapp.com/tournament/participants/${id}`, {
+      .get(`https://gamelyd.onrender.com/tournament/participants/${id}`, {
         headers: headers,
       })
       .then((res) => {

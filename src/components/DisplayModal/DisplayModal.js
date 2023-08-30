@@ -31,7 +31,7 @@ const DisplayModal = (props) => {
       token: localStorage.getItem("token"),
     };
     axios
-      .get(`https://gamelyd.herokuapp.com/users`, {
+      .get(`https://gamelyd.onrender.com/users`, {
         headers: headers,
       })
       .then((res) => {
@@ -50,12 +50,9 @@ const DisplayModal = (props) => {
     let participant = [];
 
     axios
-      .get(
-        `https://gamelyd.herokuapp.com/tournament/participants/${props.id}`,
-        {
-          headers: headers,
-        }
-      )
+      .get(`https://gamelyd.onrender.com/tournament/participants/${props.id}`, {
+        headers: headers,
+      })
       .then((res) => {
         if (!res.data.hasError) {
           setPlayers(res.data.tournament);
@@ -169,7 +166,7 @@ const DisplayModal = (props) => {
     };
 
     const res = await axios.post(
-      `https://gamelyd.herokuapp.com/tournament/register/${props.id}`,
+      `https://gamelyd.onrender.com/tournament/register/${props.id}`,
       data,
       config
     );
@@ -227,7 +224,7 @@ const DisplayModal = (props) => {
 
         axios
           .post(
-            `https://gamelyd.herokuapp.com/tournament/register/${props.id}`,
+            `https://gamelyd.onrender.com/tournament/register/${props.id}`,
             data,
             config
           )

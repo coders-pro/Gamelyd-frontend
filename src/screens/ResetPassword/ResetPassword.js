@@ -45,7 +45,7 @@ const ResetPassword = () => {
 
     try {
       const res = await axios.post(
-        `https://gamelyd.herokuapp.com/users/reset`,
+        `https://gamelyd.onrender.com/users/reset`,
         data,
         config
       );

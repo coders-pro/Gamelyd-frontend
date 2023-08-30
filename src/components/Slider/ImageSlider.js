@@ -170,7 +170,7 @@ class ImageSlider extends React.Component {
     };
 
     axios
-      .post("https://gamelyd.herokuapp.com/tournament/save", body, {
+      .post("https://gamelyd.onrender.com/tournament/save", body, {
         headers: headers,
       })
       .then((res) => {
@@ -254,7 +254,7 @@ class ImageSlider extends React.Component {
           };
 
           axios
-            .post("https://gamelyd.herokuapp.com/tournament/save", body, {
+            .post("https://gamelyd.onrender.com/tournament/save", body, {
               headers: headers,
             })
             .then((res) => {

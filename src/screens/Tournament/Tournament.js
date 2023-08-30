@@ -24,7 +24,7 @@ const Tournament = () => {
     };
     setLoader(true);
     axios
-      .get("https://gamelyd.herokuapp.com/tournament/mode/PAID/limit", {
+      .get("https://gamelyd.onrender.com/tournament/mode/PAID/limit", {
         headers: headers,
       })
       .then((res) => {
@@ -36,7 +36,7 @@ const Tournament = () => {
         }
       });
     axios
-      .get("https://gamelyd.herokuapp.com/tournament/mode/SPONSORED/limit", {
+      .get("https://gamelyd.onrender.com/tournament/mode/SPONSORED/limit", {
         headers: headers,
       })
       .then((res) => {
@@ -50,7 +50,7 @@ const Tournament = () => {
       });
 
     axios
-      .get("https://gamelyd.herokuapp.com/tournament/mode/FREE/limit", {
+      .get("https://gamelyd.onrender.com/tournament/mode/FREE/limit", {
         headers: headers,
       })
       .then((res) => {

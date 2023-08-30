@@ -25,13 +25,17 @@ const RLSlider = (props) => {
         <div className="title">{props.header}</div>
         <div className="div1">
           <div className="div2" id={id}>
-            {props.data.map((datum) => (
-              <Card
-                key={datum.tournamentid}
-                data={datum}
-                // mainImage={car.mainImage}
-              />
-            ))}
+            {props.data && (
+              <>
+                {props.data.map((datum) => (
+                  <Card
+                    key={datum.tournamentid}
+                    data={datum}
+                    // mainImage={car.mainImage}
+                  />
+                ))}
+              </>
+            )}
           </div>
         </div>
         <MdChevronRight
