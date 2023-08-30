@@ -1,16 +1,16 @@
-import React, { forwardRef, useImperativeHandle, useState } from 'react'
-import { ModalStyle } from './style'
-import { motion, AnimatePresence } from 'framer-motion'
+import React, { forwardRef, useImperativeHandle, useState } from "react";
+import { ModalStyle } from "./style";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Modal = forwardRef((props, ref) => {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
   useImperativeHandle(ref, () => {
     return {
       open: () => setOpen(true),
       close: () => setOpen(false),
-    }
-  })
+    };
+  });
 
   return (
     <AnimatePresence>
@@ -33,7 +33,7 @@ const Modal = forwardRef((props, ref) => {
               },
             }}
             onClick={() => setOpen(false)}
-            className='modal-backdrop'
+            className="modal-backdrop"
           />
           <motion.div
             initial={{
@@ -51,10 +51,10 @@ const Modal = forwardRef((props, ref) => {
                 duration: 0.3,
               },
             }}
-            className='modal-content-wrapper'
+            className="modal-content-wrapper"
           >
             <motion.div
-              className='modal-content'
+              className="modal-content"
               initial={{
                 x: 100,
                 opacity: 0,
@@ -75,13 +75,14 @@ const Modal = forwardRef((props, ref) => {
                 },
               }}
             >
-              {props.children}
+              <div className="header">{props.title}</div>
+              <div style={{ padding: "50px" }}>{props.children}</div>
             </motion.div>
           </motion.div>
         </ModalStyle>
       )}
     </AnimatePresence>
-  )
-})
+  );
+});
 
-export default Modal
+export default Modal;

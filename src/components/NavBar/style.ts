@@ -1,8 +1,8 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 type Nav = {
-  transform: string
-}
+  transform: string;
+};
 
 export const NavStyle = styled.div<Nav>`
   scroll-behavior: smooth;
@@ -27,6 +27,7 @@ export const NavStyle = styled.div<Nav>`
     height: 12vh;
     transition: 1s;
     z-index: 99;
+    align-items: center;
     .logo {
       position: relative;
       display: flex;
@@ -68,7 +69,7 @@ export const NavStyle = styled.div<Nav>`
           span {
             position: absolute;
             width: 30px;
-            border-bottom: 1.5px solid #c0262d;
+            border-bottom: 3px solid white;
             padding-bottom: 1.5rem;
             z-index: 0;
             margin: auto;
@@ -162,13 +163,13 @@ export const NavStyle = styled.div<Nav>`
       height: 8vh;
     }
   }
-`
+`;
 
 type Button = {
-  line1: string
-  line2: string
-  line3: string
-}
+  line1: string;
+  line2: string;
+  line3: string;
+};
 
 export const ButtonStyle = styled.div<Button>`
   position: fixed;
@@ -207,4 +208,4 @@ export const ButtonStyle = styled.div<Button>`
   @media (max-width: 999px) {
     display: block;
   }
-`
+`;

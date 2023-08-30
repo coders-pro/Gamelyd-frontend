@@ -55,7 +55,7 @@ export default function ChangePassword(props) {
 
     try {
       const res = await axios.post(
-        `https://gamelyd.herokuapp.com/users/changePassword/${props.user.user_id}`,
+        `https://gamelyd.onrender.com/users/changePassword/${props.user.user_id}`,
         data,
         config
       );

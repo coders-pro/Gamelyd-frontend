@@ -1,4 +1,4 @@
-import Hero from "../../components/TournamentHeader/index";
+import Hero from "../../components/TournamentHeader";
 import Navbar from "../../components/NavBar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import RLSlider from "./RLSlider";
@@ -24,7 +24,7 @@ const Tournament = () => {
     };
     setLoader(true);
     axios
-      .get("https://gamelyd.herokuapp.com/tournament/mode/PAID", {
+      .get("https://gamelyd.onrender.com/tournament/mode/PAID/limit", {
         headers: headers,
       })
       .then((res) => {
@@ -36,7 +36,7 @@ const Tournament = () => {
         }
       });
     axios
-      .get("https://gamelyd.herokuapp.com/tournament/mode/SPONSORED", {
+      .get("https://gamelyd.onrender.com/tournament/mode/SPONSORED/limit", {
         headers: headers,
       })
       .then((res) => {
@@ -50,7 +50,7 @@ const Tournament = () => {
       });
 
     axios
-      .get("https://gamelyd.herokuapp.com/tournament/mode/FREE", {
+      .get("https://gamelyd.onrender.com/tournament/mode/FREE/limit", {
         headers: headers,
       })
       .then((res) => {
@@ -68,13 +68,7 @@ const Tournament = () => {
     <div className="games">
       {loader && <ButtonLoader />}
       <Navbar message="jh" />
-      <Hero
-        pic1={"/images/soldier12.png"}
-        pic2={"/images/soldier11.png"}
-        background={"/images/soldier12.png"}
-        message="WELCOME TO TOURNAMENT"
-        time=" CREATE TOURNAMENT"
-      />
+      <Hero />
 
       <RLSlider data={paid} header="Paid Tournament" />
       <div

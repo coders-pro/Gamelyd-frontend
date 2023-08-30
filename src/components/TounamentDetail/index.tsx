@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { Singlediv } from "./style";
 import GroupWorkIcon from "@mui/icons-material/GroupWork";
+import NumberFormat from "react-number-format";
+
 // import Navbar from "../../components/NavBar/Navbar";
 // import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 // import LocationOnIcon from "@mui/icons-material/LocationOn";
@@ -46,6 +48,23 @@ const Tournament = (props: any) => {
                       {props.single.Payment}
                     </td>
                   </tr>
+
+                  {props.single.Amount > 0 && (
+                    <tr>
+                      <th style={{ padding: "10px", textAlign: "left" }}>
+                        Payment Amount :
+                      </th>
+                      <td style={{ padding: "10px", textAlign: "left" }}>
+                        {" "}
+                        <NumberFormat
+                          value={props.single.RegistrationAmount}
+                          displayType={"text"}
+                          thousandSeparator={true}
+                          prefix={"₦"}
+                        />
+                      </td>
+                    </tr>
+                  )}
                   <tr>
                     <th style={{ padding: "10px", textAlign: "left" }}>
                       Shuffle :
