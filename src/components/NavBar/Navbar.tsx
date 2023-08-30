@@ -253,7 +253,7 @@ class Navbar extends React.Component<IProps, IState> {
             </NavLink>
             {this.state.user && (
               <NavLink
-                to="/tournament"
+                to="/tournaments"
                 className="single_item"
                 style={({ isActive }) =>
                   isActive
@@ -264,7 +264,7 @@ class Navbar extends React.Component<IProps, IState> {
                 }
                 onClick={this.onClickBackdrop}
               >
-                Tournament
+                Tournaments
               </NavLink>
             )}
             {this.state.user && (
