@@ -42,7 +42,7 @@ export const login =
       };
 
       const response = await axios.post(
-        "https://gamelyd.herokuapp.com/users/login",
+        "https://gamelyd.onrender.com/users/login",
         data,
         config
       );

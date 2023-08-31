@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { Style } from "./style";
-import Image from "../../assets/images/multiplayer.jpg";
+import Image from "../../assets/images/icon.png";
 const Card = (props) => {
   return (
     <Style>
       <div className="all"></div>
       <div className="imgs">
-        <img src={Image} alt="ntn" />
+        <img style={{ width: "150px" }} src={Image} alt="logo" />
       </div>
     </Style>
   );

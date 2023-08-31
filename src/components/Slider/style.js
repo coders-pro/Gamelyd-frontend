@@ -2,8 +2,6 @@ import styled from 'styled-components'
 
 export const Style = styled.div`
   margin: auto;
-  margin-top: 6em;
-  margin-bottom: 6em;
   position: relative;
   width: 100%;
   height: 250px;
@@ -47,7 +45,7 @@ export const Style = styled.div`
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
       margin: 0px auto;
       padding-bottom: 120px;
-
+      overflow: hidden;
       @media (max-width: 850px) {
         width: 75%;
       }

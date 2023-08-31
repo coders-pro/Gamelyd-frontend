@@ -1,14 +1,20 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const ForgotStyle = styled.div`
   margin: 0;
   padding: 0;
   display: flex;
   height: 100vh;
+  .eye {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 20px;
+  }
 
   .left {
     width: 50%;
-    background: url('/images/soldier7.png');
+    background: url("/images/soldier7.png");
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover;
@@ -30,8 +36,8 @@ export const ForgotStyle = styled.div`
     }
 
     .game-form {
-      font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
-        'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+      font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+        "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 
       button {
         cursor: pointer;
@@ -105,7 +111,7 @@ export const ForgotStyle = styled.div`
 
       .input-data .underline:before {
         position: absolute;
-        content: '';
+        content: "";
         height: 100%;
         width: 100%;
         background: rgb(11, 192, 180);
@@ -133,4 +139,4 @@ export const ForgotStyle = styled.div`
       }
     }
   }
-`
+`;

@@ -11,6 +11,7 @@ export const Style = styled.div`
   }
   .bod {
     padding: 150px 0;
+    padding-top: 70px;
     .bos {
       width: 70vw;
       height: 700px;
@@ -18,7 +19,7 @@ export const Style = styled.div`
       display: flex;
       flex-direction: row;
       justify-content: center;
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.3);
       @media (max-width: 850px) {
         width: 90vw;
       }

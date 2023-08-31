@@ -58,13 +58,13 @@ const Footer = () => {
 
   return (
     <FooterStyle>
-      <Modal ref={modalRef}>
+      <Modal title="Create Tournament" ref={modalRef}>
         <button onClick={close} className="close">
           X
         </button>
         <ImageSlider />
       </Modal>
-      <Modal ref={modalRef1}>
+      <Modal title="Report Abuse" ref={modalRef1}>
         <button onClick={close1} className="close">
           X
         </button>

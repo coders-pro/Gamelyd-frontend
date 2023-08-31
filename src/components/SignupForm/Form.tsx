@@ -28,7 +28,7 @@ const SignupForm = () => {
       toast.error("username must be filled");
     } else {
       const response = await fetch(
-        `https://gamelyd.herokuapp.com/users/checkUserName/${criteria}`
+        `https://gamelyd.onrender.com/users/checkUserName/${criteria}`
       );
       const body = await response.json();
       setCharacters(body.message);

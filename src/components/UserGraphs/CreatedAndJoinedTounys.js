@@ -26,8 +26,8 @@ export default function Chart(props) {
       {
         label: "Tournament Activities",
         data: [0, props.data.joined, props.data.created],
-        backgroundColor: "#00ccffab",
-        borderColor: "#00ccff",
+        backgroundColor: "rgba(11, 192, 180, 0.515)",
+        borderColor: "rgb(11, 192, 180)",
         borderWidth: 2,
       },
     ],
