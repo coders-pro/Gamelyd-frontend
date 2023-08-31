@@ -7,6 +7,7 @@ import { login } from "../../actions/userActions";
 import { RootState } from "../../store.js";
 import { Userstate } from "../../reducers/userReducer.js";
 import ButtonLoader from "../../components/ButtonLoader/ButtonLoader";
+import { useApi } from "../../api";
 
 const LoginForm = () => {
   // login state
@@ -19,10 +20,22 @@ const LoginForm = () => {
 
   const dispatch = useDispatch();
 
+  const apiUrl = process.env.REACT_APP_API_URL;
+
+  const { state, isPending, error, call, clearState } = useApi({
+    route: `users/login`, 
+    method: 'POST',
+  });
+
+
+
+
   const redirect = location.search ? location.search.split("=")[1] : "/";
   const userLogin = useSelector<RootState, Userstate>(
     (state) => state.userLogin
   );
+
+
 
   const { loading, userInfo } = userLogin;
 
@@ -35,7 +48,14 @@ const LoginForm = () => {
   const loginHandler = (e: any) => {
     e.preventDefault();
 
-    dispatch(login(emails, password));
+    // dispatch(login(emails, password));
+
+    call({
+      body: {
+        email: emails,
+        password,
+      }
+    })
   };
   return (
     <LoginFormStyle>
