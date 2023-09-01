@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 
 import { LoginFormStyle } from "./style";
-import { login } from "../../actions/userActions";
-import { RootState } from "../../store.js";
-import { Userstate } from "../../reducers/userReducer.js";
 import ButtonLoader from "../../components/ButtonLoader/ButtonLoader";
 import { useApi } from "../../api";
+import { User } from "../../User";
 
 const LoginForm = () => {
   // login state
@@ -20,24 +18,27 @@ const LoginForm = () => {
 
   const dispatch = useDispatch();
 
-  const apiUrl = process.env.REACT_APP_API_URL;
 
   const { state, isPending, error, call, clearState } = useApi({
     route: `users/login`, 
     method: 'POST',
+    callback: (user: any) => {
+      console.log(user);
+      
+      User().save({
+      user: user?.data
+      })
+    }
   });
 
+ const userInfo = User().get()
+  
 
+  
 
 
   const redirect = location.search ? location.search.split("=")[1] : "/";
-  const userLogin = useSelector<RootState, Userstate>(
-    (state) => state.userLogin
-  );
 
-
-
-  const { loading, userInfo } = userLogin;
 
   useEffect(() => {
     if (userInfo) {
@@ -48,8 +49,6 @@ const LoginForm = () => {
   const loginHandler = (e: any) => {
     e.preventDefault();
 
-    // dispatch(login(emails, password));
-
     call({
       body: {
         email: emails,
@@ -59,7 +58,7 @@ const LoginForm = () => {
   };
   return (
     <LoginFormStyle>
-      {loading && <ButtonLoader />}
+      {isPending && <ButtonLoader />}
       <div className="desktop">
         <form>
           <h3 style={{ color: "white" }}>Login </h3>

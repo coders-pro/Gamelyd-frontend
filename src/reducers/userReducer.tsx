@@ -1,13 +1,3 @@
-import {
-  USER_LOGIN_FAIL,
-  USER_LOGIN_REQUEST,
-  USER_LOGIN_SUCCESS,
-  USER_LOGOUT,
-  USER_REGISTER_FAIL,
-  USER_REGISTER_REQUEST,
-  USER_REGISTER_SUCCESS,
-} from '../constants/userConstants'
-
 export interface Userstate {
   loading?: boolean
   error?: string
@@ -35,53 +25,18 @@ interface Action {
   payload?: string
 }
 
-export const userLoginReducer = (
-  state: Userstate = initialState,
-  action: Action
-) => {
-  switch (action.type) {
-    case USER_LOGIN_REQUEST:
-      return {
-        loading: true,
-      }
-    case USER_LOGIN_SUCCESS:
-      return {
-        loading: false,
-        userInfo: action.payload,
-      }
-    case USER_LOGIN_FAIL:
-      return {
-        loading: false,
-        error: action.payload,
-      }
-    case USER_LOGOUT:
-      return {}
-    default:
-      return state
-  }
-}
+export const userReducer = (state = initialState, action: any) => {
 
-export const userRegisterReducer = (
-  state: Userstate = initialState,
-  action: Action
-) => {
+  console.log(action.payload);
+  
   switch (action.type) {
-    case USER_REGISTER_REQUEST:
+    case 'SAVE_USER_DETAILS_TO_LOCAL_STORAGE':
+      // Handle the action and update state if needed
       return {
-        loading: true,
-      }
-    case USER_REGISTER_SUCCESS:
-      return {
-        loading: false,
-        userInfo: action.payload,
-      }
-    case USER_REGISTER_FAIL:
-      return {
-        loading: false,
-        error: action.payload,
-      }
-
+        ...state,
+        user: action.payload
+      };
     default:
-      return state
+      return state;
   }
-}
+};

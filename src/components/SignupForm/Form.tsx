@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { SignupFormStyle } from "./style";
-import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 
-import { register } from "../../actions/userActions";
-import { RootState } from "../../store.js";
-import { Userstate } from "../../reducers/userReducer.js";
 import ButtonLoader from "../ButtonLoader/ButtonLoader";
 import { debounce } from "lodash";
 import { toast } from "react-toastify";
-import { useParams } from "react-router-dom";
+import { User } from "../../User";
+import { useApi } from "../../api";
 
 const SignupForm = () => {
   // signup state
@@ -52,7 +49,6 @@ const SignupForm = () => {
 
   const navigate = useNavigate();
 
-  const dispatch = useDispatch();
 
   // const redirect = location.search
   //   ? `${location.search.split('?')[1]}?open=true`
@@ -60,11 +56,19 @@ const SignupForm = () => {
 
   const redirect = location.search ? location.search.split("=")[1] : "/";
 
-  const userRegister = useSelector<RootState, Userstate>(
-    (state) => state.userRegister
-  );
+  const { state, isPending, error, call, clearState } = useApi({
+    route: `users/signup`, 
+    method: 'POST',
+    callback: (user: any) => {
+      console.log(user);
+      
+      User().save({
+      user: user?.data
+      })
+    }
+  });
 
-  const { loading, userInfo } = userRegister;
+ const userInfo = User().get()
 
   useEffect(() => {
     if (userInfo) {
@@ -75,21 +79,21 @@ const SignupForm = () => {
   const signupHandler = (e: any) => {
     e.preventDefault();
 
-    dispatch(
-      register(
+    call({
+      body: {
         signupEmail,
         signupPassword,
         username,
         firstName,
         lastName,
         phone
-      )
-    );
+      }
+    })
   };
 
   return (
     <SignupFormStyle>
-      {loading && <ButtonLoader />}
+      {isPending && <ButtonLoader />}
       <div className="desktop">
         <form>
           <h3 style={{ color: "white" }}>Signup </h3>

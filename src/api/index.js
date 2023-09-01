@@ -98,6 +98,8 @@ export function useApi(API, _) {
         };
       }
 
+      console.log(response);
+
       return response.data;
     } catch (error) {
       if (

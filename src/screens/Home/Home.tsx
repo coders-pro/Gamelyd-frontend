@@ -8,9 +8,11 @@ import IconMesage from "../../components/iconMessage/iconMessage";
 import Tab from "../../components/HomeTab/homeTab";
 import Mode from "../../components/HomeMode/mode";
 
+
 const Home = () => {
   const [shouldShowAction, setshouldShowAction] = React.useState(false);
   const [lastYPos, setlastYPos] = React.useState(0);
+
   React.useEffect(() => {
     function handleScroll() {
       const yPos = window.scrollY;
@@ -23,6 +25,8 @@ const Home = () => {
       window.addEventListener("scroll", handleScroll, false);
     };
   }, [lastYPos]);
+
+  
   return (
     <>
       <HomeStyle>
