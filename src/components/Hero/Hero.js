@@ -20,7 +20,7 @@ const Hero = (props) => {
 
 
   const create = () => {
-    if (userInfo) {
+    if (userInfo?.user) {
       modalRef.current.open();
 
       let audio = new Audio(open);
