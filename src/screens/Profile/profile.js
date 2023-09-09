@@ -18,6 +18,7 @@ import Modal from "../../components/Modal/Modal";
 import EditUser from "../../components/EditUser";
 import ChangePassword from "../../components/ChangePassword";
 import CTournys from "../../components/UserGraphs/CreatedAndJoinedTounys";
+import { User } from "../../User";
 const Profile = () => {
   const [user, setUser] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -53,7 +54,7 @@ const Profile = () => {
   const getUserTourny = (user_name) => {
     const headers = {
       "Content-Type": "application/json",
-      token: localStorage.getItem("token"),
+      token: User().get()?.user?.token,
     };
     try {
       axios
@@ -133,7 +134,7 @@ const Profile = () => {
   useEffect(() => {
     const headers = {
       "Content-Type": "application/json",
-      token: localStorage.getItem("token"),
+      token: User().get()?.user?.token,
     };
 
     try {

@@ -14,6 +14,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import withRouter from "../Navigate/Navigate";
 import Loader from "../ButtonLoader/ButtonLoader";
+import { User } from "../../User";
 
 class ImageSlider extends React.Component {
   constructor() {
@@ -166,7 +167,7 @@ class ImageSlider extends React.Component {
 
     const headers = {
       "Content-Type": "application/json",
-      token: localStorage.getItem("token"),
+      token: User().get()?.user?.token,
     };
 
     axios
@@ -250,7 +251,7 @@ class ImageSlider extends React.Component {
 
           const headers = {
             "Content-Type": "application/json",
-            token: localStorage.getItem("token"),
+            token: User().get()?.user?.token,
           };
 
           axios

@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import VisibilityIcon from "@mui/icons-material/Visibility";
+import { User } from "../../User";
 
 export default function ChangePassword(props) {
   const [password, setPassword] = useState("");
@@ -28,7 +29,7 @@ export default function ChangePassword(props) {
     const config = {
       headers: {
         "Content-Type": "application/json",
-        token: localStorage.getItem("token"),
+        token: User().get()?.user?.token,
       },
     };
 

@@ -12,6 +12,7 @@ import { useParams } from "react-router-dom";
 import DoNotDisturbIcon from "@mui/icons-material/DoNotDisturb";
 
 import "./style.css";
+import { User } from "../../User";
 
 const BrDraw = (props) => {
   const [isEditMode, setIsEditMode] = useState(false);
@@ -32,7 +33,7 @@ const BrDraw = (props) => {
     });
     const headers = {
       "Content-Type": "application/json",
-      token: localStorage.getItem("token"),
+      token: User().get()?.user?.token,
     };
     try {
       const data = {
@@ -65,7 +66,7 @@ const BrDraw = (props) => {
   useEffect(() => {
     const headers = {
       "Content-Type": "application/json",
-      token: localStorage.getItem("token"),
+      token: User().get()?.user?.token,
     };
     console.log(props?.draws);
 

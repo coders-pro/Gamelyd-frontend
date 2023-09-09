@@ -11,6 +11,7 @@ import Footer from "../../components/Footer/Footer";
 import { Carddiv } from "../Tournament/style";
 import Hero from "../../components/TournamentHeader";
 import Navbar from "../../components/NavBar/Navbar";
+import { User } from "../../User";
 
 const Showmore = () => {
   const [popular, setPopular] = useState([]);
@@ -24,7 +25,7 @@ const Showmore = () => {
   useEffect(() => {
     const headers = {
       "Content-Type": "application/json",
-      token: localStorage.getItem("token"),
+      token: User().get()?.user?.token,
     };
     setLoader(true);
     axios

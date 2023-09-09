@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useParams } from "react-router-dom";
 import Loader from "../ButtonLoader/ButtonLoader";
+import { User } from "../../User";
 
 const Participants = (props) => {
   const [drawLoading, setDrawLoading] = useState(true);
@@ -16,7 +17,7 @@ const Participants = (props) => {
   useEffect(() => {
     const headers = {
       "Content-Type": "application/json",
-      token: localStorage.getItem("token"),
+      token: User().get()?.user?.token,
     };
 
     axios

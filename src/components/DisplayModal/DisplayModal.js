@@ -8,6 +8,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { PaystackButton } from "react-paystack";
 
 import { Div } from "./Style";
+import { User } from "../../User";
 
 const DisplayModal = (props) => {
   const [users, setUsers] = useState([]);
@@ -28,7 +29,7 @@ const DisplayModal = (props) => {
     localStorage.setItem("players", JSON.stringify([]));
     const headers = {
       "Content-Type": "application/json",
-      token: localStorage.getItem("token"),
+      token: User().get()?.user?.token,
     };
     axios
       .get(`https://gamelyd.onrender.com/users`, {
@@ -156,7 +157,7 @@ const DisplayModal = (props) => {
     const config = {
       headers: {
         "Content-Type": "application/json",
-        token: localStorage.getItem("token"),
+        token: User().get()?.user?.token,
       },
     };
 
@@ -210,7 +211,7 @@ const DisplayModal = (props) => {
         const config = {
           headers: {
             "Content-Type": "application/json",
-            token: localStorage.getItem("token"),
+            token: User().get()?.user?.token,
           },
         };
 

@@ -16,6 +16,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import Footer from "../../components/Footer/Footer";
 import ImageRotate from "../../components/ImageRotate/ImageRotate";
 import Scroll from "../../components/Scroll/Scroll4";
+import { User } from "../../User";
 
 export default function FolderList() {
   const [loading, setLoading] = useState(false);
@@ -33,7 +34,7 @@ export default function FolderList() {
     const config = {
       headers: {
         "Content-Type": "application/json",
-        token: localStorage.getItem("token"),
+        token: User().get()?.user?.token,
       },
     };
 

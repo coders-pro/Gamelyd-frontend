@@ -5,6 +5,7 @@ import Loader from "../ButtonLoader/ButtonLoader";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { User } from "../../User";
 
 export default function EditUser(props) {
   const [firstName, setFirstName] = useState("");
@@ -24,7 +25,7 @@ export default function EditUser(props) {
   useEffect(() => {
     const headers = {
       "Content-Type": "application/json",
-      token: localStorage.getItem("token"),
+      token: User().get()?.user?.token,
     };
     setFirstName(props.user.first_name);
     setLastName(props.user.last_name);
@@ -44,7 +45,7 @@ export default function EditUser(props) {
     const config = {
       headers: {
         "Content-Type": "application/json",
-        token: localStorage.getItem("token"),
+        token: User().get()?.user?.token,
       },
     };
 

@@ -9,6 +9,7 @@ import Button from "../Button/InnerButton";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Abuse from "../ReportAbuse";
+import { User } from "../../User";
 
 const Footer = () => {
   const modalRef = useRef();
@@ -18,7 +19,7 @@ const Footer = () => {
   const search = location.search;
 
   const create = () => {
-    let token = localStorage.getItem("token");
+    let token = User().get()?.user?.token;
 
     if (token) {
       modalRef.current.open();

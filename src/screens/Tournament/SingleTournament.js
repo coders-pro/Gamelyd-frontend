@@ -16,6 +16,7 @@ import Particpants from "../../components/Participants/index";
 import BrDraw from "../../components/BRDraw";
 import { toast } from "react-toastify";
 import Join from "../../components/DisplayModal/DisplayModal";
+import { User } from "../../User";
 
 const SingleTournament = () => {
   const [single, setSingle] = useState([1]);
@@ -53,7 +54,7 @@ const SingleTournament = () => {
   const refresh = () => {
     const headers = {
       "Content-Type": "application/json",
-      token: localStorage.getItem("token"),
+      token: User().get()?.user?.token,
     };
     axios
       .get(`https://gamelyd.onrender.com/tournament/${id}`, {
@@ -143,7 +144,7 @@ const SingleTournament = () => {
     setDrawLoading(true);
     const headers = {
       "Content-Type": "application/json",
-      token: localStorage.getItem("token"),
+      token: User().get()?.user?.token,
     };
 
     try {
@@ -171,7 +172,7 @@ const SingleTournament = () => {
     setDrawLoading(true);
     const headers = {
       "Content-Type": "application/json",
-      token: localStorage.getItem("token"),
+      token: User().get()?.user?.token,
     };
 
     try {
@@ -210,7 +211,7 @@ const SingleTournament = () => {
     let mode;
     const headers = {
       "Content-Type": "application/json",
-      token: localStorage.getItem("token"),
+      token: User().get()?.user?.token,
     };
     axios
       .get(`https://gamelyd.onrender.com/tournament/${id}`, {

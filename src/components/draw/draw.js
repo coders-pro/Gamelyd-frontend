@@ -10,6 +10,7 @@ import { toast } from "react-toastify";
 import Loader from "../../components/ButtonLoader/ButtonLoader";
 import { useParams } from "react-router-dom";
 import DoNotDisturbIcon from "@mui/icons-material/DoNotDisturb";
+import { User } from "../../User";
 
 const Draw = (props) => {
   const [isEditMode, setIsEditMode] = useState(false);
@@ -26,7 +27,7 @@ const Draw = (props) => {
     setLoading(true);
     const headers = {
       "Content-Type": "application/json",
-      token: localStorage.getItem("token"),
+      token: User().get()?.user?.token,
     };
     try {
       const data = {
@@ -57,7 +58,7 @@ const Draw = (props) => {
     setLoading(true);
     const headers = {
       "Content-Type": "application/json",
-      token: localStorage.getItem("token"),
+      token: User().get()?.user?.token,
     };
     try {
       const data = {
@@ -87,7 +88,7 @@ const Draw = (props) => {
     setLoading(true);
     const headers = {
       "Content-Type": "application/json",
-      token: localStorage.getItem("token"),
+      token: User().get()?.user?.token,
     };
     try {
       const data = {
