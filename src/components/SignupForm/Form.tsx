@@ -73,7 +73,6 @@ const SignupForm = () => {
       User().save({
         user: res?.data,
       });
-      navigate("/");
       localStorage.setItem("id", res.data.data.ID);
       localStorage.setItem("first", res.data.data.first_name);
       localStorage.setItem("last", res.data.data.last_name);
