@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { User } from '../User';
 
-const apiUrl = process.env.REACT_APP_API_URL;
+const apiUrl = 'https://gamelyd.onrender.com';
 
 const IUIKitApiState = {
   IDLE: 'IDLE',
@@ -98,7 +98,7 @@ export function useApi(API, _) {
           total: totalCount
         };
       }
-      
+
       return response.data;
     } catch (error) {
       if (
