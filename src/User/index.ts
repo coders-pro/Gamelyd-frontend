@@ -17,8 +17,13 @@ export const User = () => {
        return user
       }
 
+      const removeUser = () => {
+        localStorage.removeItem('userDetails')
+      }
+
       return {
        save: saveUserDetailsToLocalStorage,
-       get:  returnUserFromLocalstorage
+       get:  returnUserFromLocalstorage,
+       clear: removeUser
       }
 }

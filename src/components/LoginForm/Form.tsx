@@ -18,37 +18,33 @@ const LoginForm = () => {
 
   const dispatch = useDispatch();
 
-
   const { state, isPending, error, call, clearState } = useApi({
-    route: `users/login`, 
-    method: 'POST',
-    callback: (res: any) => {      
+    route: `users/login`,
+    method: "POST",
+    callback: (res: any) => {
       User().save({
-      user: res?.data
-      })
-
-      if(!res.hasError){
-        navigate('/')
-      }
-
-
-    }
+        user: res?.data,
+      });
+      navigate("/");
+      localStorage.setItem("id", res.data.data.ID);
+      localStorage.setItem("first", res.data.data.first_name);
+      localStorage.setItem("last", res.data.data.last_name);
+      localStorage.setItem("user", res.data.data.user_name);
+      localStorage.setItem("email", res.data.data.email);
+      localStorage.setItem("phone", res.data.data.phone);
+      localStorage.setItem("token", res.data.data.token);
+    },
   });
 
- const userInfo = User().get()
-  
-
-  
-
+  const userInfo = User().get();
 
   const redirect = location.search ? location.search.split("=")[1] : "/";
 
-
-  // useEffect(() => {
-  //   if (userInfo) {
-  //     navigate(redirect);
-  //   }
-  // }, [userInfo, navigate, redirect]);
+  useEffect(() => {
+    if (userInfo?.user) {
+      navigate(redirect);
+    }
+  }, [userInfo, navigate, redirect]);
 
   const loginHandler = (e: any) => {
     e.preventDefault();
@@ -57,8 +53,8 @@ const LoginForm = () => {
       body: {
         email: emails,
         password,
-      }
-    })
+      },
+    });
   };
   return (
     <LoginFormStyle>

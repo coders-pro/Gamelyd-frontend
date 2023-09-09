@@ -7,6 +7,8 @@ import open from "../../assets/audios/Open.mp3";
 import Button from "../Button/InnerButton";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { User } from "../../User";
+
 
 const Hero = (props) => {
   const modalRef = useRef();
@@ -14,11 +16,11 @@ const Hero = (props) => {
   const location = useLocation();
   const navigate = useNavigate();
   const search = location.search;
+  const userInfo = User().get();
+
 
   const create = () => {
-    let token = localStorage.getItem("token");
-
-    if (token) {
+    if (userInfo) {
       modalRef.current.open();
 
       let audio = new Audio(open);

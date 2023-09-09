@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import { User } from '../User';
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -34,7 +35,7 @@ export function useApi(API, _) {
     try {
       const requestHeaders = {
         "Content-Type": "application/json",
-        // Add more headers here based on your requirements
+        token: User().get()?.user?.token || undefined
       };
 
       const paginationMeta = {
@@ -97,9 +98,7 @@ export function useApi(API, _) {
           total: totalCount
         };
       }
-
-      console.log(response);
-
+      
       return response.data;
     } catch (error) {
       if (
@@ -108,6 +107,15 @@ export function useApi(API, _) {
         typeof window !== 'undefined'
       ) {
         window.location.reload();
+      }
+
+      // Redirect when token has expired
+
+      if (
+        error.status === 401
+      ) {
+        User().clear()
+        window.location.href = `/signup`;
       }
 
       // Handle errors and emit error events if applicable

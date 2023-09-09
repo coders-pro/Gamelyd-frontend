@@ -54,7 +54,7 @@ const SignupForm = () => {
 
 
   const {  call: debounceCall } = useApi({
-    route: `/users/checkUserName/${criteria}`, 
+    route: `users/checkUserName/${criteria}`, 
     method: 'POST',
   }, );
   let location = useLocation();

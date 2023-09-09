@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import { NavStyle } from "./style";
 import Button from "./Button";
 import { toast } from "react-toastify";
+import { User } from "../../User";
 // import logo from '../../assets/images/hori.png'
 
 type IProps = {
@@ -37,9 +38,12 @@ class Navbar extends React.Component<IProps, IState> {
     user: false,
   };
 
+
+   userInfo = User().get();
+
   componentDidMount() {
     // if(localStorage.getItem(user))
-    if (localStorage.getItem("user")) {
+    if (this.userInfo?.user) {
       this.setState({
         user: true,
       });
@@ -92,11 +96,7 @@ class Navbar extends React.Component<IProps, IState> {
     });
   };
   logout = () => {
-    localStorage.setItem("id", "");
-    localStorage.setItem("first", "");
-    localStorage.setItem("last", "");
-    localStorage.setItem("user", "");
-    localStorage.setItem("token", "");
+    User().clear()
     window.location.href = `/signup`;
     toast.success("Logout successfull");
   };
