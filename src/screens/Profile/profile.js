@@ -59,7 +59,7 @@ const Profile = () => {
     try {
       axios
         .get(
-          `https://gamelyd.onrender.com/tournament/userRegisteredTournaments/${id}`,
+          `https://gamelyd-test.onrender.com/tournament/userRegisteredTournaments/${id}`,
           { headers: headers }
         )
         .then((res) => {
@@ -76,7 +76,7 @@ const Profile = () => {
         });
 
       axios
-        .get(`https://gamelyd.onrender.com/users/tournaments/${id}`, {
+        .get(`https://gamelyd-test.onrender.com/users/tournaments/${id}`, {
           headers: headers,
         })
         .then((res) => {
@@ -94,7 +94,7 @@ const Profile = () => {
 
       axios
         .get(
-          `https://gamelyd.onrender.com/tournament/userRegisteredTournaments/${id}/limit`,
+          `https://gamelyd-test.onrender.com/tournament/userRegisteredTournaments/${id}/limit`,
           { headers: headers }
         )
         .then((res) => {
@@ -111,7 +111,7 @@ const Profile = () => {
         });
 
       axios
-        .get(`https://gamelyd.onrender.com/users/tournaments/${id}/limit`, {
+        .get(`https://gamelyd-test.onrender.com/users/tournaments/${id}/limit`, {
           headers: headers,
         })
         .then((res) => {
@@ -139,7 +139,7 @@ const Profile = () => {
 
     try {
       axios
-        .get(`https://gamelyd.onrender.com/users/${id}`, { headers: headers })
+        .get(`https://gamelyd-test.onrender.com/users/${id}`, { headers: headers })
         .then((res) => {
           setLoading(false);
           if (!res.data.hasError) {

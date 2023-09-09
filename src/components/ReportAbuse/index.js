@@ -41,7 +41,7 @@ export default function ChangePassword(props) {
 
     try {
       const res = await axios.post(
-        `https://gamelyd.onrender.com/reportAbuse/save`,
+        `https://gamelyd-test.onrender.com/reportAbuse/save`,
         data,
         config
       );

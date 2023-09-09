@@ -32,7 +32,7 @@ const DisplayModal = (props) => {
       token: User().get()?.user?.token,
     };
     axios
-      .get(`https://gamelyd.onrender.com/users`, {
+      .get(`https://gamelyd-test.onrender.com/users`, {
         headers: headers,
       })
       .then((res) => {
@@ -51,7 +51,7 @@ const DisplayModal = (props) => {
     let participant = [];
 
     axios
-      .get(`https://gamelyd.onrender.com/tournament/participants/${props.id}`, {
+      .get(`https://gamelyd-test.onrender.com/tournament/participants/${props.id}`, {
         headers: headers,
       })
       .then((res) => {
@@ -167,7 +167,7 @@ const DisplayModal = (props) => {
     };
 
     const res = await axios.post(
-      `https://gamelyd.onrender.com/tournament/register/${props.id}`,
+      `https://gamelyd-test.onrender.com/tournament/register/${props.id}`,
       data,
       config
     );
@@ -225,7 +225,7 @@ const DisplayModal = (props) => {
 
         axios
           .post(
-            `https://gamelyd.onrender.com/tournament/register/${props.id}`,
+            `https://gamelyd-test.onrender.com/tournament/register/${props.id}`,
             data,
             config
           )

@@ -21,7 +21,7 @@ const Tournament = () => {
   const { call:GetPaidTournamentsApi, isPending: paidLoader,  } = useApi({
     route: `tournament/mode/PAID/limit`,
     method: "GET",
-    callback: (res: any) => {
+    callback: (res) => {
       setPaid(res?.tournaments);
     },
   });
@@ -29,7 +29,7 @@ const Tournament = () => {
   const { call: GetSponsoredTournamentsApi, isPending: sponsoredLoader  } = useApi({
     route: `tournament/mode/SPONSORED/limit`,
     method: "GET",
-    callback: (res: any) => {
+    callback: (res) => {
       setSponsored(res?.tournaments);
     },
   });
@@ -37,7 +37,7 @@ const Tournament = () => {
   const { call: GetFreeTournamentsApi, isPending: freeLoader  } = useApi({
     route: `tournament/mode/FREE/limit`,
     method: "GET",
-    callback: (res: any) => {
+    callback: (res) => {
       setFree(res?.tournaments);
     },
   });

@@ -46,7 +46,7 @@ export default function FolderList() {
 
     try {
       const res = await axios.post(
-        `https://gamelyd.onrender.com/contactUs/save`,
+        `https://gamelyd-test.onrender.com/contactUs/save`,
         data,
         config
       );

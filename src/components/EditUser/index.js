@@ -64,7 +64,7 @@ export default function EditUser(props) {
 
     try {
       const res = await axios.post(
-        `https://gamelyd.onrender.com/users/editUser/${props.user.user_id}`,
+        `https://gamelyd-test.onrender.com/users/editUser/${props.user.user_id}`,
         data,
         config
       );

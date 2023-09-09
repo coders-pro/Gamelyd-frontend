@@ -21,7 +21,7 @@ const Participants = (props) => {
     };
 
     axios
-      .get(`https://gamelyd.onrender.com/tournament/participants/${id}`, {
+      .get(`https://gamelyd-test.onrender.com/tournament/participants/${id}`, {
         headers: headers,
       })
       .then((res) => {

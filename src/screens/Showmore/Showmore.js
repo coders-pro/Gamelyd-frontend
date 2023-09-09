@@ -29,7 +29,7 @@ const Showmore = () => {
     };
     setLoader(true);
     axios
-      .get(`https://gamelyd.onrender.com/tournament/mode/${payment}`, {
+      .get(`https://gamelyd-test.onrender.com/tournament/mode/${payment}`, {
         headers: headers,
       })
       .then((res) => {

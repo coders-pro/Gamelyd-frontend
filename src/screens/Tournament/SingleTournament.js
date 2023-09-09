@@ -57,7 +57,7 @@ const SingleTournament = () => {
       token: User().get()?.user?.token,
     };
     axios
-      .get(`https://gamelyd.onrender.com/tournament/${id}`, {
+      .get(`https://gamelyd-test.onrender.com/tournament/${id}`, {
         headers: headers,
       })
       .then((res) => {
@@ -72,7 +72,7 @@ const SingleTournament = () => {
       });
 
     axios
-      .get(`https://gamelyd.onrender.com/draws/${id}`, {
+      .get(`https://gamelyd-test.onrender.com/draws/${id}`, {
         headers: headers,
       })
       .then((res) => {
@@ -149,7 +149,7 @@ const SingleTournament = () => {
 
     try {
       const res = await axios.get(
-        `https://gamelyd.onrender.com/tournament/removeFromTournament/${localStorage.getItem(
+        `https://gamelyd-test.onrender.com/tournament/removeFromTournament/${localStorage.getItem(
           "id"
         )}/${id}`,
         { headers: headers }
@@ -181,7 +181,7 @@ const SingleTournament = () => {
         Stage: draws.length ? draws[draws.length - 1][0].stage + 1 : 1,
       };
       const res = await axios.post(
-        "https://gamelyd.onrender.com/draws/save",
+        "https://gamelyd-test.onrender.com/draws/save",
         data,
         {
           headers: headers,
@@ -214,7 +214,7 @@ const SingleTournament = () => {
       token: User().get()?.user?.token,
     };
     axios
-      .get(`https://gamelyd.onrender.com/tournament/${id}`, {
+      .get(`https://gamelyd-test.onrender.com/tournament/${id}`, {
         headers: headers,
       })
       .then((res) => {
@@ -224,7 +224,7 @@ const SingleTournament = () => {
           setAmount(res.data.tournament.RegistrationAmount);
 
           axios
-            .get(`https://gamelyd.onrender.com/draws/${id}`, {
+            .get(`https://gamelyd-test.onrender.com/draws/${id}`, {
               headers: headers,
             })
             .then((res) => {
@@ -288,7 +288,7 @@ const SingleTournament = () => {
         }
       });
     axios
-      .get(`https://gamelyd.onrender.com/tournament/participants/${id}`, {
+      .get(`https://gamelyd-test.onrender.com/tournament/participants/${id}`, {
         headers: headers,
       })
       .then((res) => {

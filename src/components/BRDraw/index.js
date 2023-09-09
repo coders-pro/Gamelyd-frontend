@@ -45,7 +45,7 @@ const BrDraw = (props) => {
       console.log(data);
 
       const res = await axios.post(
-        `https://gamelyd.onrender.com/draws/updateBrDraw/621c8e1d888d3f373ee7c297`,
+        `https://gamelyd-test.onrender.com/draws/updateBrDraw/621c8e1d888d3f373ee7c297`,
         data,
         { headers: headers }
       );
