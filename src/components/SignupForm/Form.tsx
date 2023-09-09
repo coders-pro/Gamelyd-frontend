@@ -69,22 +69,28 @@ const SignupForm = () => {
   const { state, isPending, error, call, clearState } = useApi({
     route: `users/signup`, 
     method: 'POST',
-    callback: (user: any) => {
-      console.log(user);
-      
+    callback: (res: any) => {
       User().save({
-      user: user?.data
-      })
+        user: res?.data,
+      });
+      navigate("/");
+      localStorage.setItem("id", res.data.data.ID);
+      localStorage.setItem("first", res.data.data.first_name);
+      localStorage.setItem("last", res.data.data.last_name);
+      localStorage.setItem("user", res.data.data.user_name);
+      localStorage.setItem("email", res.data.data.email);
+      localStorage.setItem("phone", res.data.data.phone);
+      localStorage.setItem("token", res.data.data.token);
     }
   }, );
 
  const userInfo = User().get()
 
-  // useEffect(() => {
-  //   if (userInfo) {
-  //     navigate(redirect);
-  //   }
-  // }, [navigate, redirect, userInfo]);
+  useEffect(() => {
+    if (userInfo) {
+      navigate(redirect);
+    }
+  }, [navigate, redirect, userInfo]);
 
   const signupHandler = (e: any) => {
     e.preventDefault();
