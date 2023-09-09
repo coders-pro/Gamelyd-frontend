@@ -22,12 +22,16 @@ const LoginForm = () => {
   const { state, isPending, error, call, clearState } = useApi({
     route: `users/login`, 
     method: 'POST',
-    callback: (user: any) => {
-      console.log(user);
-      
+    callback: (res: any) => {      
       User().save({
-      user: user?.data
+      user: res?.data
       })
+
+      if(!res.hasError){
+        navigate('/')
+      }
+
+
     }
   });
 
@@ -40,11 +44,11 @@ const LoginForm = () => {
   const redirect = location.search ? location.search.split("=")[1] : "/";
 
 
-  useEffect(() => {
-    if (userInfo) {
-      navigate(redirect);
-    }
-  }, [userInfo, navigate, redirect]);
+  // useEffect(() => {
+  //   if (userInfo) {
+  //     navigate(redirect);
+  //   }
+  // }, [userInfo, navigate, redirect]);
 
   const loginHandler = (e: any) => {
     e.preventDefault();

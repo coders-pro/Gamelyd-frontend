@@ -11,6 +11,7 @@ import { useApi } from "../../api";
 const SignupForm = () => {
   // signup state
   const [signupEmail, setSignupEmail] = useState("");
+  const [criteria, setCriteria] = useState("");
   const [signupPassword, setSignupPassword] = useState("");
   const [phone, setPhone] = useState("");
   const [username, setUsername] = useState("");
@@ -24,9 +25,11 @@ const SignupForm = () => {
     if (!criteria) {
       toast.error("username must be filled");
     } else {
-      const response = await fetch(
-        `https://gamelyd.onrender.com/users/checkUserName/${criteria}`
-      );
+      setCriteria(criteria)
+      const response = await debounceCall()
+
+     console.log(criteria);
+     
       const body = await response.json();
       setCharacters(body.message);
       setTaken(body.hasError);
@@ -35,16 +38,25 @@ const SignupForm = () => {
   }
 
   const debouncedSearch = debounce(async (criteria: any) => {
+    console.log(criteria);
+    
     await search(criteria);
   }, 500);
 
   async function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    e.preventDefault()
     if (e.target.value) {
+      
       debouncedSearch(e.target.value);
       setUsername(e.target.value);
     }
   }
 
+
+  const {  call: debounceCall } = useApi({
+    route: `/users/checkUserName/${criteria}`, 
+    method: 'POST',
+  }, );
   let location = useLocation();
 
   const navigate = useNavigate();
@@ -66,15 +78,15 @@ const SignupForm = () => {
       user: user?.data
       })
     }
-  });
+  }, );
 
  const userInfo = User().get()
 
-  useEffect(() => {
-    if (userInfo) {
-      navigate(redirect);
-    }
-  }, [navigate, redirect, userInfo]);
+  // useEffect(() => {
+  //   if (userInfo) {
+  //     navigate(redirect);
+  //   }
+  // }, [navigate, redirect, userInfo]);
 
   const signupHandler = (e: any) => {
     e.preventDefault();
