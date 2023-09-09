@@ -25,10 +25,7 @@ interface Action {
   payload?: string
 }
 
-export const userReducer = (state = initialState, action: any) => {
-
-  console.log(action.payload);
-  
+export const userReducer = (state = initialState, action: any) => {  
   switch (action.type) {
     case 'SAVE_USER_DETAILS_TO_LOCAL_STORAGE':
       // Handle the action and update state if needed

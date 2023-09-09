@@ -25,11 +25,9 @@ const SignupForm = () => {
     if (!criteria) {
       toast.error("username must be filled");
     } else {
-      setCriteria(criteria)
-      const response = await debounceCall()
-
-     console.log(criteria);
-     
+      const response = await fetch(
+        `https://gamelyd.onrender.com/users/checkUserName/${criteria}`
+      );
       const body = await response.json();
       setCharacters(body.message);
       setTaken(body.hasError);
