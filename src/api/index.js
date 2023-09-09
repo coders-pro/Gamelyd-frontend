@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { User } from '../User';
 
-const apiUrl = 'https://gamelyd.onrender.com';
+const apiUrl = 'https://gamelyd-test.onrender.com';
 
 const IUIKitApiState = {
   IDLE: 'IDLE',
