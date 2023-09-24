@@ -17,6 +17,9 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 import ForgotPassword from "./screens/ForgotPassword/ForgotPassword";
 import ResetPassword from "./screens/ResetPassword/ResetPassword";
+import styled, { ThemeProvider } from "styled-components";
+import theme from "./theme"; // Import your theme
+
 // import './assets/css/fonts.css';
 
 axios.interceptors.response.use(
@@ -47,22 +50,24 @@ function App() {
   return (
     <div className="App">
       <ScrollToTop>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="tournaments" element={<Tournament />} />
-          <Route path="signup" element={<SignUp />} />
-          <Route path="forgotpassword" element={<ForgotPassword />} />
-          <Route path="resetpassword/:token" element={<ResetPassword />} />
-          <Route path="tournament/:payment" element={<Showmore />} />
-          <Route path="tournament/view/:id" element={<SingleTournament />} />
-          <Route path="profile/:id" element={<Profile />} />
-          <Route path="display" element={<DisplayModal />} />
-          <Route path="about" element={<About />} />
-          <Route path="contact-us" element={<Contact />} />
-          <Route path="terms" element={<Terms />} />
-          <Route path="policy" element={<Privacy />} />
-        </Routes>
-        <ToastContainer />
+        <ThemeProvider theme={theme}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="tournaments" element={<Tournament />} />
+            <Route path="signup" element={<SignUp />} />
+            <Route path="forgotpassword" element={<ForgotPassword />} />
+            <Route path="resetpassword/:token" element={<ResetPassword />} />
+            <Route path="tournament/:payment" element={<Showmore />} />
+            <Route path="tournament/view/:id" element={<SingleTournament />} />
+            <Route path="profile/:id" element={<Profile />} />
+            <Route path="display" element={<DisplayModal />} />
+            <Route path="about" element={<About />} />
+            <Route path="contact-us" element={<Contact />} />
+            <Route path="terms" element={<Terms />} />
+            <Route path="policy" element={<Privacy />} />
+          </Routes>
+          <ToastContainer />
+        </ThemeProvider>
       </ScrollToTop>
     </div>
   );
