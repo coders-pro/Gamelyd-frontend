@@ -4,13 +4,12 @@ import ImageSlider from "../Slider/ImageSlider";
 import Text from "../Text/Text";
 import { HeroStyle } from "./style";
 import open from "../../assets/audios/Open.mp3";
-import Button from "../Button/InnerButton";
+import Button from "../Button";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { User } from "../../User";
-import TournamentDisplay from '../TournamentDisplay'
-import image from '../../assets/images/cod.png'
-
+import TournamentDisplay from "../TournamentDisplay";
+import image from "../../assets/images/cod.png";
 
 const Hero = (props) => {
   const modalRef = useRef();
@@ -50,10 +49,9 @@ const Hero = (props) => {
   return (
     <HeroStyle background={props.background}>
       <div className="tons">
-      <TournamentDisplay background={image} />
-      <TournamentDisplay background={image} />
+        <TournamentDisplay background={image} />
+        <TournamentDisplay background={image} />
       </div>
-     
     </HeroStyle>
   );
 };

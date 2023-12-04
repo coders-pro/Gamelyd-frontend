@@ -1,20 +1,19 @@
-import axios from 'axios';
-import React, { useState } from 'react';
-import { User } from '../User';
+import axios from "axios";
+import React, { useState } from "react";
+import { User } from "../User";
 
-const apiUrl = 'https://gamelyd-test.onrender.com';
-
+const apiUrl = "https://gamelyd-test.onrender.com";
 
 const IUIKitApiState = {
-  IDLE: 'IDLE',
-  PENDING: 'PENDING',
-  RESOLVED: 'RESOLVED',
-  REJECTED: 'REJECTED'
+  IDLE: "IDLE",
+  PENDING: "PENDING",
+  RESOLVED: "RESOLVED",
+  REJECTED: "REJECTED",
 };
 
 export function useApiModelWithoutArgument() {
   return async function () {
-    return '';
+    return "";
   };
 }
 
@@ -26,17 +25,16 @@ export function useApiModelWithArgument() {
 
 export function useApi(API, _) {
   const [apiState, setApiState] = useState(IUIKitApiState.IDLE);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState("");
 
   const setupCall = async (args = {}) => {
     setApiState(IUIKitApiState.PENDING);
-    setErrorMessage('');
-
+    setErrorMessage("");
 
     try {
       const requestHeaders = {
         "Content-Type": "application/json",
-        token: User().get()?.user?.token || undefined
+        token: User().get()?.user?.token || undefined,
       };
 
       const paginationMeta = {
@@ -46,44 +44,43 @@ export function useApi(API, _) {
         page_count: 0,
         total: 0,
         limit: 0,
-        offset: 0
+        offset: 0,
       };
 
       if (args.query?.per_page && args.query?.page) {
         paginationMeta.offset =
-          (Number(args.query.per_page) * Number(args.query.page)) -
+          Number(args.query.per_page) * Number(args.query.page) -
           Number(args.query.per_page);
         paginationMeta.limit = Number(args.query.per_page);
         paginationMeta.page = Number(args.query.page);
         args.query = {
           ...args.query,
           offset: paginationMeta.offset,
-          limit: paginationMeta.limit
+          limit: paginationMeta.limit,
         };
       }
 
-      const response = await axios(
-        {
-          method: API.method,
-          url: `${apiUrl}/${API.route}?${new URLSearchParams(args.query).toString()}#${args.urlHash}`,
-          data: args.body,
-          headers: {
-            ...requestHeaders,
-            ...API.headers,
-            'Content-Type': 'application/json'
-          },
-          ...API.options
-        }
-        
-      );
-      
-      if (typeof API.callback === 'function') {
+      const response = await axios({
+        method: API.method,
+        url: `${apiUrl}/${API.route}?${new URLSearchParams(
+          args.query
+        ).toString()}#${args.urlHash}`,
+        data: args.body,
+        headers: {
+          ...requestHeaders,
+          ...API.headers,
+          "Content-Type": "application/json",
+        },
+        ...API.options,
+      });
+
+      if (typeof API.callback === "function") {
         await API.callback(response.data);
       }
 
       setApiState(IUIKitApiState.RESOLVED);
 
-      if (typeof API.formatResponse === 'function') {
+      if (typeof API.formatResponse === "function") {
         return API.formatResponse(response.data);
       }
 
@@ -96,7 +93,7 @@ export function useApi(API, _) {
           previous_page: args.query?.page > 1,
           next_page: args.query?.page < pageCount,
           page_count: pageCount,
-          total: totalCount
+          total: totalCount,
         };
       }
 
@@ -104,18 +101,17 @@ export function useApi(API, _) {
     } catch (error) {
       if (
         error.status === 400 &&
-        error.message === 'App version mismatch, Refresh app.' &&
-        typeof window !== 'undefined'
+        error.message === "App version mismatch, Refresh app." &&
+        typeof window !== "undefined"
       ) {
         window.location.reload();
       }
 
       // Redirect when token has expired
 
-      if (
-        error.status === 401
-      ) {
-        User().clear()
+      if (error.status === 401) {
+        User().clear();
+        localStorage.setItem("userDetails", "{}");
         window.location.href = `/signup`;
       }
 
@@ -129,7 +125,7 @@ export function useApi(API, _) {
           error?.data?.error ||
           error.statusMessage ||
           error.message ||
-          'Error occurred, please contact support'
+          "Error occurred, please contact support"
       );
       throw error?.data?.data || error?.data || error;
     }
@@ -137,7 +133,7 @@ export function useApi(API, _) {
 
   const clearState = () => {
     setApiState(IUIKitApiState.IDLE);
-    setErrorMessage('');
+    setErrorMessage("");
   };
 
   return {
@@ -145,6 +141,6 @@ export function useApi(API, _) {
     isPending: apiState === IUIKitApiState.PENDING,
     error: errorMessage,
     call: setupCall,
-    clearState
+    clearState,
   };
 }

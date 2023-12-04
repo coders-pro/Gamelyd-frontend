@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 
 import { LoginFormStyle } from "./style";
-import ButtonLoader from "../../components/ButtonLoader/ButtonLoader";
+import ButtonLoader from "../Loader";
 import { useApi } from "../../api";
 import { User } from "../../User";
 
@@ -40,9 +40,10 @@ const LoginForm = () => {
   const redirect = location.search ? location.search.split("=")[1] : "/";
 
   useEffect(() => {
-    if (userInfo?.user) {
-      navigate(redirect);
-    }
+    
+    // if (userInfo?.user) {
+    //   navigate(redirect);
+    // }
   }, [userInfo, navigate, redirect]);
 
   const loginHandler = (e: any) => {

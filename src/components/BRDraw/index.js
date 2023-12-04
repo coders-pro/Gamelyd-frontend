@@ -7,7 +7,7 @@ import EditOffIcon from "@mui/icons-material/EditOff";
 import SaveAsIcon from "@mui/icons-material/SaveAs";
 import axios from "axios";
 import { toast } from "react-toastify";
-import Loader from "../../components/ButtonLoader/ButtonLoader";
+import Loader from "../Loader";
 import { useParams } from "react-router-dom";
 import DoNotDisturbIcon from "@mui/icons-material/DoNotDisturb";
 

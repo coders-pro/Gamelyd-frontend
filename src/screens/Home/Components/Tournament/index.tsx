@@ -5,6 +5,7 @@ import Card from "../../../../components/GameCard";
 import fifa from "../../../../assets/images/fifa.png";
 import leftArrow from "../../../../assets/icons/leftArrow.svg";
 import rightArrow from "../../../../assets/icons/rightArrow.svg";
+import { Link } from "react-router-dom";
 
 type IProp = {
   //   message: string
@@ -39,7 +40,9 @@ const Tournament = (props: IProp): any => {
         className="icon"
       />
       <div className="sliderContainer" ref={divRef}>
-        <Card background={fifa} name="Fifa"></Card>
+        <Link to="/tournament/new/:imageId">
+          <Card background={fifa} name="Fifa"></Card>
+        </Link>
         <Card background={fifa} name="Fifa"></Card>
         <Card background={fifa} name="Fifa"></Card>
         <Card background={fifa} name="Fifa"></Card>

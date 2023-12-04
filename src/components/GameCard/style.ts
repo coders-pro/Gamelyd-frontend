@@ -4,6 +4,7 @@ type Card = {
 };
 
 export const Div = styled.div<Card>`
+  cursor: pointer;
   background: url("${(props) => props.background}");
   width: 225.912px;
   height: 309.048px;
@@ -16,6 +17,11 @@ export const Div = styled.div<Card>`
   margin: 0 20px;
   @media (max-width: 700px) {
     font-size: 9px;
+  }
+  @media (max-width: 670px) {
+    width: 125.912px;
+    height: 209.048px;
+    border-radius: 7.591px;
   }
   .name {
     border-radius: 0px 0px 23px 23px;
@@ -34,5 +40,10 @@ export const Div = styled.div<Card>`
     display: flex;
     align-items: center;
     padding-left: 10px;
+    @media (max-width: 670px) {
+      font-size: 13px;
+      height: 40px;
+      border-radius: 0px 0px 7.591px 7.591px;
+    }
   }
 `;

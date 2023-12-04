@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Div } from "./style";
 import Tag from "../Tag";
-import Button from "../Button/InnerButton";
+import Button from "../Button";
 
 type IProp = {
   //   message: string

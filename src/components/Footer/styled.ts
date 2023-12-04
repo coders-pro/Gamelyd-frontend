@@ -3,7 +3,8 @@ import styled from "styled-components";
 type Foot = {};
 
 export const FooterStyle = styled.div<Foot>`
-  background: #1f2731;
+  background: #252F39;
+  
   padding: 30px 70px;
   @media (max-width: 750px) {
     padding: 30px 30px;
@@ -43,6 +44,9 @@ export const FooterStyle = styled.div<Foot>`
         flex-wrap: wrap;
       }
     }
+    .tb{
+
+    }
   }
   .middle {
     width: 100%;
@@ -56,7 +60,7 @@ export const FooterStyle = styled.div<Foot>`
     align-items: center;
     margin-bottom: 20px;
     flex-wrap: wrap;
-
+    width: 100%;
     .com {
       color: #d6bbfb;
       font-family: Inter;

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Div } from "./style";
 import Tag from "../Tag";
-import Button from "../Button/InnerButton";
+import Button from "../Button";
 
 type IProp = {
   //   message: string
@@ -9,7 +9,7 @@ type IProp = {
   background: string;
 };
 
-const Display = (props: IProp): any => {
+const TournamentDisplay = (props: IProp): any => {
   return (
     <Div background={props.background}>
       <div className="top">
@@ -17,8 +17,8 @@ const Display = (props: IProp): any => {
           <div className="feeBox">
             <Tag content="PAID" background="primary" />
             <div className="fee">
-            <div className="feeText">Entry Fee</div>
-            <div className="feeAmount">N5k</div>
+              <div className="feeText">Entry Fee</div>
+              <div className="feeAmount">N5k</div>
             </div>
           </div>
           <div className="prize">
@@ -30,18 +30,16 @@ const Display = (props: IProp): any => {
       </div>
       <div className="bottom">
         <div className="infoBox">
-            <div className="date">Saturday, 25th sept</div>
-            <div className="info">winner takes all</div>
+          <div className="date">Saturday, 25th sept</div>
+          <div className="info">winner takes all</div>
         </div>
-        <div className="time">
-            9pm WAT
-        </div>
+        <div className="time">9pm WAT</div>
         <div className="">
-            <Button>ENTER TOURNAMENT</Button>
+          <Button>ENTER TOURNAMENT</Button>
         </div>
       </div>
     </Div>
   );
 };
 
-export default Display;
+export default TournamentDisplay;

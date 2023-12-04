@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { SignupFormStyle } from "./style";
 import { useNavigate, useLocation } from "react-router-dom";
 
-import ButtonLoader from "../ButtonLoader/ButtonLoader";
+import ButtonLoader from "../Loader";
 import { debounce } from "lodash";
 import { toast } from "react-toastify";
 import { User } from "../../User";
@@ -37,28 +37,25 @@ const SignupForm = () => {
 
   const debouncedSearch = debounce(async (criteria: any) => {
     console.log(criteria);
-    
+
     await search(criteria);
   }, 500);
 
   async function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-    e.preventDefault()
+    e.preventDefault();
     if (e.target.value) {
-      
       debouncedSearch(e.target.value);
       setUsername(e.target.value);
     }
   }
 
-
-  const {  call: debounceCall } = useApi({
-    route: `users/checkUserName/${criteria}`, 
-    method: 'POST',
-  }, );
+  const { call: debounceCall } = useApi({
+    route: `users/checkUserName/${criteria}`,
+    method: "POST",
+  });
   let location = useLocation();
 
   const navigate = useNavigate();
-
 
   // const redirect = location.search
   //   ? `${location.search.split('?')[1]}?open=true`
@@ -67,8 +64,8 @@ const SignupForm = () => {
   const redirect = location.search ? location.search.split("=")[1] : "/";
 
   const { state, isPending, error, call, clearState } = useApi({
-    route: `users/signup`, 
-    method: 'POST',
+    route: `users/signup`,
+    method: "POST",
     callback: (res: any) => {
       User().save({
         user: res?.data,
@@ -80,10 +77,10 @@ const SignupForm = () => {
       localStorage.setItem("email", res.data.data.email);
       localStorage.setItem("phone", res.data.data.phone);
       localStorage.setItem("token", res.data.data.token);
-    }
-  }, );
+    },
+  });
 
- const userInfo = User().get()
+  const userInfo = User().get();
 
   useEffect(() => {
     if (userInfo) {
@@ -101,9 +98,9 @@ const SignupForm = () => {
         username,
         firstName,
         lastName,
-        phone
-      }
-    })
+        phone,
+      },
+    });
   };
 
   return (

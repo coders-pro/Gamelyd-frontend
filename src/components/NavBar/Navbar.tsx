@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { NavStyle } from "./style";
 import StrikeButton from "./Button";
-import Button from "../Button/InnerButton";
+import Button from "../Button";
 import { toast } from "react-toastify";
 import { User } from "../../User";
 
@@ -18,7 +18,7 @@ const Navbar = ({ message }: { message: string }) => {
   const [line3, setLine3] = useState("");
   const [transit, setTransit] = useState(0);
   const [user, setUser] = useState(false);
-  const display = useRef(false)
+  const display = useRef(false);
 
   const userInfo = User().get();
 
@@ -49,13 +49,13 @@ const Navbar = ({ message }: { message: string }) => {
     // setDisplay(true)
 
     // setDisplay((prevState) => !prevState);
-    display.current= !display.current
+    display.current = !display.current;
     console.log("display", display.current);
   };
 
   const onClickBackdrop = () => {
     // setDisplay(false);
-    display.current= false
+    display.current = false;
     setToggle("translateX(100%)");
     setLine1("");
     setLine2("1");

@@ -6,6 +6,8 @@ import Footer from "../../components/Footer/Footer";
 import Tournament from "./Components/Tournament";
 import TTable from "./Components/TTable";
 import Leaderboard from "./Components/Leaderboard";
+import Button from "../../components/Button";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -19,13 +21,17 @@ const Home = () => {
               <div className="fade">
                 <div className="gTitle">ALL GAMES</div>
                 <div className="gSub">Select a game to start a tournament</div>
+                <div style={{ height: "20px" }}></div>
+                <Link to="/tournament/new">
+                  <Button>New Tournament</Button>
+                </Link>
               </div>
             </div>
           </div>
         </div>
-        <div>
+        {/* <div>
           <Tournament />
-        </div>
+        </div> */}
         <div>
           <TTable />
         </div>

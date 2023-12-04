@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Div } from "./style";
 import Tag from "../Tag";
-import Button from "../Button/InnerButton";
+import Button from "../Button";
 
 type IProp = {
   color: string;
@@ -14,7 +14,12 @@ type IProp = {
 
 const Profile = (props: IProp): any => {
   return (
-    <Div background={props.background} color={props.color} rgb={props.rgb} size={props.size}>
+    <Div
+      background={props.background}
+      color={props.color}
+      rgb={props.rgb}
+      size={props.size}
+    >
       <div className="proBox">
         <div className="proNum">{props.num}</div>
       </div>

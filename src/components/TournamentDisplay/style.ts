@@ -7,12 +7,12 @@ export const Div = styled.div<Display>`
     lightgray 50% / cover no-repeat;
   width: 550px;
   height: 350px;
-  min-width: 420px;
+  min-width: 380px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

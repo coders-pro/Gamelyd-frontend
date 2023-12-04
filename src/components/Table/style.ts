@@ -13,7 +13,7 @@ export const Div = styled.div<Display>`
   td {
     text-align: left;
     padding: 10px;
-    min-width: 120px;
+    min-width: 60px;
   }
   th {
     background: #000;
@@ -47,6 +47,6 @@ export const Div = styled.div<Display>`
     position: sticky;
     left: 0;
     right: 0;
-    z-index: 1000;
+    z-index: 1;
   }
 `;

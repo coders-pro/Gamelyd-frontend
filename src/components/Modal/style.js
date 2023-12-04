@@ -44,7 +44,7 @@ export const ModalStyle = styled.div`
     z-index: 1000;
     overflow: hidden;
     overflow-y: auto;
-    background-color: #15202b;
+    background-color: #252F39;
 
     @media (max-with: 700px) {
       width: 100vw;

@@ -53,31 +53,8 @@ const Modal = forwardRef((props, ref) => {
             }}
             className="modal-content-wrapper"
           >
-            <motion.div
-              className="modal-content"
-              initial={{
-                x: 100,
-                opacity: 0,
-              }}
-              animate={{
-                x: 0,
-                opacity: 1,
-                transition: {
-                  delay: 0.3,
-                  duration: 1,
-                },
-              }}
-              exit={{
-                x: 100,
-                opacity: 0,
-                transition: {
-                  duration: 0.3,
-                },
-              }}
-            >
               <div className="header">{props.title}</div>
               <div style={{ padding: "50px" }}>{props.children}</div>
-            </motion.div>
           </motion.div>
         </ModalStyle>
       )}
