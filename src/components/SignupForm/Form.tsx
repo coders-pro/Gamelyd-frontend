@@ -7,8 +7,15 @@ import { debounce } from "lodash";
 import { toast } from "react-toastify";
 import { User } from "../../User";
 import { useApi } from "../../api";
+import Button from "../Button";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import VisibilityIcon from "@mui/icons-material/Visibility";
 
-const SignupForm = () => {
+interface propType {
+  flip: any;
+}
+
+const SignupForm = ({flip}:propType) => {
   // signup state
   const [signupEmail, setSignupEmail] = useState("");
   const [criteria, setCriteria] = useState("");
@@ -18,6 +25,10 @@ const SignupForm = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [taken, setTaken] = useState(false);
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [type1, setType1] = useState<any>("password");
+  const [type2, setType2] = useState<any>("password");
+  const [type3, setType3] = useState<any>("password");
 
   const [characters, setCharacters] = React.useState<string>("");
 
@@ -82,11 +93,11 @@ const SignupForm = () => {
 
   const userInfo = User().get();
 
-  useEffect(() => {
-    if (userInfo) {
-      navigate(redirect);
-    }
-  }, [navigate, redirect, userInfo]);
+  // useEffect(() => {
+  //   if (userInfo) {
+  //     navigate(redirect);
+  //   }
+  // }, [navigate, redirect, userInfo]);
 
   const signupHandler = (e: any) => {
     e.preventDefault();
@@ -106,184 +117,136 @@ const SignupForm = () => {
   return (
     <SignupFormStyle>
       {isPending && <ButtonLoader />}
-      <div className="desktop">
-        <form>
-          <h3 style={{ color: "white" }}>Signup </h3>
-          <div className="inpu">
-            <div className="wrapper">
-              <div className="input-data">
-                <input type="text" onChange={handleChange} required></input>
-
-                <label>Username</label>
-                <div className="underline"></div>
-                <div
-                  style={{ color: taken ? "red" : "white" }}
-                  className="character"
-                >
-                  {characters}
-                </div>
-              </div>
-
-              <div className="input-data">
-                <input
-                  type="text"
-                  value={firstName}
-                  onChange={(e) => setFirstName(e.target.value)}
-                  required
-                ></input>
-
-                <label>First Name</label>
-                <div className="underline"></div>
-              </div>
-
-              <div className="input-data">
-                <input
-                  type="text"
-                  value={lastName}
-                  onChange={(e) => setLastName(e.target.value)}
-                  required
-                ></input>
-
-                <label>Last Name</label>
-                <div className="underline"></div>
-              </div>
-
-              <div className="input-data">
-                <input
-                  type="text"
-                  value={signupEmail}
-                  onChange={(e) => setSignupEmail(e.target.value)}
-                  required
-                ></input>
-
-                <label>Email</label>
-                <div className="underline"></div>
-              </div>
-
-              <div className="input-data">
-                <input
-                  type="text"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  required
-                ></input>
-
-                <label>Phone Number</label>
-                <div className="underline"></div>
-              </div>
-
-              <div className="input-data">
-                <input
-                  type="password"
-                  required
-                  value={signupPassword}
-                  onChange={(e) => setSignupPassword(e.target.value)}
-                ></input>
-
-                <label>Password</label>
-                <div className="underline"></div>
-              </div>
-            </div>
-          </div>
-          <button
-            className="submit"
-            type="submit"
-            onClick={(e) => signupHandler(e)}
-          >
-            Signup
-          </button>
-        </form>
-      </div>
-
-      <div className="mobile">
-        <form>
-          <h2>Signup</h2>
-          <div className="inpu">
-            <div className="wrapper">
-              <div className="input-data">
-                <input type="text" onChange={handleChange} required></input>
-
-                <label>Username</label>
-                <div className="underline"></div>
-                <div
-                  className="character"
-                  style={{ color: taken ? "red" : "white" }}
-                >
-                  {characters}
-                </div>
-              </div>
-
-              <div className="input-data">
-                <input
-                  type="text"
-                  value={firstName}
-                  onChange={(e) => setFirstName(e.target.value)}
-                  required
-                ></input>
-
-                <label>First Name</label>
-                <div className="underline"></div>
-              </div>
-
-              <div className="input-data">
-                <input
-                  type="text"
-                  value={lastName}
-                  onChange={(e) => setLastName(e.target.value)}
-                  required
-                ></input>
-
-                <label>Last Name</label>
-                <div className="underline"></div>
-              </div>
-
-              <div className="input-data">
-                <input
-                  type="email"
-                  value={signupEmail}
-                  onChange={(e) => setSignupEmail(e.target.value)}
-                  required
-                ></input>
-
-                <label>Email</label>
-                <div className="underline"></div>
-              </div>
-
-              <div className="input-data">
-                <input
-                  type="number"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  required
-                ></input>
-
-                <label>Phone Number</label>
-                <div className="underline"></div>
-              </div>
-
-              <div className="input-data">
-                <input
-                  type="password"
-                  required
-                  value={signupPassword}
-                  onChange={(e) => setSignupPassword(e.target.value)}
-                ></input>
-
-                <label>Password</label>
-                <div className="underline"></div>
-              </div>
-
-              <button
-                className="submit"
-                type="submit"
-                onClick={(e) => signupHandler(e)}
+      <form className="form">
+        <div className="inputs">
+          <div className="wrapper">
+            <div className="input-data">
+              <input
+                type="text"
+                onChange={handleChange}
+                className="inputText2"
+                required
+                placeholder="Username"
+              ></input>
+              <div
+                style={{ color: taken ? "red" : "white" }}
+                className="character"
               >
-                Signup{" "}
-              </button>
+                {characters}
+              </div>
+            </div>
+
+            <div className="input-data">
+              <input
+                type="text"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                required
+                className="inputText2"
+                placeholder="First Name"
+              ></input>
+            </div>
+
+            <div className="input-data">
+              <input
+                type="text"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+                required
+                className="inputText2"
+                placeholder="Last Name"
+              ></input>
+            </div>
+
+            <div className="input-data">
+              <input
+                type="text"
+                value={signupEmail}
+                onChange={(e) => setSignupEmail(e.target.value)}
+                required
+                className="inputText2"
+                placeholder="Email"
+              ></input>
+            </div>
+
+            <div className="input-data">
+              <input
+                type="text"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                required
+                className="inputText2"
+                placeholder="Phone Number"
+              ></input>
+            </div>
+
+            <div className="input-data">
+              <input
+                type={type2}
+                className="inputText2"
+                required
+                value={signupPassword}
+                onChange={(e) => setSignupPassword(e.target.value)}
+                placeholder="Password"
+              ></input>
+
+              {type2 === "text" && (
+                <VisibilityOffIcon
+                  onClick={() =>
+                    setType2(type2 === "password" ? "text" : "password")
+                  }
+                  style={{ color: "rgb(11, 192, 180)" }}
+                  className="eye"
+                />
+              )}
+              {type2 === "password" && (
+                <VisibilityIcon
+                  onClick={() =>
+                    setType2(type2 === "password" ? "text" : "password")
+                  }
+                  style={{ color: "black" }}
+                  className="eye"
+                />
+              )}
+            </div>
+
+            <div className="input-data">
+              <input
+                type={type3}
+                className="inputText2"
+                required
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                placeholder="Confirm Password"
+              ></input>
+              {type3 === "text" && (
+                <VisibilityOffIcon
+                  onClick={() =>
+                    setType3(type3 === "password" ? "text" : "password")
+                  }
+                  style={{ color: "rgb(11, 192, 180)" }}
+                  className="eye"
+                />
+              )}
+              {type3 === "password" && (
+                <VisibilityIcon
+                  onClick={() =>
+                    setType3(type3 === "password" ? "text" : "password")
+                  }
+                  style={{ color: "black" }}
+                  className="eye"
+                />
+              )}
             </div>
           </div>
-        </form>
-      </div>
+        </div>
+        <div className="bt">
+          <Button onClick={(e: any) => signupHandler(e)}>Signup</Button>
+        </div>
+        <div className="already">
+          Already have an account? <span className="lin" onClick={() => flip()}>Sign In</span>
+        </div>
+      </form>
     </SignupFormStyle>
   );
 };

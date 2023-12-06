@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import { useParams } from "react-router-dom";
+import Button from "../../components/Button";
+import logo from "../../assets/images/logoWhite.png";
 
 const ResetPassword = () => {
   const [newPassword, setNewPassword] = useState("");
@@ -66,25 +68,29 @@ const ResetPassword = () => {
   return (
     <ForgotStyle>
       {loading && <Loader />}
-      <div className="left" />
+      <div className="left">
+        <div className="pad"></div>
+      </div>
 
       <div className="right">
-        <div>
-          <form className="game-form">
+        <div className="top">
+          <img className="logo" src={logo} alt="" />
+          <div className="tit">Reset Password</div>
+
+          <form className="form">
             <div className="emp" />
 
-            <div className="wrapper">
-              <h2 style={{ textAlign: "center" }}>Reset Password</h2>
+            <div className="inputs">
               <div className="input-data">
                 <input
                   type={type2}
                   required
                   onChange={(e) => setNewPassword(e.target.value)}
                   value={newPassword}
+                  className="inputText2"
+                  placeholder="New Password"
                 ></input>
 
-                <label>New Password</label>
-                <div className="underline"></div>
                 {type2 === "text" && (
                   <VisibilityOffIcon
                     onClick={() =>
@@ -99,7 +105,7 @@ const ResetPassword = () => {
                     onClick={() =>
                       setType2(type2 === "password" ? "text" : "password")
                     }
-                    style={{ color: "white" }}
+                    style={{ color: "black" }}
                     className="eye"
                   />
                 )}
@@ -111,10 +117,9 @@ const ResetPassword = () => {
                   required
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   value={confirmPassword}
+                  className="inputText2"
+                  placeholder="Confirm New Password"
                 ></input>
-
-                <label>Confirm Password</label>
-                <div className="underline"></div>
                 {type3 === "text" && (
                   <VisibilityOffIcon
                     onClick={() =>
@@ -129,15 +134,17 @@ const ResetPassword = () => {
                     onClick={() =>
                       setType3(type3 === "password" ? "text" : "password")
                     }
-                    style={{ color: "white" }}
+                    style={{ color: "black" }}
                     className="eye"
                   />
                 )}
               </div>
             </div>
-            <button className="buty" onClick={handleSubmit} type="button">
-              Update
-            </button>
+            <div className="bt">
+              <Button className="buty" onClick={handleSubmit} type="button">
+                Update
+              </Button>
+            </div>
           </form>
         </div>
       </div>
