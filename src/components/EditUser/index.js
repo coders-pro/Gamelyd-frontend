@@ -1,11 +1,12 @@
 import { Phone } from "@mui/icons-material";
 import React, { useState, useEffect } from "react";
 import { Style } from "./style";
-import Loader from "../ButtonLoader/ButtonLoader";
+import Loader from "../Loader";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { User } from "../../User";
+import Button from "../Button";
 
 export default function EditUser(props) {
   const [firstName, setFirstName] = useState("");
@@ -207,9 +208,11 @@ export default function EditUser(props) {
             <div className="underline"></div>
           </div>
         </div>
-        <button className="buty" onClick={handleSubmit} type="button">
-          Update
-        </button>
+        <div className="but">
+          <Button className="buty" onClick={handleSubmit}>
+            Update
+          </Button>
+        </div>
       </form>
     </Style>
   );

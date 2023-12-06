@@ -7,7 +7,7 @@ import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
 import ConnectWithoutContactIcon from "@mui/icons-material/ConnectWithoutContact";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
-import Button from "../Button/InnerButton";
+import Button from "../Button";
 import { Link } from "react-router-dom";
 
 const Message = () => {

@@ -6,7 +6,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useParams } from "react-router-dom";
-import Loader from "../ButtonLoader/ButtonLoader";
+import Loader from "../Loader";
 import { User } from "../../User";
 
 const Participants = (props) => {

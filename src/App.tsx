@@ -17,6 +17,11 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 import ForgotPassword from "./screens/ForgotPassword/ForgotPassword";
 import ResetPassword from "./screens/ResetPassword/ResetPassword";
+import styled, { ThemeProvider } from "styled-components";
+import theme from "./theme"; // Import your theme
+import CreateTournament from "./screens/CreateTournament";
+import Tournaments from "./screens/Tournaments";
+
 // import './assets/css/fonts.css';
 
 axios.interceptors.response.use(
@@ -61,6 +66,8 @@ function App() {
           <Route path="contact-us" element={<Contact />} />
           <Route path="terms" element={<Terms />} />
           <Route path="policy" element={<Privacy />} />
+          <Route path="tournament/new/" element={<CreateTournament />} />
+          <Route path="tournament/all/" element={<Tournaments />} />
         </Routes>
         <ToastContainer />
       </ScrollToTop>

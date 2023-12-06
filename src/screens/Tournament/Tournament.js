@@ -5,9 +5,9 @@ import RLSlider from "./RLSlider";
 import { Carddiv } from "./style";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import InnerButton from "../../components/Button/InnerButton";
+import InnerButton from "../../components/Button";
 import ImageRotate from "../../components/ImageRotate/ImageRotate";
-import ButtonLoader from "../../components/ButtonLoader/ButtonLoader";
+import ButtonLoader from "../../components/Loader";
 import { Link } from "react-router-dom";
 import { useApi } from "../../api";
 
@@ -18,7 +18,7 @@ const Tournament = () => {
   const [loader, setLoader] = useState(false);
   const [error, setError] = useState();
 
-  const { call:GetPaidTournamentsApi, isPending: paidLoader,  } = useApi({
+  const { call: GetPaidTournamentsApi, isPending: paidLoader } = useApi({
     route: `tournament/mode/PAID/limit`,
     method: "GET",
     callback: (res) => {
@@ -26,15 +26,16 @@ const Tournament = () => {
     },
   });
 
-  const { call: GetSponsoredTournamentsApi, isPending: sponsoredLoader  } = useApi({
-    route: `tournament/mode/SPONSORED/limit`,
-    method: "GET",
-    callback: (res) => {
-      setSponsored(res?.tournaments);
-    },
-  });
+  const { call: GetSponsoredTournamentsApi, isPending: sponsoredLoader } =
+    useApi({
+      route: `tournament/mode/SPONSORED/limit`,
+      method: "GET",
+      callback: (res) => {
+        setSponsored(res?.tournaments);
+      },
+    });
 
-  const { call: GetFreeTournamentsApi, isPending: freeLoader  } = useApi({
+  const { call: GetFreeTournamentsApi, isPending: freeLoader } = useApi({
     route: `tournament/mode/FREE/limit`,
     method: "GET",
     callback: (res) => {
@@ -44,13 +45,13 @@ const Tournament = () => {
 
   useEffect(() => {
     GetPaidTournamentsApi();
-    GetSponsoredTournamentsApi()
-    GetFreeTournamentsApi()
+    GetSponsoredTournamentsApi();
+    GetFreeTournamentsApi();
   }, []);
 
   return (
     <div className="games">
-      {paidLoader || sponsoredLoader || freeLoader && <ButtonLoader />}
+      {paidLoader || sponsoredLoader || (freeLoader && <ButtonLoader />)}
       <Navbar message="jh" />
       <Hero />
       <RLSlider data={paid} header="Paid Tournament" />

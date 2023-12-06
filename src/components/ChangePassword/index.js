@@ -1,13 +1,14 @@
 import { Phone } from "@mui/icons-material";
 import React, { useState, useEffect } from "react";
 import { Style } from "./style";
-import Loader from "../ButtonLoader/ButtonLoader";
+import Loader from "../Loader";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import { User } from "../../User";
+import Button from "../../components/Button";
 
 export default function ChangePassword(props) {
   const [password, setPassword] = useState("");
@@ -169,9 +170,11 @@ export default function ChangePassword(props) {
             )}
           </div>
         </div>
-        <button className="buty" onClick={handleSubmit} type="button">
-          Update
-        </button>
+        <div className="but">
+          <Button className="buty" onClick={handleSubmit}>
+            Update
+          </Button>
+        </div>
       </form>
     </Style>
   );

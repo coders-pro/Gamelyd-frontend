@@ -13,7 +13,7 @@ import { PaystackButton } from "react-paystack";
 import axios from "axios";
 import { toast } from "react-toastify";
 import withRouter from "../Navigate/Navigate";
-import Loader from "../ButtonLoader/ButtonLoader";
+import Loader from "../Loader";
 import { User } from "../../User";
 
 class ImageSlider extends React.Component {

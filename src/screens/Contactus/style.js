@@ -1,63 +1,124 @@
 import styled from "styled-components";
 
 export const Style = styled.div`
-.title {
+  padding-top: 105px;
+  width: 100vw;
+  height: 100vh;
+  background: url("https://ik.imagekit.io/dmkczkqll/Gamelyd/Backgrounds/startBack.svg?updatedAt=1701539367604");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  @media (max-width: 750px) {
+    padding-top: 20px;
+  }
+  /* .title {
     font-size: 50px;
     font-family: "Playfair Display", serif;
     font-weight: 700;
     font-style: italic;
     color: #b8bcbf;
     text-align: center;
+  } */
+
+  .page {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    @media (max-width: 750px) {
+      flex-direction: column;
+    }
+    /* align-items: center; */
   }
-  .bod {
-    padding: 150px 0;
-    padding-top: 70px;
-    .bos {
-      width: 70vw;
-      height: 700px;
+
+  .left {
+    padding-bottom: 100px;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 100px;
+    @media (max-width: 750px) {
+      width: 90vw;
       margin: auto;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      background: rgba(0, 0, 0, 0.3);
-      @media (max-width: 850px) {
+    }
+    form {
+      background-color: #1f2731;
+      width: 450px;
+      padding-bottom: 100px;
+      padding-top: 20px;
+      @media (max-width: 1000px) {
+        width: 350px;
+      }
+      @media (max-width: 750px) {
         width: 90vw;
       }
-      
-      .form {
-        width: 60%;
-        height: 100%;
-        display: flex;
-        justify-content:center;
-        align-items: center;
-        .texta {
-          border: 1px solid rgb(11, 192, 180);
-          background: transparent;
-          padding: 10px;
-          outline: none;
-          width: 95%;
-          color: white;
-          font-size: 19px;
-        }
-        .hi {
-          font-size: 35px;
-          text-align: center;
-        }
-        .sub {
-          font-size: 18px;
-          text-align: center;
-        }
-        .wrapper {
-        width: 450px;
-        padding: 10px 30px;
-        margin: 0px auto;
-        @media (max-width: 850px) {
+    }
+    .button {
+      width: 450px;
+      margin-top: 20px;
+      @media (max-width: 1000px) {
+        width: 350px;
+      }
+      @media (max-width: 750px) {
+        width: 90vw;
+        margin: auto;
+        margin-top: 20px;
+      }
+    }
+    .txbx {
+      margin: auto;
+      width: 400px;
+      @media (max-width: 1000px) {
         width: 300px;
       }
-      @media (max-width: 450px) {
-        width: 200px;
+    }
+    .cap {
+      color: #0bc0b4;
+      font-family: Lalezar;
+      font-size: 30.79px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 100.7%;
+      text-transform: uppercase;
+    }
+    .subCap {
+      color: #fff;
+      font-family: Lalezar;
+      font-size: 30.79px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 100.7%;
+      text-transform: uppercase;
+      padding: 10px 0;
+    }
+    .sub {
+      color: #fff;
+      font-family: Inter;
+      font-size: 16.311px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 100.7%;
+    }
+    .texta {
+      border: 1px solid rgb(11, 192, 180);
+      background: transparent;
+      padding: 10px;
+      outline: none;
+      width: 100%;
+      color: white;
+      font-size: 19px;
+    }
+    .wrapper {
+      width: 450px;
+      padding: 10px 30px;
+      margin: 0px auto;
+      @media (max-width: 1000px) {
+        width: 350px;
       }
-      
+      @media (max-width: 750px) {
+        width: 90vw;
+      }
     }
 
     .wrapper .input-data {
@@ -120,49 +181,63 @@ export const Style = styled.div`
       transform: scaleX(1);
     }
   }
-  .buty {
-    width: 130px;
-    padding: 8px 8px;
-    margin: 10px auto;
+  .right {
     display: flex;
-    justify-content: center;
-    background: rgb(11, 192, 180);
-    color: white;
-    border: none;
-    cursor: pointer;
-    margin-top: 100px;
-  }
-      }
-      .info {
-        width: 35%;
-        height: 70%;
-        background: rgb(11, 192, 180);;
-        margin-left: -200px;
-        margin-top: 70px;
-        color: #15202b;
-        display: flex;
-        justify-content: space-between;
-        flex-direction: column;
-        padding: 30px;
-        @media (max-width: 1100px) {
-        width: 0px;
+    flex-direction: column;
+    align-items: center;
+    width: 50vw;
+    @media (max-width: 750px) {
+      width: 90vw;
+      margin: auto;
+      margin-top: -50px;
+      margin-bottom: 20px;
+    }
+    .im {
+      width: 40vw;
+      height: 400px;
+      background: url("https://ik.imagekit.io/dmkczkqll/Gamelyd/Backgrounds/23c24237f57a4a2ff8908ae2d33c8a33.svg?updatedAt=1701544439454");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      @media (max-width: 750px) {
         display: none;
       }
-        .head {
-          font-size: 30px;
-          font-weight: 600;
-        }
-        td {
-          padding: 20px;
-        }
-        .icons {
-          display: flex;
-          justify-content: space-between;
-          a{
-            text-decoration: none;
-            color: #15202b;
-          }
-        }
+    }
+    .info {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin-top: 20px;
+      .tit {
+        color: #0bc0b4;
+        font-family: Lalezar;
+        font-size: 25.571px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 91.7%; /* 37.203px */
+        text-transform: capitalize;
+      }
+      th,
+      td {
+        padding: 5px;
+        text-align: left;
+      }
+      th {
+        color: #0bc0b4;
+        font-family: Lato;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 24px;
+      }
+      td {
+        color: #fff;
+        font-family: Lato;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 24px;
       }
     }
   }

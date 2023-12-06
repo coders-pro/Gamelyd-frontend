@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import CircularProgress from "@mui/material/CircularProgress";
-import Loader from "../ButtonLoader/ButtonLoader";
+import Loader from "../Loader";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { PaystackButton } from "react-paystack";
 
@@ -51,9 +51,12 @@ const DisplayModal = (props) => {
     let participant = [];
 
     axios
-      .get(`https://gamelyd-test.onrender.com/tournament/participants/${props.id}`, {
-        headers: headers,
-      })
+      .get(
+        `https://gamelyd-test.onrender.com/tournament/participants/${props.id}`,
+        {
+          headers: headers,
+        }
+      )
       .then((res) => {
         if (!res.data.hasError) {
           setPlayers(res.data.tournament);

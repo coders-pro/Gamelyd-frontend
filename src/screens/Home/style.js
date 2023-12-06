@@ -1,205 +1,100 @@
 import styled from "styled-components";
 
 export const HomeStyle = styled.div`
-  color: white;
-  margin: 0px auto 0 auto;
-
-  .title {
-    font-size: 50px;
-    font-family: "Playfair Display", serif;
-    font-weight: 700;
-    font-style: italic;
-    color: #b8bcbf;
-    text-align: center;
-  }
-
-  .imagerotate {
+  .striped-background {
+    margin-top: 20px;
+    position: relative;
     width: 100%;
-    margin: 80px 0;
-    @media (max-width: 850px) {
-      width: 90%;
+    height: 300px;
+    background: repeating-linear-gradient(
+      to bottom,
+      #177373 0px,
+      #177373 30px,
+      transparent 30px,
+      transparent 45px
+    );
+    @media (max-width: 700px) {
+      height: 200px;
+      background: repeating-linear-gradient(
+        to bottom,
+        #177373 0px,
+        #177373 20px,
+        transparent 20px,
+        transparent 35px
+      );
     }
   }
 
-  .battle {
-    width: 90%;
+  .fade {
+    width: 100%;
+    height: 300px; /* Adjust the height as needed */
+    position: relative;
+    background: linear-gradient(
+      to right,
+      rgba(31, 39, 49, 0),
+      #1f2731,
+      rgba(31, 39, 49, 0)
+    );
     display: flex;
-    margin: 70px auto;
-
-    @media (max-width: 850px) {
-      flex-direction: column;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    @media (max-width: 700px) {
+      height: 200px;
     }
 
-    .image {
-      width: 50%;
-      background: url("images/battleRolyal.jpg");
-      background-position: top; /* Center the image */
-      background-repeat: no-repeat; /* Do not repeat the image */
-      background-size: cover;
-      height: 400px;
-      @media (max-width: 850px) {
-        margin: 20px 0;
-      }
-      @media (max-width: 850px) {
-        width: 100%;
-        display: flex;
-        justify-content: center;
+    .gTitle {
+      color: #fff;
+      text-align: center;
+      font-family: Lalezar;
+      font-size: 50px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 93.2%; /* 65.24px */
+      @media (max-width: 700px) {
+        font-size: 30px;
       }
     }
-
-    .text {
-      width: 50%;
-
-      h2 {
-        text-align: center;
-      }
-
-      p {
-        width: 90%;
-        margin: auto;
-
-        @media (max-width: 850px) {
-          width: 100%;
-        }
-      }
-      @media (max-width: 850px) {
-        width: 100%;
+    .gSub {
+      color: #fff;
+      text-align: center;
+      font-family: Lato;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      @media (max-width: 700px) {
+        font-size: 13px;
       }
     }
   }
-
-  .paid {
-    width: 90%;
+  .slider {
+    width: 100vw;
+    height: 309.048px;
     display: flex;
-    margin: 70px auto;
-
-    @media (max-width: 850px) {
-      flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    margin-top: 100px;
+    .sliderContainer {
+      width: 93%;
+      height: 100%;
+      margin: auto;
+      overflow-x: auto;
+      overflow-y: hidden;
+      white-space: nowrap;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      &::-webkit-scrollbar {
+        width: 0.2rem;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: transparent;
+      }
     }
-
-    .image {
-      width: 50%;
-      background: url("images/fortnight2.png");
-      background-position: center; /* Center the image */
-      background-repeat: no-repeat; /* Do not repeat the image */
-      background-size: cover;
-      height: 400px;
-      @media (max-width: 850px) {
-        margin: 20px 0;
-      }
-      @media (max-width: 850px) {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-      }
-    }
-
-    .text {
-      width: 50%;
-
-      h2 {
-        text-align: center;
-      }
-
-      p {
-        width: 90%;
-        margin: auto;
-
-        @media (max-width: 850px) {
-          width: 100%;
-        }
-      }
-      @media (max-width: 850px) {
-        width: 100%;
-      }
+    .icon {
+      cursor: pointer;
     }
   }
-
-  .multiplayer {
-    width: 90%;
-    display: flex;
-    margin: 70px auto;
-
-    @media (max-width: 850px) {
-      flex-direction: column-reverse;
-    }
-
-    .text {
-      width: 50%;
-      @media (max-width: 850px) {
-        width: 100%;
-      }
-      h2 {
-        text-align: center;
-      }
-
-      p {
-        width: 90%;
-        margin: auto;
-        @media (max-width: 850px) {
-          width: 100%;
-        }
-      }
-    }
-
-    .image {
-      width: 50%;
-      background: url("images/multiplayer.jpg");
-      background-position: center; /* Center the image */
-      background-repeat: no-repeat; /* Do not repeat the image */
-      background-size: cover;
-      height: 400px;
-      @media (max-width: 850px) {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        margin: 20px 0;
-      }
-    }
-  }
-
-  .sponsored {
-    width: 90%;
-    display: flex;
-    margin: 70px auto;
-
-    @media (max-width: 850px) {
-      flex-direction: column-reverse;
-    }
-
-    .text {
-      width: 50%;
-      @media (max-width: 850px) {
-        width: 100%;
-      }
-      h2 {
-        text-align: center;
-      }
-
-      p {
-        width: 90%;
-        margin: auto;
-        @media (max-width: 850px) {
-          width: 100%;
-        }
-      }
-    }
-
-    .image {
-      width: 50%;
-      background: url("images/fifa2.jpg");
-      background-position: top; /* Center the image */
-      background-repeat: no-repeat; /* Do not repeat the image */
-      background-size: cover;
-      height: 400px;
-      @media (max-width: 850px) {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        margin: 20px 0;
-      }
-    }
-  }
-  margin: 0;
-  color: white;
 `;

@@ -9,8 +9,7 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import Button from "../../components/Button/InnerButton";
-import Loader from "../../components/ButtonLoader/ButtonLoader";
+import Loader from "../../components/Loader";
 import List from "../../components/List/list";
 import { toast } from "react-toastify";
 import Scroll from "../../components/Scroll/scroll6";
@@ -19,6 +18,15 @@ import EditUser from "../../components/EditUser";
 import ChangePassword from "../../components/ChangePassword";
 import CTournys from "../../components/UserGraphs/CreatedAndJoinedTounys";
 import { User } from "../../User";
+import Footer from "../../components/Footer/Footer";
+import globe from "../../assets/icons/globe.svg";
+import email from "../../assets/icons/email.svg";
+import call from "../../assets/icons/call.svg";
+import fifa from "../../assets/images/fifa.png";
+
+import Button from "../../components/Button";
+import Card from "../../components/GameCard";
+
 const Profile = () => {
   const [user, setUser] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -31,7 +39,7 @@ const Profile = () => {
 
   const { id } = useParams();
 
-  const modalRef5 = useRef();
+  const modalRef5 = useRef(null);
 
   const create = () => {
     modalRef5.current.open();
@@ -111,9 +119,12 @@ const Profile = () => {
         });
 
       axios
-        .get(`https://gamelyd-test.onrender.com/users/tournaments/${id}/limit`, {
-          headers: headers,
-        })
+        .get(
+          `https://gamelyd-test.onrender.com/users/tournaments/${id}/limit`,
+          {
+            headers: headers,
+          }
+        )
         .then((res) => {
           setLoading(false);
           if (!res.data.hasError) {
@@ -139,7 +150,9 @@ const Profile = () => {
 
     try {
       axios
-        .get(`https://gamelyd-test.onrender.com/users/${id}`, { headers: headers })
+        .get(`https://gamelyd-test.onrender.com/users/${id}`, {
+          headers: headers,
+        })
         .then((res) => {
           setLoading(false);
           if (!res.data.hasError) {
@@ -161,7 +174,7 @@ const Profile = () => {
       {loading && <Loader />}
       <Navbar message="jh" />
       <Style>
-        <div className="top">
+        {/* <div className="top">
           <div className="pic">
             <AccountCircleIcon
               style={{ color: "white" }}
@@ -200,7 +213,6 @@ const Profile = () => {
               <div onClick={create}>
                 <Button>Edit</Button>
               </div>
-              {/* <Button>Button 1</Button> */}
             </div>
           </div>
 
@@ -217,9 +229,122 @@ const Profile = () => {
             </button>
             <ChangePassword user={user} />
           </Modal>
+        </div> */}
+        <div className="top">
+          <div className="info">
+            <div className="im">
+              <img
+                src="https://ik.imagekit.io/dmkczkqll/Gamelyd/Icons/girl.png?updatedAt=1701589631511"
+                alt=""
+              />
+              <div className="tx">
+                <div className="name">Mcbobby</div>
+                <div className="userName">@mcbobby</div>
+              </div>
+            </div>
+            <div className="det">
+              <div className="rnk">
+                <div className="tit">RANK</div>
+                <div className="num">52</div>
+              </div>
+              <div className="plays">
+                <div className="tit">TOTAL PLAYS</div>
+                <div className="num">52</div>
+              </div>
+            </div>
+          </div>
+          <div className="edit">
+            <div className="buts">
+              <div className="but">
+                <Button onClick={create} theme="pink">
+                  Edit Profile
+                </Button>
+              </div>
+              <div className="but">
+                <Button onClick={create1} theme="pink">
+                  Change Password
+                </Button>
+              </div>
+            </div>
+            <div className="dets">
+              <div className="add">
+                <div className="icn">
+                  <img src={globe} alt="" />
+                </div>
+                <div className="txt">
+                  <div>Owerri</div>
+                  <div>30, continental rd, Old Town</div>
+                </div>
+              </div>
+              <div className="phone">
+                <div className="icn">
+                  <img src={call} alt="" />
+                </div>
+                <div className="txt">
+                  <div>08161808895</div>
+                </div>
+              </div>
+              <div className="email">
+                <div className="icn">
+                  <img src={email} alt="" />
+                </div>
+                <div className="txt">
+                  <div>madumcbobby@yahoo.com</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+        <div className="bot">
+          <div className="head">Recently Played</div>
+          <div className="cards">
+            <div className="card">
+              <Card background={fifa} name="Fifa"></Card>
+            </div>
+            <div className="card">
+              <Card background={fifa} name="Fifa"></Card>
+            </div>
+            <div className="card">
+              <Card background={fifa} name="Fifa"></Card>
+            </div>
+            <div className="card">
+              <Card background={fifa} name="Fifa"></Card>
+            </div>
+            <div className="card">
+              <Card background={fifa} name="Fifa"></Card>
+            </div>
+            <div className="card">
+              <Card background={fifa} name="Fifa"></Card>
+            </div>
+            <div className="card">
+              <Card background={fifa} name="Fifa"></Card>
+            </div>
+            <div className="card">
+              <Card background={fifa} name="Fifa"></Card>
+            </div>
+            <div className="card">
+              <Card background={fifa} name="Fifa"></Card>
+            </div>
+            <div className="card">
+              <Card background={fifa} name="Fifa"></Card>
+            </div>
+          </div>
+        </div>
+        <Modal title="Edit Details" ref={modalRef5}>
+          <button onClick={close} className="close">
+            X
+          </button>
+          <EditUser user={user} />
+        </Modal>
 
-        <div className="bottom">
+        <Modal title="Change Password" ref={modalRef}>
+          <button onClick={close1} className="close">
+            X
+          </button>
+          <ChangePassword user={user} />
+        </Modal>
+
+        {/* <div className="bottom">
           <div className="bio">
             <div className="head">Details</div>
             <div className="bod">
@@ -305,7 +430,8 @@ const Profile = () => {
               )}
             </div>
           </div>
-        </div>
+        </div> */}
+        <Footer />
       </Style>
     </>
   );

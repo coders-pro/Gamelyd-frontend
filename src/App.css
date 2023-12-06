@@ -1,5 +1,5 @@
-.App {
-  background-color: #15202b;
-  overflow: hidden;
-  color: #b8bcbf83;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }

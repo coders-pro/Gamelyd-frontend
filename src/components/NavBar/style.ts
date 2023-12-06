@@ -18,25 +18,63 @@ export const NavStyle = styled.div<Nav>`
     -webkit-filter: (40px);
     z-index: 2;
   }
+  .container_box {
+    display: flex;
+    flex-direction: row;
+  }
+  .end {
+    /* background-color: blue;
+    width: 200px; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 5mm;
+    .single_item {
+      margin-left: 1.2em;
+      margin-right: 1.5em;
+      margin-bottom: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      :hover {
+        span {
+          position: absolute;
+          width: 30px;
+          border-bottom: 3px solid white;
+          padding-bottom: 1.5rem;
+          z-index: 0;
+          margin: auto;
+        }
+      }
+    }
+    @media (max-width: 999px) {
+      display: none;
+    }
+  }
   .container {
     display: flex;
     justify-content: space-between;
     position: fixed;
     top: 0px;
-    width: 100%;
     height: 12vh;
     transition: 1s;
     z-index: 99;
     align-items: center;
+    /* background-color: #1f262f; */
+    width: 100vw;
     .logo {
       position: relative;
       display: flex;
       align-items: center;
-      left: 1em;
+      left: 0;
       top: 0;
       img {
-        left: 2em;
-        width: 100px;
+        width: 10em;
+        margin-left: 2em;
+        @media (max-width: 999px) {
+          width: 7em;
+        }
       }
     }
     .nav_items {
@@ -45,6 +83,7 @@ export const NavStyle = styled.div<Nav>`
       justify-content: space-between;
       align-items: center;
       margin-right: 2em;
+      margin-left: 4em;
       .discord {
         button {
           height: 50px;

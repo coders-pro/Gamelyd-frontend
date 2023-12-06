@@ -5,7 +5,7 @@ import More from "./More";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import ButtonLoader from "../../components/ButtonLoader/ButtonLoader";
+import ButtonLoader from "../../components/Loader";
 import ImageRotate from "../../components/ImageRotate/ImageRotate";
 import Footer from "../../components/Footer/Footer";
 import { Carddiv } from "../Tournament/style";
