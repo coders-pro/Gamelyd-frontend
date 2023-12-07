@@ -54,7 +54,7 @@ function App() {
       <ScrollToTop>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="tournaments" element={<Tournament />} />
+          {/* <Route path="tournaments" element={<Tournament />} /> */}
           <Route path="signup" element={<SignUp />} />
           <Route path="forgotpassword" element={<ForgotPassword />} />
           <Route path="resetpassword/:token" element={<ResetPassword />} />

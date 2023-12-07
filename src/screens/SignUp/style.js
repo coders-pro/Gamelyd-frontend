@@ -31,6 +31,9 @@ export const SignUpStyle = styled.div`
       background-repeat: no-repeat;
       background-position: center;
     }
+    @media (max-width: 700px) {
+      display: none;
+    }
   }
   .right {
     width: 40vw;
@@ -56,6 +59,9 @@ export const SignUpStyle = styled.div`
       font-weight: 400;
       line-height: 91.7%;
       margin-bottom: 50px;
+    }
+    @media (max-width: 700px) {
+      width: 100vw;
     }
   }
 `;
