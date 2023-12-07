@@ -105,18 +105,21 @@ const SignupForm = ({ flip }: propType) => {
 
   const signupHandler = (e: any) => {
     e.preventDefault();
-
-    call({
-      body: {
-        Email: signupEmail,
-        Password: signupPassword,
-        User_name: username,
-        First_name: firstName,
-        Last_name: lastName,
-        Phone: phone,
-        User_type: "USER",
-      },
-    });
+    if (signupPassword !== confirmPassword) {
+      toast.error("password must match confirm password");
+    } else {
+      call({
+        body: {
+          Email: signupEmail,
+          Password: signupPassword,
+          User_name: username,
+          First_name: firstName,
+          Last_name: lastName,
+          Phone: phone,
+          User_type: "USER",
+        },
+      });
+    }
   };
 
   return (
