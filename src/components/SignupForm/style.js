@@ -33,7 +33,7 @@ export const SignupFormStyle = styled.div`
       font-weight: 400;
       line-height: 24px;
       outline: none;
-      margin-bottom: 20px;
+      margin-top: 20px;
     }
     .inputText2 {
       width: 100%;
@@ -43,12 +43,13 @@ export const SignupFormStyle = styled.div`
       border: 1px solid var(--gray-300, #d0d5dd);
       background: var(--White, #fff);
       box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
-      margin-bottom: 20px;
+      margin-top: 20px;
       outline: none;
     }
     .bt {
       width: 90%;
       margin: auto;
+      margin-top: 20px;
     }
     .already {
       color: #fff;
@@ -64,5 +65,8 @@ export const SignupFormStyle = styled.div`
         cursor: pointer;
       }
     }
+  }
+  .character {
+    font-size: 12px;
   }
 `;

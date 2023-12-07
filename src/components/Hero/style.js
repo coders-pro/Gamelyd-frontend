@@ -10,5 +10,8 @@ export const HeroStyle = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    .card {
+      margin-bottom: 30px;
+    }
   }
 `;

@@ -15,7 +15,7 @@ interface propType {
   flip: any;
 }
 
-const SignupForm = ({flip}:propType) => {
+const SignupForm = ({ flip }: propType) => {
   // signup state
   const [signupEmail, setSignupEmail] = useState("");
   const [criteria, setCriteria] = useState("");
@@ -81,35 +81,40 @@ const SignupForm = ({flip}:propType) => {
       User().save({
         user: res?.data,
       });
-      localStorage.setItem("id", res.data.data.ID);
-      localStorage.setItem("first", res.data.data.first_name);
-      localStorage.setItem("last", res.data.data.last_name);
-      localStorage.setItem("user", res.data.data.user_name);
-      localStorage.setItem("email", res.data.data.email);
-      localStorage.setItem("phone", res.data.data.phone);
-      localStorage.setItem("token", res.data.data.token);
+      if (res.hasError) {
+        toast.error(res.message);
+      } else {
+        localStorage.setItem("id", res.data.ID);
+        localStorage.setItem("first", res.data.first_name);
+        localStorage.setItem("last", res.data.last_name);
+        localStorage.setItem("user", res.data.user_name);
+        localStorage.setItem("email", res.data.email);
+        localStorage.setItem("phone", res.data.phone);
+        localStorage.setItem("token", res.data.token);
+      }
     },
   });
 
   const userInfo = User().get();
 
-  // useEffect(() => {
-  //   if (userInfo) {
-  //     navigate(redirect);
-  //   }
-  // }, [navigate, redirect, userInfo]);
+  useEffect(() => {
+    if (userInfo?.user) {
+      navigate(redirect);
+    }
+  }, [navigate, redirect, userInfo]);
 
   const signupHandler = (e: any) => {
     e.preventDefault();
 
     call({
       body: {
-        signupEmail,
-        signupPassword,
-        username,
-        firstName,
-        lastName,
-        phone,
+        Email: signupEmail,
+        Password: signupPassword,
+        User_name: username,
+        First_name: firstName,
+        Last_name: lastName,
+        Phone: phone,
+        User_type: "USER",
       },
     });
   };
@@ -244,7 +249,10 @@ const SignupForm = ({flip}:propType) => {
           <Button onClick={(e: any) => signupHandler(e)}>Signup</Button>
         </div>
         <div className="already">
-          Already have an account? <span className="lin" onClick={() => flip()}>Sign In</span>
+          Already have an account?{" "}
+          <span className="lin" onClick={() => flip()}>
+            Sign In
+          </span>
         </div>
       </form>
     </SignupFormStyle>

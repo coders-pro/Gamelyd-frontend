@@ -31,6 +31,9 @@ export const ForgotStyle = styled.div`
       background-repeat: no-repeat;
       background-position: center;
     }
+    @media (max-width: 700px) {
+      display: none;
+    }
   }
   .right {
     width: 40vw;
@@ -57,6 +60,9 @@ export const ForgotStyle = styled.div`
       line-height: 91.7%;
       margin-bottom: 50px;
     }
+    @media (max-width: 700px) {
+      width: 100vw;
+    }
   }
   .form {
     width: 100%;
@@ -69,7 +75,7 @@ export const ForgotStyle = styled.div`
       .eye {
         position: absolute;
         top: 8px;
-        right: 30px
+        right: 30px;
       }
     }
 

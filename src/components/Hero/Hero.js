@@ -49,8 +49,12 @@ const Hero = (props) => {
   return (
     <HeroStyle background={props.background}>
       <div className="tons">
-        <TournamentDisplay background={image} />
-        <TournamentDisplay background={image} />
+        <div className="card">
+          <TournamentDisplay background={image} />
+        </div>
+        <div className="card">
+          <TournamentDisplay background={image} />
+        </div>
       </div>
     </HeroStyle>
   );
