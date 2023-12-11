@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Div } from "./style";
 import Tag from "../Tag";
 import Button from "../Button";
+import { NavLink } from "react-router-dom";
 
 type IProp = {
   //   message: string
@@ -34,9 +35,9 @@ const TournamentDisplay = (props: IProp): any => {
           <div className="info">winner takes all</div>
         </div>
         <div className="time">9pm WAT</div>
-        <div className="">
+        <NavLink to="/tournament/id" className="">
           <Button>ENTER TOURNAMENT</Button>
-        </div>
+        </NavLink>
       </div>
     </Div>
   );

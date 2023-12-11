@@ -21,6 +21,7 @@ import styled, { ThemeProvider } from "styled-components";
 import theme from "./theme"; // Import your theme
 import CreateTournament from "./screens/CreateTournament";
 import Tournaments from "./screens/Tournaments";
+import TournamentView from "./screens/SingleTournament";
 
 // import './assets/css/fonts.css';
 
@@ -58,7 +59,7 @@ function App() {
           <Route path="signup" element={<SignUp />} />
           <Route path="forgotpassword" element={<ForgotPassword />} />
           <Route path="resetpassword/:token" element={<ResetPassword />} />
-          <Route path="tournament/:payment" element={<Showmore />} />
+          {/* <Route path="tournament/:payment" element={<Showmore />} /> */}
           <Route path="tournament/view/:id" element={<SingleTournament />} />
           <Route path="profile/:id" element={<Profile />} />
           <Route path="display" element={<DisplayModal />} />
@@ -68,6 +69,7 @@ function App() {
           <Route path="policy" element={<Privacy />} />
           <Route path="tournament/new/" element={<CreateTournament />} />
           <Route path="tournament/all/" element={<Tournaments />} />
+          <Route path="tournament/:id" element={<TournamentView />} />
         </Routes>
         <ToastContainer />
       </ScrollToTop>
