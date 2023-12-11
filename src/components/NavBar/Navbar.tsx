@@ -115,7 +115,7 @@ const Navbar = ({ message }: { message: string }) => {
                       }
                     : {}
                 }
-                to="/tournaments"
+                to="/tournament/all"
                 className="single_item"
               >
                 Tournaments<span></span>
@@ -198,7 +198,7 @@ const Navbar = ({ message }: { message: string }) => {
           </NavLink>
           {user && (
             <NavLink
-              to="/tournaments"
+              to="/tournament/all"
               className="single_item"
               style={({ isActive }) =>
                 isActive
